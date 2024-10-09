@@ -1,0 +1,21 @@
+{
+    "welcome": "Welcome to my site",
+    "description": "This is a simple language switcher example.",
+    "navigation": {
+        "presentation": "Presentation",
+        "projects": "Projects",
+        "contact": "Contact"
+    },
+    "introduction": {
+        "title": "Introduction",
+        "content": "This is an introduction page. Here you will find information about the site and its purpose."
+    },
+    "projects": {
+        "title": "My Projects",
+        "content": "Here are some projects I have worked on."
+    },
+    "contact": {
+        "title": "Contact",
+        "content": "You can reach me by email at example@domain.com."
+    }
+}

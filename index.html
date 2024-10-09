@@ -1,11 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Romain W</title>
+    <title>Switcher de Langue</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .lang-switch {
+            margin: 20px 0;
+        }
+        .nav {
+            margin: 20px 0;
+        }
+        .nav button {
+            margin-right: 10px;
+        }
+        #content {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Romain Weigel</h1>
+    <div class="lang-switch">
+        <button onclick="switchLang('fr')">Français</button>
+        <button onclick="switchLang('en')">English</button>
+    </div>
+
+    <div class="nav">
+        <button onclick="loadPage('introduction')">Présentation</button>
+        <button onclick="loadPage('projects')">Projets</button>
+        <button onclick="loadPage('contact')">Contact</button>
+    </div>
+
+    <div id="content">
+        <!-- Le contenu sera inséré ici -->
+    </div>
+
+    <script>
+        let currentLang = 'fr';
+        let content = {};
+
+        function loadTranslations(lang) {
+            fetch(`${lang}.json`)
+                .then(response => response.json())
+                .then(data => {
+                    content = data;
+                    loadPage('introduction'); // Charger la page de présentation par défaut
+                });
+        }
+
+        function loadPage(page) {
+            const title = document.createElement('h1');
+            const paragraph = document.createElement('p');
+
+            title.textContent = content[page].title;
+            paragraph.textContent = content[page].content;
+
+            const contentDiv = document.getElementById('content');
+            contentDiv.innerHTML = ''; // Vider le contenu actuel
+            contentDiv.appendChild(title);
+            contentDiv.appendChild(paragraph);
+        }
+
+        function switchLang(lang) {
+            currentLang = lang;
+            loadTranslations(lang);
+        }
+
+        // Charger le français par défaut
+        loadTranslations(currentLang);
+    </script>
 </body>
 </html>
