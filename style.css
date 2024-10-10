@@ -75,3 +75,13 @@ body {
     font-size: 20px;
     line-height: 1.8;
 }
+/* Stylisation de l'image dans la présentation */
+#presentation-image {
+    width: 100%; /* Adapte la taille de l'image à la largeur du conteneur */
+    max-width: 500px; /* Limite la largeur maximale de l'image */
+    height: auto; /* Garde les proportions de l'image */
+    display: block; /* Bloque l'image pour éviter des marges involontaires */
+    margin: 20px auto; /* Centre l'image horizontalement */
+    border-radius: 10px; /* Ajoute des coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre autour de l'image */
+}
