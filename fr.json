@@ -1,13 +1,32 @@
 {
     "introduction": {
-        "title": "Présentation",
-        "content": "Bienvenue sur la page de présentation.",
-        "subheading": "Sous-titre",
-        "extra_info": "Voici des informations supplémentaires sur la présentation.",
-        "features": {
-            "feature1": "Caractéristique 1",
-            "feature2": "Caractéristique 2",
-            "feature3": "Caractéristique 3"
+        "title": "Romain Weigel",
+        "content": "En perpétuelle quête de connaissances, je m'adapte rapidement et reste constamment avide d'apprendre. Mon nom est Romain Weigel, et je suis étudiant en informatique en troisième année à Annecy. Je suis assidu dans mon travail personnel et fortement engagé dans mon développement personnel. Je recherche un poste en programmation logicielle, de jeux vidéo ou de mobile, en raison de mon intérêt pour ces domaines.",
+        "title_personal":"ETAT CIVIL",
+        "personal_info": {
+            "etat_civil": "Romain Weigel",
+            "telephone": "06 26 33 29 58 (disponible après 18h)",
+            "email": "romain.weigel@etu.univ-savoie.fr",
+            "adresse": "20 Avenue de Brogny, 74000 Annecy",
+            "date_naissance": "3 Février 2004 (20 ans)",
+            "permis": "Permis B"
+        },
+        "subheading": "À propos de moi",
+        "extra_info": "Voici mes formations :",
+      
+        "education": {
+            "formation1": {
+                "title": "3ème Année en BUT",
+                "specialization": "informatique",
+                "dates": "2022 - 2024",
+                "institution": "IUT Annecy-Le-Vieux (74)"
+            },
+            "formation2": {
+                "title": "Baccalauréat Technologique",
+                "specialization": "STI2D avec mention bien",
+                "dates": "JUIN. 2022",
+                "institution": "Lycée St-Michel Annecy (74)"
+            }
         }
     },
     "projects": {
@@ -22,7 +41,7 @@
     },
     "contact": {
         "title": "Contact",
-        "content": "N'hésitez pas à nous contacter."
+        "content": "N'hésitez pas à me contacter."
       
     }
 }

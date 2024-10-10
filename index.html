@@ -7,25 +7,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="lang-switch">
-        <button onclick="switchLang('fr')">Français</button>
-        <button onclick="switchLang('en')">English</button>
-    </div>
-
     <div class="nav">
+        <!-- Image à gauche de la nav -->
+        <img id="presentation-image-nav" src="./static/photoCV.jpg" alt="Présentation Image">
         <button onclick="loadPage('introduction')">Présentation</button>
         <button onclick="loadPage('projects')">Projets</button>
         <button onclick="loadPage('contact')">Contact</button>
+        <div class="lang-switch">
+            <button onclick="switchLang('fr')">Français</button>
+            <button onclick="switchLang('en')">English</button>
+        </div>
     </div>
 
     <div id="content">
         <!-- Le contenu des autres pages sera chargé ici -->
     </div>
 
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 MonSite. Tous droits réservés.</p>
+            <div class="socials">
+                <a href="#">Facebook</a> |
+                <a href="#">Twitter</a> |
+                <a href="#">LinkedIn</a>
+            </div>
+            <p>Contact: <a href="mailto:contact@monsite.com">contact@monsite.com</a></p>
+        </div>
+    </footer>
+
     <script>
         let currentLang = 'fr';
         let content = {};
- 
+
         // Charger les traductions
         function loadTranslations(lang) {
             fetch(`${lang}.json`)
@@ -49,27 +63,30 @@
         }
 
       // Appliquer les traductions sur la page actuelle
-        function applyTranslations(page) {
-            // Récupérer les éléments HTML où le texte sera mis à jour
+      function applyTranslations(page) {
             const titleElement = document.getElementById('title');
             const contentElement = document.getElementById('content-text');
 
-            // Vérifier si les éléments existent et si le contenu pour la page est disponible
             if (titleElement && contentElement && content[page]) {
-                // Mettre à jour le titre et le contenu principal de la page
                 titleElement.textContent = content[page].title;
                 contentElement.textContent = content[page].content;
 
-                // Appliquer les traductions pour les nouveaux éléments selon la page
                 if (page === 'introduction') {
-                    // Mettre à jour les éléments spécifiques à la page d'introduction
                     document.getElementById('subheading').textContent = content[page].subheading;
                     document.getElementById('extra-info').textContent = content[page].extra_info;
-                    document.getElementById('feature1').textContent = content[page].features.feature1;
-                    document.getElementById('feature2').textContent = content[page].features.feature2;
-                    document.getElementById('feature3').textContent = content[page].features.feature3;
+
+                    // Remplir les informations de formation
+                    const education = content[page].education;
+                    document.getElementById('formation1-title').textContent = education.formation1.title;
+                    document.getElementById('formation1-specialization').textContent = education.formation1.specialization;
+                    document.getElementById('formation1-dates').textContent = education.formation1.dates;
+                    document.getElementById('formation1-institution').textContent = education.formation1.institution;
+
+                    document.getElementById('formation2-title').textContent = education.formation2.title;
+                    document.getElementById('formation2-specialization').textContent = education.formation2.specialization;
+                    document.getElementById('formation2-dates').textContent = education.formation2.dates;
+                    document.getElementById('formation2-institution').textContent = education.formation2.institution;
                 } else if (page === 'projects') {
-                    // Mettre à jour les éléments spécifiques à la page des projets
                     document.getElementById('project-title').textContent = content[page].project_title;
                     document.getElementById('project1').textContent = content[page].projects.project1;
                     document.getElementById('project2').textContent = content[page].projects.project2;
@@ -78,13 +95,11 @@
             }
         }
 
-        // Changer de langue
         function switchLang(lang) {
             currentLang = lang;
             loadTranslations(lang);
         }
 
-        // Charger la langue par défaut
         loadTranslations(currentLang);
     </script>
 </body>

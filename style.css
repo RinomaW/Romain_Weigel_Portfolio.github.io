@@ -1,17 +1,60 @@
 /* Style général du body */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f9;
+    background-color: #303030;
     color: #333;
     padding: 20px;
     max-width: 1000px;
     margin: auto;
+    position: relative; /* Permet le positionnement relatif */
+    min-height: 100vh; /* Assure que le body prend au moins la hauteur de la fenêtre */
+}
+
+/* Style pour la navigation */
+.nav {
+    background-color: #444; /* Couleur de fond pour la navigation */
+    color: white;
+    padding: 10px;
+    position: fixed; /* Fixe la nav en haut */
+    top: 0;
+    left: 0;
+    width: 100%; /* Prend toute la largeur de la fenêtre */
+    z-index: 1000; /* S'assure que la nav soit au-dessus des autres éléments */
+    display: flex; /* Utilise Flexbox pour aligner les éléments */
+    align-items: center; /* Centre verticalement */
+}
+
+/* Style pour l'image de présentation */
+#presentation-image-nav {
+    width: 6vw; /* Largeur de l'image */
+    height: 6vw; /* Hauteur de l'image */
+    border-radius: 50%; /* Forme ronde */
+    margin-right: 10vw; /* Espace à droite de l'image */
+    display: block; /* Assure que l'image s'affiche correctement */
+    object-fit: cover; /* Maintient les proportions sans déformation */
+}
+
+
+/* Style pour les boutons de navigation */
+.nav button {
+    background-color: #28a745;
+    border: none;
+    color: white;
+    padding: 12px 25px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.nav button:hover {
+    background-color: #218838;
 }
 
 /* Style pour le switcher de langue */
 .lang-switch {
-    text-align: center;
-    margin-bottom: 30px;
+    margin-left: auto; /* Aligne le switcher à droite */
 }
 
 .lang-switch button {
@@ -30,28 +73,7 @@ body {
     background-color: #0056b3;
 }
 
-/* Style pour la navigation */
-.nav {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.nav button {
-    background-color: #28a745;
-    border: none;
-    color: white;
-    padding: 12px 25px;
-    font-size: 18px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-right: 15px;
-    transition: background-color 0.3s ease;
-}
-
-.nav button:hover {
-    background-color: #218838;
-}
-
+/* Style pour le contenu */
 #content {
     background-color: #fff;
     border-radius: 10px;
@@ -61,8 +83,16 @@ body {
     font-size: 18px;
     line-height: 1.6;
     color: #555;
+    padding-bottom: 80px; /* Ajoute de l'espace pour le footer */
+    margin-top: 70px; /* Ajoute une marge en haut pour compenser la nav */
 }
-
+#extra-info-image {
+    width: 15vw; /* Ajuste la largeur de l'image */
+    height: auto; /* Maintient le ratio d'aspect */
+    margin-left: 10px; /* Espace à gauche de l'image */
+    margin-right: 5vw ;
+    vertical-align: middle; /* Aligne l'image avec le texte */
+}
 /* Style pour les titres */
 #content h1 {
     font-size: 32px;
@@ -75,13 +105,42 @@ body {
     font-size: 20px;
     line-height: 1.8;
 }
-/* Stylisation de l'image dans la présentation */
-#presentation-image {
-    width: 100%; /* Adapte la taille de l'image à la largeur du conteneur */
-    max-width: 500px; /* Limite la largeur maximale de l'image */
-    height: auto; /* Garde les proportions de l'image */
-    display: block; /* Bloque l'image pour éviter des marges involontaires */
-    margin: 20px auto; /* Centre l'image horizontalement */
-    border-radius: 10px; /* Ajoute des coins arrondis */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre autour de l'image */
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    position: fixed; /* Fixe le footer en bas */
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Prend toute la largeur de la fenêtre */
+    height: 60px; /* Hauteur du footer */
+    padding: 10px 0;
+    box-sizing: border-box; /* Pour inclure le padding dans la hauteur totale */
+}
+
+footer .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer .footer-content .socials a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer .footer-content .socials a:hover {
+    text-decoration: underline;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
