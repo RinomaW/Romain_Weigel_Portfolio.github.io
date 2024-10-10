@@ -22,6 +22,7 @@
     },
     "contact": {
         "title": "Contact",
-        "content": "N'hésitez pas à nous contacter."
+        "content": "N'hésitez pas à nous contacter.",
+        "dd":"salut"
     }
 }
