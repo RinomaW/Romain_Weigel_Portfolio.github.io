@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Switcher de Langue</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
     <div class="lang-switch">
@@ -20,41 +19,43 @@
     </div>
 
     <div id="content">
-        <!-- Le contenu sera inséré ici -->
+        <!-- Le contenu des autres pages sera chargé ici -->
     </div>
 
     <script>
         let currentLang = 'fr';
-        let content = {};
 
         function loadTranslations(lang) {
+            currentLang = lang;
             fetch(`${lang}.json`)
                 .then(response => response.json())
                 .then(data => {
-                    content = data;
-                    loadPage('introduction'); // Charger la page de présentation par défaut
+                    window.translations = data;
+                    // Charger la première page par défaut
+                    loadPage('introduction');
                 });
         }
 
         function loadPage(page) {
-            const title = document.createElement('h1');
-            const paragraph = document.createElement('p');
+            fetch(`${page}.html`)
+                .then(response => response.text())
+                .then(html => {
+                    const contentDiv = document.getElementById('content');
+                    contentDiv.innerHTML = html;
 
-            title.textContent = content[page].title;
-            paragraph.textContent = content[page].content;
-
-            const contentDiv = document.getElementById('content');
-            contentDiv.innerHTML = ''; // Vider le contenu actuel
-            contentDiv.appendChild(title);
-            contentDiv.appendChild(paragraph);
+                    // Charger les traductions pour cette page spécifique
+                    if (window.translations && window.translations[page]) {
+                        document.getElementById('title').textContent = window.translations[page].title;
+                        document.getElementById('content-text').textContent = window.translations[page].content;
+                    }
+                });
         }
 
         function switchLang(lang) {
-            currentLang = lang;
             loadTranslations(lang);
         }
- 
-        // Charger le français par défaut
+
+        // Charger les traductions françaises par défaut
         loadTranslations(currentLang);
     </script>
 </body>
