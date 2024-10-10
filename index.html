@@ -1,62 +1,24 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Switcher de Langue</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="lang-switch">
-        <button onclick="switchLang('fr')">Français</button>
-        <button onclick="switchLang('en')">English</button>
-    </div>
+// Appliquer les traductions sur la page actuelle
+function applyTranslations(page) {
+    const titleElement = document.getElementById('title');
+    const contentElement = document.getElementById('content-text');
 
-    <div class="nav">
-        <button onclick="loadPage('introduction')">Présentation</button>
-        <button onclick="loadPage('projects')">Projets</button>
-        <button onclick="loadPage('contact')">Contact</button>
-    </div>
+    if (titleElement && contentElement && content[page]) {
+        titleElement.textContent = content[page].title;
+        contentElement.textContent = content[page].content;
 
-    <div id="content">
-        <!-- Le contenu des autres pages sera chargé ici -->
-    </div>
-
-    <script>
-        let currentLang = 'fr';
-
-        function loadTranslations(lang) {
-            currentLang = lang;
-            fetch(`${lang}.json`)
-                .then(response => response.json())
-                .then(data => {
-                    window.translations = data;
-                    // Charger la première page par défaut
-                    loadPage('introduction');
-                });
+        // Appliquer les traductions pour les nouveaux éléments
+        if (page === 'introduction') {
+            document.getElementById('subheading').textContent = content[page].subheading;
+            document.getElementById('extra-info').textContent = content[page].extra_info;
+            document.getElementById('feature1').textContent = content[page].features.feature1;
+            document.getElementById('feature2').textContent = content[page].features.feature2;
+            document.getElementById('feature3').textContent = content[page].features.feature3;
+        } else if (page === 'projects') {
+            document.getElementById('project-title').textContent = content[page].project_title;
+            document.getElementById('project1').textContent = content[page].projects.project1;
+            document.getElementById('project2').textContent = content[page].projects.project2;
+            document.getElementById('project3').textContent = content[page].projects.project3;
         }
-
-        function loadPage(page) {
-            fetch(`${page}.html`)
-                .then(response => response.text())
-                .then(html => {
-                    const contentDiv = document.getElementById('content');
-                    contentDiv.innerHTML = html;
-
-                    // Charger les traductions pour cette page spécifique
-                    if (window.translations && window.translations[page]) {
-                        document.getElementById('title').textContent = window.translations[page].title;
-                        document.getElementById('content-text').textContent = window.translations[page].content;
-                    }
-                });
-        }
-
-        function switchLang(lang) {
-            loadTranslations(lang);
-        }
-
-        // Charger les traductions françaises par défaut
-        loadTranslations(currentLang);
-    </script>
-</body>
-</html>
+    }
+}

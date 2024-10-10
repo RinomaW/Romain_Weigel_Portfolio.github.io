@@ -1,21 +1,27 @@
 {
-    "welcome": "Welcome to my site",
-    "description": "This is a simple language switcher example.",
-    "navigation": {
-        "presentation": "Presentation",
-        "projects": "Projects",
-        "contact": "Contact"
-    },
     "introduction": {
         "title": "Introduction",
-        "content": "This is an introduction page. Here you will find information about the site and its purpose."
+        "content": "Welcome to the introduction page.",
+        "subheading": "Subheading",
+        "extra_info": "Here is some additional information about the introduction.",
+        "features": {
+            "feature1": "Feature 1",
+            "feature2": "Feature 2",
+            "feature3": "Feature 3"
+        }
     },
     "projects": {
-        "title": "My Projects",
-        "content": "Here are some projects I have worked on."
+        "title": "Projects",
+        "content": "Here is a list of our projects.",
+        "project_title": "Project List",
+        "projects": {
+            "project1": "Project 1",
+            "project2": "Project 2",
+            "project3": "Project 3"
+        }
     },
     "contact": {
         "title": "Contact",
-        "content": "You can reach me by email at example@domain.com."
+        "content": "Feel free to contact us."
     }
 }

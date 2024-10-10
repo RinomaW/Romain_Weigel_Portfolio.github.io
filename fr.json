@@ -1,21 +1,27 @@
 {
-    "welcome": "Bienvenue sur mon site",
-    "description": "Ceci est un exemple de commutateur de langue simple.",
-    "navigation": {
-        "presentation": "Présentation",
-        "projects": "Projets",
-        "contact": "Contact"
-    },
     "introduction": {
         "title": "Présentation",
-        "content": "Ceci est une page de présentation. Vous trouverez ici des informations sur le site et son objectif."
+        "content": "Bienvenue sur la page de présentation.",
+        "subheading": "Sous-titre",
+        "extra_info": "Voici des informations supplémentaires sur la présentation.",
+        "features": {
+            "feature1": "Caractéristique 1",
+            "feature2": "Caractéristique 2",
+            "feature3": "Caractéristique 3"
+        }
     },
     "projects": {
-        "title": "Mes Projets",
-        "content": "Voici quelques projets sur lesquels j'ai travaillé."
+        "title": "Projets",
+        "content": "Voici une liste de nos projets.",
+        "project_title": "Liste des Projets",
+        "projects": {
+            "project1": "Projet 1",
+            "project2": "Projet 2",
+            "project3": "Projet 3"
+        }
     },
     "contact": {
         "title": "Contact",
-        "content": "Vous pouvez me contacter par email à exemple@domaine.com."
+        "content": "N'hésitez pas à nous contacter."
     }
 }
