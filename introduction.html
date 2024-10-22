@@ -1,28 +1,61 @@
-<h1 id="title"></h1>
-<h2 id="subheading"></h2>
-<p id="content-text"></p>
-<img id="extra-info-image" src="./static/photoCV.jpg" alt="Extra Info Image" style="width: 50px; height: auto; margin-left: 10px; vertical-align: middle;"> <!-- Ajuste la taille de l'image -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction</title>
+    <link rel="stylesheet" href="introduction.css">
+</head>
+<body>
+    <h1 id="title"></h1>
+    <h2 id="subheading"></h2>
+    <div class="content-container">
+        <p id="content-text"></p>
+        <img id="extra-info-image" src="./static/photoCV.jpg" alt="Extra Info Image">
+    </div>
 
-<!-- Nouveaux éléments ajoutés -->
-<div id="additional-content">
-    <h2 id="title_personal"></h2>
+    <!-- Nouveaux éléments ajoutés -->
+    <div id="additional-content-moi">
+        <h2 id="title_personal"></h2>
+        <ul id="personal-info">
+            <li><strong>État Civil:</strong> <span id="personal-etat-civil"></span></li>
+            <li><strong>Téléphone:</strong> <span id="personal-telephone"></span></li>
+            <li><strong>Email:</strong> <a href="mailto:romain.weigel@etu.univ-savoie.fr" id="personal-email"></a></li>
+            <li><strong>Adresse:</strong> <span id="personal-adresse"></span></li>
+            <li><strong>Date de Naissance:</strong> <span id="personal-date-naissance"></span></li>
+            <li><strong>Permis:</strong> <span id="personal-permis"></span></li>
+        </ul>
+    </div>
     
-    <ul id="personal-info">
-        <li><strong>État Civil:</strong> Romain Weigel</li>
-        <li><strong>Téléphone:</strong> 06 26 33 29 58 (disponible après 18h)</li>
-        <li><strong>Email:</strong> <a href="mailto:romain.weigel@etu.univ-savoie.fr">romain.weigel@etu.univ-savoie.fr</a></li>
-        <li><strong>Adresse:</strong> 20 Avenue de Brogny, 74000 Annecy</li>
-        <li><strong>Date de Naissance:</strong> 3 Février 2004 (20 ans)</li>
-        <li><strong>Permis:</strong> Permis B</li>
-    </ul>
-    <p id="extra-info" style="display: inline-block;"></p> <!-- Ajout de display: inline-block pour aligner l'image à droite -->
+    <div id="additional-content-formation">
+        <h2>Mon Parcours</h2>
+        <div class="timeline">
+            <div class="timeline-bar">
+                <div class="timeline-item">
+                    <span class="year">2024</span>
+                    <strong id="formation1-title"></strong>: <span id="formation1-specialization"></span> (<span id="formation1-dates"></span>) - <span id="formation1-institution"></span>
+                </div>
+                <div class="timeline-item">
+                    <span class="year">2022</span>
+                    <strong id="formation2-title"></strong>: <span id="formation2-specialization"></span> (<span id="formation2-dates"></span>) - <span id="formation2-institution"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleImageVisibility() {
+            const image = document.getElementById('extra-info-image');
+            if (window.innerWidth < 768) {
+                image.classList.add('hide-on-mobile'); // Masquer l'image sur mobile
+            } else {
+                image.classList.remove('hide-on-mobile'); // Afficher l'image sur les grands écrans
+            }
+        }
     
-    <ul id="education">
-        <li>
-            <strong id="formation1-title"></strong>: <span id="formation1-specialization"></span> (<span id="formation1-dates"></span>) - <span id="formation1-institution"></span>
-        </li>
-        <li>
-            <strong id="formation2-title"></strong>: <span id="formation2-specialization"></span> (<span id="formation2-dates"></span>) - <span id="formation2-institution"></span>
-        </li>
-    </ul>
-</div>
+        // Appelle la fonction lors du chargement de la page et lors du redimensionnement
+        window.addEventListener('load', toggleImageVisibility);
+        window.addEventListener('resize', toggleImageVisibility);
+    </script>
+</body>
+</html>

@@ -86,17 +86,11 @@ body {
     padding-bottom: 80px; /* Ajoute de l'espace pour le footer */
     margin-top: 70px; /* Ajoute une marge en haut pour compenser la nav */
 }
-#extra-info-image {
-    width: 15vw; /* Ajuste la largeur de l'image */
-    height: auto; /* Maintient le ratio d'aspect */
-    margin-left: 10px; /* Espace à gauche de l'image */
-    margin-right: 5vw ;
-    vertical-align: middle; /* Aligne l'image avec le texte */
-}
+
+
 /* Style pour les titres */
 #content h1 {
     font-size: 32px;
-    margin-bottom: 20px;
     color: #343a40;
 }
 

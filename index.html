@@ -62,38 +62,43 @@
                 });
         }
 
-      // Appliquer les traductions sur la page actuelle
-      function applyTranslations(page) {
-            const titleElement = document.getElementById('title');
-            const contentElement = document.getElementById('content-text');
+     // Appliquer les traductions sur la page actuelle
+function applyTranslations(page) {
+    const titleElement = document.getElementById('title');
+    const contentElement = document.getElementById('content-text');
 
-            if (titleElement && contentElement && content[page]) {
-                titleElement.textContent = content[page].title;
-                contentElement.textContent = content[page].content;
+    if (titleElement && contentElement && content[page]) {
+        titleElement.textContent = content[page].title;
+        contentElement.textContent = content[page].content;
 
-                if (page === 'introduction') {
-                    document.getElementById('subheading').textContent = content[page].subheading;
-                    document.getElementById('extra-info').textContent = content[page].extra_info;
+        if (page === 'introduction') {
+            document.getElementById('subheading').textContent = content[page].subheading;
+            document.getElementById('title_personal').textContent = content[page].title_personal;
+            
+            // Remplir les informations personnelles
+            const personalInfo = content[page].personal_info;
+            document.getElementById('personal-etat-civil').textContent = personalInfo.etat_civil;
+            document.getElementById('personal-telephone').textContent = personalInfo.telephone;
+            document.getElementById('personal-email').textContent = personalInfo.email;
+            document.getElementById('personal-adresse').textContent = personalInfo.adresse;
+            document.getElementById('personal-date-naissance').textContent = personalInfo.date_naissance;
+            document.getElementById('personal-permis').textContent = personalInfo.permis;
 
-                    // Remplir les informations de formation
-                    const education = content[page].education;
-                    document.getElementById('formation1-title').textContent = education.formation1.title;
-                    document.getElementById('formation1-specialization').textContent = education.formation1.specialization;
-                    document.getElementById('formation1-dates').textContent = education.formation1.dates;
-                    document.getElementById('formation1-institution').textContent = education.formation1.institution;
+            // Remplir les informations de formation
+            const education = content[page].education;
+            document.getElementById('formation1-title').textContent = education.formation1.title;
+            document.getElementById('formation1-specialization').textContent = education.formation1.specialization;
+            document.getElementById('formation1-dates').textContent = education.formation1.dates;
+            document.getElementById('formation1-institution').textContent = education.formation1.institution;
 
-                    document.getElementById('formation2-title').textContent = education.formation2.title;
-                    document.getElementById('formation2-specialization').textContent = education.formation2.specialization;
-                    document.getElementById('formation2-dates').textContent = education.formation2.dates;
-                    document.getElementById('formation2-institution').textContent = education.formation2.institution;
-                } else if (page === 'projects') {
-                    document.getElementById('project-title').textContent = content[page].project_title;
-                    document.getElementById('project1').textContent = content[page].projects.project1;
-                    document.getElementById('project2').textContent = content[page].projects.project2;
-                    document.getElementById('project3').textContent = content[page].projects.project3;
-                }
-            }
+            document.getElementById('formation2-title').textContent = education.formation2.title;
+            document.getElementById('formation2-specialization').textContent = education.formation2.specialization;
+            document.getElementById('formation2-dates').textContent = education.formation2.dates;
+            document.getElementById('formation2-institution').textContent = education.formation2.institution;
         }
+    }
+}
+
 
         function switchLang(lang) {
             currentLang = lang;

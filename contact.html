@@ -1,6 +1,40 @@
-<h1 id="title"></h1>
-<p id="content-text"></p>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+    <h1>Contactez-moi</h1>
+    <div class="contact-container">
+        <div class="contact-info">
+            <h2>Informations de Contact</h2>
+            <p><strong>Email:</strong> <a href="mailto:romain.weigel@etu.univ-savoie.fr">romain.weigel@etu.univ-savoie.fr</a></p>
+            <p><strong>Téléphone:</strong> 06 26 33 29 58</p>
+            <p><strong>Adresse:</strong> 20 Avenue de Brogny, 74000 Annecy</p>
+        </div>
 
+        <div class="contact-form">
+            <h2>Formulaire de Contact</h2>
+            <form action="mailto:romain.weigel@etu.univ-savoie.fr" method="post" enctype="text/plain">
+                <label for="name">Nom:</label>
+                <input type="text" id="name" name="name" required>
 
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
 
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
 
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 MonSite. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
