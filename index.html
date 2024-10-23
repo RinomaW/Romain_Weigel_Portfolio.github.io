@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Switcher de Langue</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="path/to/favicon.ico" type="image/x-icon">
+
 </head>
 <body>
     <div class="nav">
@@ -50,17 +52,28 @@
                 });
         }
 
-        // Charger une page HTML et insérer les données du JSON
         function loadPage(page) {
-            fetch(`${page}.html`)
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById('content').innerHTML = html;
+    fetch(`${page}.html`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Erreur HTTP : ${response.status}`);
+            }
+            return response.text();
+        })
+        .then(html => {
+            document.getElementById('content').innerHTML = html;
 
-                    // Appliquer les traductions après le chargement de la page
-                    applyTranslations(page);
-                });
-        }
+            // Appliquer les traductions après le chargement de la page
+            applyTranslations(page);
+        })
+        .catch(error => {
+            console.error('Erreur lors du chargement de la page :', error);
+            document.getElementById('content').innerHTML = '<p>Une erreur est survenue lors du chargement de la page.</p>';
+        });
+}
+
+
+
 
      // Appliquer les traductions sur la page actuelle
 function applyTranslations(page) {
