@@ -12,6 +12,31 @@
             margin-left: 10px; /* Espace à gauche de l'image */
             vertical-align: middle; /* Aligne l'image avec le texte */
         }
+
+         /* Style pour l'aperçu PDF */
+         .pdf-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .pdf-container iframe {
+            width: 100%;
+            height: 500px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .pdf-download-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 12px;
+            text-decoration: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .pdf-download-link:hover {
+            background-color: #0056b3;
+        }
         </style>
 </head>
 <body>
@@ -19,10 +44,12 @@
     <h2 id="subheading"></h2>
     <div class="content-container">
         <p id="content-text"></p>
-        <img id="extra-info-image" src="./static/cv_photo.png" alt="Extra Info Image">
+        <img id="extra-info-image" src="./static/images/cv_photo.png" alt="Extra Info Image">
     </div>
-
-    <!-- Nouveaux éléments ajoutés -->
+    <div class="pdf-container">
+        <iframe src="./static/CV_Weigel_Romain.pdf" title="Aperçu du CV"></iframe>
+        <a href="./static/CV_Weigel_Romain.pdf" class="pdf-download-link" target="_blank">Ouvrir le CV en PDF</a>
+    </div>
     <div id="additional-content-moi">
         <h2 id="title_personal"></h2>
         <ul id="personal-info">
