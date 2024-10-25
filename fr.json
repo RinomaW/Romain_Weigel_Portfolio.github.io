@@ -76,7 +76,9 @@
                 "static/images/youtoo/information.jpg"
 
 
-            ]
+            ],
+            "youtube_link": "https://youtu.be/E4aB7pB8_Io"
+
         },
         "project4": {
             "title": "Monster hunter appli mobile",
@@ -85,8 +87,7 @@
             "images": [
                 "static/images/MonsterHunter/acceuil.jpg",
                 "static/images/MonsterHunter/recherche.jpg"
-            ],
-            "other_link": "https://github.com/RomainWEIGEL/Overwatch"
+            ]
         },
         "project5": {
             "title": "API pour Overwatch",
