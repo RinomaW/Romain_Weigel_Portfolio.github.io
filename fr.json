@@ -29,16 +29,63 @@
             }
         }
     },
+"projects": {
+    "title": "Projets",
+    "content": "Voici une liste de mes projets.",
+    "project_title": "Liste des Projets",
     "projects": {
-        "title": "Projets",
-        "content": "Voici une liste de nos projets.",
-        "project_title": "Liste des Projets",
-        "projects": {
-            "project1": "Projet 1",
-            "project2": "Projet 2",
-            "project3": "Projet 3"
+        "project1": {
+            "title": "Lunar Storms",
+            "description": "Texte explicatif pour le Projet 1.",
+            "release_date": "24 Octobre 2024",
+            "images": [
+                "static/images/Lunar_Storms_image/Logo_LunarStorms.jpg",
+                "static/images/Lunar_Storms_image/menu.png",
+                "static/images/Lunar_Storms_image/island.png",
+                "static/images/Lunar_Storms_image/event_cloud.png"
+            ],
+            "youtube_link": "https://youtu.be/xfFulKDR2Gs",
+            "other_link": "https://rinoma.itch.io/lunar-storms"
+        },
+        "project2": {
+            "title": "Follow Weight",
+            "description": "Texte explicatif pour le Projet 2.",
+            "release_date": "02 Juillet 2024",
+            "images": [
+                "static/images/FollowWeight/logofollowweight.png"
+            ]
+        },
+        "project3": {
+            "title": "YouToo",
+            "description": "Texte explicatif pour le Projet 3.",
+            "release_date": "01 Aout 2023",
+            "images": [
+                "static/images/youtoo/logo.png"
+            ]
+        },
+        "project4": {
+            "title": "Monster hunter appli mobile",
+            "description": "Texte explicatif pour le Projet 4.",
+            "release_date": "23 Septembre 2024",
+            "images": [
+                "static/images/MonsterHunter/acceuil.jpg",
+                "static/images/MonsterHunter/recherche.jpg"
+            ],
+            "other_link": "https://github.com/RomainWEIGEL/Overwatch"
+        },
+        "project5": {
+            "title": "API pour Overwatch",
+            "description": "Texte explicatif pour le Projet 5.",
+            "release_date": "06 Mars 2024",
+            "images": [
+                "static/images/Overwatch/Overwatch_2_Steam_artwork.jpg"
+            ],
+            "other_link": "https://github.com/RomainWEIGEL/Overwatch"
         }
-    },
+    }
+},
+
+
     "contact": {
         "title": "Contact",
         "content": "N'hésitez pas à me contacter."
