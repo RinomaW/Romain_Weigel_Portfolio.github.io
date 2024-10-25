@@ -111,77 +111,97 @@ function applyTranslations(page) {
             document.getElementById('formation2-institution').textContent = education.formation2.institution;
         }
     }
+        // Vérifiez si la page est "projects"
+        if (page === 'projects') {
+            const projectTitleElement = document.getElementById('project-title');
+            const projectListElement = document.getElementById('project-list'); 
 
-    // Vérifiez si la page est "projects"
-    if (page === 'projects') {
-        const projectTitleElement = document.getElementById('project-title');
-        const projectListElement = document.getElementById('project-list'); // Assurez-vous que l'ID correspond bien à votre structure HTML
+            if (projectTitleElement && projectListElement) {
+                projectTitleElement.textContent = content[page].project_title;
+                projectListElement.innerHTML = ''; 
+                
+                Object.keys(content[page].projects).forEach(projectKey => {
+                    const project = content[page].projects[projectKey];
 
-        if (projectTitleElement && projectListElement) {
-            projectTitleElement.textContent = content[page].project_title;
-            projectListElement.innerHTML = ''; // Réinitialise la liste des projets
-            
-            Object.keys(content[page].projects).forEach(projectKey => {
-    const project = content[page].projects[projectKey];
+                    const projectItem = document.createElement('div');
+                    projectItem.classList.add('project-item');
 
-    const projectItem = document.createElement('div');
-    projectItem.classList.add('project-item');
+                    const projectTitle = document.createElement('h3');
+                    projectTitle.textContent = project.title;
+                    projectItem.appendChild(projectTitle);
 
-    const projectTitle = document.createElement('h3');
-    projectTitle.textContent = project.title;
-    projectItem.appendChild(projectTitle);
+                    const projectDescription = document.createElement('p');
+                    projectDescription.textContent = project.description;
+                    projectItem.appendChild(projectDescription);
 
-    const projectDescription = document.createElement('p');
-    projectDescription.textContent = project.description;
-    projectItem.appendChild(projectDescription);
+                    const projectReleaseDate = document.createElement('p');
+                    projectReleaseDate.textContent = `Date de création: ${project.release_date}`;
+                    projectReleaseDate.classList.add('release-date');
+                    projectItem.appendChild(projectReleaseDate);
 
-    // Release date
-    const projectReleaseDate = document.createElement('p');
-    projectReleaseDate.textContent = `Date de création: ${project.release_date}`;
-    projectReleaseDate.classList.add('release-date');
-    projectItem.appendChild(projectReleaseDate);
+                    if (project.images && project.images.length > 0) {
+                        const imageContainer = document.createElement('div');
+                        imageContainer.classList.add('image-container');
+                        
+                        project.images.forEach(imageSrc => {
+                            const imgLink = document.createElement('a');
+                            imgLink.href = imageSrc;
+                            imgLink.target = "_blank"; 
 
-    if (project.images && project.images.length > 0) {
-    const imageContainer = document.createElement('div');
-    imageContainer.classList.add('image-container');
-    project.images.forEach(imageSrc => {
-        const imgLink = document.createElement('a');
-        imgLink.href = imageSrc;
-        imgLink.target = "_blank"; // Ouvre l'image dans un nouvel onglet
+                            const img = document.createElement('img');
+                            img.src = imageSrc;
+                            img.alt = `${project.title} image`;
 
-        const img = document.createElement('img');
-        img.src = imageSrc;
-        img.alt = `${project.title} image`;
+                            imgLink.appendChild(img); 
+                            imageContainer.appendChild(imgLink);
+                        });
+                        
+                        // Ajout du PDF sous forme d'embed si le lien existe
+                        if (project.pdf_link) {
+                            const pdfEmbed = document.createElement('embed');
+                            pdfEmbed.src = project.pdf_link;
+                            pdfEmbed.type = "application/pdf";
+                            pdfEmbed.classList.add('pdf-embed');
+                            pdfEmbed.width = "240"; // Ajuster la largeur pour l'alignement
+                            pdfEmbed.height = "320"; // Ajuster la hauteur pour la visibilité
 
-        imgLink.appendChild(img); // Ajoute l'image dans le lien
-        imageContainer.appendChild(imgLink); // Ajoute le lien dans le conteneur d'images
-    });
-    projectItem.appendChild(imageContainer);
-}
+                            imageContainer.appendChild(pdfEmbed);
+                        }
 
+                        projectItem.appendChild(imageContainer);
+                    }
 
-    if (project.youtube_link) {
-        const youtubeLink = document.createElement('a');
-        youtubeLink.href = project.youtube_link;
-        youtubeLink.textContent = "Voir sur YouTube";
-        youtubeLink.target = "_blank";
-        projectItem.appendChild(youtubeLink);
-    }
+                    if (project.youtube_link) {
+                        const youtubeLink = document.createElement('a');
+                        youtubeLink.href = project.youtube_link;
+                        youtubeLink.textContent = "Voir sur YouTube";
+                        youtubeLink.target = "_blank";
+                        projectItem.appendChild(youtubeLink);
+                    }
 
-    if (project.other_link) {
-        const otherLink = document.createElement('a');
-        otherLink.href = project.other_link;
-        otherLink.textContent = "Lien du projet";
-        otherLink.target = "_blank";
-        projectItem.appendChild(otherLink);
-    }
+                    if (project.other_link) {
+                        const otherLink = document.createElement('a');
+                        otherLink.href = project.other_link;
+                        otherLink.textContent = "Lien du projet";
+                        otherLink.target = "_blank";
+                        projectItem.appendChild(otherLink);
+                    }
+                    // PDF link
+                    if (project.pdf_link) {
+                                    const pdfLink = document.createElement('a');
+                                    pdfLink.href = project.pdf_link;
+                                    pdfLink.textContent = "Ouvrir la documentation PDF";
+                                    pdfLink.target = "_blank";
+                                    pdfLink.classList.add('pdf-link');
+                                    projectItem.appendChild(pdfLink);
+                                }
 
-    projectListElement.appendChild(projectItem);
-});
-
+                    projectListElement.appendChild(projectItem);
+                });
+            }
         }
-    }
-}
+        }
+
 
 
         function switchLang(lang) {

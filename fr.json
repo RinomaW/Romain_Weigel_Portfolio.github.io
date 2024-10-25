@@ -31,12 +31,12 @@
     },
 "projects": {
     "title": "Projets",
-    "content": "Voici une liste de mes projets.",
+    "content": "Voici la liste de mes projets.",
     "project_title": "Liste des Projets",
     "projects": {
         "project1": {
             "title": "Lunar Storms",
-            "description": "Texte explicatif pour le Projet 1.",
+            "description": "Mon jeu crée sur Unreal Engine 5 en blueprint est encore en phase bêta, et il s'améliorera avec le temps. Créé exclusivement par Romain Weigel, ce jeu offre une expérience de survie multijoueur sur une île où les joueurs affrontent des ennemis et divers événements. Pour surmonter ces défis, nous disposons de pouvoirs permettant de survivre et de travailler en équipe. Ce jeux a été publié depuis itch.io ",
             "release_date": "24 Octobre 2024",
             "images": [
                 "static/images/Lunar_Storms_image/Logo_LunarStorms.jpg",
@@ -47,25 +47,40 @@
             "youtube_link": "https://youtu.be/xfFulKDR2Gs",
             "other_link": "https://rinoma.itch.io/lunar-storms"
         },
-        "project2": {
-            "title": "Follow Weight",
-            "description": "Texte explicatif pour le Projet 2.",
-            "release_date": "02 Juillet 2024",
-            "images": [
-                "static/images/FollowWeight/logofollowweight.png"
+       "project2": {
+        "title": "Follow Weight",
+        "description": "Stage sur un projet d’application mobile en Flutter avec une base de données hébergée sur OVH. Cette application, développée lors de mon stage de 2ème année en informatique d'une durée de 2 mois chez un auto-entrepreneur, vise à aider les utilisateurs à comprendre et à agir sur des problématiques personnelles et complexes liées à la perte de poids. À la fin de mon stage, l'application a atteint un niveau de maturité suffisant pour être présentée à une entreprise, qui a repris le projet en partenariat avec l'auto-entrepreneur. C'est pour cela qu'elle n'a pas été publié",
+        "release_date": "02 Juillet 2024",
+        "pdf_link": "static/images/FollowWeight/connexion.pdf",
+        "images": [
+            "static/images/FollowWeight/logofollowweight.png"
             ]
         },
+
         "project3": {
             "title": "YouToo",
-            "description": "Texte explicatif pour le Projet 3.",
+            "description": "Cette application crée sur Android Studio en kotlin, permet à chaque utilisateur souhaitant atteindre ses objectifs physiques de le faire de manière autonome. Réalisée durant ma première année en informatique (2022/2023) dans un cadre personelle, elle propose des séances de sport conçues spécialement pour chaque utilisateur, avec une adaptation continue des exercices en fonction des progrès et des besoins individuels. Cependant, cette application n'est plus disponible sur les stores en raison d'un manque de temps pour gérer les problématiques liées aux politiques de confidentialité et aux conditions d'utilisation.",
             "release_date": "01 Aout 2023",
             "images": [
-                "static/images/youtoo/logo.png"
+                "static/images/youtoo/logo.png",
+                "static/images/youtoo/menu.jpg",
+                "static/images/youtoo/question1.jpg",
+                "static/images/youtoo/question2_1.jpg",
+                "static/images/youtoo/question2_2.jpg",
+                "static/images/youtoo/question3.jpg",
+                "static/images/youtoo/tuto.jpg",
+                "static/images/youtoo/score1.jpg",
+                "static/images/youtoo/exercice1.jpg",
+                "static/images/youtoo/exercice2.jpg",
+                "static/images/youtoo/score2.jpg",
+                "static/images/youtoo/information.jpg"
+
+
             ]
         },
         "project4": {
             "title": "Monster hunter appli mobile",
-            "description": "Texte explicatif pour le Projet 4.",
+            "description": "Ce projet personnel a été conçu spécialement pour moi, car je suis passionné par l'univers de Monster Hunter. J'ai souhaité créer une véritable application mobile, d'autant plus qu'il n'en existe pas sur le Play Store. Cette application, réalisée en Flutter sur Visual Studio Code, est très simple et vise à m'aider quotidiennement sur la recherche et l'apprentissage dans ce jeux",
             "release_date": "23 Septembre 2024",
             "images": [
                 "static/images/MonsterHunter/acceuil.jpg",
@@ -75,10 +90,11 @@
         },
         "project5": {
             "title": "API pour Overwatch",
-            "description": "Texte explicatif pour le Projet 5.",
+            "description": "Ce projet personnel a été conçu pour deux raisons. La première était de développer une API pour m'aider dans mes révisions de fin de deuxième année en informatique. La seconde était d'obtenir des informations supplémentaires sur des personnages de jeux vidéo que j'apprécie.",
             "release_date": "06 Mars 2024",
             "images": [
-                "static/images/Overwatch/Overwatch_2_Steam_artwork.jpg"
+                "static/images/Overwatch/Overwatch_2_Steam_artwork.jpg",
+                "static/images/Overwatch/over_api.png"
             ],
             "other_link": "https://github.com/RomainWEIGEL/Overwatch"
         }
