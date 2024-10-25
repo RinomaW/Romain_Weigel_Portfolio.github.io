@@ -12,8 +12,6 @@
         <div class="contact-container">
             <h1>Contactez-moi</h1>
 
-          
-
             <form action="contact.php" method="post">
                 <label for="email">Adresse email:</label>
                 <input type="email" id="email" name="email" required>
@@ -33,18 +31,20 @@
             <p><a href="https://www.linkedin.com/in/romainweigel/" target="_blank">LinkedIn</a></p>
             <p>
                 <span id="email-address">romwei0302@gmail.com</span>
-                <button onclick="copyEmail()">Copier mon email</button>
+                <!-- <button onclick="copyEmail()">Copier mon email</button> -->
             </p>
         </div>
     </div>
 
-    <script>
+    <!-- <script>
         function copyEmail() {
             const email = document.getElementById('email-address').textContent;
             navigator.clipboard.writeText(email).then(() => {
                 alert("Email copié dans le presse-papiers!");
+            }).catch(err => {
+                console.error('Erreur lors de la copie : ', err);
             });
         }
-    </script>
+    </script> -->
 </body>
 </html>
