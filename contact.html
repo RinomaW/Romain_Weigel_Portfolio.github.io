@@ -3,10 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contact.css">
+
     <title>Contact</title>
 </head>
 <body>
-    <h1>Contact</h1>
-    <p>Coucou, voici la page de contact.</p>
+    <div class="container">
+        <div class="contact-container">
+            <h1>Contactez-moi</h1>
+            <form action="votre_script_email.php" method="post">
+                <label for="email">Adresse email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="subject">Objet:</label>
+                <input type="text" id="subject" name="subject" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+        <div class="linkedin-container">
+          <h2>Réseaux</h2>
+            <p>
+                <a href="https://www.linkedin.com/in/romainweigel/" target="_blank">Mon LinkedIn</a>
+            </p>
+            <p>
+                <span id="email-address">votre.email@example.com</span>
+                <button onclick="copyEmail()">Copier mon email</button>
+            </p>
+        </div>
+    </div>
+    <script>
+        function copyEmail() {
+            const email = document.getElementById('email-address').textContent;
+            navigator.clipboard.writeText(email).then(() => {
+                alert("Email copié dans le presse-papiers!");
+            });
+        }
+    </script>
 </body>
 </html>

@@ -36,7 +36,7 @@ body {
 
 
 /* Style pour les boutons de navigation */
-.nav button {
+button {
     background-color: #28a745;
     border: none;
     color: white;
@@ -48,7 +48,7 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.nav button:hover {
+button:hover {
     background-color: #218838;
 }
 
@@ -72,6 +72,8 @@ body {
 .lang-switch button:hover {
     background-color: #0056b3;
 }
+
+
 
 /* Style pour le contenu */
 #content {
