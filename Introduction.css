@@ -107,7 +107,6 @@
     content: '';
     position: absolute;
     left: -29px; /* Aligne le point sur la ligne */
-    top: 50%; /* Centrer verticalement par rapport à l'élément */
     width: 12px; /* Largeur du point */
     height: 12px; /* Hauteur du point */
     border-radius: 50%; /* Rend le point circulaire */
