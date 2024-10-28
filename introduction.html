@@ -24,6 +24,152 @@
             border: 1px solid #ddd;
             border-radius: 8px;
         }
+
+        /* Style pour le conteneur du texte et de l'image */
+.content-container {
+    display: flex; /* Utilise Flexbox pour aligner horizontalement */
+    align-items: center; /* Centre verticalement le contenu */
+    margin-bottom: 20px; /* Ajoute de l'espace en bas du conteneur */
+}
+
+/* Ajustements pour l'image de contenu */
+#extra-info-image {
+    width: 10vw; /* Ajuste la largeur de l'image */
+    height: auto; /* Maintient le ratio d'aspect */
+    margin-left: 10px; /* Espace à gauche de l'image */
+    vertical-align: middle; /* Aligne l'image avec le texte */
+}
+
+/* Style pour le titre et le sous-titre */
+#title {
+    font-size: 28px;
+    color: #343a40; /* Couleur du titre */
+}
+
+#subheading {
+    font-size: 22px;
+    color: #666; /* Couleur du sous-titre */
+    margin-bottom: 20px; /* Espace sous le sous-titre */
+}
+
+/* Style pour le texte de contenu */
+#content-text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555; /* Couleur du texte */
+    margin-right: 20px; /* Espace à droite du texte */
+}
+
+/* Style pour les listes */
+#personal-info, #education {
+    list-style-type: none; /* Enlève les puces des listes */
+    padding: 0; /* Enlève le padding par défaut */
+}
+
+#personal-info li, #education li {
+    margin-bottom: 10px; /* Espace entre les éléments de la liste */
+    font-size: 16px; /* Taille de la police */
+}
+
+/* Style pour le contenu additionnel */
+#additional-content-moi {
+    margin-top: 20px; /* Espace au-dessus du contenu additionnel */
+    background-color: #f9f9f9; /* Couleur de fond claire */
+    border-radius: 8px; /* Coins arrondis */
+    padding: 20px; /* Espace intérieur */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre pour effet de profondeur */
+}
+
+
+/* Style pour le contenu additionnel */
+#additional-content-formation {
+    margin-top: 20px; /* Espace au-dessus du contenu additionnel */
+    background-color: #f9f9f9; /* Couleur de fond claire */
+    border-radius: 8px; /* Coins arrondis */
+    padding: 20px  50px; /* Espace intérieur */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre pour effet de profondeur */
+}
+
+/* Styles pour la timeline */
+.timeline {
+    display: flex; /* Affiche les éléments de la timeline en ligne */
+    align-items: flex-start; /* Aligne les éléments au début */
+    position: relative; /* Positionne l'élément pour les lignes de séparation */
+}
+
+.timeline-bar {
+    flex: 1; /* Permet à la barre de prendre toute la largeur disponible */
+    position: relative; /* Pour le positionnement de la barre */
+    padding-left: 40px; /* Espace à gauche pour les éléments */
+}
+
+/* Styles pour les éléments de la timeline */
+.timeline-item {
+    margin-bottom: 40px; /* Espace entre les éléments de la timeline */
+    position: relative; /* Position pour les éléments individuels */
+}
+
+/* Ligne verticale de la timeline */
+.timeline-bar::before {
+    content: '';
+    position: absolute;
+    left: 10px; /* Position de la ligne verticale */
+    top: 0; /* Commence en haut de la barre */
+    bottom: 0; /* S'étend jusqu'en bas */
+    width: 2px; /* Épaisseur de la ligne */
+    background-color: #6F2C3E; /* Couleur bordeaux */
+}
+
+/* Styles pour les années */
+.year {
+    position: absolute; /* Positionne l'année sur la ligne */
+    left: -80px; /* Espace à gauche de la ligne */
+    font-weight: bold; /* Met le texte en gras */
+    font-size: 16px; /* Taille de la police */
+    color: #6F2C3E; /* Couleur bordeaux */
+}
+
+/* Points sur la barre */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -29px; /* Aligne le point sur la ligne */
+    width: 12px; /* Largeur du point */
+    height: 12px; /* Hauteur du point */
+    border-radius: 50%; /* Rend le point circulaire */
+    background-color: #666666; /* Couleur du point bordeaux */
+    transform: translate(-50%, -50%); /* Centrer le point horizontalement et verticalement */
+}
+/* Masquer l'image sur les petits écrans */
+.hide-on-mobile {
+    display: none;
+}
+
+/* Afficher l'image sur les grands écrans */
+@media (min-width: 768px) {
+    #extra-info-image {
+        display: block;
+    }
+}
+/* Style pour les liens */
+.pdf-download-link {
+    display: inline-block;
+    margin-top: 10px; /* Ajoute un espace au-dessus */
+    padding: 8px 12px;
+    text-decoration: none; /* Enlève le soulignement par défaut */
+    background-color: #28a745; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    border-radius: 4px; /* Coins arrondis */
+    transition: background-color 0.3s ease; /* Transition pour l'effet hover */
+}
+
+/* Style pour le hover sur les liens */
+.pdf-download-link:hover {
+    background-color: #23923d; /* Couleur de fond au hover */
+}
+
+
+
         </style>
 </head>
 <body>
