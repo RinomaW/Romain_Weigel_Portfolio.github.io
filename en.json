@@ -1,22 +1,30 @@
 {
     "introduction": {
         "title": "Romain Weigel",
-        "content": "In a perpetual quest for knowledge, I adapt quickly and remain constantly eager to learn. My name is Romain Weigel, and I am a third-year computer science student in Annecy. I am diligent in my personal work and highly committed to my personal development. I am looking for a position in software programming, video games, or mobile development due to my interest in these fields.",
+        "content": "In a constant quest for knowledge, I adapt quickly and remain eager to learn. My name is Romain Weigel, and I am a third-year computer science student in Annecy. I am diligent in my personal work and strongly committed to my personal development. I am seeking a position in software, video game, or mobile programming due to my interest in these fields.",
+        "pdfdownloadlink": "Open the CV in pdf",
+        "pdf_link": "./static/CV_Weigel_Romain_Eng.pdf",
         "title_personal": "PERSONAL INFORMATION",
         "personal_info": {
+            "strong_etat_civil": "Personal Information:",
             "etat_civil": "Romain Weigel",
+            "strong_telephone": "Phone:",
             "telephone": "06 26 33 29 58 (available after 6 PM)",
+            "strong_email": "Email:",
             "email": "romain.weigel@etu.univ-savoie.fr",
+            "strong_adresse": "Address:",
             "adresse": "20 Avenue de Brogny, 74000 Annecy",
+            "strong_date_naissance": "Date of Birth:",
             "date_naissance": "February 3, 2004 (20 years old)",
-            "permis": "Driver's License B"
+            "strong_permis": "License:",
+            "permis": "Driving License B"
         },
         "subheading": "About Me",
-        "extra_info": "Here are my qualifications:",
+        "parcour": "My Journey",
         "education": {
             "formation1": {
                 "title": "3rd Year in BUT",
-                "specialization": "Computer Science",
+                "specialization": "computer science",
                 "dates": "2022 - 2024",
                 "institution": "IUT Annecy-Le-Vieux (74)"
             },
@@ -26,16 +34,17 @@
                 "dates": "JUNE 2022",
                 "institution": "Lycée St-Michel Annecy (74)"
             }
-        }
+        },
+        "cv_link_text": "Open the CV in pdf"
     },
     "projects": {
         "title": "Projects",
-        "content": "Here is the list of my projects.",
+        "content": "Here is a list of my projects.",
         "project_title": "Project List",
         "projects": {
             "project1": {
                 "title": "Lunar Storms",
-                "description": "My game created on Unreal Engine 5 in Blueprint is still in beta phase and will improve over time. Exclusively created by Romain Weigel, this game offers a multiplayer survival experience on an island where players face enemies and various events. To overcome these challenges, we have powers to survive and work as a team. This game has been published on itch.io.",
+                "description": "My game created in Unreal Engine 5 using blueprints is still in beta phase and will improve over time. Exclusively created by Romain Weigel, this game offers a multiplayer survival experience on an island where players face enemies and various events. To overcome these challenges, we have powers to survive and work as a team. This game has been published on itch.io.",
                 "release_date": "October 24, 2024",
                 "images": [
                     "static/images/Lunar_Storms_image/Logo_LunarStorms.jpg",
@@ -48,7 +57,7 @@
             },
             "project2": {
                 "title": "Follow Weight",
-                "description": "Internship on a mobile application project in Flutter with a database hosted on OVH. This application, developed during my 2-month second-year internship with a self-employed entrepreneur, aims to help users understand and act on personal and complex issues related to weight loss. At the end of my internship, the application reached a sufficient level of maturity to be presented to a company, which took over the project in partnership with the self-employed entrepreneur. That's why it has not been published.",
+                "description": "Internship on a mobile application project in Flutter with a database hosted on OVH. This application, developed during my 2nd year internship in computer science for a duration of 2 months with a self-employed individual, aims to help users understand and address personal and complex issues related to weight loss. At the end of my internship, the application reached a sufficient level of maturity to be presented to a company, which took over the project in partnership with the self-employed individual. This is why it has not been published.",
                 "release_date": "July 2, 2024",
                 "pdf_link": "static/images/FollowWeight/connexion.pdf",
                 "images": [
@@ -57,7 +66,7 @@
             },
             "project3": {
                 "title": "YouToo",
-                "description": "This application created on Android Studio in Kotlin allows every user who wants to achieve their physical goals to do so independently. Developed during my first year in computer science (2022/2023) in a personal context, it offers workout sessions designed specifically for each user, with continuous adaptation of exercises based on individual progress and needs. However, this application is no longer available on stores due to a lack of time to manage issues related to privacy policies and terms of use.",
+                "description": "This application created in Android Studio using Kotlin allows every user wishing to achieve their physical goals to do so independently. Developed during my first year in computer science (2022/2023) in a personal setting, it offers workout sessions specially designed for each user, with continuous adaptation of exercises based on individual progress and needs. However, this application is no longer available on the stores due to a lack of time to manage issues related to privacy policies and terms of use.",
                 "release_date": "August 1, 2023",
                 "images": [
                     "static/images/youtoo/logo.png",
@@ -77,7 +86,7 @@
             },
             "project4": {
                 "title": "Monster Hunter Mobile App",
-                "description": "This personal project was designed specifically for me, as I am passionate about the Monster Hunter universe. I wanted to create a true mobile application, especially since there is none available on the Play Store. This application, developed in Flutter on Visual Studio Code, is very simple and aims to assist me daily in research and learning about this game.",
+                "description": "This personal project was designed especially for me, as I am passionate about the world of Monster Hunter. I wanted to create a real mobile application, especially since there isn't one on the Play Store. This application, developed in Flutter on Visual Studio Code, is very simple and aims to help me daily with research and learning in this game.",
                 "release_date": "September 23, 2024",
                 "images": [
                     "static/images/MonsterHunter/acceuil.jpg",
@@ -86,7 +95,7 @@
             },
             "project5": {
                 "title": "API for Overwatch",
-                "description": "This personal project was designed for two reasons. The first was to develop an API to help me with my end-of-second-year studies in computer science. The second was to obtain additional information about video game characters that I enjoy.",
+                "description": "This personal project was designed for two reasons. The first was to develop an API to assist me in my end-of-second-year computer science revisions. The second was to obtain additional information about video game characters that I enjoy.",
                 "release_date": "March 6, 2024",
                 "images": [
                     "static/images/Overwatch/Overwatch_2_Steam_artwork.jpg",
@@ -94,10 +103,23 @@
                 ],
                 "other_link": "https://github.com/RomainWEIGEL/Overwatch"
             }
+        },
+        "link_text": {
+            "youtube": "View on YouTube",
+            "other": "Project link",
+            "pdf": "Open the PDF documentation"
         }
     },
-    "contact": {
-        "title": "Contact",
-        "content": "Feel free to contact me."
-    }
+    
+        "contact": {
+            "title": "Contact Me",
+            "email_link": "Send an email via Gmail",
+            "linkedin": "LinkedIn",
+            "availability": "I am available: Monday - Friday, 9 AM - 6 PM",
+            "location_title": "My Location"
+           
+        }
+    
+    
+
 }

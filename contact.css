@@ -38,20 +38,3 @@ form textarea {
     height: 100px;
 }
 
-
-.linkedin-container {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
-
-.linkedin-container a {
-    display: inline-block;
-    color: #0077b5;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.linkedin-container a:hover {
-    text-decoration: underline;
-}

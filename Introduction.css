@@ -124,3 +124,19 @@
         display: block;
     }
 }
+/* Style pour les liens */
+.pdf-download-link {
+    display: inline-block;
+    margin-top: 10px; /* Ajoute un espace au-dessus */
+    padding: 8px 12px;
+    text-decoration: none; /* Enlève le soulignement par défaut */
+    background-color: #28a745; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    border-radius: 4px; /* Coins arrondis */
+    transition: background-color 0.3s ease; /* Transition pour l'effet hover */
+}
+
+/* Style pour le hover sur les liens */
+.pdf-download-link:hover {
+    background-color: #23923d; /* Couleur de fond au hover */
+}

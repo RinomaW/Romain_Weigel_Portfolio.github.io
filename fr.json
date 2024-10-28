@@ -2,18 +2,25 @@
     "introduction": {
         "title": "Romain Weigel",
         "content": "En perpétuelle quête de connaissances, je m'adapte rapidement et reste constamment avide d'apprendre. Mon nom est Romain Weigel, et je suis étudiant en informatique en troisième année à Annecy. Je suis assidu dans mon travail personnel et fortement engagé dans mon développement personnel. Je recherche un poste en programmation logicielle, de jeux vidéo ou de mobile, en raison de mon intérêt pour ces domaines.",
-        "title_personal":"ETAT CIVIL",
-        "personal_info": {
-            "etat_civil": "Romain Weigel",
-            "telephone": "06 26 33 29 58 (disponible après 18h)",
-            "email": "romain.weigel@etu.univ-savoie.fr",
-            "adresse": "20 Avenue de Brogny, 74000 Annecy",
-            "date_naissance": "3 Février 2004 (20 ans)",
-            "permis": "Permis B"
-        },
+        "pdfdownloadlink":"Ouvrir le CV en pdf",
+        "pdf_link": "./static/CV_Weigel_Romain.pdf",
+        "title_personal": "ÉTAT CIVIL",
+      "personal_info": {
+        "strong_etat_civil": "État Civil:",
+        "etat_civil": "Romain Weigel",
+        "strong_telephone": "Téléphone:",
+        "telephone": "06 26 33 29 58 (disponible après 18h)",
+        "strong_email": "Email:",
+        "email": "romain.weigel@etu.univ-savoie.fr",
+        "strong_adresse": "Adresse:",
+        "adresse": "20 Avenue de Brogny, 74000 Annecy",
+        "strong_date_naissance": "Date de Naissance:",
+        "date_naissance": "3 Février 2004 (20 ans)",
+        "strong_permis": "Permis:",
+        "permis": "Permis B"
+    },
         "subheading": "À propos de moi",
-        "extra_info": "Voici mes formations :",
-      
+        "parcour":"Mon Parcours",
         "education": {
             "formation1": {
                 "title": "3ème Année en BUT",
@@ -27,85 +34,87 @@
                 "dates": "JUIN. 2022",
                 "institution": "Lycée St-Michel Annecy (74)"
             }
+        },
+        "cv_link_text": "Ouvrir le CV en pdf"
+    },
+    "projects": {
+        "title": "Projets",
+        "content": "Voici la liste de mes projets.",
+        "project_title": "Liste des Projets",
+        "projects": {
+            "project1": {
+                "title": "Lunar Storms",
+                "description": "Mon jeu crée sur Unreal Engine 5 en blueprint est encore en phase bêta, et il s'améliorera avec le temps. Créé exclusivement par Romain Weigel, ce jeu offre une expérience de survie multijoueur sur une île où les joueurs affrontent des ennemis et divers événements. Pour surmonter ces défis, nous disposons de pouvoirs permettant de survivre et de travailler en équipe. Ce jeux a été publié depuis itch.io ",
+                "release_date": "24 Octobre 2024",
+                "images": [
+                    "static/images/Lunar_Storms_image/Logo_LunarStorms.jpg",
+                    "static/images/Lunar_Storms_image/menu.png",
+                    "static/images/Lunar_Storms_image/island.png",
+                    "static/images/Lunar_Storms_image/event_cloud.png"
+                ],
+                "youtube_link": "https://youtu.be/xfFulKDR2Gs",
+                "other_link": "https://rinoma.itch.io/lunar-storms"
+            },
+            "project2": {
+                "title": "Follow Weight",
+                "description": "Stage sur un projet d’application mobile en Flutter avec une base de données hébergée sur OVH. Cette application, développée lors de mon stage de 2ème année en informatique d'une durée de 2 mois chez un auto-entrepreneur, vise à aider les utilisateurs à comprendre et à agir sur des problématiques personnelles et complexes liées à la perte de poids. À la fin de mon stage, l'application a atteint un niveau de maturité suffisant pour être présentée à une entreprise, qui a repris le projet en partenariat avec l'auto-entrepreneur. C'est pour cela qu'elle n'a pas été publié",
+                "release_date": "02 Juillet 2024",
+                "pdf_link": "static/images/FollowWeight/connexion.pdf",
+                "images": [
+                    "static/images/FollowWeight/logofollowweight.png"
+                ]
+            },
+            "project3": {
+                "title": "YouToo",
+                "description": "Cette application crée sur Android Studio en kotlin, permet à chaque utilisateur souhaitant atteindre ses objectifs physiques de le faire de manière autonome. Réalisée durant ma première année en informatique (2022/2023) dans un cadre personnel, elle propose des séances de sport conçues spécialement pour chaque utilisateur, avec une adaptation continue des exercices en fonction des progrès et des besoins individuels. Cependant, cette application n'est plus disponible sur les stores en raison d'un manque de temps pour gérer les problématiques liées aux politiques de confidentialité et aux conditions d'utilisation.",
+                "release_date": "01 Aout 2023",
+                "images": [
+                    "static/images/youtoo/logo.png",
+                    "static/images/youtoo/menu.jpg",
+                    "static/images/youtoo/question1.jpg",
+                    "static/images/youtoo/question2_1.jpg",
+                    "static/images/youtoo/question2_2.jpg",
+                    "static/images/youtoo/question3.jpg",
+                    "static/images/youtoo/tuto.jpg",
+                    "static/images/youtoo/score1.jpg",
+                    "static/images/youtoo/exercice1.jpg",
+                    "static/images/youtoo/exercice2.jpg",
+                    "static/images/youtoo/score2.jpg",
+                    "static/images/youtoo/information.jpg"
+                ],
+                "youtube_link": "https://youtu.be/E4aB7pB8_Io"
+            },
+            "project4": {
+                "title": "Monster hunter appli mobile",
+                "description": "Ce projet personnel a été conçu spécialement pour moi, car je suis passionné par l'univers de Monster Hunter. J'ai souhaité créer une véritable application mobile, d'autant plus qu'il n'en existe pas sur le Play Store. Cette application, réalisée en Flutter sur Visual Studio Code, est très simple et vise à m'aider quotidiennement sur la recherche et l'apprentissage dans ce jeux",
+                "release_date": "23 Septembre 2024",
+                "images": [
+                    "static/images/MonsterHunter/acceuil.jpg",
+                    "static/images/MonsterHunter/recherche.jpg"
+                ]
+            },
+            "project5": {
+                "title": "API pour Overwatch",
+                "description": "Ce projet personnel a été conçu pour deux raisons. La première était de développer une API pour m'aider dans mes révisions de fin de deuxième année en informatique. La seconde était d'obtenir des informations supplémentaires sur des personnages de jeux vidéo que j'apprécie.",
+                "release_date": "06 Mars 2024",
+                "images": [
+                    "static/images/Overwatch/Overwatch_2_Steam_artwork.jpg",
+                    "static/images/Overwatch/over_api.png"
+                ],
+                "other_link": "https://github.com/RomainWEIGEL/Overwatch"
+            }
+        },
+        "link_text": {
+            "youtube": "Voir sur YouTube",
+            "other": "Lien du projet",
+            "pdf": "Ouvrir la documentation PDF"
         }
     },
-"projects": {
-    "title": "Projets",
-    "content": "Voici la liste de mes projets.",
-    "project_title": "Liste des Projets",
-    "projects": {
-        "project1": {
-            "title": "Lunar Storms",
-            "description": "Mon jeu crée sur Unreal Engine 5 en blueprint est encore en phase bêta, et il s'améliorera avec le temps. Créé exclusivement par Romain Weigel, ce jeu offre une expérience de survie multijoueur sur une île où les joueurs affrontent des ennemis et divers événements. Pour surmonter ces défis, nous disposons de pouvoirs permettant de survivre et de travailler en équipe. Ce jeux a été publié depuis itch.io ",
-            "release_date": "24 Octobre 2024",
-            "images": [
-                "static/images/Lunar_Storms_image/Logo_LunarStorms.jpg",
-                "static/images/Lunar_Storms_image/menu.png",
-                "static/images/Lunar_Storms_image/island.png",
-                "static/images/Lunar_Storms_image/event_cloud.png"
-            ],
-            "youtube_link": "https://youtu.be/xfFulKDR2Gs",
-            "other_link": "https://rinoma.itch.io/lunar-storms"
-        },
-       "project2": {
-        "title": "Follow Weight",
-        "description": "Stage sur un projet d’application mobile en Flutter avec une base de données hébergée sur OVH. Cette application, développée lors de mon stage de 2ème année en informatique d'une durée de 2 mois chez un auto-entrepreneur, vise à aider les utilisateurs à comprendre et à agir sur des problématiques personnelles et complexes liées à la perte de poids. À la fin de mon stage, l'application a atteint un niveau de maturité suffisant pour être présentée à une entreprise, qui a repris le projet en partenariat avec l'auto-entrepreneur. C'est pour cela qu'elle n'a pas été publié",
-        "release_date": "02 Juillet 2024",
-        "pdf_link": "static/images/FollowWeight/connexion.pdf",
-        "images": [
-            "static/images/FollowWeight/logofollowweight.png"
-            ]
-        },
-
-        "project3": {
-            "title": "YouToo",
-            "description": "Cette application crée sur Android Studio en kotlin, permet à chaque utilisateur souhaitant atteindre ses objectifs physiques de le faire de manière autonome. Réalisée durant ma première année en informatique (2022/2023) dans un cadre personelle, elle propose des séances de sport conçues spécialement pour chaque utilisateur, avec une adaptation continue des exercices en fonction des progrès et des besoins individuels. Cependant, cette application n'est plus disponible sur les stores en raison d'un manque de temps pour gérer les problématiques liées aux politiques de confidentialité et aux conditions d'utilisation.",
-            "release_date": "01 Aout 2023",
-            "images": [
-                "static/images/youtoo/logo.png",
-                "static/images/youtoo/menu.jpg",
-                "static/images/youtoo/question1.jpg",
-                "static/images/youtoo/question2_1.jpg",
-                "static/images/youtoo/question2_2.jpg",
-                "static/images/youtoo/question3.jpg",
-                "static/images/youtoo/tuto.jpg",
-                "static/images/youtoo/score1.jpg",
-                "static/images/youtoo/exercice1.jpg",
-                "static/images/youtoo/exercice2.jpg",
-                "static/images/youtoo/score2.jpg",
-                "static/images/youtoo/information.jpg"
-
-
-            ],
-            "youtube_link": "https://youtu.be/E4aB7pB8_Io"
-
-        },
-        "project4": {
-            "title": "Monster hunter appli mobile",
-            "description": "Ce projet personnel a été conçu spécialement pour moi, car je suis passionné par l'univers de Monster Hunter. J'ai souhaité créer une véritable application mobile, d'autant plus qu'il n'en existe pas sur le Play Store. Cette application, réalisée en Flutter sur Visual Studio Code, est très simple et vise à m'aider quotidiennement sur la recherche et l'apprentissage dans ce jeux",
-            "release_date": "23 Septembre 2024",
-            "images": [
-                "static/images/MonsterHunter/acceuil.jpg",
-                "static/images/MonsterHunter/recherche.jpg"
-            ]
-        },
-        "project5": {
-            "title": "API pour Overwatch",
-            "description": "Ce projet personnel a été conçu pour deux raisons. La première était de développer une API pour m'aider dans mes révisions de fin de deuxième année en informatique. La seconde était d'obtenir des informations supplémentaires sur des personnages de jeux vidéo que j'apprécie.",
-            "release_date": "06 Mars 2024",
-            "images": [
-                "static/images/Overwatch/Overwatch_2_Steam_artwork.jpg",
-                "static/images/Overwatch/over_api.png"
-            ],
-            "other_link": "https://github.com/RomainWEIGEL/Overwatch"
-        }
-    }
-},
-
-
     "contact": {
-        "title": "Contact",
-        "content": "N'hésitez pas à me contacter."
-      
+        "title": "Contactez-moi",
+        "email_link": "Envoyer un email via Gmail",
+        "linkedin": "LinkedIn",
+        "availability": "Je suis disponible : Lundi - Vendredi, 9h - 18h",
+        "location_title": "Ma localisation"
     }
 }

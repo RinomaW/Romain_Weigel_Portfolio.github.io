@@ -6,45 +6,43 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="contact.css">
     <title>Contact</title>
+    <style>
+        .copy-icon {
+            cursor: pointer; /* Change le curseur pour indiquer que c'est cliquable */
+            margin-left: 10px; /* Ajoute un petit espace à gauche de l'icône */
+            font-size: 20px; /* Taille de l'icône */
+            color: #007BFF; /* Couleur de l'icône */
+        }
+    </style>
 </head>
 <body>
+    
     <div class="container">
         <div class="contact-container">
-            <h1>Contactez-moi</h1>
-
-            <form action="contact.php" method="post">
-                <label for="email">Adresse email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="subject">Objet:</label>
-                <input type="text" id="subject" name="subject" required>
-
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-
-                <button type="submit">Envoyer</button>
-            </form>
+            <h1 id="contact-title"></h1>
+            <p>
+                <a id="email-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=romwei0302@gmail.com"></a>
+            </p>
+            <h2 id="social-title"></h2>
+            <p><a id="linkedin-link" href="https://www.linkedin.com/in/romainweigel/" target="_blank"></a></p>
+            
+            <h2 id="availability-title"></h2>
+            <p id="availability"></p>
         </div>
 
         <div class="linkedin-container">
-            <h2>Réseaux</h2>
-            <p><a href="https://www.linkedin.com/in/romainweigel/" target="_blank">LinkedIn</a></p>
-            <p>
-                <span id="email-address">romwei0302@gmail.com</span>
-                <!-- <button onclick="copyEmail()">Copier mon email</button> -->
-            </p>
+            <h2 id="location-title"></h2>
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13039.412049593452!2d6.1211393!3d45.9018486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478b8ff8050bddcd%3A0x71f6cb3b02007c17!2sAnnecy!5e0!3m2!1sen!2sfr!4v1632261343435!5m2!1sen!2sfr" 
+                width="300" 
+                height="300" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
         </div>
     </div>
+    
 
-    <!-- <script>
-        function copyEmail() {
-            const email = document.getElementById('email-address').textContent;
-            navigator.clipboard.writeText(email).then(() => {
-                alert("Email copié dans le presse-papiers!");
-            }).catch(err => {
-                console.error('Erreur lors de la copie : ', err);
-            });
-        }
-    </script> -->
 </body>
 </html>

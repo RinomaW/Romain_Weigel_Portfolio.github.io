@@ -56,6 +56,24 @@
 .project-item a:hover {
     background-color: #23923d;
 }
+/* Style for image links */
+.image-link {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 8px 12px;
+    text-decoration: none;
+    background-color: #0056b3;
+    color: #007BFF; /* Couleur du texte pour les liens d'image */
+}
+
+.image-link img {
+    max-width: 100px; /* Ajuster la taille de l'image */
+    border-radius: 4px; /* Ajout d'un léger arrondi */
+}
+
+.image-link:hover {
+    opacity: 0.8; /* Effet au survol pour les liens d'image */
+}
 
 
 /* Image container styling with scroll */
@@ -65,6 +83,12 @@
     padding: 10px 0;
 }
 
+/* Style pour les images */
+.image-container img {
+    cursor: pointer; 
+    max-width: 100px; /* Ajuster la taille de l'image */
+    border-radius: 4px; /* Ajout d'un léger arrondi */
+}
 .image-container img {
     max-height: fit-content;
     max-width: 240px;
