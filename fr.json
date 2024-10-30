@@ -90,7 +90,12 @@
                 "pdf_link": "static/images/IA/ppt_ia.pdf",
                 "release_date": "13 Octobre 2024",
                "images": [
-                ]
+                "static/images/IA/kaggle.png",
+                "static/images/IA/diabetes.png",
+                "static/images/IA/Digits.png",
+                "static/images/IA/train.png"
+                ],
+                "other_link": "https://github.com/RinomaW/IA_ApprentissageSurveill-"
             },
             "project5": {
                 "title": "Monster hunter appli mobile",

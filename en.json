@@ -85,6 +85,20 @@
                 "youtube_link": "https://youtu.be/E4aB7pB8_Io"
             },
             "project4": {
+    "title": "PowerPoint on What AI Is",
+    "description": "We are working on AI at our school, and I created a comprehensive structure around everything we have learned and what we will need to present in our first semester project in the third year of computer science. It has been slightly corrected by one of my teachers.",
+    "pdf_link": "static/images/IA/ppt_ia.pdf",
+    "release_date": "October 13, 2024",
+  "images": [
+                "static/images/IA/kaggle.png",
+                "static/images/IA/diabetes.png",
+                "static/images/IA/Digits.png",
+                "static/images/IA/train.png"
+                ],
+    "other_link": "https://github.com/RinomaW/IA_ApprentissageSurveill-"
+},
+
+            "project5": {
                 "title": "Monster Hunter Mobile App",
                 "description": "This personal project was designed especially for me, as I am passionate about the world of Monster Hunter. I wanted to create a real mobile application, especially since there isn't one on the Play Store. This application, developed in Flutter on Visual Studio Code, is very simple and aims to help me daily with research and learning in this game.",
                 "release_date": "September 23, 2024",
@@ -93,7 +107,7 @@
                     "static/images/MonsterHunter/recherche.jpg"
                 ]
             },
-            "project5": {
+            "project6": {
                 "title": "API for Overwatch",
                 "description": "This personal project was designed for two reasons. The first was to develop an API to assist me in my end-of-second-year computer science revisions. The second was to obtain additional information about video game characters that I enjoy.",
                 "release_date": "March 6, 2024",
