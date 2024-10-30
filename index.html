@@ -38,46 +38,6 @@
     </footer>
 
 
-<script>
-    function launchFlaskProject() {
-            const { exec } = require('child_process');
-            const express = require('express');
-
-            const app = express();
-            const PORT = 3000; // Choisissez un port pour votre serveur Node.js
-
-            // Route pour lancer le projet Flask
-            app.post('/launch_project', (req, res) => {
-                exec('python app.py', (error, stdout, stderr) => {
-                    if (error) {
-                        console.error(`Erreur: ${error.message}`);
-                        return res.status(500).send('Erreur lors du lancement du projet Flask');
-                    }
-                    if (stderr) {
-                        console.error(`Erreur: ${stderr}`);
-                        return res.status(500).send('Erreur lors du lancement du projet Flask');
-                    }
-                    console.log(`stdout: ${stdout}`);
-                    res.send('Le projet Flask a été lancé avec succès!');
-                });
-            });
-
-            // Démarrez le serveur Node.js
-            app.listen(PORT, () => {
-                console.log(`Serveur Node.js démarré sur http://localhost:${PORT}`);
-            });
-        fetch('/launch_project', { method: 'POST' })
-            .then(response => response.json())
-            .then(data => {
-                alert(data.message); // Affiche un message pour l'utilisateur
-                // Vous pouvez aussi rediriger vers la page Flask si nécessaire
-                window.location.href = '/flask_page';
-            })
-            .catch(error => {
-                console.error('Erreur lors du lancement du projet Flask:', error);
-            });
-    }
-</script>
 
     <script>
         let currentLang = 'fr';

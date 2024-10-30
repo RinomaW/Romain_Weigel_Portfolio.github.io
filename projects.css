@@ -81,20 +81,18 @@
     display: flex;
     overflow-x: auto;
     padding: 10px 0;
+    justify-content: flex-start; /* Align items to the start */
+    margin-bottom: 20px; /* Add some space below the image container */
 }
-
-/* Style pour les images */
 .image-container img {
     cursor: pointer; 
-    max-width: 100px; /* Ajuster la taille de l'image */
-    border-radius: 4px; /* Ajout d'un léger arrondi */
-}
-.image-container img {
-    max-height: fit-content;
-    max-width: 240px;
-    margin-right: 10px;
+    max-height: 300px; /* Limit the maximum height for all images */
+    max-width: 100%; /* Allow images to take up full width of their container */
+    margin-right: 10px; /* Space between images horizontally */
+    margin-bottom: 10px; /* Space between images vertically */
     border-radius: 4px;
-    transition: transform 0.3s ease;
+    object-fit: contain; /* Maintain aspect ratio without cropping */
+    transition: transform 0.3s ease; /* Add a hover effect */
 }
 
 .image-container img:hover {
