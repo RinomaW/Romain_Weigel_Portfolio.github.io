@@ -168,6 +168,39 @@
     background-color: #23923d; /* Couleur de fond au hover */
 }
 
+/* Style de la bulle contenant les actualités */
+#actualites-list .actualite-item {
+    display: flex;
+    align-items: flex-start;  /* Aligner le contenu au début (en haut) */
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Style du titre de l'actualité */
+#actualites-list .actualite-item h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px; /* Espacement sous le titre */
+}
+
+/* Style du texte de l'actualité */
+#actualites-list .actualite-item p {
+    flex-grow: 1; /* Le texte prend tout l'espace disponible */
+    margin: 0;
+}
+
+/* Style de l'image */
+#actualites-list .actualite-item img {
+    max-width: 100px;  /* Taille maximale de l'image */
+    height: auto;
+    margin-left: 15px; /* Espacement entre le texte et l'image */
+    flex-shrink: 0; /* Empêche l'image de se rétrécir */
+    margin-top: 5px; /* Espacement du haut pour que l'image soit bien alignée avec le texte */
+}
 
 
         </style>
@@ -212,6 +245,12 @@
             </div>
         </div>
     </div>
+<!-- 
+    <div id="actualites">
+        <h2 id="actualites-title"></h2>
+        <div id="actualites-list"></div>
+    </div>
+    <br> -->
 
     <script>
         function toggleImageVisibility() {

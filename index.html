@@ -91,6 +91,20 @@
      // Appliquer les traductions sur la page actuelle
 // Appliquer les traductions sur la page actuelle
 function applyTranslations(page) {
+
+
+
+    const presentationButton = document.querySelector("button[onclick=\"loadPage('introduction')\"]");
+    const projectsButton = document.querySelector("button[onclick=\"loadPage('projects')\"]");
+    const contactButton = document.querySelector("button[onclick=\"loadPage('contact')\"]");
+
+    if (presentationButton && projectsButton && contactButton) {
+        presentationButton.textContent = content.header_buttons.presentation;
+        projectsButton.textContent = content.header_buttons.projects;
+        contactButton.textContent = content.header_buttons.contact;
+    }
+    
+
     const titleElement = document.getElementById('title');
     const contentElement = document.getElementById('content-text');
 
@@ -133,6 +147,37 @@ function applyTranslations(page) {
     document.getElementById('formation2-specialization').textContent = education.formation2.specialization;
     document.getElementById('formation2-dates').textContent = education.formation2.dates;
     document.getElementById('formation2-institution').textContent = education.formation2.institution;
+
+
+//    // Remplir la section "Actualités"
+// const actualites = content[page].activites.actualites;
+// document.getElementById('actualites-title').textContent = actualites.main_title;
+
+// // Créer une liste d'actualités
+// const actualitesList = document.getElementById('actualites-list');
+// actualites.forEach((actualite) => {
+//     const actualiteItem = document.createElement('div');
+//     actualiteItem.classList.add('actualite-item');
+    
+//     // Créer le titre de l'actualité
+//     const actualiteTitle = document.createElement('h3');
+//     actualiteTitle.textContent = actualite.title;
+//     actualiteItem.appendChild(actualiteTitle);
+    
+//     // Créer le contenu de l'actualité
+//     const actualiteContent = document.createElement('p');
+//     actualiteContent.textContent = actualite.content;
+//     actualiteItem.appendChild(actualiteContent);
+    
+//     // Ajouter l'image de l'actualité
+//     const actualiteImage = document.createElement('img');
+//     actualiteImage.src = actualite.image;
+//     actualiteImage.alt = actualite.title;
+//     actualiteItem.appendChild(actualiteImage);
+    
+//     actualitesList.appendChild(actualiteItem);
+// });
+
 }
 
 

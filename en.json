@@ -1,12 +1,18 @@
 {
+    
+    "header_buttons": {
+        "presentation": "Introduction",
+        "projects": "Projects",
+        "contact": "Contact"
+    },
     "introduction": {
         "title": "Romain Weigel",
-        "content": "In a constant quest for knowledge, I adapt quickly and remain eager to learn. My name is Romain Weigel, and I am a third-year computer science student in Annecy. I am diligent in my personal work and strongly committed to my personal development. I am seeking a position in software, video game, or mobile programming due to my interest in these fields.",
-        "pdfdownloadlink": "Open the CV in pdf",
-        "pdf_link": "./static/CV_Weigel_Romain_Eng.pdf",
-        "title_personal": "PERSONAL INFORMATION",
+        "content": "Constantly seeking knowledge, I quickly adapt and am always eager to learn. My name is Romain Weigel, and I am a third-year computer science student in Annecy. I am diligent in my personal work and highly committed to my personal development. I am looking for a position in software, video game, or mobile programming due to my interest in these fields.",
+        "pdfdownloadlink": "Open CV in PDF",
+        "pdf_link": "./static/CV_Weigel_Romain.pdf",
+        "title_personal": "PERSONAL DETAILS",
         "personal_info": {
-            "strong_etat_civil": "Personal Information:",
+            "strong_etat_civil": "Name:",
             "etat_civil": "Romain Weigel",
             "strong_telephone": "Phone:",
             "telephone": "06 26 33 29 58 (available after 6 PM)",
@@ -17,14 +23,14 @@
             "strong_date_naissance": "Date of Birth:",
             "date_naissance": "February 3, 2004 (20 years old)",
             "strong_permis": "License:",
-            "permis": "Driving License B"
+            "permis": "B License"
         },
         "subheading": "About Me",
         "parcour": "My Journey",
         "education": {
             "formation1": {
-                "title": "3rd Year in BUT",
-                "specialization": "computer science",
+                "title": "3rd Year in B.Tech",
+                "specialization": "Computer Science",
                 "dates": "2022 - 2024",
                 "institution": "IUT Annecy-Le-Vieux (74)"
             },
@@ -35,7 +41,7 @@
                 "institution": "Lycée St-Michel Annecy (74)"
             }
         },
-        "cv_link_text": "Open the CV in pdf"
+        "cv_link_text": "Open CV in PDF"
     },
     "projects": {
         "title": "Projects",
@@ -44,7 +50,7 @@
         "projects": {
             "project1": {
                 "title": "Lunar Storms",
-                "description": "My game created in Unreal Engine 5 using blueprints is still in beta phase and will improve over time. Exclusively created by Romain Weigel, this game offers a multiplayer survival experience on an island where players face enemies and various events. To overcome these challenges, we have powers to survive and work as a team. This game has been published on itch.io.",
+                "description": "My game created in Unreal Engine 5 using Blueprints is still in beta and will improve over time. Created exclusively by Romain Weigel, this game offers a multiplayer survival experience on an island where players face enemies and various events. To overcome these challenges, we have powers to help us survive and work as a team. The game was published on itch.io.",
                 "release_date": "October 24, 2024",
                 "images": [
                     "static/images/Lunar_Storms_image/Logo_LunarStorms.jpg",
@@ -57,7 +63,7 @@
             },
             "project2": {
                 "title": "Follow Weight",
-                "description": "Internship on a mobile application project in Flutter with a database hosted on OVH. This application, developed during my 2nd year internship in computer science for a duration of 2 months with a self-employed individual, aims to help users understand and address personal and complex issues related to weight loss. At the end of my internship, the application reached a sufficient level of maturity to be presented to a company, which took over the project in partnership with the self-employed individual. This is why it has not been published.",
+                "description": "An internship project of a mobile application developed in Flutter with a database hosted on OVH. This app, developed during my 2-month second-year computer science internship with an entrepreneur, aims to help users understand and address personal and complex weight loss issues. At the end of my internship, the app reached a maturity level sufficient to be presented to a company, which took over the project in partnership with the entrepreneur, hence it was not published.",
                 "release_date": "July 2, 2024",
                 "pdf_link": "static/images/FollowWeight/connexion.pdf",
                 "images": [
@@ -65,8 +71,22 @@
                 ]
             },
             "project3": {
+                "title": "FifApi",
+                "description": "An API created for a group project at the end of my second year in my B.Tech. I managed the entire API design with a colleague, including a website built with it. The API was published and managed via GitHub and Azure. Everything was built from scratch using a code-first approach.",
+                "release_date": "April 8, 2024",
+                "images": [
+                    "static/images/FifApi/model.png",
+                    "static/images/FifApi/utilisateur.png",
+                    "static/images/FifApi/produits.png",
+                    "static/images/FifApi/Categorie.png",
+                    "static/images/FifApi/commande.png",
+                    "static/images/FifApi/test.png"
+                ],
+                "other_link": "https://github.com/0bou0/FifApi"
+            },
+            "project4": {
                 "title": "YouToo",
-                "description": "This application created in Android Studio using Kotlin allows every user wishing to achieve their physical goals to do so independently. Developed during my first year in computer science (2022/2023) in a personal setting, it offers workout sessions specially designed for each user, with continuous adaptation of exercises based on individual progress and needs. However, this application is no longer available on the stores due to a lack of time to manage issues related to privacy policies and terms of use.",
+                "description": "This Android Studio app created in Kotlin allows users who want to achieve their fitness goals to do so autonomously. Developed during my first year in computer science (2022/2023) as a personal project, it provides custom workout sessions that adapt to the user's progress and individual needs. However, this app is no longer available on the stores due to lack of time to address privacy policy and terms of use issues.",
                 "release_date": "August 1, 2023",
                 "images": [
                     "static/images/youtoo/logo.png",
@@ -84,32 +104,43 @@
                 ],
                 "youtube_link": "https://youtu.be/E4aB7pB8_Io"
             },
-            "project4": {
-    "title": "My work around of what AI is",
-    "description": "We are working on AI at our school, and I created a comprehensive structure around everything we have learned and what we will need to present in our first semester project in the third year of computer science. It has been slightly corrected by one of my teachers.",
-    "pdf_link": "static/images/IA/ppt_ia.pdf",
-    "release_date": "October 13, 2024",
-  "images": [
-                "static/images/IA/kaggle.png",
-                "static/images/IA/diabetes.png",
-                "static/images/IA/Digits.png",
-                "static/images/IA/train.png"
-                ],
-    "other_link": "https://github.com/RinomaW/IA_ApprentissageSurveill-"
-},
-
             "project5": {
+                "title": "My AI Work",
+                "description": "We study AI at our school, and I have created a full structure around everything we have learned and what we will present in our project for the first semester of the third year in computer science. It was slightly revised by one of my professors.",
+                "pdf_link": "static/images/IA/ppt_ia.pdf",
+                "release_date": "October 13, 2024",
+                "images": [
+                    "static/images/IA/kaggle.png",
+                    "static/images/IA/diabetes.png",
+                    "static/images/IA/Digits.png",
+                    "static/images/IA/train.png"
+                ],
+                "other_link": "https://github.com/RinomaW/IA_ApprentissageSurveill-"
+            },
+            "project6": {
+                "title": "AI for Predicting Room Temperature",
+                "description": "This is a dataset project to test AI once in Python and a better version in C#. It predicts the temperature of multiple rooms over several days. Currently, the data is entirely randomly generated by one of the Python programs, but it works well with real data as long as all data points are present.",
+                "release_date": "November 9, 2024",
+                "images": [
+                    "static/images/TemperaturePrediction/Excel.png",
+                    "static/images/TemperaturePrediction/DonnePy.png",
+                    "static/images/TemperaturePrediction/donneC.png"
+                ],
+                "other_link": "https://github.com/RinomaW/TemperaturePrediction"
+            },
+            "project7": {
                 "title": "Monster Hunter Mobile App",
-                "description": "This personal project was designed especially for me, as I am passionate about the world of Monster Hunter. I wanted to create a real mobile application, especially since there isn't one on the Play Store. This application, developed in Flutter on Visual Studio Code, is very simple and aims to help me daily with research and learning in this game.",
+                "description": "This personal project was designed specifically for myself, as I am passionate about the Monster Hunter universe. I wanted to create a real mobile app, especially since none exist on the Play Store. This app, developed in Flutter on Visual Studio Code, is simple and aims to assist me daily in researching and learning about this game.",
                 "release_date": "September 23, 2024",
                 "images": [
                     "static/images/MonsterHunter/acceuil.jpg",
-                    "static/images/MonsterHunter/recherche.jpg"
+                    "static/images/MonsterHunter/recherche.jpg",
+                    "static/images/MonsterHunter/dragon-monster-monster-hunter.jpg"
                 ]
             },
-            "project6": {
+            "project8": {
                 "title": "API for Overwatch",
-                "description": "This personal project was designed for two reasons. The first was to develop an API to assist me in my end-of-second-year computer science revisions. The second was to obtain additional information about video game characters that I enjoy.",
+                "description": "This personal project was created for two reasons. The first was to develop an API to help me with my second-year computer science exams. The second was to gather additional information on video game characters I enjoy.",
                 "release_date": "March 6, 2024",
                 "images": [
                     "static/images/Overwatch/Overwatch_2_Steam_artwork.jpg",
@@ -119,21 +150,15 @@
             }
         },
         "link_text": {
-            "youtube": "View on YouTube",
-            "other": "Project link",
-            "pdf": "Open the PDF documentation"
+            "youtube": "Watch on YouTube",
+            "other": "Project Link",
+            "pdf": "Open PDF Documentation"
         }
     },
-    
-        "contact": {
-            "title": "Contact Me",
-            "email_link": "Send an email via Gmail",
-            "linkedin": "LinkedIn",
-            "availability": "I am available: Monday - Friday, 9 AM - 6 PM",
-            "location_title": "My Location"
-           
-        }
-    
-    
-
+    "contact": {
+        "title": "Contact Me",
+        "email_link": "Send an Email via Gmail",
+        "linkedin": "LinkedIn",
+        "availability": "I am available: Monday - Friday, 6 PM to 9 PM"
+    }
 }

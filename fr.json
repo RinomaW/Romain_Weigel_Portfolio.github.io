@@ -1,4 +1,9 @@
 {
+    "header_buttons": {
+        "presentation": "Présentation",
+        "projects": "Projets",
+        "contact": "Contact"
+    },
     "introduction": {
         "title": "Romain Weigel",
         "content": "En perpétuelle quête de connaissances, je m'adapte rapidement et reste constamment avide d'apprendre. Mon nom est Romain Weigel, et je suis étudiant en informatique en troisième année à Annecy. Je suis assidu dans mon travail personnel et fortement engagé dans mon développement personnel. Je recherche un poste en programmation logicielle, de jeux vidéo ou de mobile, en raison de mon intérêt pour ces domaines.",
@@ -35,7 +40,20 @@
                 "institution": "Lycée St-Michel Annecy (74)"
             }
         },
-        "cv_link_text": "Ouvrir le CV en pdf"
+        "cv_link_text": "Ouvrir le CV en pdf",
+        "activites": {
+        "main_title": "Activités",
+        "actualites": [
+            {
+                "title": "Recherche de Stage",
+                "content": "A la recherche d'une opportunité de stage en Développement Logiciel ou Applications Mobiles, en Haute-Savoie\n\n👉 Type: Stage\n❓ Domaine: Développement Logiciel, développement en Applications Mobiles ou Développement de jeux vidéo\n\n📍 Ville(s): Annecy, ou aux alentours en Haute-Savoie\n\n🚀 Date de début: 20 Janvier 2025 ou au plus tard le 3 Février 2025\n⌚ Durée: de 14 à 16 semaines\n\n📢 Infos complémentaires: Je suis actuellement localisé à Annecy en Haute-Savoie et je recherche activement une opportunité de stage dans ma région. Passionné par le développement logiciel et les applications mobiles et le développement de jeux vidéo, je suis prêt à m'investir pleinement dans un environnement professionnel propice à l'apprentissage et au développement de ces compétences. \n\nMerci d'avoir pris le temps de lire cette annonce ou d'être passé par ici. Votre intérêt est grandement apprécié !",
+
+                "image": "static/images/Actualite/Stage2025/tablette.jpg"
+
+            }
+        ]
+    }
+        
     },
     "projects": {
         "title": "Projets",
@@ -111,7 +129,21 @@
                 ],
                 "other_link": "https://github.com/RinomaW/IA_ApprentissageSurveill-"
             },
+            
             "project6": {
+                "title": "IA pour prédire la tempréture de plusieur salle",
+                "description": "C'est un jeux de donnée pour tester une ia une fois en python et une meilleur version en c#. Elle permet de prédire la température de plusieur salle sur plusieur jour, pour le moment les données sont complétement génerer aléatoirement par un des programme python mais cela marche très bien avec de vraie données tant que toutes les données sont présentes.",
+                "release_date": "09 Novembre 2024",
+                "images": [
+                    "static/images/TemperaturePrediction/Excel.png",
+                    "static/images/TemperaturePrediction/DonnePy.png",
+                    "static/images/TemperaturePrediction/donneC.png"
+
+                ],
+                "other_link": "https://github.com/RinomaW/TemperaturePrediction"
+
+            },
+            "project7": {
                 "title": "Monster hunter appli mobile",
                 "description": "Ce projet personnel a été conçu spécialement pour moi, car je suis passionné par l'univers de Monster Hunter. J'ai souhaité créer une véritable application mobile, d'autant plus qu'il n'en existe pas sur le Play Store. Cette application, réalisée en Flutter sur Visual Studio Code, est très simple et vise à m'aider quotidiennement sur la recherche et l'apprentissage dans ce jeux",
                 "release_date": "23 Septembre 2024",
@@ -121,7 +153,7 @@
                     "static/images/MonsterHunter/dragon-monster-monster-hunter.jpg"
                 ]
             },
-            "project7": {
+            "project8": {
                 "title": "API pour Overwatch",
                 "description": "Ce projet personnel a été conçu pour deux raisons. La première était de développer une API pour m'aider dans mes révisions de fin de deuxième année en informatique. La seconde était d'obtenir des informations supplémentaires sur des personnages de jeux vidéo que j'apprécie.",
                 "release_date": "06 Mars 2024",
