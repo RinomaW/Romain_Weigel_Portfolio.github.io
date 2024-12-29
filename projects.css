@@ -98,3 +98,53 @@
 .image-container img:hover {
     transform: scale(1.05);
 }
+
+/* Container principal */
+#container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: stretch; /* Assure que les colonnes prennent la même hauteur */
+}
+
+/* Première div à gauche */
+#project-list-pro-div {
+    width: 48%;  /* Ajuster la largeur pour un espacement */
+    background-color: lightblue; /* Juste pour illustration */
+    padding: 10px;
+    border-radius: 10px;  /* Arrondir les bords */
+}
+
+/* Séparateur (colonne entre les deux divs) */
+#separator {
+    width: 2px;  /* Largeur du séparateur */
+    height: 100%;  /* Hauteur de séparation */
+    border-right: 2px solid black;
+    margin: 0 10px; /* Espacement entre les colonnes */
+}
+
+/* Deuxième div à droite */
+#project-list-perso-div {
+    width: 48%;  /* Ajuster la largeur pour un espacement */
+    background-color: lightpink; /* Juste pour illustration */
+    padding: 10px;
+    border-radius: 10px; 
+}
+
+/* Titre principal */
+h1#title {
+    text-align: center;
+    font-size: 2em;
+}
+
+/* Style des titres de projets */
+h2#project-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* Style pour le contenu texte */
+p#content-text {
+    font-size: 1.2em;
+    text-align: center;
+}

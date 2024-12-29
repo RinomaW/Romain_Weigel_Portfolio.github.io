@@ -64,6 +64,7 @@
                 "title": "Lunar Storms",
                 "description": "Mon jeu crée sur Unreal Engine 5 en blueprint est encore en phase bêta, et il s'améliorera avec le temps. Créé exclusivement par Romain Weigel, ce jeu offre une expérience de survie multijoueur sur une île où les joueurs affrontent des ennemis et divers événements. Pour surmonter ces défis, nous disposons de pouvoirs permettant de survivre et de travailler en équipe. Ce jeux a été publié depuis itch.io ",
                 "release_date": "24 Octobre 2024",
+                "type": "perso",
                 "images": [
                     "static/images/Lunar_Storms_image/Logo_LunarStorms.jpg",
                     "static/images/Lunar_Storms_image/menu.png",
@@ -75,6 +76,7 @@
             },
             "project2": {
                 "title": "Follow Weight",
+                "type": "pro",
                 "description": "Stage sur un projet d’application mobile en Flutter avec une base de données hébergée sur OVH. Cette application, développée lors de mon stage de 2ème année en informatique d'une durée de 2 mois chez un auto-entrepreneur, vise à aider les utilisateurs à comprendre et à agir sur des problématiques personnelles et complexes liées à la perte de poids. À la fin de mon stage, l'application a atteint un niveau de maturité suffisant pour être présentée à une entreprise, qui a repris le projet en partenariat avec l'auto-entrepreneur. C'est pour cela qu'elle n'a pas été publié",
                 "release_date": "02 Juillet 2024",
                 "pdf_link": "static/images/FollowWeight/connexion.pdf",
@@ -84,6 +86,7 @@
             },
             "project3": {
                 "title": "FifApi",
+                "type": "pro",
                 "description": "Une Api pour un project de groupe en fin de deuxième année de mon but informatique. Toute la conception de l'api a été réalisé par moi et un de mes collègues dont un site internet à été crée avec, l'api était publié et gérer depuis github et azure. Tous a été crée de zéro et la conception était en code first.",
                 "release_date": "08 Avril 2024",
                 "images": [
@@ -98,6 +101,7 @@
             },
             "project4": {
                 "title": "YouToo",
+                "type": "perso",
                 "description": "Cette application crée sur Android Studio en kotlin, permet à chaque utilisateur souhaitant atteindre ses objectifs physiques de le faire de manière autonome. Réalisée durant ma première année en informatique (2022/2023) dans un cadre personnel, elle propose des séances de sport conçues spécialement pour chaque utilisateur, avec une adaptation continue des exercices en fonction des progrès et des besoins individuels. Cependant, cette application n'est plus disponible sur les stores en raison d'un manque de temps pour gérer les problématiques liées aux politiques de confidentialité et aux conditions d'utilisation.",
                 "release_date": "01 Aout 2023",
                 "images": [
@@ -118,6 +122,7 @@
             },
             "project5": {
                 "title": "Mes travaux au tour de l'IA",
+                "type": "pro",
                 "description": "Nous travaillons en ia dans notre école et j'ai fait une structure total au tour de tous ce qu'on a appris et de ce qu'on va devoir restitué dans notre projet du premier semestre de la 3ème année en informatique. Il a été corrigé légèrement par un de mes professeur.",
                 "pdf_link": "static/images/IA/ppt_ia.pdf",
                 "release_date": "13 Octobre 2024",
@@ -132,6 +137,7 @@
             
             "project6": {
                 "title": "IA pour prédire la tempréture de plusieur salle",
+                "type": "pro",
                 "description": "C'est un jeux de donnée pour tester une ia une fois en python et une meilleur version en c#. Elle permet de prédire la température de plusieur salle sur plusieur jour, pour le moment les données sont complétement génerer aléatoirement par un des programme python mais cela marche très bien avec de vraie données tant que toutes les données sont présentes.",
                 "release_date": "09 Novembre 2024",
                 "images": [
@@ -145,6 +151,7 @@
             },
             "project7": {
                 "title": "Monster hunter appli mobile",
+                "type": "perso",
                 "description": "Ce projet personnel a été conçu spécialement pour moi, car je suis passionné par l'univers de Monster Hunter. J'ai souhaité créer une véritable application mobile, d'autant plus qu'il n'en existe pas sur le Play Store. Cette application, réalisée en Flutter sur Visual Studio Code, est très simple et vise à m'aider quotidiennement sur la recherche et l'apprentissage dans ce jeux",
                 "release_date": "23 Septembre 2024",
                 "images": [
@@ -155,6 +162,7 @@
             },
             "project8": {
                 "title": "API pour Overwatch",
+                "type": "perso",
                 "description": "Ce projet personnel a été conçu pour deux raisons. La première était de développer une API pour m'aider dans mes révisions de fin de deuxième année en informatique. La seconde était d'obtenir des informations supplémentaires sur des personnages de jeux vidéo que j'apprécie.",
                 "release_date": "06 Mars 2024",
                 "images": [

@@ -185,11 +185,13 @@ function applyTranslations(page) {
        // Vérifiez si la page est "projects"
        if (page === 'projects') {
     const projectTitleElement = document.getElementById('project-title');
-    const projectListElement = document.getElementById('project-list'); 
+    const projectListElementPro = document.getElementById('project-list-pro');
+    const projectListElementPerso = document.getElementById('project-list-perso'); 
 
-    if (projectTitleElement && projectListElement) {
+    if (projectTitleElement && projectListElementPro && projectListElementPerso) {
         projectTitleElement.textContent = content[page].project_title;
-        projectListElement.innerHTML = ''; 
+        projectListElementPro.innerHTML = ''; 
+        projectListElementPerso.innerHTML = '';
         
         Object.keys(content[page].projects).forEach(projectKey => {
             const project = content[page].projects[projectKey];
@@ -268,7 +270,13 @@ function applyTranslations(page) {
                 pdfLink.classList.add('pdf-link'); // Ajout de la classe PDF pour le style
                 projectItem.appendChild(pdfLink);
             }
-            projectListElement.appendChild(projectItem);
+            //projectListElement.appendChild(projectItem);
+
+            if (project.type === "perso") {
+                projectListElementPerso.appendChild(projectItem);
+            } else if (project.type === "pro") {
+                projectListElementPro.appendChild(projectItem);
+            }
         });
     }
 }
