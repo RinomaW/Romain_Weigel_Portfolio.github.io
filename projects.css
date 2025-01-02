@@ -148,3 +148,40 @@ p#content-text {
     font-size: 1.2em;
     text-align: center;
 }
+.skill-button {
+    padding: 5px 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.skill-button:hover {
+    background-color: #0056b3;
+}
+.Competences {
+    margin: 20px 0;
+}
+
+.Competences h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux bulles de passer à la ligne si nécessaire */
+    gap: 10px; /* Espacement entre les bulles */
+}
+
+.skill-bubble {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Bord arrondi */
+    padding: 5px 10px;
+    font-size: 14px;
+    color: #555;
+}

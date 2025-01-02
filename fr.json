@@ -59,6 +59,33 @@
         "title": "Projets",
         "content": "Voici la liste de mes projets.",
         "project_title": "Liste des Projets",
+        "Competences": [
+            "Tous",
+            "Unreal Engine 5",
+            "Kotlin",
+            "C#",
+            "Flutter",
+            "API",
+            "Application",
+            "IA",
+     
+            "Jeux",
+            "Design",
+            "Apprentissage en autodidacte",
+            "Blueprint",
+            "Gestion de projet",
+            "Développement mobile",
+            "Machine Learning",
+            "Prédiction",
+            "Développement en équipe",
+            "Gestion des données",
+            "UI/UX",
+            "Programmation Python",
+            "Visual Studio Code",
+            "Automatisation",
+            "Visual Studio 2022",
+            "Android Studio"
+        ],
         "projects": {
             "project1": {
                 "title": "Lunar Storms",
@@ -71,6 +98,16 @@
                     "static/images/Lunar_Storms_image/island.png",
                     "static/images/Lunar_Storms_image/event_cloud.png"
                 ],
+                "Competences":[
+                    "Jeux",
+                    "Unreal Engine 5",
+                    "Design",
+                    "Apprentissage en autodidacte",
+                    "Application",
+                    "Blueprint",
+                    "Gestion de projet"
+
+                ],
                 "youtube_link": "https://youtu.be/xfFulKDR2Gs",
                 "other_link": "https://rinoma.itch.io/lunar-storms"
             },
@@ -82,6 +119,16 @@
                 "pdf_link": "static/images/FollowWeight/connexion.pdf",
                 "images": [
                     "static/images/FollowWeight/logofollowweight.png"
+                ],
+                "Competences": [
+                    "Flutter",
+                    "Développement mobile",
+                    "Base de données",
+                    "UI/UX",
+                    "Gestion des données",
+                    "Apprentissage en autodidacte",
+                    "Gestion de projet",
+                    "Visual Studio Code"
                 ]
             },
             "project3": {
@@ -97,7 +144,16 @@
                     "static/images/FifApi/commande.png",
                     "static/images/FifApi/test.png"
                 ],
-                "other_link": "https://github.com/0bou0/FifApi"
+                "other_link": "https://github.com/0bou0/FifApi",
+                "Competences": [
+                    "API",
+                    "Développement en équipe",
+                    "Gestion de projet",
+                    "Base de données",
+                    "C#",
+                    "Azure",
+                    "Visual Studio 2022"
+                ]
             },
             "project4": {
                 "title": "YouToo",
@@ -118,7 +174,16 @@
                     "static/images/youtoo/score2.jpg",
                     "static/images/youtoo/information.jpg"
                 ],
-                "youtube_link": "https://youtu.be/E4aB7pB8_Io"
+                "youtube_link": "https://youtu.be/E4aB7pB8_Io",
+                "Competences": [
+                    "Kotlin",
+                    "Développement mobile",
+                    "UI/UX",
+                    "Apprentissage en autodidacte",
+                    "Base de données",
+                    "Gestion de projet",
+                    "Android Studio"
+                ]
             },
             "project5": {
                 "title": "Mes travaux au tour de l'IA",
@@ -132,7 +197,15 @@
                 "static/images/IA/Digits.png",
                 "static/images/IA/train.png"
                 ],
-                "other_link": "https://github.com/RinomaW/IA_ApprentissageSurveill-"
+                "other_link": "https://github.com/RinomaW/IA_ApprentissageSurveill-",
+                "Competences": [
+                    "Machine Learning",
+                    "IA",
+                    "Gestion des données",
+                    "Programmation Python",
+                    "Automatisation",
+                    "Visual Studio Code"
+                ]
             },
             
             "project6": {
@@ -146,7 +219,17 @@
                     "static/images/TemperaturePrediction/donneC.png"
 
                 ],
-                "other_link": "https://github.com/RinomaW/TemperaturePrediction"
+                "other_link": "https://github.com/RinomaW/TemperaturePrediction",
+                "Competences": [
+                    "Machine Learning",
+                    "Prédiction",
+                    "Gestion des données",
+                    "IA",
+                    "Programmation Python",
+                    "Programmation C#",
+                    "Automatisation",
+                    "Apprentissage en autodidacte"
+                ]
 
             },
             "project7": {
@@ -158,6 +241,14 @@
                     "static/images/MonsterHunter/acceuil.jpg",
                     "static/images/MonsterHunter/recherche.jpg",
                     "static/images/MonsterHunter/dragon-monster-monster-hunter.jpg"
+                ],
+                "Competences": [
+                    "Flutter",
+                    "Développement mobile",
+                    "UI/UX",
+                    "Base de données",
+                    "Visual Studio Code"
+                    
                 ]
             },
             "project8": {
@@ -169,7 +260,12 @@
                     "static/images/Overwatch/Overwatch_2_Steam_artwork.jpg",
                     "static/images/Overwatch/over_api.png"
                 ],
-                "other_link": "https://github.com/RomainWEIGEL/Overwatch"
+                "other_link": "https://github.com/RomainWEIGEL/Overwatch",
+                "Competences": [
+                    "API",
+                    "C#",
+                    "Visual Studio 2022"
+                ]
             }
         },
         "link_text": {

@@ -14,6 +14,8 @@
         <img id="presentation-image-nav" src="./static/images/photoCV.jpg" alt="Présentation Image">
         <button onclick="loadPage('introduction')">Présentation</button>
         <button onclick="loadPage('projects')">Projets</button>
+        <!-- <button onclick="loadPage('loisir')">Loisirs</button> -->
+
         <button onclick="loadPage('contact')">Contact</button>
         <div class="lang-switch">
             <button onclick="switchLang('fr')">Français</button>
@@ -187,14 +189,28 @@ function applyTranslations(page) {
     const projectTitleElement = document.getElementById('project-title');
     const projectListElementPro = document.getElementById('project-list-pro');
     const projectListElementPerso = document.getElementById('project-list-perso'); 
+    const skillsContainer = document.getElementById('skills-container'); // Conteneur des compétences
 
     if (projectTitleElement && projectListElementPro && projectListElementPerso) {
         projectTitleElement.textContent = content[page].project_title;
         projectListElementPro.innerHTML = ''; 
         projectListElementPerso.innerHTML = '';
-        
+
+        const skillsSet = new Set(); // Ensemble pour éviter les doublons
+    
+
+        if (content[page].Competences && Array.isArray(content[page].Competences)) {
+            content[page].Competences.forEach(skill => skillsSet.add(skill));
+            }
+
         Object.keys(content[page].projects).forEach(projectKey => {
             const project = content[page].projects[projectKey];
+            
+            // compétences
+            
+
+
+            
 
             const projectItem = document.createElement('div');
             projectItem.classList.add('project-item');
@@ -212,6 +228,7 @@ function applyTranslations(page) {
             projectReleaseDate.classList.add('release-date');
             projectItem.appendChild(projectReleaseDate);
 
+        
             if (project.images && project.images.length >= 0) {
                 const imageContainer = document.createElement('div');
                 imageContainer.classList.add('image-container'); // Ajout de la classe pour le conteneur d'images
@@ -270,7 +287,35 @@ function applyTranslations(page) {
                 pdfLink.classList.add('pdf-link'); // Ajout de la classe PDF pour le style
                 projectItem.appendChild(pdfLink);
             }
+
+            if (project.Competences) {
+    const projectSkills = document.createElement('div'); // Conteneur pour les compétences
+    projectSkills.classList.add('Competences');
+
+    // Création du titre
+    const competenceTitle = document.createElement('h3');
+    competenceTitle.textContent = "Compétences :";
+    projectSkills.appendChild(competenceTitle); // Ajoute le titre au conteneur
+
+    // Crée une div dédiée aux bulles
+    const skillsContainer = document.createElement('div');
+    skillsContainer.classList.add('skills-container'); // Classe CSS pour gérer la disposition
+
+    // Crée une bulle pour chaque compétence
+    project.Competences.forEach(skill => {
+        const skillBubble = document.createElement('span');
+        skillBubble.textContent = skill;
+        skillBubble.classList.add('skill-bubble'); // Ajoute une classe pour styliser chaque bulle
+        skillsContainer.appendChild(skillBubble); // Ajoute chaque bulle dans le conteneur
+    });
+
+    projectSkills.appendChild(skillsContainer); // Ajoute le conteneur des bulles au conteneur principal
+    projectItem.appendChild(projectSkills); // Ajoute le conteneur principal au projet
+}
+
             //projectListElement.appendChild(projectItem);
+
+
 
             if (project.type === "perso") {
                 projectListElementPerso.appendChild(projectItem);
@@ -278,8 +323,56 @@ function applyTranslations(page) {
                 projectListElementPro.appendChild(projectItem);
             }
         });
+
+         // Afficher les compétences
+         skillsSet.forEach(skill => {
+    const skillButton = document.createElement('button');
+    skillButton.textContent = skill;
+    skillButton.classList.add('skill-button');
+    skillButton.addEventListener('click', () => {
+        filterProjectsBySkill(skill);
+    });
+    skillsContainer.appendChild(skillButton);
+});
     }
 }
+
+// Fonction pour filtrer les projets par compétence
+// Fonction pour filtrer les projets par compétence
+function filterProjectsBySkill(skill) {
+    const allProjects = document.querySelectorAll('.project-item');
+    
+    if(skill == "Tous" || skill == "All")
+    {
+        allProjects.forEach(project => {
+            project.style.display = 'block';
+        }   );
+    }
+    
+    else
+     {
+        allProjects.forEach(project => {
+        // Rechercher toutes les compétences associées à ce projet
+        const projectSkills = project.querySelectorAll('.skill-bubble'); // On cible les bulles de compétence
+        let match = false;
+        
+        // Vérifier si une des compétences correspond à celle sélectionnée
+        projectSkills.forEach(skillElement => {
+            if (skillElement.textContent === skill) {
+                match = true;
+            }
+        });
+        
+        // Afficher ou masquer le projet en fonction du résultat du filtre
+        if (match) {
+            project.style.display = 'block'; // Afficher le projet
+        } else {
+            project.style.display = 'none'; // Masquer le projet
+        }
+    });
+}
+}
+
         if (page == "contact") {
             const titleElement = document.getElementById('contact-title');
             const emailLinkElement = document.getElementById('email-link');
