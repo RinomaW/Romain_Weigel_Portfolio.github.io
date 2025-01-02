@@ -14,7 +14,7 @@
         <img id="presentation-image-nav" src="./static/images/photoCV.jpg" alt="Présentation Image">
         <button onclick="loadPage('introduction')">Présentation</button>
         <button onclick="loadPage('projects')">Projets</button>
-        <!-- <button onclick="loadPage('loisir')">Loisirs</button> -->
+        <button onclick="loadPage('loisir')">Loisirs</button>
 
         <button onclick="loadPage('contact')">Contact</button>
         <div class="lang-switch">
@@ -341,37 +341,58 @@ function applyTranslations(page) {
 // Fonction pour filtrer les projets par compétence
 function filterProjectsBySkill(skill) {
     const allProjects = document.querySelectorAll('.project-item');
-    
-    if(skill == "Tous" || skill == "All")
-    {
+
+    if (skill === "Tous" || skill === "All") {
+        // Afficher tous les projets
         allProjects.forEach(project => {
             project.style.display = 'block';
-        }   );
-    }
-    
-    else
-     {
-        allProjects.forEach(project => {
-        // Rechercher toutes les compétences associées à ce projet
-        const projectSkills = project.querySelectorAll('.skill-bubble'); // On cible les bulles de compétence
-        let match = false;
-        
-        // Vérifier si une des compétences correspond à celle sélectionnée
-        projectSkills.forEach(skillElement => {
-            if (skillElement.textContent === skill) {
-                match = true;
-            }
         });
-        
-        // Afficher ou masquer le projet en fonction du résultat du filtre
-        if (match) {
-            project.style.display = 'block'; // Afficher le projet
-        } else {
-            project.style.display = 'none'; // Masquer le projet
-        }
-    });
+    } else {
+        allProjects.forEach(project => {
+            const projectSkills = project.querySelectorAll('.skill-bubble');
+            let match = false;
+
+            projectSkills.forEach(skillElement => {
+                if (skillElement.textContent === skill) {
+                    match = true;
+                }
+            });
+
+            project.style.display = match ? 'block' : 'none';
+        });
+    }
+
+    // Vérification des projets visibles dans chaque catégorie
+    const projectListElementPro = document.getElementById('project-list-pro');
+    const projectListElementPerso = document.getElementById('project-list-perso');
+
+    const divPro = document.getElementById('project-list-pro-div');
+    const divPerso = document.getElementById('project-list-perso-div');
+
+    // Vérifiez si le conteneur pro a des projets visibles
+    const hasVisibleProProjects = Array.from(projectListElementPro.children).some(
+        child => child.style.display === 'block'
+    );
+    divPro.style.display = hasVisibleProProjects ? 'block' : 'none';
+
+    // Vérifiez si le conteneur perso a des projets visibles
+    const hasVisiblePersoProjects = Array.from(projectListElementPerso.children).some(
+        child => child.style.display === 'block'
+    );
+    divPerso.style.display = hasVisiblePersoProjects ? 'block' : 'none';
+
+    // Ajustez la largeur si un seul conteneur est visible
+    if (hasVisibleProProjects && !hasVisiblePersoProjects) {
+        divPro.style.flex = '1';
+    } else if (!hasVisibleProProjects && hasVisiblePersoProjects) {
+        divPerso.style.flex = '1';
+    } else {
+        divPro.style.flex = 'initial';
+        divPerso.style.flex = 'initial';
+    }
 }
-}
+
+
 
         if (page == "contact") {
             const titleElement = document.getElementById('contact-title');
