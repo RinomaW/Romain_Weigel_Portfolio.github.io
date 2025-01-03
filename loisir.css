@@ -32,7 +32,7 @@ main {
 
 .category-wrapper h2 {
     color: #2c3e50;
-    border-bottom: 2px solid #3498db;
+    border-bottom: 2px solid #28a745;
     padding-bottom: 0.5rem;
     margin-bottom: 1.5rem;
 }
@@ -46,7 +46,7 @@ main {
 }
 
 .game-item h3 {
-    color: #3498db;
+    color: #28a745;
     margin-top: 0;
 }
 
@@ -58,7 +58,7 @@ main {
     padding: 1rem 0;
     margin: 1rem 0;
     scrollbar-width: thin;
-    scrollbar-color: #3498db #f0f0f0;
+    scrollbar-color: #28a745 #f0f0f0;
 }
 
 .image-container::-webkit-scrollbar {
@@ -71,7 +71,7 @@ main {
 }
 
 .image-container::-webkit-scrollbar-thumb {
-    background: #3498db;
+    background: #28a745;
     border-radius: 4px;
 }
 
@@ -141,7 +141,7 @@ li:last-child {
 a {
     display: inline-block;
     color: white;
-    background-color: #3498db;
+    background-color: #28a745;
     text-decoration: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;
@@ -150,7 +150,7 @@ a {
 }
 
 a:hover {
-    background-color: #2980b9;
+    background-color: #208337;
 }
 
 /* Responsive design */
@@ -188,7 +188,7 @@ a:hover {
 
 /* Ajouts pour améliorer l'accessibilité */
 .image-container img:focus {
-    outline: 3px solid #3498db;
+    outline: 3px solid #28a745;
     outline-offset: 2px;
 }
 

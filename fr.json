@@ -318,7 +318,8 @@
 "actif": "Inactif",
 "images": [
 "static/images/_loisirs/Over/over_presentation.jpg",
-"static/images/_loisirs/Over/presentation_ana_secours.jpeg"
+"static/images/_loisirs/Over/presentation_ana_secours.jpeg",
+"static/images/_loisirs/Over/gameplay_orisa.jpg"
 ],
 "Description": "Ce jeu a été le premier jeu PC auquel j'ai joué dans ma vie. C'est avec ce jeu que j'ai découvert ce qu'était un jeu FPS compétitif, l'esport, la collaboration en équipe, et les techniques avancées qu'un jeu de ce genre peut proposer. J'y ai beaucoup joué pour m'amuser, mais surtout pour me surpasser en équipe.",
 "NbHeure": ">600h pour tous types de jeux",

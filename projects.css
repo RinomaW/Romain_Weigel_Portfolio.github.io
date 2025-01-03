@@ -161,13 +161,13 @@ p#content-text {
     margin: 5px;
     border: none;
     border-radius: 5px;
-    background-color: #007bff;
+    background-color: #28a745;
     color: white;
     cursor: pointer;
 }
 
 .skill-button:hover {
-    background-color: #0056b3;
+    background-color: #1f8637;
 }
 .Competences {
     margin: 20px 0;
