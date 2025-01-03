@@ -99,11 +99,12 @@ function applyTranslations(page) {
     const presentationButton = document.querySelector("button[onclick=\"loadPage('introduction')\"]");
     const projectsButton = document.querySelector("button[onclick=\"loadPage('projects')\"]");
     const contactButton = document.querySelector("button[onclick=\"loadPage('contact')\"]");
-
+    const loisirButton = document.querySelector("button[onclick=\"loadPage('loisir')\"]");
     if (presentationButton && projectsButton && contactButton) {
         presentationButton.textContent = content.header_buttons.presentation;
         projectsButton.textContent = content.header_buttons.projects;
         contactButton.textContent = content.header_buttons.contact;
+        loisirButton.textContent = content.header_buttons.loisir;
     }
     
 
@@ -413,7 +414,270 @@ function filterProjectsBySkill(skill) {
             // Lien LinkedIn
             linkedinLinkElement.href = "https://www.linkedin.com/in/romainweigel/";
         }
+        
+        if (page === "loisir") {
+    const projectTitleElement = document.getElementById('project-title');
+    const loisirElement = document.getElementById('loisirs-list');
 
+    if (projectTitleElement && loisirElement) {
+        projectTitleElement.textContent = content[page].title;
+        loisirElement.innerHTML = '';
+
+        // Parcourir les catégories principales (Jeux, Street_workout, Dev_perso)
+        Object.entries(content[page].loisirs).forEach(([categoryKey, categoryContent]) => {
+            const categoryWrapper = document.createElement('div');
+            categoryWrapper.classList.add('category-wrapper');
+            
+            const categoryHeader = document.createElement('h2');
+            categoryHeader.textContent = categoryKey.replace('_', ' ');
+            categoryWrapper.appendChild(categoryHeader);
+
+            // Traitement spécial pour chaque catégorie principale
+            if (categoryKey === 'Jeux') {
+                // Parcourir les jeux
+                Object.values(categoryContent).forEach(game => {
+                    const gameItem = createGameSection(game);
+                    categoryWrapper.appendChild(gameItem);
+                });
+            } 
+            else if (categoryKey === 'Street_workout') {
+                const workoutSection = createWorkoutSection(categoryContent);
+                categoryWrapper.appendChild(workoutSection);
+            }
+            else if (categoryKey === 'Dev_perso') {
+                // Parcourir les sous-catégories de Dev_perso
+                Object.entries(categoryContent).forEach(([subCategoryKey, subCategoryContent]) => {
+                    const subSection = createDevPersoSection(subCategoryKey, subCategoryContent);
+                    categoryWrapper.appendChild(subSection);
+                });
+            }
+
+            loisirElement.appendChild(categoryWrapper);
+        });
+    }
+}
+
+// Fonction pour créer une section de jeu
+function createGameSection(game) {
+    const gameItem = document.createElement('div');
+    gameItem.classList.add('game-item');
+
+    // Titre du jeu
+    const gameTitle = document.createElement('h3');
+    gameTitle.textContent = game.title;
+    gameItem.appendChild(gameTitle);
+
+    // Statut actif/inactif
+    if (game.actif) {
+        const statusElement = document.createElement('p');
+        statusElement.textContent = `Statut : ${game.actif}`;
+        gameItem.appendChild(statusElement);
+    }
+
+    // Images
+    if (game.images && game.images.length > 0) {
+        const imageContainer = createImageContainer(game.images, game.title);
+        gameItem.appendChild(imageContainer);
+    }
+
+    // Description
+    if (game.Description) {
+        const description = document.createElement('p');
+        description.textContent = game.Description;
+        gameItem.appendChild(description);
+    }
+
+    // Nombre d'heures
+    if (game.NbHeure) {
+        const hours = document.createElement('p');
+        hours.textContent = `Temps de jeu : ${game.NbHeure}`;
+        gameItem.appendChild(hours);
+    }
+
+    // Liste des jeux joués
+    if (game.Tous_les_jeux_joues) {
+        const gamesList = document.createElement('div');
+        gamesList.classList.add('games-list');
+        const gamesTitle = document.createElement('h4');
+        gamesTitle.textContent = 'Jeux joués :';
+        gamesList.appendChild(gamesTitle);
+        const gamesList_ul = document.createElement('ul');
+        game.Tous_les_jeux_joues.forEach(gameTitle => {
+            const li = document.createElement('li');
+            li.textContent = gameTitle;
+            gamesList_ul.appendChild(li);
+        });
+        gamesList.appendChild(gamesList_ul);
+        gameItem.appendChild(gamesList);
+    }
+
+    // Armes (spécifique à Monster Hunter)
+    if (game.Les_armes_que_je_joue) {
+        const weaponsList = document.createElement('div');
+        weaponsList.classList.add('weapons-list');
+        const weaponsTitle = document.createElement('h4');
+        weaponsTitle.textContent = 'Armes utilisées :';
+        weaponsList.appendChild(weaponsTitle);
+        const weapons_ul = document.createElement('ul');
+        game.Les_armes_que_je_joue.forEach(weapon => {
+            const li = document.createElement('li');
+            li.textContent = weapon;
+            weapons_ul.appendChild(li);
+        });
+        weaponsList.appendChild(weapons_ul);
+        gameItem.appendChild(weaponsList);
+    }
+
+    // Lien externe
+    if (game.lien) {
+        const link = document.createElement('a');
+        link.href = game.lien;
+        link.textContent = 'Voir le profil';
+        link.target = '_blank';
+        gameItem.appendChild(link);
+    }
+
+    return gameItem;
+}
+
+// Fonction pour créer la section Street Workout
+function createWorkoutSection(workoutData) {
+    const workoutItem = document.createElement('div');
+    workoutItem.classList.add('workout-item');
+
+    // Titre
+    const title = document.createElement('h3');
+    title.textContent = workoutData.title;
+    workoutItem.appendChild(title);
+
+    // Images
+    if (workoutData.images && workoutData.images.length > 0) {
+        const imageContainer = createImageContainer(workoutData.images, workoutData.title);
+        workoutItem.appendChild(imageContainer);
+    }
+
+    // Nombre d'années
+    if (workoutData.NbAnnee) {
+        const years = document.createElement('p');
+        years.textContent = `Expérience : ${workoutData.NbAnnee}`;
+        workoutItem.appendChild(years);
+    }
+
+    // Figures maîtrisées
+    if (workoutData.Figure_maitrise) {
+        const masteredSection = createListSection('Figures maîtrisées :', workoutData.Figure_maitrise);
+        workoutItem.appendChild(masteredSection);
+    }
+
+    // Objectifs
+    if (workoutData.Figure_objectif) {
+        const objectivesSection = createListSection('Objectifs :', workoutData.Figure_objectif);
+        workoutItem.appendChild(objectivesSection);
+    }
+
+    return workoutItem;
+}
+
+// Fonction pour créer la section Dev Personnel
+function createDevPersoSection(type, content) {
+    const section = document.createElement('div');
+    section.classList.add('dev-perso-item');
+
+    // Titre de la section
+    const title = document.createElement('h3');
+    title.textContent = content.title;
+    section.appendChild(title);
+
+    // Image unique
+    if (content.image) {
+        const img = document.createElement('img');
+        img.src = content.image;
+        img.alt = content.title;
+        img.classList.add('dev-perso-image');
+        section.appendChild(img);
+    }
+
+    // Liste de livres
+    if (content.listes_livres) {
+        const booksContainer = createImageContainer(content.listes_livres, 'Livres');
+        section.appendChild(booksContainer);
+    }
+
+    // Lien
+    if (content.lien) {
+        const link = document.createElement('a');
+        link.href = content.lien;
+        link.textContent = `Voir ${content.title}`;
+        link.target = '_blank';
+        section.appendChild(link);
+    }
+
+    return section;
+}
+
+function createImageContainer(images, altPrefix) {
+    const imageContainer = document.createElement('div');
+    imageContainer.classList.add('image-container');
+
+    images.forEach(imageSrc => {
+        const img = document.createElement('img');
+        // Ajouter le chemin du dossier static/images
+        const fullImagePath = `${imageSrc}`;
+        img.src = fullImagePath;
+        img.alt = `${altPrefix} image`;
+        
+        // Gestion des erreurs de chargement d'image
+        img.onerror = function() {
+            console.error(`Erreur de chargement de l'image: ${fullImagePath}`);
+            // Optionnel : remplacer par une image par défaut
+            this.src = '/static/images/placeholder.png';
+            this.alt = 'Image non disponible';
+        };
+
+        // Vérifier si l'image est chargée correctement
+        img.onload = function() {
+            console.log(`Image chargée avec succès: ${fullImagePath}`);
+        };
+
+        img.addEventListener('click', () => {
+            window.open(fullImagePath, '_blank');
+        });
+        
+        imageContainer.appendChild(img);
+    });
+
+    return imageContainer;
+}
+
+// Fonction pour vérifier si une image existe
+function checkImageExists(url) {
+    return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve(true);
+        img.onerror = () => resolve(false);
+        img.src = url;
+    });
+}
+
+// Fonction utilitaire pour créer une section de liste
+function createListSection(title, items) {
+    const section = document.createElement('div');
+    section.classList.add('list-section');
+    
+    const sectionTitle = document.createElement('h4');
+    sectionTitle.textContent = title;
+    section.appendChild(sectionTitle);
+
+    const list = document.createElement('ul');
+    items.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        list.appendChild(li);
+    });
+    section.appendChild(list);
+
+    return section;
+}
         }
 
 

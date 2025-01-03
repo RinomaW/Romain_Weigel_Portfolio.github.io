@@ -10,6 +10,16 @@ body {
     min-height: 100vh; /* Assure que le body prend au moins la hauteur de la fenêtre */
 }
 
+#header_style {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+}
+
+
 /* Style pour la navigation */
 .nav {
     background-color: #444; /* Couleur de fond pour la navigation */

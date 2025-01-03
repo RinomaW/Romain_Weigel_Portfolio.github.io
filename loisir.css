@@ -1,0 +1,216 @@
+
+
+#header_style {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+
+    padding: 2.3rem 0;
+    margin-bottom: 2rem;
+}
+
+#project-title {
+    margin: 0;
+    font-size: 2.5rem;
+    color: white;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Styles pour les catégories */
+.category-wrapper {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    padding: 2rem;
+}
+
+.category-wrapper h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Styles pour les items de jeux */
+.game-item {
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.game-item h3 {
+    color: #3498db;
+    margin-top: 0;
+}
+
+/* Conteneur d'images */
+.image-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 1rem 0;
+    margin: 1rem 0;
+    scrollbar-width: thin;
+    scrollbar-color: #3498db #f0f0f0;
+}
+
+.image-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.image-container::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 4px;
+}
+
+.image-container::-webkit-scrollbar-thumb {
+    background: #3498db;
+    border-radius: 4px;
+}
+
+.image-container img {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.image-container img:hover {
+    transform: scale(1.05);
+}
+
+/* Styles pour les listes */
+.games-list, .weapons-list, .list-section {
+    background-color: white;
+    border-radius: 6px;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.games-list h4, .weapons-list h4, .list-section h4 {
+    color: #2c3e50;
+    margin-top: 0;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+/* Styles pour la section workout */
+.workout-item {
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Styles pour la section dev perso */
+.dev-perso-item {
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.dev-perso-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin: 1rem 0;
+}
+
+/* Styles pour les liens */
+a {
+    display: inline-block;
+    color: white;
+    background-color: #3498db;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+a:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .category-wrapper {
+        padding: 1rem;
+    }
+
+    .game-item, .workout-item, .dev-perso-item {
+        padding: 1rem;
+    }
+
+    .image-container img {
+        height: 150px;
+    }
+
+    #project-title {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .image-container img {
+        height: 120px;
+    }
+
+    #project-title {
+        font-size: 1.5rem;
+    }
+
+    .category-wrapper {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Ajouts pour améliorer l'accessibilité */
+.image-container img:focus {
+    outline: 3px solid #3498db;
+    outline-offset: 2px;
+}
+
+/* Animations subtiles */
+.category-wrapper {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* État de chargement */
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+}
