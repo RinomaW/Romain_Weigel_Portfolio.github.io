@@ -188,12 +188,18 @@ function applyTranslations(page) {
        // Vérifiez si la page est "projects"
        if (page === 'projects') {
     const projectTitleElement = document.getElementById('project-title');
+    const projectTitleElementPro = document.getElementById('project_title_pro');
+    const projectTitleElementPerso = document.getElementById('project_title_perso');
+
     const projectListElementPro = document.getElementById('project-list-pro');
     const projectListElementPerso = document.getElementById('project-list-perso'); 
     const skillsContainer = document.getElementById('skills-container'); // Conteneur des compétences
 
     if (projectTitleElement && projectListElementPro && projectListElementPerso) {
         projectTitleElement.textContent = content[page].project_title;
+        projectTitleElementPro.textContent = content[page].project_title_pro;
+        projectTitleElementPerso.textContent = content[page].project_title_perso;
+        
         projectListElementPro.innerHTML = ''; 
         projectListElementPerso.innerHTML = '';
 

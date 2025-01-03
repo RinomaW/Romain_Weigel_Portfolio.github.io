@@ -60,6 +60,8 @@
         "title": "Projets",
         "content": "Voici la liste de mes projets.",
         "project_title": "Liste des Projets",
+        "project_title_pro":"Projet Professionnel",
+        "project_title_perso":"Projet Personnel",
         "Competences": [
             "Tous",
             "Unreal Engine 5",

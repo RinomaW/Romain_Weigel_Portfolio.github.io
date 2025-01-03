@@ -3,7 +3,8 @@
     "header_buttons": {
         "presentation": "Introduction",
         "projects": "Projects",
-        "contact": "Contact"
+        "contact": "Contact",
+        "loisir": "Hobbies"
          
     },
     "introduction": {
@@ -48,33 +49,84 @@
         "title": "Projects",
         "content": "Here is a list of my projects.",
         "project_title": "Project List",
+        "project_title_pro": "Professional Project",
+"project_title_perso": "Personal Project",
+
+        "Competences": [
+            "All",
+            "Unreal Engine 5",
+            "Kotlin",
+            "C#",
+            "Flutter",
+            "API",
+            "Application",
+            "AI",
+            "Games",
+            "Design",
+            "Self-Taught Learning",
+            "Blueprint",
+            "Project Management",
+            "Mobile Development",
+            "Machine Learning",
+            "Prediction",
+            "Team Development",
+            "Data Management",
+            "UI/UX",
+            "Python Programming",
+            "Visual Studio Code",
+            "Automation",
+            "Visual Studio 2022",
+            "Android Studio"
+        ],
         "projects": {
             "project1": {
                 "title": "Lunar Storms",
                 "description": "My game created in Unreal Engine 5 using Blueprints is still in beta and will improve over time. Created exclusively by Romain Weigel, this game offers a multiplayer survival experience on an island where players face enemies and various events. To overcome these challenges, we have powers to help us survive and work as a team. The game was published on itch.io.",
                 "release_date": "October 24, 2024",
+                "type": "perso",
                 "images": [
                     "static/images/Lunar_Storms_image/Logo_LunarStorms.jpg",
                     "static/images/Lunar_Storms_image/menu.png",
                     "static/images/Lunar_Storms_image/island.png",
                     "static/images/Lunar_Storms_image/event_cloud.png"
                 ],
+                "Competences": [
+                    "Games",
+                    "Unreal Engine 5",
+                    "Design",
+                    "Self-Taught Learning",
+                    "Application",
+                    "Blueprint",
+                    "Project Management"
+                ],
                 "youtube_link": "https://youtu.be/xfFulKDR2Gs",
                 "other_link": "https://rinoma.itch.io/lunar-storms"
             },
             "project2": {
                 "title": "Follow Weight",
+                "type": "pro",
                 "description": "An internship project of a mobile application developed in Flutter with a database hosted on OVH. This app, developed during my 2-month second-year computer science internship with an entrepreneur, aims to help users understand and address personal and complex weight loss issues. At the end of my internship, the app reached a maturity level sufficient to be presented to a company, which took over the project in partnership with the entrepreneur, hence it was not published.",
                 "release_date": "July 2, 2024",
                 "pdf_link": "static/images/FollowWeight/connexion.pdf",
                 "images": [
                     "static/images/FollowWeight/logofollowweight.png"
+                ],
+                "Competences": [
+                    "Flutter",
+                    "Mobile Development",
+                    "Database",
+                    "UI/UX",
+                    "Data Management",
+                    "Self-Taught Learning",
+                    "Project Management",
+                    "Visual Studio Code"
                 ]
             },
             "project3": {
                 "title": "FifApi",
                 "description": "An API created for a group project at the end of my second year in my B.Tech. I managed the entire API design with a colleague, including a website built with it. The API was published and managed via GitHub and Azure. Everything was built from scratch using a code-first approach.",
                 "release_date": "April 8, 2024",
+                "type": "pro",
                 "images": [
                     "static/images/FifApi/model.png",
                     "static/images/FifApi/utilisateur.png",
@@ -83,10 +135,20 @@
                     "static/images/FifApi/commande.png",
                     "static/images/FifApi/test.png"
                 ],
+            "Competences": [
+                    "API",
+                    "Team Development",
+                    "Project Management",
+                    "Database",
+                    "C#",
+                    "Azure",
+                    "Visual Studio 2022"
+                ],
                 "other_link": "https://github.com/0bou0/FifApi"
             },
             "project4": {
                 "title": "YouToo",
+                "type": "perso",
                 "description": "This Android Studio app created in Kotlin allows users who want to achieve their fitness goals to do so autonomously. Developed during my first year in computer science (2022/2023) as a personal project, it provides custom workout sessions that adapt to the user's progress and individual needs. However, this app is no longer available on the stores due to lack of time to address privacy policy and terms of use issues.",
                 "release_date": "August 1, 2023",
                 "images": [
@@ -103,6 +165,15 @@
                     "static/images/youtoo/score2.jpg",
                     "static/images/youtoo/information.jpg"
                 ],
+                "Competences": [
+                    "Kotlin",
+                    "Mobile Development",
+                    "UI/UX",
+                    "Self-Taught Learning",
+                    "Database",
+                    "Project Management",
+                    "Android Studio"
+                ],
                 "youtube_link": "https://youtu.be/E4aB7pB8_Io"
             },
             "project5": {
@@ -110,11 +181,20 @@
                 "description": "We study AI at our school, and I have created a full structure around everything we have learned and what we will present in our project for the first semester of the third year in computer science. It was slightly revised by one of my professors.",
                 "pdf_link": "static/images/IA/ppt_ia.pdf",
                 "release_date": "October 13, 2024",
+                "type": "pro",
                 "images": [
                     "static/images/IA/kaggle.png",
                     "static/images/IA/diabetes.png",
                     "static/images/IA/Digits.png",
                     "static/images/IA/train.png"
+                ],
+                "Competences": [
+                    "Machine Learning",
+                    "AI",
+                    "Data Management",
+                    "Python Programming",
+                    "Automation",
+                    "Visual Studio Code"
                 ],
                 "other_link": "https://github.com/RinomaW/IA_ApprentissageSurveill-"
             },
@@ -122,10 +202,17 @@
                 "title": "AI for Predicting Room Temperature",
                 "description": "This is a dataset project to test AI once in Python and a better version in C#. It predicts the temperature of multiple rooms over several days. Currently, the data is entirely randomly generated by one of the Python programs, but it works well with real data as long as all data points are present.",
                 "release_date": "November 9, 2024",
+                "type": "pro",
                 "images": [
                     "static/images/TemperaturePrediction/Excel.png",
                     "static/images/TemperaturePrediction/DonnePy.png",
                     "static/images/TemperaturePrediction/donneC.png"
+                ],
+                "Competences": [
+                    "Python Programming",
+                    "AI",
+                    "Prediction",
+                    "Data Management"
                 ],
                 "other_link": "https://github.com/RinomaW/TemperaturePrediction"
             },
@@ -133,20 +220,34 @@
                 "title": "Monster Hunter Mobile App",
                 "description": "This personal project was designed specifically for myself, as I am passionate about the Monster Hunter universe. I wanted to create a real mobile app, especially since none exist on the Play Store. This app, developed in Flutter on Visual Studio Code, is simple and aims to assist me daily in researching and learning about this game.",
                 "release_date": "September 23, 2024",
+                "type": "perso",
                 "images": [
                     "static/images/MonsterHunter/acceuil.jpg",
                     "static/images/MonsterHunter/recherche.jpg",
                     "static/images/MonsterHunter/dragon-monster-monster-hunter.jpg"
+                ],
+                "Competences": [
+                    "Flutter",
+                    "Mobile Development",
+                    "UI/UX",
+                    "Database",
+                    "Visual Studio Code"
                 ]
             },
             "project8": {
                 "title": "API for Overwatch",
                 "description": "This personal project was created for two reasons. The first was to develop an API to help me with my second-year computer science exams. The second was to gather additional information on video game characters I enjoy.",
                 "release_date": "March 6, 2024",
+                "type": "perso",
                 "images": [
                     "static/images/Overwatch/Overwatch_2_Steam_artwork.jpg",
                     "static/images/Overwatch/over_api.png"
                 ],
+                "Competences": [
+            "API",
+            "C#",
+            "Visual Studio 2022"
+        ],
                 "other_link": "https://github.com/RomainWEIGEL/Overwatch"
             }
         },
@@ -161,5 +262,104 @@
         "email_link": "Send an Email via Gmail",
         "linkedin": "LinkedIn",
         "availability": "I am available: Monday - Friday, 6 PM to 9 PM"
-    }
+    },
+    
+        "loisir": {
+            "title": "My Hobbies",
+            "loisirs": {
+                "Jeux": {
+                    "Monster_Hunter": {
+                        "title": "Monster Hunter",
+                        "Tous_les_jeux_joues": [
+                            "Monster Hunter World",
+                            "Monster Hunter World Iceborne",
+                            "Monster Hunter 3 Ultimate"
+                        ],
+                        "actif": "Active",
+                        "images": [
+                            "static/images/_loisirs/MH/Monster_Hunter_Logo.png",
+                            "static/images/_loisirs/MH/gameplay_anja.jpg",
+                            "static/images/_loisirs/MH/mhw.jpg",
+                            "static/images/_loisirs/MH/gameplay_zora.jpg",
+                            "static/images/_loisirs/MH/monsterhunter3.jpg"
+                        ],
+                        "Description": "This game arrived relatively late in my life, but I became passionate about it when I understood its gameplay (its main drawback being its complexity). This game is a graphical and immersive success in my eyes and takes into account all the elements to succeed in the competitive aspect of the game: team spirit, adventure, and immersion. Every sword strike or hit from any weapon can be felt throughout your body. Honestly, I can only recommend it.",
+                        "NbHeure": ">200h",
+                        "Les_armes_que_je_joue": [
+                            "Hunting Horn",
+                            "Sword and Shield",
+                            "Lance",
+                            "Switch Axe",
+                            "Great Sword",
+                            "Insect Glaive"
+                        ],
+                        "Ma_Tier_Liste_des_armes": "static/images/_loisirs/MH/tier_list.png"
+                    },
+                    "Overwatch": {
+                        "title": "Overwatch",
+                        "actif": "Inactive",
+                        "images": [
+                            "static/images/_loisirs/Over/over_presentation.jpg",
+                            "static/images/_loisirs/Over/presentation_ana_secours.jpeg",
+                            "static/images/_loisirs/Over/gameplay_orisa.jpg"
+                        ],
+                        "Description": "This game was the first PC game I ever played. It’s with this game that I discovered what a competitive FPS is, esports, team collaboration, and the advanced techniques that a game of this genre can offer. I played a lot to have fun, but mostly to push myself to perform as a team.",
+                        "NbHeure": ">600h across all game types",
+                        "lien": "https://overwatch.blizzard.com/fr-fr/career/c057a285be70d6ffb8a927a8%7C8f077c1534424e5a87f913f62644d3ca/"
+                    }
+                },
+                "Street_workout": {
+                    "title": "Street Workout",
+                    "images": [
+                        "static/images/_loisirs/SW/eric_flag_street_workout.jpg",
+                        "static/images/_loisirs/SW/handstand_press.jpg",
+                        "static/images/_loisirs/SW/straddle-planche.jpeg"
+                    ],
+                    "NbAnnee": "4 years",
+                    "Figure_maitrise": [
+                        "Diamond Planche",
+                        "Handstand",
+                        "Diamond Front Lever",
+                        "One-Hand Push-Up",
+                        "Advanced Tuck Planche Push Up",
+                        "Advanced Tuck Front Lever Push Up",
+                        "..."
+                    ],
+                    "Figure_objectif": [
+                        "Straddle Planche",
+                        "Handstand Press",
+                        "Straddle Front Lever",
+                        "Diamond Planche Push Up",
+                        "Diamond Front Lever Push Up",
+                        "..."
+                    ]
+                },
+                "Dev_perso": {
+                    "Podcast": {
+                        "title": "Podcast",
+                        "podcast": "Eric Flag",
+                        "image": "static/images/_loisirs/DevPerso/expension_eric_flag.png",
+                        "lien": "https://open.spotify.com/show/22qMdfxzodMPjBuCe78Di5"
+                    },
+                    "Livres": {
+                        "title": "Books",
+                        "listes_livres": [
+                            "static/images/_loisirs/DevPerso/art_subtil.png",
+                            "static/images/_loisirs/DevPerso/Deep-work.jpg",
+                            "static/images/_loisirs/DevPerso/suis-je-sensible.jpg",
+                            "static/images/_loisirs/DevPerso/temps_infini.jpg"
+                        ]
+                    },
+                    "Videos": {
+                        "title": "Videos",
+                        "videos": "Eric Flag",
+                        "image": "static/images/_loisirs/DevPerso/ytb_eric_flag.png",
+                        "lien": "https://www.youtube.com/c/EricFlag"
+                    }
+                }
+            }
+        }
+    
+    
+    
 }
