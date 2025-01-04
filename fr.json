@@ -44,16 +44,21 @@
         "cv_link_text": "Ouvrir le CV en pdf",
         "activites": {
         "main_title": "Activités",
-        "actualites": [
+        "actualite": 
             {
-                "title": "Recherche de Stage",
-                "content": "A la recherche d'une opportunité de stage en Développement Logiciel ou Applications Mobiles, en Haute-Savoie\n\n👉 Type: Stage\n❓ Domaine: Développement Logiciel, développement en Applications Mobiles ou Développement de jeux vidéo\n\n📍 Ville(s): Annecy, ou aux alentours en Haute-Savoie\n\n🚀 Date de début: 20 Janvier 2025 ou au plus tard le 3 Février 2025\n⌚ Durée: de 14 à 16 semaines\n\n📢 Infos complémentaires: Je suis actuellement localisé à Annecy en Haute-Savoie et je recherche activement une opportunité de stage dans ma région. Passionné par le développement logiciel et les applications mobiles et le développement de jeux vidéo, je suis prêt à m'investir pleinement dans un environnement professionnel propice à l'apprentissage et au développement de ces compétences. \n\nMerci d'avoir pris le temps de lire cette annonce ou d'être passé par ici. Votre intérêt est grandement apprécié !",
-
-                "image": "static/images/Actualite/Stage2025/tablette.jpg"
+               "titre": "Stage de Réalité Virtuelle",
+        "content": "Un stage sera réalisé avec l'UMR CARRTEL. L'objectif est de créer un environnement en réalité virtuelle permettant d'explorer les fonds des lacs de Haute-Savoie.",
+        "date": "Du 3 février 2025 au 16 mai 2025"
 
             }
-        ]
+        
+    },
+    "popup":
+    {
+      "popuptitle": "Un nouveau jeu vient de sortir ! Lunar Storms",
+        "texte": "Découvrez mon tout nouveau jeu ! Un jeu multijoueur de type hero shooter, TPS, rempli d'action et de sensations fortes."
     }
+
         
     },
     "projects": {

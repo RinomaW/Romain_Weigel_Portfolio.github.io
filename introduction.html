@@ -90,6 +90,52 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre pour effet de profondeur */
 }
 
+
+#additional-content-actualite {
+    margin-top: 20px; /* Espace au-dessus du contenu additionnel */
+    background-color: #f9f9f9; /* Couleur de fond claire */
+    border-radius: 8px; /* Coins arrondis */
+    padding: 20px  50px; /* Espace intérieur */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre pour effet de profondeur */
+}
+#additional-content-actualite h2, 
+#additional-content-actualite p, 
+#additional-content-actualite h3, 
+#additional-content-actualite h4, 
+#additional-content-actualite img {
+    max-width: 100%;
+    margin: 10px 0;
+    text-align: center;
+}
+
+#additional-content-actualite img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 10px auto;
+}
+
+#additional-content-actualite h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+#additional-content-actualite h3 {
+    font-size: 1.2rem;
+}
+
+#additional-content-actualite p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+#additional-content-actualite h4 {
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+
+
 /* Styles pour la timeline */
 .timeline {
     display: flex; /* Affiche les éléments de la timeline en ligne */
@@ -211,6 +257,49 @@
     margin-bottom: 2rem;
 }
 
+
+
+.popup {
+    position: fixed;
+    top: 20px;
+    right: 240px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    padding: 20px;
+    z-index: 1000;
+    max-width: 300px;
+}
+
+.popup img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.popup h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.popup p {
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+    text-align: justify !important;
+}
+
+
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+}
         </style>
 </head>
 <body>
@@ -256,6 +345,25 @@
             </div>
         </div>
     </div>
+
+
+    <div id="additional-content-actualite">
+        <h2 id="main_title"></h2>
+        <br>
+        <h3 id="actu_title"></h3>
+        <p id="actu_description"></p>
+        <h4 id="actu_date"></h4>
+        <img src="./static\images\Actualite\Stage2025\umr_carrtel.png" alt="Extra Info Image">
+    </div>
+
+    <div id="popup" class="popup">
+        <span class="close-btn" onclick="  document.getElementById('popup').style.display = 'none';">&times;</span>
+        <div id="clickpopup">
+        <img src="./static/images/Lunar_Storms_image/island.png" alt="Popup Image">
+        <h2 id="popup-title"></h2>
+        <p id="popup-text"></p>*
+    </div>
+    </div>
 <!-- 
     <div id="actualites">
         <h2 id="actualites-title"></h2>
@@ -264,6 +372,9 @@
     <br> -->
 
     <script>
+
+
+
         function toggleImageVisibility() {
             const image = document.getElementById('extra-info-image');
             if (window.innerWidth < 768) {
@@ -276,6 +387,8 @@
         // Appelle la fonction lors du chargement de la page et lors du redimensionnement
         window.addEventListener('load', toggleImageVisibility);
         window.addEventListener('resize', toggleImageVisibility);
+
+        
     </script>
 </body>
 </html>

@@ -43,7 +43,19 @@
                 "institution": "Lycée St-Michel Annecy (74)"
             }
         },
-        "cv_link_text": "Open CV in PDF"
+        "cv_link_text": "Open CV in PDF",
+        "activites": {
+            "main_title": "Activities",
+            "actualite": {
+              "titre": "Virtual Reality Internship",
+              "content": "An internship will be conducted with UMR CARRTEL. The goal is to create a virtual reality environment allowing exploration of the depths of the lakes in Haute-Savoie.",
+              "date": "From February 3, 2025, to May 16, 2025"
+            }
+          },
+          "popup": {
+            "popuptitle": "A new game has been released! Lunar Storms",
+            "texte": "Discover my brand new game! A multiplayer hero shooter, TPS, filled with action and intense sensations."
+          }
     },
     "projects": {
         "title": "Projects",

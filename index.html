@@ -152,6 +152,50 @@ function applyTranslations(page) {
     document.getElementById('formation2-institution').textContent = education.formation2.institution;
 
 
+    const activites = content[page]?.activites;
+    if (activites && activites.actualite) {
+        document.getElementById('main_title').textContent = activites.main_title;
+        const actualite = activites.actualite;
+        document.getElementById('actu_title').textContent = actualite.titre;
+    
+        document.getElementById('actu_description').textContent = actualite.content;
+        document.getElementById('actu_date').textContent = actualite.date;
+    } else {
+        console.error("Les données d'activités ou d'actualité sont manquantes !");
+        console.error(content[page].activites);  // Pour vérifier si 'actualite' est bien présent
+
+    }
+
+    
+    const popup = content[page]?.popup;
+    if (popup) {
+        document.getElementById('popup-title').textContent = popup.popuptitle;
+       
+        document.getElementById('popup-text').textContent = popup.texte;
+    
+    } else {
+        console.error("Les données de popup sont manquantes !");
+        console.error(content[page].popup);  // Pour vérifier si 'actualite' est bien présent
+
+    }
+
+    const popup_div = document.getElementById('clickpopup');
+
+    popup_div.addEventListener('click', redirectToProjects);
+
+    function redirectToProjects() {
+        loadPage("projects")
+        setTimeout(function () {
+            window.scrollTo({
+                top: 500, // Ajuste la valeur pour définir le scroll
+                behavior: 'smooth'
+            });
+        }, 500); // Délai pour s'assurer que la page est bien chargée avant le scroll
+    }
+
+    
+
+
 //    // Remplir la section "Actualités"
 // const actualites = content[page].activites.actualites;
 // document.getElementById('actualites-title').textContent = actualites.main_title;
@@ -199,7 +243,7 @@ function applyTranslations(page) {
         projectTitleElement.textContent = content[page].project_title;
         projectTitleElementPro.textContent = content[page].project_title_pro;
         projectTitleElementPerso.textContent = content[page].project_title_perso;
-        
+
         projectListElementPro.innerHTML = ''; 
         projectListElementPerso.innerHTML = '';
 
