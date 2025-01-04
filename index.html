@@ -680,7 +680,7 @@ function createImageContainer(images, altPrefix) {
         img.onerror = function() {
             console.error(`Erreur de chargement de l'image: ${fullImagePath}`);
             // Optionnel : remplacer par une image par défaut
-            this.src = '/static/images/placeholder.png';
+            this.src = '/static/images/non_dispo.jpg';
             this.alt = 'Image non disponible';
         };
 
