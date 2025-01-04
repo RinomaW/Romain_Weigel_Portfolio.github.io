@@ -76,7 +76,7 @@
             "API",
             "Application",
             "IA",
-     
+            "test",
             "Jeux",
             "Design",
             "Apprentissage en autodidacte",
@@ -159,6 +159,7 @@
                     "Gestion de projet",
                     "Base de données",
                     "C#",
+                    "test",
                     "Azure",
                     "Visual Studio 2022"
                 ]
