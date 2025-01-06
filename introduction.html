@@ -90,6 +90,53 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre pour effet de profondeur */
 }
 
+/* Style pour le contenu additionnel */
+#additional-content-exp {
+    margin-top: 20px; /* Espace au-dessus du contenu additionnel */
+    background-color: #f9f9f9; /* Couleur de fond claire */
+    border-radius: 8px; /* Coins arrondis */
+    padding: 20px 50px; /* Espace intérieur */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre pour effet de profondeur */
+}
+
+/* Style pour la liste des expériences */
+#additional-content-exp ul {
+    list-style-type: none; /* Supprime les puces de la liste */
+    padding: 0;
+}
+
+#additional-content-exp li {
+    margin-bottom: 20px; /* Espace entre les éléments de la liste */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    flex-direction: column;
+}
+
+/* Style pour les images */
+#additional-content-exp img {
+    max-width: 100px; /* Taille maximale des logos */
+    height: auto;
+    border-radius: 8px; /* Coins arrondis pour les images */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-left: 20px; /* Espace entre le texte et l'image */
+}
+
+/* Style pour les titres */
+#additional-content-exp strong {
+    font-size: 1.2em;
+    color: #333;
+}
+
+/* Style pour les descriptions */
+#additional-content-exp span {
+    font-size: 1em;
+    color: #555;
+}
+
+
 
 #additional-content-actualite {
     margin-top: 20px; /* Espace au-dessus du contenu additionnel */
@@ -275,13 +322,17 @@
 .popup img {
     width: 100%;
     border-radius: 8px;
+    margin-top: 10px;
     margin-bottom: 10px;
+    border: 3px solid #ec364e;
 }
+
 
 .popup h2 {
     font-size: 1.2rem;
     font-weight: bold;
     text-align: center;
+    color: #ec364e;
 }
 
 .popup p {
@@ -294,8 +345,8 @@
 
 .close-btn {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 5px;
+    right: 5px;
     cursor: pointer;
     font-size: 24px;
     font-weight: bold;
@@ -344,6 +395,24 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div id="additional-content-exp">
+        <h2 id="Experience_Professionnelle"></h2>
+                <ul>
+                    <li>
+                        <strong id="exp1-title"></strong><span id="exp1-specialization"></span> </strong>
+                        <span id="exp1-dates"></span> <span id="exp1-institution"></span>
+                        <img src=".\static\images\FollowWeight\logofollowweight.png" alt="">
+                    </li>
+                    <br>
+                    <li>
+                        <strong id="exp2-title"></strong> <span id="exp2-specialization"></span> <span id="exp2-dates"></span> <span id="exp2-institution"></span>
+                        <img src="static\images\Onet\logo_onet.png" alt="">
+                    </li>
+                </ul>
+                
+                
     </div>
 
 

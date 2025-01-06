@@ -29,7 +29,7 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <p>&copy; 2024 Romain Weigel. Tous droits réservés.</p>
+            <p>&copy; 2025 Romain Weigel. Tous droits réservés.</p>
             <div class="socials">
                 <a href="#https://www.linkedin.com/in/romainweigel/">LinkedIn</a> |
                 <a href="#https://www.facebook.com/romain.weigel/">Facebook</a> 
@@ -150,6 +150,20 @@ function applyTranslations(page) {
     document.getElementById('formation2-specialization').textContent = education.formation2.specialization;
     document.getElementById('formation2-dates').textContent = education.formation2.dates;
     document.getElementById('formation2-institution').textContent = education.formation2.institution;
+
+
+    const experience = content[page].experience_pro;
+    document.getElementById('Experience_Professionnelle').textContent = content[page].experience_title;
+
+    document.getElementById('exp1-title').textContent = experience.exp1.title;
+    document.getElementById('exp1-specialization').textContent = experience.exp1.specialization;
+    document.getElementById('exp1-dates').textContent = experience.exp1.dates;
+    document.getElementById('exp1-institution').textContent = experience.exp1.institution;
+
+    document.getElementById('exp2-title').textContent = experience.exp2.title;
+    document.getElementById('exp2-specialization').textContent = experience.exp2.specialization;
+    document.getElementById('exp2-dates').textContent = experience.exp2.dates;
+    document.getElementById('exp2-institution').textContent = experience.exp2.institution;
 
 
     const activites = content[page]?.activites;
@@ -349,16 +363,20 @@ function applyTranslations(page) {
     projectSkills.appendChild(competenceTitle); // Ajoute le titre au conteneur
 
     // Crée une div dédiée aux bulles
-    const skillsContainer = document.createElement('div');
-    skillsContainer.classList.add('skills-container'); // Classe CSS pour gérer la disposition
+   // Crée une div dédiée aux bulles
+const skillsContainer = document.createElement('div');
+skillsContainer.classList.add('skills-container'); // Classe CSS pour gérer la disposition
 
-    // Crée une bulle pour chaque compétence
-    project.Competences.forEach(skill => {
-        const skillBubble = document.createElement('span');
-        skillBubble.textContent = skill;
-        skillBubble.classList.add('skill-bubble'); // Ajoute une classe pour styliser chaque bulle
-        skillsContainer.appendChild(skillBubble); // Ajoute chaque bulle dans le conteneur
-    });
+// Crée une bulle pour chaque compétence
+project.Competences.forEach(skill => {
+    const skillBubble = document.createElement('span');
+    skillBubble.textContent = skill;
+    skillBubble.style.cursor = 'pointer'; // Ajoute le curseur clic
+    skillBubble.classList.add('skill-bubble'); // Ajoute une classe pour styliser chaque bulle
+    skillBubble.addEventListener('click', () => filterProjectsBySkill(skill)); // Ajout du filtre au clic
+    skillsContainer.appendChild(skillBubble); // Ajoute chaque bulle dans le conteneur
+});
+
 
     projectSkills.appendChild(skillsContainer); // Ajoute le conteneur des bulles au conteneur principal
     projectItem.appendChild(projectSkills); // Ajoute le conteneur principal au projet
@@ -388,13 +406,10 @@ function applyTranslations(page) {
     }
 }
 
-// Fonction pour filtrer les projets par compétence
-// Fonction pour filtrer les projets par compétence
 function filterProjectsBySkill(skill) {
     const allProjects = document.querySelectorAll('.project-item');
 
     if (skill === "Tous" || skill === "All") {
-        // Afficher tous les projets
         allProjects.forEach(project => {
             project.style.display = 'block';
         });
@@ -413,26 +428,22 @@ function filterProjectsBySkill(skill) {
         });
     }
 
-    // Vérification des projets visibles dans chaque catégorie
     const projectListElementPro = document.getElementById('project-list-pro');
     const projectListElementPerso = document.getElementById('project-list-perso');
 
     const divPro = document.getElementById('project-list-pro-div');
     const divPerso = document.getElementById('project-list-perso-div');
 
-    // Vérifiez si le conteneur pro a des projets visibles
     const hasVisibleProProjects = Array.from(projectListElementPro.children).some(
         child => child.style.display === 'block'
     );
     divPro.style.display = hasVisibleProProjects ? 'block' : 'none';
 
-    // Vérifiez si le conteneur perso a des projets visibles
     const hasVisiblePersoProjects = Array.from(projectListElementPerso.children).some(
         child => child.style.display === 'block'
     );
     divPerso.style.display = hasVisiblePersoProjects ? 'block' : 'none';
 
-    // Ajustez la largeur si un seul conteneur est visible
     if (hasVisibleProProjects && !hasVisiblePersoProjects) {
         divPro.style.flex = '1';
     } else if (!hasVisibleProProjects && hasVisiblePersoProjects) {

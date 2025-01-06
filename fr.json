@@ -41,6 +41,21 @@
                 "institution": "Lycée St-Michel Annecy (74)"
             }
         },
+        "experience_title":"Experience Professionnelle",
+        "experience_pro": {
+            "exp1": {
+                "title": "Stage de 2 mois pour un autoentrepreneur",
+                "specialization": "développement d'une application de soins et minceur",
+                "dates": "de Avril à Juin 2024",
+                "institution": "LES FORMATIONS PASCAL WEIGEL"
+            },
+            "exp2": {
+                "title": "Travail de un mois à la gare",
+                "specialization": "Nettoyage des trains en nuit",
+                "dates": "Août 2022",
+                "institution": "Onet"
+            }
+        },
         "cv_link_text": "Ouvrir le CV en pdf",
         "activites": {
         "main_title": "Activités",
