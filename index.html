@@ -672,13 +672,15 @@ function createImageContainer(images, altPrefix) {
     images.forEach(imageSrc => {
         const img = document.createElement('img');
         // Ajouter le chemin du dossier static/images
-        const fullImagePath = `${imageSrc}`;
-        img.src = fullImagePath;
+        
+        img.src = imageSrc;
         img.alt = `${altPrefix} image`;
+
+   
         
         // Gestion des erreurs de chargement d'image
         img.onerror = function() {
-            console.error(`Erreur de chargement de l'image: ${fullImagePath}`);
+            console.error(`Erreur de chargement de l'image: ${imageSrc}`);
             // Optionnel : remplacer par une image par défaut
             this.src = '/static/images/non_dispo.jpg';
             this.alt = 'Image non disponible';
@@ -686,11 +688,11 @@ function createImageContainer(images, altPrefix) {
 
         // Vérifier si l'image est chargée correctement
         img.onload = function() {
-            console.log(`Image chargée avec succès: ${fullImagePath}`);
+            console.log(`Image chargée avec succès: ${imageSrc}`);
         };
 
         img.addEventListener('click', () => {
-            window.open(fullImagePath, '_blank');
+            window.open(imageSrc, '_blank');
         });
         
         imageContainer.appendChild(img);
