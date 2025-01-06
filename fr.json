@@ -304,10 +304,10 @@
 "actif": "Actif",
 "images": [
 "static/images/Lunar_Storms_image/event_cloud.png",
-"static/images/_loisirs/MH/gameplay_anja.jpg",
-"static/images/_loisirs/MH/mhw.jpg",
-"static/images/_loisirs/MH/gameplay_zora.jpg",
-"static/images/_loisirs/MH/monsterhunter3.jpg"
+"static/images/loisirs/MH/gameplay_anja.jpg",
+"static/images/loisirs/MH/mhw.jpg",
+"static/images/loisirs/MH/gameplay_zora.jpg",
+"static/images/loisirs/MH/monsterhunter3.jpg"
 ],
 "Description": "Ce jeu est arrivé assez tard dans ma vie, mais je m'y suis passionné lorsque j'ai compris son gameplay (son gros point négatif est sa complexité d'appréhension). Ce jeu est une réussite graphique et immersive à mes yeux et prend en compte tous les éléments pour réussir l'aspect compétitif du jeu : l'esprit d'équipe, d'aventure et l'immersion. À chaque coup d'épée ou d'une arme quelconque, on le ressent à travers tout notre corps. Franchement, je ne peux que recommander.",
 "NbHeure": ">200h",
@@ -319,15 +319,15 @@
 "Grande épée",
 "Insecto-Glaive"
 ],
-"Ma_Tier_Liste_des_armes": "static/images/_loisirs/MH/tier_list.png"
+"Ma_Tier_Liste_des_armes": "static/images/loisirs/MH/tier_list.png"
 },
 "Overwatch": {
 "title": "Overwatch",
 "actif": "Inactif",
 "images": [
-"static/images/_loisirs/Over/over_presentation.jpg",
-"static/images/_loisirs/Over/presentation_ana_secours.jpeg",
-"static/images/_loisirs/Over/gameplay_orisa.jpg"
+"static/images/loisirs/Over/over_presentation.jpg",
+"static/images/loisirs/Over/presentation_ana_secours.jpeg",
+"static/images/loisirs/Over/gameplay_orisa.jpg"
 ],
 "Description": "Ce jeu a été le premier jeu PC auquel j'ai joué dans ma vie. C'est avec ce jeu que j'ai découvert ce qu'était un jeu FPS compétitif, l'esport, la collaboration en équipe, et les techniques avancées qu'un jeu de ce genre peut proposer. J'y ai beaucoup joué pour m'amuser, mais surtout pour me surpasser en équipe.",
 "NbHeure": ">600h pour tous types de jeux",
@@ -337,9 +337,9 @@
 "Street_workout": {
 "title": "Street Workout",
 "images": [
-"static/images/_loisirs/SW/eric_flag_street_workout.jpg",
-"static/images/_loisirs/SW/handstand_press.jpg",
-"static/images/_loisirs/SW/straddle-planche.jpeg"
+"static/images/loisirs/SW/eric_flag_street_workout.jpg",
+"static/images/loisirs/SW/handstand_press.jpg",
+"static/images/loisirs/SW/straddle-planche.jpeg"
 ],
 "NbAnnee": "4 ans",
 "Figure_maitrise": [
@@ -364,22 +364,22 @@
 "Podcast": {
 "title": "Podcast",
 "podcast": "Eric Flag",
-"image": "static/images/_loisirs/DevPerso/expension_eric_flag.png",
+"image": "static/images/loisirs/DevPerso/expension_eric_flag.png",
 "lien": "https://open.spotify.com/show/22qMdfxzodMPjBuCe78Di5"
 },
 "Livres": {
 "title": "Livres",
 "listes_livres": [
-"static/images/_loisirs/DevPerso/art_subtil.png",
-"static/images/_loisirs/DevPerso/Deep-work.jpg",
-"static/images/_loisirs/DevPerso/suis-je-sensible.jpg",
-"static/images/_loisirs/DevPerso/temps_infini.jpg"
+"static/images/loisirs/DevPerso/art_subtil.png",
+"static/images/loisirs/DevPerso/Deep-work.jpg",
+"static/images/loisirs/DevPerso/suis-je-sensible.jpg",
+"static/images/loisirs/DevPerso/temps_infini.jpg"
 ]
 },
 "Videos": {
 "title": "Vidéos",
 "videos": "Eric Flag",
-"image": "static/images/_loisirs/DevPerso/ytb_eric_flag.png",
+"image": "static/images/loisirs/DevPerso/ytb_eric_flag.png",
 "lien": "https://www.youtube.com/c/EricFlag"
 }
 }
