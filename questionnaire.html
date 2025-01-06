@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire Cool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9f7f1;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #28a745;
+        }
+
+        .question p {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        textarea {
+            width: 80%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        #response {
+            font-size: 18px;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f4f4f9;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+    </style>
+        <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenue sur mon questionnaire</h1>
+        
+        <div id="questionnaire">
+            <div class="question" id="question-3" style="display: block;">
+                <p>Avez-vous une passion principale ?</p>
+                <button onclick="nextQuestion(4, 'Jeux vidéo')">Jeux vidéo</button>
+                <button onclick="nextQuestion(4, 'Musique')">Musique</button>
+                <button onclick="nextQuestion(4, 'Lecture')">Lecture</button>
+                <button onclick="nextQuestion(4, 'Voyages')">Voyages</button>
+                <button onclick="nextQuestion(4, 'Art')">Art</button>
+                <button onclick="nextQuestion(4, 'Sport')">Sport</button>
+                <button onclick="nextQuestion(4, 'Autre')">Autre</button>
+            </div>
+            
+            <div class="question" id="question-4" style="display: none;">
+                <p>Quel est votre statut ?</p>
+                <button onclick="nextQuestion(5, 'êtes étudiant')">Étudiant</button>
+                <button onclick="nextQuestion(5, 'travaillez')">Travail (Emploi)</button>
+                <button onclick="nextQuestion(5, 'recherchez un stagiaire')">En recherche de stage</button>
+                <button onclick="nextQuestion(5, 'recherchez un emploi')">En recherche d'emploi</button>
+                <button onclick="nextQuestion(5, 'êtes en alternance')">Alternant</button>
+                <button onclick="nextQuestion(5, 'êtes en freelance')">Freelance</button>
+                <button onclick="nextQuestion(5, 'autre')">Autre</button>
+            </div>
+            
+            <div class="question" id="question-5" style="display: none;">
+                <p>Pourquoi êtes-vous ici ?</p>
+                <textarea id="reason"></textarea>
+                <button onclick="showResponse()">Soumettre</button>
+            </div>
+        </div>
+
+        <div id="response" style="display: none;">
+            <h2>Merci pour vos réponses !</h2>
+            <p id="final-response"></p>
+            <button onclick="window.location.href = 'index.html'">Retour à la page d'accueil</button>
+        </div>
+    </div>
+
+    <script>
+        let userAnswers = {
+            passion: null,
+            status: null,
+            reason: ''
+        };
+
+        function nextQuestion(nextQuestionId, answer) {
+            const currentQuestion = document.querySelector(`#question-${nextQuestionId - 1}`);
+            currentQuestion.style.display = 'none'; // Hide current question
+
+            // Mettre à jour les propriétés passion et statut
+            if (nextQuestionId === 4) {
+                userAnswers.passion = answer; // Mettre à jour la passion
+            } else if (nextQuestionId === 5) {
+                userAnswers.status = answer; // Mettre à jour le statut
+            }
+
+            const nextQuestion = document.querySelector(`#question-${nextQuestionId}`);
+            nextQuestion.style.display = 'block'; // Show the next question
+        }
+
+        function showResponse() {
+            const reason = document.getElementById('reason').value;
+            userAnswers.reason = reason; // Store the user's reason for being here
+
+            const responseDiv = document.getElementById('response');
+            const finalResponse = document.getElementById('final-response');
+
+            let responseMessage = `Merci d'avoir pris le temps de répondre !. `;
+
+            responseMessage += `Vous avez une passion pour ${userAnswers.passion}. `;
+
+            if(userAnswers.status == 'autre') {
+                responseMessage += `Vous êtes ici parce que : ${userAnswers.reason}.<br><br>`;
+            } else {
+                responseMessage += `Vous ${userAnswers.status} et vous êtes ici parce que : ${userAnswers.reason}.<br><br>`;
+            }
+
+            responseMessage += `Pour ma part, je suis étudiant, toujours à la recherche de nouvelles expériences qui pourront enrichir mon avenir. Mes passions incluent le sport, le développement personnel, ainsi que les jeux vidéo et l'informatique. Finalement, nous avons sûrement tous une passion ou un travail qui nous convient, ou parfois simplement un divertissement. Ce qui nous lie, c'est cette quête d'expérience et d'enrichissement personnel à travers des activités, même si elles ne rapportent sûrement rien à d'autres dans la vie. Et pourtant, nous sommes ici à en discuter, car ces passions et expériences jouent un rôle essentiel dans notre épanouissement.`;
+
+            finalResponse.innerHTML = responseMessage; // Display the final response
+
+            responseDiv.style.display = 'block'; // Show the response section
+            document.getElementById('questionnaire').style.display = 'none'; // Hide the questionnaire
+        }
+    </script>
+</body>
+
+</html>

@@ -362,7 +362,10 @@
     <div class="content-container">
         <p id="content-text"></p>
         <img id="extra-info-image" src="./static/images/me_walk.jpg" alt="Extra Info Image">
+       
+
     </div>
+    <button id="open-questionnaire-button" onclick=" window.location.href = 'index.html'">Ouvrir le questionnaire</button>
     <div class="pdf-container">
         <iframe id="cv_iframe" title="Aperçu du CV"></iframe>
         <a href="#" target="_blank" class="pdf-download-link"><span id="pdfdownloadlink"></span></a>
@@ -443,7 +446,10 @@
     <script>
 
 
-
+   // Gestion de l'événement de clic sur le bouton
+   document.getElementById('open-questionnaire-button').addEventListener('click', function() {
+           
+        });
         function toggleImageVisibility() {
             const image = document.getElementById('extra-info-image');
             if (window.innerWidth < 768) {

@@ -118,6 +118,16 @@ function applyTranslations(page) {
     document.getElementById('subheading').textContent = content[page].subheading;
     document.getElementById('title_personal').textContent = content[page].title_personal;
     document.getElementById('pdfdownloadlink').textContent = content[page].pdfdownloadlink;
+
+
+//open-questionnaire-button
+// Vérifie la langue et affiche/masque le bouton en conséquence
+    if (currentLang == "fr") {
+        document.getElementById('open-questionnaire-button').style.display = "inline "; // Afficher le bouton
+    } else {
+        document.getElementById('open-questionnaire-button').style.display = "none"; // Masquer le bouton
+    }
+
      // Ajouter le lien PDF à l'iframe et au lien de téléchargement
      const pdfLink = content[page].pdf_link;
     document.querySelector('iframe').src = pdfLink; // Met à jour la source de l'iframe
