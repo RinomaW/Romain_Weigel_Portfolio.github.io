@@ -582,7 +582,14 @@ function createGameSection(game) {
     if (game.lien) {
         const link = document.createElement('a');
         link.href = game.lien;
+        
+        if(currentLang == "fr")
+    {
         link.textContent = 'Voir le profil';
+
+    }else{
+        link.textContent = 'View the profile';
+    }
         link.target = '_blank';
         gameItem.appendChild(link);
     }
@@ -657,7 +664,13 @@ function createDevPersoSection(type, content) {
     if (content.lien) {
         const link = document.createElement('a');
         link.href = content.lien;
+        if(currentLang == "fr")
+    {
         link.textContent = `Voir ${content.title}`;
+
+    }else{
+        link.textContent = `See ${content.title}`;
+    }
         link.target = '_blank';
         section.appendChild(link);
     }
