@@ -677,42 +677,22 @@ function createDevPersoSection(type, content) {
 
     return section;
 }
-
-function createImageContainer(images, altPrefix) {
-    const imageContainer = document.createElement('div');
-    imageContainer.classList.add('image-container');
+// Fonction pour créer un conteneur d'images
+function createImageContainer(images, title) {
+    const container = document.createElement('div');
+    container.classList.add('image-container');
 
     images.forEach(imageSrc => {
         const img = document.createElement('img');
-        // Ajouter le chemin du dossier static/images
-        
         img.src = imageSrc;
-        img.alt = `${altPrefix} image`;
-
-   
-        
-        // Gestion des erreurs de chargement d'image
-        img.onerror = function() {
-            console.error(`Erreur de chargement de l'image: ${imageSrc}`);
-            // Optionnel : remplacer par une image par défaut
-            this.src = '/static/images/non_dispo.jpg';
-            this.alt = 'Image non disponible';
-        };
-
-        // Vérifier si l'image est chargée correctement
-        img.onload = function() {
-            console.log(`Image chargée avec succès: ${imageSrc}`);
-        };
-
-        img.addEventListener('click', () => {
-            window.open(imageSrc, '_blank');
-        });
-        
-        imageContainer.appendChild(img);
+        img.alt = title;
+        img.classList.add('image-item');
+        container.appendChild(img);
     });
 
-    return imageContainer;
+    return container;
 }
+
 
 // Fonction pour vérifier si une image existe
 function checkImageExists(url) {
