@@ -219,6 +219,22 @@ function applyTranslations(page) {
     }
 
     
+    const menage_div = document.getElementById('follow');
+    menage_div.style.cursor = "pointer";
+
+    menage_div.addEventListener('click', redirectToProjects);
+
+    function redirectToProjects() {
+        loadPage("projects")
+        setTimeout(function () {
+            window.scrollTo({
+                top: 600, // Ajuste la valeur pour définir le scroll
+                behavior: 'smooth'
+            });
+        }, 500); // Délai pour s'assurer que la page est bien chargée avant le scroll
+    }
+
+    
 
 
 //    // Remplir la section "Actualités"
