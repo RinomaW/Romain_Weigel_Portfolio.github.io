@@ -17,19 +17,25 @@
             "strong_etat_civil": "Name:",
             "etat_civil": "Romain Weigel",
             "strong_telephone": "Phone:",
-            "telephone": "06 26 33 29 58 (available after 6 PM)",
+            "telephone": "06 26 33 29 58",
             "strong_email": "Email:",
             "email": "romain.weigel@etu.univ-savoie.fr",
             "strong_adresse": "Address:",
             "adresse": "20 Avenue de Brogny, 74000 Annecy",
             "strong_date_naissance": "Date of Birth:",
-            "date_naissance": "February 3, 2004 (20 years old)",
+            "date_naissance": "February 3, 2004 (21 years old)",
             "strong_permis": "License:",
             "permis": "B License"
         },
         "subheading": "About Me",
         "parcour": "My Journey",
         "education": {
+            "formation3": {
+                "title": "2 Year in Gaming Camous for a mastery",
+                "specialization": "G.TECH game developper",
+                "dates": "2025 - 2027",
+                "institution": "Lyon Gaming Campus"
+            },
             "formation1": {
                 "title": "3rd Year in B.Tech",
                 "specialization": "Computer Science",
@@ -300,6 +306,7 @@
                     "Monster_Hunter": {
                         "title": "Monster Hunter",
                         "Tous_les_jeux_joues": [
+                            "Monster Hunter Wilds",
                             "Monster Hunter World",
                             "Monster Hunter World Iceborne",
                             "Monster Hunter 3 Ultimate"
@@ -307,6 +314,8 @@
                         "actif": "Active",
                         "images": [
                             "static/images/_loisirs/MH/Monster_Hunter_Logo.png",
+                            "static/images/_loisirs/MH/mhwilds.png",
+                            "static/images/_loisirs/MH/mhwilds_logo.jpg",
                             "static/images/_loisirs/MH/gameplay_anja.jpg",
                             "static/images/_loisirs/MH/mhw.jpg",
                             "static/images/_loisirs/MH/gameplay_zora.jpg",

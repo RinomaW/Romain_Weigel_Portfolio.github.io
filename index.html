@@ -157,6 +157,11 @@ function applyTranslations(page) {
     document.getElementById('formation1-dates').textContent = education.formation1.dates;
     document.getElementById('formation1-institution').textContent = education.formation1.institution;
 
+    document.getElementById('formation3-title').textContent = education.formation3.title;
+    document.getElementById('formation3-specialization').textContent = education.formation3.specialization;
+    document.getElementById('formation3-dates').textContent = education.formation3.dates;
+    document.getElementById('formation3-institution').textContent = education.formation3.institution;
+
     document.getElementById('formation2-title').textContent = education.formation2.title;
     document.getElementById('formation2-specialization').textContent = education.formation2.specialization;
     document.getElementById('formation2-dates').textContent = education.formation2.dates;
@@ -179,8 +184,14 @@ function applyTranslations(page) {
 
     const activites = content[page]?.activites;
     if (activites && activites.actualite) {
-        document.getElementById('main_title').textContent = activites.main_title;
+        const actualite1 = activites.actualite1;
+        document.getElementById('actu_title1').textContent = actualite1.titre;
+    
+        document.getElementById('actu_description1').textContent = actualite1.content;
+        document.getElementById('actu_date1').textContent = actualite1.date;
+
         const actualite = activites.actualite;
+        document.getElementById('main_title').textContent = activites.main_title;
         document.getElementById('actu_title').textContent = actualite.titre;
     
         document.getElementById('actu_description').textContent = actualite.content;

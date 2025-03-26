@@ -15,19 +15,25 @@
         "strong_etat_civil": "État Civil:",
         "etat_civil": "Romain Weigel",
         "strong_telephone": "Téléphone:",
-        "telephone": "06 26 33 29 58 (disponible après 18h)",
+        "telephone": "06 26 33 29 58",
         "strong_email": "Email:",
-        "email": "romain.weigel@etu.univ-savoie.fr",
+        "email": "romwei0302@gmail.com",
         "strong_adresse": "Adresse:",
         "adresse": "20 Avenue de Brogny, 74000 Annecy",
         "strong_date_naissance": "Date de Naissance:",
-        "date_naissance": "3 Février 2004 (20 ans)",
+        "date_naissance": "3 Février 2004 (21 ans)",
         "strong_permis": "Permis:",
         "permis": "Permis B"
     },
         "subheading": "À propos de moi",
         "parcour":"Mon Parcours",
         "education": {
+            "formation3": {
+                "title": "2 Ans à l'Ecole de jeux vidéo pour un master",
+                "specialization": "G.TECH programmation jeux vidéo",
+                "dates": "2025 - 2027",
+                "institution": "Lyon Gaming Campus"
+            },
             "formation1": {
                 "title": "3ème Année en BUT",
                 "specialization": "informatique",
@@ -41,7 +47,7 @@
                 "institution": "Lycée St-Michel Annecy (74)"
             }
         },
-        "experience_title":"Experience Professionnelle",
+        "experience_title":"Experience Professionnelles",
         "experience_pro": {
             "exp1": {
                 "title": "Stage de 2 mois pour un auto-entrepreneur",
@@ -59,6 +65,13 @@
         "cv_link_text": "Ouvrir le CV en pdf",
         "activites": {
         "main_title": "Activités",
+        "actualite1": 
+            {
+               "titre": "Recherche d'Alterance",
+        "content": "Je vais rentrer en première année de master à gaming campus à Lyon en septembre 2025 et donc je suis à la recherche d'une entreprise pouvant et voulant me prendre afin de concevoir des missions comme la création de jeux vidéo mais également de simulation, prototypage en 3d, création d'environnement immersif, cinématique, effets visuel, réalité virtuelle, Intelligence artificielle (IA), développeur 3d d'application en tous genre (portable, pc, tablette...) ...",
+        "date": "Débutant le 1 Septembre 2025"
+
+            },
         "actualite": 
             {
                "titre": "Stage de Réalité Virtuelle",
@@ -320,7 +333,8 @@
 "actif": "Actif",
 "images": [
 "static/images/loisirs/MH/Monster_Hunter_Logo.png",
-"static/images/loisirs/MH/mhwilds.png",
+"static/images/_loisirs/MH/mhwilds.png",
+"static/images/_loisirs/MH/mhwilds_logo.jpg",
 "static/images/loisirs/MH/gameplay_anja.jpg",
 "static/images/loisirs/MH/mhw.jpg",
 "static/images/loisirs/MH/gameplay_zora.jpg",
