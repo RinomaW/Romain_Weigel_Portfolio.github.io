@@ -67,6 +67,13 @@
         "cv_link_text": "Open CV in PDF",
         "activites": {
             "main_title": "Activities",
+            "actualite1": 
+{
+    "titre": "Looking for an Apprenticeship",
+    "content": "I will be starting my first year of a master's degree at Gaming Campus in Lyon in September 2025, and I am looking for a company willing to take me on for missions such as game development, simulation, 3D prototyping, immersive environment creation, cinematics, visual effects, virtual reality, artificial intelligence (AI), and 3D application development for various platforms (mobile, PC, tablet, etc.).",
+    "date": "Starting on September 1, 2025"
+},
+
             "actualite": {
               "titre": "Virtual Reality Internship",
               "content": "An internship will be conducted with UMR CARRTEL. The goal is to create a virtual reality environment allowing exploration of the depths of the lakes in Haute-Savoie.",
