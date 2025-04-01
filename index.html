@@ -171,6 +171,11 @@ function applyTranslations(page) {
     const experience = content[page].experience_pro;
     document.getElementById('Experience_Professionnelle').textContent = content[page].experience_title;
 
+    document.getElementById('exp3-title').textContent = experience.exp3.title;
+    document.getElementById('exp3-specialization').textContent = experience.exp3.specialization;
+    document.getElementById('exp3-dates').textContent = experience.exp3.dates;
+    document.getElementById('exp3-institution').textContent = experience.exp3.institution;
+
     document.getElementById('exp1-title').textContent = experience.exp1.title;
     document.getElementById('exp1-specialization').textContent = experience.exp1.specialization;
     document.getElementById('exp1-dates').textContent = experience.exp1.dates;

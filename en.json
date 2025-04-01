@@ -51,6 +51,12 @@
         },
         "experience_title": "Professional Experience",
         "experience_pro": {
+            "exp3": {
+                "title": "Development of a virtual reality application to explore the life of an Arctic char.",
+                "specialization": "3-month internship",
+                "dates": "from February to May 2025",
+                "institution": "INRAE"
+            },
             "exp1": {
                 "title": "2-month internship for a self-employed entrepreneur",
                 "specialization": "Development of a healthcare and slimming application",

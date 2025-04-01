@@ -49,15 +49,21 @@
         },
         "experience_title":"Experience Professionnelles",
         "experience_pro": {
+            "exp3": {
+                "title": "Développement d'une application en réalité virtuelle pour décourvrir la vie d'un omble chevalier",
+                "specialization": "Stage de 3 mois",
+                "dates": "de Fevrier à Mai 2025",
+                "institution": "INRAE"
+            },
             "exp1": {
-                "title": "Stage de 2 mois pour un auto-entrepreneur",
-                "specialization": "développement d'une application de soins et minceur",
+                "title": "Développement d'une application mobile de soins et minceur",
+                "specialization": "Stage de 2 mois pour un auto-entrepreneur",
                 "dates": "de Avril à Juin 2024",
                 "institution": "LES FORMATIONS PASCAL WEIGEL"
             },
             "exp2": {
-                "title": "Travail de un mois à la gare",
-                "specialization": "Nettoyage des trains en nuit",
+                "title": "Nettoyage des trains en nuit",
+                "specialization": "Travail de un mois à la gare",
                 "dates": "Août 2022",
                 "institution": "Onet"
             }
