@@ -126,7 +126,9 @@
             "Visual Studio Code",
             "Automatisation",
             "Visual Studio 2022",
-            "Android Studio"
+            "Android Studio",
+              "VR",
+              "Blender"
         ],
         "projects": {
             "project1": {
@@ -308,6 +310,23 @@
                     "API",
                     "C#",
                     "Visual Studio 2022"
+                ]
+            },
+            "project9": {
+                "title": "OmblAventure - Application VR de l'omble chevalier",
+                "type": "pro",
+                "description": "Ce projet a été réalisé durant un stage chez INRAE afin de sensibiliser le monde de l'omble chevalier dans une expérience en réalité virtuelle développé sur UNREAL ENGINE 5",
+                "release_date": "2 Mai 2025",
+                "images": [
+                    "static/images/Overwatch/Overwatch_2_Steam_artwork.jpg",
+                    "static/images/Overwatch/over_api.png"
+                ],
+                "other_link": "https://github.com/RomainINRAE/INRAEOmbleAventure",
+                "Competences": [
+                    "Blueprint",
+                    "Unreal Engine 5",
+                    "Blender",
+                    "VR"
                 ]
             }
         },
