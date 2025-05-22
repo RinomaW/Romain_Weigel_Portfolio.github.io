@@ -137,10 +137,11 @@
                 "description": "Ce projet a été réalisé durant un stage chez INRAE afin de sensibiliser le monde de l'omble chevalier dans une expérience en réalité virtuelle développé sur UNREAL ENGINE 5",
                 "release_date": "2 Mai 2025",
                 "images": [
-                    "static/images/INRAE/logo_inrae.png",
-                    "static/images/INRAE/129.jpg",
+                  
                     "static/images/INRAE/Capture d'écran 2025-04-24 074356.png",
-                    "static/images/INRAE/Capture d'écran 2025-04-24 074554.png"
+                    "static/images/INRAE/Capture d'écran 2025-04-24 074554.png",
+                    "static/images/INRAE/logo_inrae.png",
+                    "static/images/INRAE/129.jpg"
                 ],
                 "youtube_link": "https://youtu.be/u-Ndc8jSK3U",
                 "Competences": [
