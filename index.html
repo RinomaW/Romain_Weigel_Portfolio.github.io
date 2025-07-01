@@ -405,64 +405,66 @@ function applyTranslations(page) {
     competenceTitle.textContent = "Compétences :";
     projectSkills.appendChild(competenceTitle); // Ajoute le titre au conteneur
 
-    // Crée une div dédiée aux bulles
-   // Crée une div dédiée aux bulles
-const skillsContainer = document.createElement('div');
-skillsContainer.classList.add('skills-container'); // Classe CSS pour gérer la disposition
+   // Création du conteneur des compétences (bouton + dropdown)
+const skillsDropdownContainer = document.createElement('div');
+skillsDropdownContainer.classList.add('skills-dropdown-container'); // Pour styler si besoin
 
-// Crée un select pour choisir la compétence
-const skillSelect = document.createElement('select');
-skillSelect.classList.add('skill-select');
+// Création du bouton principal
+const skillButton = document.createElement('button');
+skillButton.textContent = "Filtrer par compétence"; // Texte par défaut
+skillButton.classList.add('skill-dropdown-button');
+skillButton.type = 'button';
 
-// Option "Tous" par défaut
-const optionAll = document.createElement('option');
-optionAll.value = "Tous";
-optionAll.textContent = "Toutes les compétences";
-skillSelect.appendChild(optionAll);
+// Création de la liste déroulante (initialement cachée)
+const skillsList = document.createElement('ul');
+skillsList.classList.add('skill-dropdown-list');
+skillsList.style.display = 'none'; // cachée au départ
+skillsList.style.position = 'absolute'; // pour dropdown classique
+skillsList.style.listStyle = 'none';
+skillsList.style.margin = 0;
+skillsList.style.padding = '5px 0';
+skillsList.style.background = '#fff';
+skillsList.style.border = '1px solid #ccc';
+skillsList.style.width = '200px';
+skillsList.style.maxHeight = '200px';
+skillsList.style.overflowY = 'auto';
+skillsList.style.zIndex = 1000;
 
-// Ajoute chaque compétence comme option dans la liste déroulante
-project.Competences.forEach(skill => {
-    const option = document.createElement('option');
-    option.value = skill;
-    option.textContent = skill;
-    skillSelect.appendChild(option);
+// Fonction pour afficher/masquer la liste
+skillButton.addEventListener('click', () => {
+    skillsList.style.display = (skillsList.style.display === 'none') ? 'block' : 'none';
 });
 
-// Ajoute un événement pour filtrer les projets au changement de sélection
-skillSelect.addEventListener('change', () => {
-    filterProjectsBySkill(skillSelect.value);
-});
+// Ajout des compétences dans la liste déroulante
+skillsSet.forEach(skill => {
+    const li = document.createElement('li');
+    li.textContent = skill;
+    li.style.padding = '5px 10px';
+    li.style.cursor = 'pointer';
 
-// Ajoute le select au container
-skillsContainer.appendChild(skillSelect);
-
-
-
-    projectSkills.appendChild(skillsContainer); // Ajoute le conteneur des bulles au conteneur principal
-    projectItem.appendChild(projectSkills); // Ajoute le conteneur principal au projet
-}
-
-            //projectListElement.appendChild(projectItem);
-
-            if (project.type === "perso") {
-                projectListElementPerso.appendChild(projectItem);
-            } else if (project.type === "pro") {
-                projectListElementPro.appendChild(projectItem);
-            }
-        });
-
-         // Afficher les compétences
-         skillsSet.forEach(skill => {
-    const skillButton = document.createElement('button');
-    skillButton.textContent = skill;
-    skillButton.classList.add('skill-button');
-    skillButton.addEventListener('click', () => {
+    li.addEventListener('click', () => {
+        // Met à jour le texte du bouton
+        skillButton.textContent = skill;
+        // Cache la liste
+        skillsList.style.display = 'none';
+        // Filtre les projets
         filterProjectsBySkill(skill);
     });
-    skillsContainer.appendChild(skillButton);
+
+    // Style au survol
+    li.addEventListener('mouseenter', () => li.style.backgroundColor = '#eee');
+    li.addEventListener('mouseleave', () => li.style.backgroundColor = 'transparent');
+
+    skillsList.appendChild(li);
 });
-    }
-}
+
+// Ajout du bouton et de la liste dans le container
+skillsDropdownContainer.appendChild(skillButton);
+skillsDropdownContainer.appendChild(skillsList);
+
+// Ensuite, ajoute ce container où tu veux dans le DOM, par exemple :
+document.getElementById('some-container').appendChild(skillsDropdownContainer);
+
 
 function filterProjectsBySkill(skill) {
     const allProjects = document.querySelectorAll('.project-item');
