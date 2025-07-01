@@ -152,28 +152,3 @@ footer a:hover {
 }
 
 
-#skills-filter {
-    margin-bottom: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.filter-btn {
-    background-color: #eee;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.3s;
-}
-
-.filter-btn:hover {
-    background-color: #ccc;
-}
-
-.filter-btn.active {
-    background-color: #007bff;
-    color: white;
-}
