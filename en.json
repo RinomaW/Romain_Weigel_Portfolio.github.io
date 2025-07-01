@@ -189,31 +189,7 @@
                     "Visual Studio Code"
                 ]
             },
-            "project3": {
-                "title": "FifApi",
-                "description": "An API created for a group project at the end of my second year in my B.Tech. I managed the entire API design with a colleague, including a website built with it. The API was published and managed via GitHub and Azure. Everything was built from scratch using a code-first approach.",
-                "release_date": "April 8, 2024",
-                "type": "pro",
-                "images": [
-                    "static/images/FifApi/model.png",
-                    "static/images/FifApi/utilisateur.png",
-                    "static/images/FifApi/produits.png",
-                    "static/images/FifApi/Categorie.png",
-                    "static/images/FifApi/commande.png",
-                    "static/images/FifApi/test.png"
-                ],
-            "Competences": [
-                    "API",
-                    "Team Development",
-                    "Project Management",
-                    "Database",
-                    "C#",
-                    "test",
-                    "Azure",
-                    "Visual Studio 2022"
-                ],
-                "other_link": "https://github.com/0bou0/FifApi"
-            },
+            
             "project4": {
                 "title": "YouToo",
                 "type": "perso",
@@ -317,6 +293,31 @@
             "Visual Studio 2022"
         ],
                 "other_link": "https://github.com/RomainWEIGEL/Overwatch"
+            },
+            "project3": {
+                "title": "FifApi",
+                "description": "An API created for a group project at the end of my second year in my B.Tech. I managed the entire API design with a colleague, including a website built with it. The API was published and managed via GitHub and Azure. Everything was built from scratch using a code-first approach.",
+                "release_date": "April 8, 2024",
+                "type": "pro",
+                "images": [
+                    "static/images/FifApi/model.png",
+                    "static/images/FifApi/utilisateur.png",
+                    "static/images/FifApi/produits.png",
+                    "static/images/FifApi/Categorie.png",
+                    "static/images/FifApi/commande.png",
+                    "static/images/FifApi/test.png"
+                ],
+            "Competences": [
+                    "API",
+                    "Team Development",
+                    "Project Management",
+                    "Database",
+                    "C#",
+                    "test",
+                    "Azure",
+                    "Visual Studio 2022"
+                ],
+                "other_link": "https://github.com/0bou0/FifApi"
             }
         },
         "link_text": {

@@ -195,31 +195,7 @@
                     "Visual Studio Code"
                 ]
             },
-            "project3": {
-                "title": "FifApi",
-                "type": "pro",
-                "description": "Une Api pour un project de groupe en fin de deuxième année de mon but informatique. Toute la conception de l'api a été réalisé par moi et un de mes collègues dont un site internet à été crée avec, l'api était publié et gérer depuis github et azure. Tous a été crée de zéro et la conception était en code first.",
-                "release_date": "08 Avril 2024",
-                "images": [
-                    "static/images/FifApi/model.png",
-                    "static/images/FifApi/utilisateur.png",
-                    "static/images/FifApi/produits.png",
-                    "static/images/FifApi/Categorie.png",
-                    "static/images/FifApi/commande.png",
-                    "static/images/FifApi/test.png"
-                ],
-                "other_link": "https://github.com/0bou0/FifApi",
-                "Competences": [
-                    "API",
-                    "Développement en équipe",
-                    "Gestion de projet",
-                    "Base de données",
-                    "C#",
-                    "test",
-                    "Azure",
-                    "Visual Studio 2022"
-                ]
-            },
+          
             "project4": {
                 "title": "YouToo",
                 "type": "perso",
@@ -329,6 +305,31 @@
                 "Competences": [
                     "API",
                     "C#",
+                    "Visual Studio 2022"
+                ]
+            },
+              "project3": {
+                "title": "FifApi",
+                "type": "pro",
+                "description": "Une Api pour un project de groupe en fin de deuxième année de mon but informatique. Toute la conception de l'api a été réalisé par moi et un de mes collègues dont un site internet à été crée avec, l'api était publié et gérer depuis github et azure. Tous a été crée de zéro et la conception était en code first.",
+                "release_date": "08 Avril 2024",
+                "images": [
+                    "static/images/FifApi/model.png",
+                    "static/images/FifApi/utilisateur.png",
+                    "static/images/FifApi/produits.png",
+                    "static/images/FifApi/Categorie.png",
+                    "static/images/FifApi/commande.png",
+                    "static/images/FifApi/test.png"
+                ],
+                "other_link": "https://github.com/0bou0/FifApi",
+                "Competences": [
+                    "API",
+                    "Développement en équipe",
+                    "Gestion de projet",
+                    "Base de données",
+                    "C#",
+                    "test",
+                    "Azure",
                     "Visual Studio 2022"
                 ]
             }
