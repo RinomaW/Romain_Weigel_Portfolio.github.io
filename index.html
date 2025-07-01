@@ -405,66 +405,47 @@ function applyTranslations(page) {
     competenceTitle.textContent = "Compétences :";
     projectSkills.appendChild(competenceTitle); // Ajoute le titre au conteneur
 
-   // Création du conteneur des compétences (bouton + dropdown)
-const skillsDropdownContainer = document.createElement('div');
-skillsDropdownContainer.classList.add('skills-dropdown-container'); // Pour styler si besoin
+    // Crée une div dédiée aux bulles
+   // Crée une div dédiée aux bulles
+const skillsContainer = document.createElement('div');
+skillsContainer.classList.add('skills-container'); // Classe CSS pour gérer la disposition
 
-// Création du bouton principal
-const skillButton = document.createElement('button');
-skillButton.textContent = "Filtrer par compétence"; // Texte par défaut
-skillButton.classList.add('skill-dropdown-button');
-skillButton.type = 'button';
-
-// Création de la liste déroulante (initialement cachée)
-const skillsList = document.createElement('ul');
-skillsList.classList.add('skill-dropdown-list');
-skillsList.style.display = 'none'; // cachée au départ
-skillsList.style.position = 'absolute'; // pour dropdown classique
-skillsList.style.listStyle = 'none';
-skillsList.style.margin = 0;
-skillsList.style.padding = '5px 0';
-skillsList.style.background = '#fff';
-skillsList.style.border = '1px solid #ccc';
-skillsList.style.width = '200px';
-skillsList.style.maxHeight = '200px';
-skillsList.style.overflowY = 'auto';
-skillsList.style.zIndex = 1000;
-
-// Fonction pour afficher/masquer la liste
-skillButton.addEventListener('click', () => {
-    skillsList.style.display = (skillsList.style.display === 'none') ? 'block' : 'none';
+// Crée une bulle pour chaque compétence
+project.Competences.forEach(skill => {
+    const skillBubble = document.createElement('span');
+    skillBubble.textContent = skill;
+    skillBubble.style.cursor = 'pointer'; // Ajoute le curseur clic
+    skillBubble.classList.add('skill-bubble'); // Ajoute une classe pour styliser chaque bulle
+    skillBubble.addEventListener('click', () => filterProjectsBySkill(skill)); // Ajout du filtre au clic
+    skillsContainer.appendChild(skillBubble); // Ajoute chaque bulle dans le conteneur
 });
 
-// Ajout des compétences dans la liste déroulante
-skillsSet.forEach(skill => {
-    const li = document.createElement('li');
-    li.textContent = skill;
-    li.style.padding = '5px 10px';
-    li.style.cursor = 'pointer';
 
-    li.addEventListener('click', () => {
-        // Met à jour le texte du bouton
-        skillButton.textContent = skill;
-        // Cache la liste
-        skillsList.style.display = 'none';
-        // Filtre les projets
+    projectSkills.appendChild(skillsContainer); // Ajoute le conteneur des bulles au conteneur principal
+    projectItem.appendChild(projectSkills); // Ajoute le conteneur principal au projet
+}
+
+            //projectListElement.appendChild(projectItem);
+
+            if (project.type === "perso") {
+                projectListElementPerso.appendChild(projectItem);
+            } else if (project.type === "pro") {
+                projectListElementPro.appendChild(projectItem);
+            }
+        });
+
+         // Afficher les compétences
+         skillsSet.forEach(skill => {
+    const skillButton = document.createElement('button');
+    skillButton.textContent = skill;
+    skillButton.classList.add('skill-button');
+    skillButton.addEventListener('click', () => {
         filterProjectsBySkill(skill);
     });
-
-    // Style au survol
-    li.addEventListener('mouseenter', () => li.style.backgroundColor = '#eee');
-    li.addEventListener('mouseleave', () => li.style.backgroundColor = 'transparent');
-
-    skillsList.appendChild(li);
+    skillsContainer.appendChild(skillButton);
 });
-
-// Ajout du bouton et de la liste dans le container
-skillsDropdownContainer.appendChild(skillButton);
-skillsDropdownContainer.appendChild(skillsList);
-
-// Ensuite, ajoute ce container où tu veux dans le DOM, par exemple :
-document.getElementById('some-container').appendChild(skillsDropdownContainer);
-
+    }
+}
 
 function filterProjectsBySkill(skill) {
     const allProjects = document.querySelectorAll('.project-item');
