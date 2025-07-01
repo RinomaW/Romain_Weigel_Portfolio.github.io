@@ -286,192 +286,115 @@ function applyTranslations(page) {
 
 
     }
-       // Vérifiez si la page est "projects"
-       if (page === 'projects') {
-    const projectTitleElement = document.getElementById('project-title');
-    const projectTitleElementPro = document.getElementById('project_title_pro');
-    const projectTitleElementPerso = document.getElementById('project_title_perso');
+    // Récupération du conteneur global du filtre (à placer dans ton HTML)
+const skillsFilter = document.getElementById('skills-filter'); // Ajoute dans HTML : <div id="skills-filter"></div>
 
-    const projectListElementPro = document.getElementById('project-list-pro');
-    const projectListElementPerso = document.getElementById('project-list-perso'); 
-    const skillsContainer = document.getElementById('skills-container'); // Conteneur des compétences
+// ... dans ton if (page === 'projects') ...
 
-    if (projectTitleElement && projectListElementPro && projectListElementPerso) {
-        projectTitleElement.textContent = content[page].project_title;
-        projectTitleElementPro.textContent = content[page].project_title_pro;
-        projectTitleElementPerso.textContent = content[page].project_title_perso;
+// Nettoyer le filtre au chargement
+skillsFilter.innerHTML = '';
 
-        projectListElementPro.innerHTML = ''; 
-        projectListElementPerso.innerHTML = '';
-
-        const skillsSet = new Set(); // Ensemble pour éviter les doublons
-    
-
-        if (content[page].Competences && Array.isArray(content[page].Competences)) {
-            content[page].Competences.forEach(skill => skillsSet.add(skill));
-            }
-
-        Object.keys(content[page].projects).forEach(projectKey => {
-            const project = content[page].projects[projectKey];
-            
-            // compétences
-            
-
-
-            
-
-            const projectItem = document.createElement('div');
-            projectItem.classList.add('project-item');
-
-            const projectTitle = document.createElement('h3');
-            projectTitle.textContent = project.title;
-            projectItem.appendChild(projectTitle);
-
-            const projectDescription = document.createElement('p');
-            projectDescription.textContent = project.description;
-            projectItem.appendChild(projectDescription);
-
-            const projectReleaseDate = document.createElement('p');
-            projectReleaseDate.textContent = `Date de création: ${project.release_date}`;
-            projectReleaseDate.classList.add('release-date');
-            projectItem.appendChild(projectReleaseDate);
-
-        
-            if (project.images && project.images.length >= 0) {
-                const imageContainer = document.createElement('div');
-                imageContainer.classList.add('image-container'); // Ajout de la classe pour le conteneur d'images
-                
-                project.images.forEach(imageSrc => {
-                    const img = document.createElement('img');
-                    img.src = imageSrc;
-                    img.alt = `${project.title} image`;
-
-                    // Ajout d'un gestionnaire d'événements pour ouvrir l'image dans un nouvel onglet
-                    img.addEventListener('click', () => {
-                        window.open(imageSrc, '_blank'); // Ouvre l'image dans un nouvel onglet
-                    });
-
-                    imageContainer.appendChild(img); // Ajouter directement l'image au conteneur
-                });
-                
-                // Ajout du PDF sous forme d'embed si le lien existe
-                if (project.pdf_link) {
-                    const pdfEmbed = document.createElement('embed');
-                    pdfEmbed.src = project.pdf_link;
-                    pdfEmbed.type = "application/pdf";
-                    pdfEmbed.classList.add('pdf-embed');
-                    pdfEmbed.width = "240"; // Ajuster la largeur pour l'alignement
-                    pdfEmbed.height = "320"; // Ajuster la hauteur pour la visibilité
-
-                    imageContainer.appendChild(pdfEmbed);
-                }
-
-                projectItem.appendChild(imageContainer);
-            }
-
-            // Liens vers YouTube et autres
-            if (project.youtube_link) {
-                const youtubeLink = document.createElement('a');
-                youtubeLink.href = project.youtube_link;
-                youtubeLink.textContent = content[page].link_text.youtube; // Utiliser la traduction
-                youtubeLink.target = "_blank";
-                projectItem.appendChild(youtubeLink);
-            }
-
-            if (project.other_link) {
-                const otherLink = document.createElement('a');
-                otherLink.href = project.other_link;
-                otherLink.textContent = content[page].link_text.other; // Utiliser la traduction
-                otherLink.target = "_blank";
-                projectItem.appendChild(otherLink);
-            }
-
-            // Lien PDF
-            if (project.pdf_link) {
-                const pdfLink = document.createElement('a');
-                pdfLink.href = project.pdf_link;
-                pdfLink.textContent = content[page].link_text.pdf; // Utiliser la traduction
-                pdfLink.target = "_blank";
-                pdfLink.classList.add('pdf-link'); // Ajout de la classe PDF pour le style
-                projectItem.appendChild(pdfLink);
-            }
-
-            if (project.Competences) {
-    const projectSkills = document.createElement('div'); // Conteneur pour les compétences
-    projectSkills.classList.add('Competences');
-
-    // Création du titre
-    const competenceTitle = document.createElement('h3');
-    competenceTitle.textContent = "Compétences :";
-    projectSkills.appendChild(competenceTitle); // Ajoute le titre au conteneur
-
-    // Crée une div dédiée aux bulles
-   // Crée une div dédiée aux bulles
-const skillsContainer = document.createElement('div');
-skillsContainer.classList.add('skills-container'); // Classe CSS pour gérer la disposition
-
-// Crée une bulle pour chaque compétence
-project.Competences.forEach(skill => {
-    const skillBubble = document.createElement('span');
-    skillBubble.textContent = skill;
-    skillBubble.style.cursor = 'pointer'; // Ajoute le curseur clic
-    skillBubble.classList.add('skill-bubble'); // Ajoute une classe pour styliser chaque bulle
-    skillBubble.addEventListener('click', () => filterProjectsBySkill(skill)); // Ajout du filtre au clic
-    skillsContainer.appendChild(skillBubble); // Ajoute chaque bulle dans le conteneur
+// Bouton "Tous"
+const allBtn = document.createElement('button');
+allBtn.textContent = 'Tous';
+allBtn.classList.add('filter-btn', 'active'); // actif par défaut
+allBtn.addEventListener('click', () => {
+    filterProjectsBySkill(null);
+    setActiveButton(allBtn);
 });
+skillsFilter.appendChild(allBtn);
 
-
-    projectSkills.appendChild(skillsContainer); // Ajoute le conteneur des bulles au conteneur principal
-    projectItem.appendChild(projectSkills); // Ajoute le conteneur principal au projet
-}
-
-            //projectListElement.appendChild(projectItem);
-
-            if (project.type === "perso") {
-                projectListElementPerso.appendChild(projectItem);
-            } else if (project.type === "pro") {
-                projectListElementPro.appendChild(projectItem);
-            }
-        });
-
-         // Afficher les compétences
-         skillsSet.forEach(skill => {
-    const skillButton = document.createElement('button');
-    skillButton.textContent = skill;
-    skillButton.classList.add('skill-button');
-    skillButton.addEventListener('click', () => {
-        filterProjectsBySkill(skill);
-    });
-    skillsContainer.appendChild(skillButton);
-});
+// Crée un Set pour collecter toutes les compétences
+const skillsSet = new Set();
+Object.keys(content[page].projects).forEach(projectKey => {
+    const project = content[page].projects[projectKey];
+    if (project.Competences) {
+        project.Competences.forEach(skill => skillsSet.add(skill));
     }
+});
+
+// Ajout des boutons compétences dans le filtre global
+skillsSet.forEach(skill => {
+    const btn = document.createElement('button');
+    btn.textContent = skill;
+    btn.classList.add('filter-btn');
+    btn.addEventListener('click', () => {
+        filterProjectsBySkill(skill);
+        setActiveButton(btn);
+    });
+    skillsFilter.appendChild(btn);
+});
+
+// Fonction pour gérer le bouton actif
+function setActiveButton(activeBtn) {
+    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+    activeBtn.classList.add('active');
 }
+
+// Construction des projets
+Object.keys(content[page].projects).forEach(projectKey => {
+    const project = content[page].projects[projectKey];
+
+    const projectItem = document.createElement('div');
+    projectItem.classList.add('project-item');
+
+    // Titre, description, date...
+    const projectTitle = document.createElement('h3');
+    projectTitle.textContent = project.title;
+    projectItem.appendChild(projectTitle);
+
+    const projectDescription = document.createElement('p');
+    projectDescription.textContent = project.description;
+    projectItem.appendChild(projectDescription);
+
+    const projectReleaseDate = document.createElement('p');
+    projectReleaseDate.textContent = `Date de création: ${project.release_date}`;
+    projectReleaseDate.classList.add('release-date');
+    projectItem.appendChild(projectReleaseDate);
+
+    // Images, vidéos, liens, PDF (inchangés, tu peux garder ce que tu avais)
+
+    // Compétences affichées simplement (pas en bulles cliquables)
+    if (project.Competences) {
+        const projectSkills = document.createElement('div');
+        projectSkills.classList.add('Competences');
+
+        const competenceTitle = document.createElement('h4');
+        competenceTitle.textContent = "Compétences :";
+        projectSkills.appendChild(competenceTitle);
+
+        const skillsList = document.createElement('p');
+        skillsList.textContent = project.Competences.join(', ');
+        projectSkills.appendChild(skillsList);
+
+        projectItem.appendChild(projectSkills);
+    }
+
+    // Ajout dans la bonne section
+    if (project.type === "perso") {
+        projectListElementPerso.appendChild(projectItem);
+    } else if (project.type === "pro") {
+        projectListElementPro.appendChild(projectItem);
+    }
+});
 
 function filterProjectsBySkill(skill) {
     const allProjects = document.querySelectorAll('.project-item');
 
-    if (skill === "Tous" || skill === "All") {
-        allProjects.forEach(project => {
-            project.style.display = 'block';
-        });
+    if (!skill) { // null ou undefined => afficher tous
+        allProjects.forEach(project => project.style.display = 'block');
     } else {
         allProjects.forEach(project => {
-            const projectSkills = project.querySelectorAll('.skill-bubble');
-            let match = false;
-
-            projectSkills.forEach(skillElement => {
-                if (skillElement.textContent === skill) {
-                    match = true;
-                }
-            });
-
-            project.style.display = match ? 'block' : 'none';
+            const projectSkills = project.querySelector('.Competences p');
+            if (projectSkills && projectSkills.textContent.includes(skill)) {
+                project.style.display = 'block';
+            } else {
+                project.style.display = 'none';
+            }
         });
     }
 
-    const projectListElementPro = document.getElementById('project-list-pro');
-    const projectListElementPerso = document.getElementById('project-list-perso');
-
+    // Gestion affichage des sections Pro / Perso
     const divPro = document.getElementById('project-list-pro-div');
     const divPerso = document.getElementById('project-list-perso-div');
 
