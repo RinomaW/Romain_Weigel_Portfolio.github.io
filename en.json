@@ -126,6 +126,31 @@
             "Android Studio"
         ],
         "projects": {
+            "project10": {
+                "title": "AI and More in UE5",
+                "description": "This is my ongoing learning journey with Unreal Engine 5, whether in Blueprint or C++. The Blueprint progress shown here is to continue developing Lunar Storms and significantly improve it with new combat systems, new enemy types, and more complex environments. C++ is worked on in parallel to build strong fundamentals and practical knowledge in the language.",
+                "release_date": "July 1, 2025",
+                "type": "personal",
+                "images": [
+                    "static/images/Lunar_Storms_image/Avancement1/nav_mesh_controller.png",
+                    "static/images/Lunar_Storms_image/Avancement1/sense_ai.png",
+                    "static/images/Lunar_Storms_image/Avancement1/sense_ai_active.png",
+                    "static/images/Lunar_Storms_image/Avancement1/pathfinding.png"
+                ],
+                "Competences": [
+                    "Games",
+                    "Unreal Engine 5",
+                    "Blueprint",
+                    "Design",
+                    "C++",
+                    "Self-learning",
+                    "Application",
+                    "AI",
+                    "Project management"
+                ],
+                "youtube_link": "https://youtu.be/5qIHkmSFBqM"
+            },
+
             "project9": {
                 "title": "OmblAventure - VR Application of the Arctic Char",
                 "type": "pro",
