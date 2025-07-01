@@ -410,15 +410,32 @@ function applyTranslations(page) {
 const skillsContainer = document.createElement('div');
 skillsContainer.classList.add('skills-container'); // Classe CSS pour gérer la disposition
 
-// Crée une bulle pour chaque compétence
+// Crée un select pour choisir la compétence
+const skillSelect = document.createElement('select');
+skillSelect.classList.add('skill-select');
+
+// Option "Tous" par défaut
+const optionAll = document.createElement('option');
+optionAll.value = "Tous";
+optionAll.textContent = "Toutes les compétences";
+skillSelect.appendChild(optionAll);
+
+// Ajoute chaque compétence comme option dans la liste déroulante
 project.Competences.forEach(skill => {
-    const skillBubble = document.createElement('span');
-    skillBubble.textContent = skill;
-    skillBubble.style.cursor = 'pointer'; // Ajoute le curseur clic
-    skillBubble.classList.add('skill-bubble'); // Ajoute une classe pour styliser chaque bulle
-    skillBubble.addEventListener('click', () => filterProjectsBySkill(skill)); // Ajout du filtre au clic
-    skillsContainer.appendChild(skillBubble); // Ajoute chaque bulle dans le conteneur
+    const option = document.createElement('option');
+    option.value = skill;
+    option.textContent = skill;
+    skillSelect.appendChild(option);
 });
+
+// Ajoute un événement pour filtrer les projets au changement de sélection
+skillSelect.addEventListener('change', () => {
+    filterProjectsBySkill(skillSelect.value);
+});
+
+// Ajoute le select au container
+skillsContainer.appendChild(skillSelect);
+
 
 
     projectSkills.appendChild(skillsContainer); // Ajoute le conteneur des bulles au conteneur principal
