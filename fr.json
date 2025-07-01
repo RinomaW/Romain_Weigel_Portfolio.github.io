@@ -106,6 +106,7 @@
             "Unreal Engine 5",
             "Kotlin",
             "C#",
+            "C++",
             "Flutter",
             "API",
             "Application",
@@ -131,6 +132,31 @@
               "Blender"
         ],
         "projects": {
+            "project10": {
+                "title": "AI et autre dans ue5",
+                "description": "Voici mon apprentissage constant sur Unreal Engine 5, que ce soit en Blueprint ou en C++. L’avancement du Blueprint est ici pour poursuivre le développement de Lunar Storms et l’améliorer réellement avec de nouveaux systèmes de combat, de nouveaux types d’ennemis et des environnements plus complexes. Le C++ est travaillé en parallèle pour acquérir de solides bases et des connaissances pratiques dans ce langage.",
+                "release_date": "01 Juillet 2025",
+                "type": "perso",
+                "images": [
+                    "static/images/Lunar_Storms_image/Avancement1/nav_mesh_controller.png",
+                    "static/images/Lunar_Storms_image/Avancement1/sense_ai.png",
+                    "static/images/Lunar_Storms_image/Avancement1/sense_ai_active.png",
+                      "static/images/Lunar_Storms_image/Avancement1/pathfinding.png"
+                ],
+                "Competences":[
+                    "Jeux",
+                    "Unreal Engine 5",
+                    "Blueprint",
+                    "Design",
+                    "C++",
+                    "Apprentissage en autodidacte",
+                    "Application",
+                    "IA",
+                    "Gestion de projet"
+
+                ],
+                "youtube_link": "https://youtu.be/5qIHkmSFBqM"
+            },
             "project9": {
                 "title": "OmblAventure - Application VR de l'omble chevalier",
                 "type": "pro",
@@ -153,7 +179,7 @@
             },
             "project1": {
                 "title": "Lunar Storms",
-                "description": "Mon jeu crée sur Unreal Engine 5 en blueprint est encore en phase bêta, et il s'améliorera avec le temps. Créé exclusivement par Romain Weigel, ce jeu offre une expérience de survie multijoueur sur une île où les joueurs affrontent des ennemis et divers événements. Pour surmonter ces défis, nous disposons de pouvoirs permettant de survivre et de travailler en équipe. Ce jeux a été publié depuis itch.io ",
+                "description": "Mon jeu crée sur Unreal Engine 5 en blueprint est encore en phase bêta, et il s'améliorera avec le temps. Créé exclusivement par Romain Weigel, ce jeu offre une expérience de survie multijoueur sur une île où les joueurs affrontent des ennemis et divers événements. Pour surmonter ces défis, nous disposons de pouvoirs permettant de survivre et de travailler en équipe. Ce jeux a été publié depuis itch.io",
                 "release_date": "24 Octobre 2024",
                 "type": "perso",
                 "images": [
