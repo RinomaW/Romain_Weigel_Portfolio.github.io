@@ -340,9 +340,9 @@
                 "Street_workout": {
                     "title": "Street Workout",
                     "images": [
-                        "static/images/_loisirs/SW/eric_flag_street_workout.jpg",
-                        "static/images/_loisirs/SW/handstand_press.jpg",
-                        "static/images/_loisirs/SW/straddle-planche.jpeg"
+                        "static/images/loisirs/SW/eric_flag_street_workout.jpg",
+                        "static/images/loisirs/SW/handstand_press.jpg",
+                        "static/images/loisirs/SW/straddle-planche.jpeg"
                     ],
                     "NbAnnee": "4 years",
                     "Figure_maitrise": [
@@ -367,22 +367,22 @@
                     "Podcast": {
                         "title": "Podcast",
                         "podcast": "Eric Flag",
-                        "image": "static/images/_loisirs/DevPerso/expension_eric_flag.png",
+                        "image": "static/images/loisirs/DevPerso/expension_eric_flag.png",
                         "lien": "https://open.spotify.com/show/22qMdfxzodMPjBuCe78Di5"
                     },
                     "Livres": {
                         "title": "Books",
                         "listes_livres": [
-                            "static/images/_loisirs/DevPerso/art_subtil.png",
-                            "static/images/_loisirs/DevPerso/Deep-work.jpg",
-                            "static/images/_loisirs/DevPerso/suis-je-sensible.jpg",
-                            "static/images/_loisirs/DevPerso/temps_infini.jpg"
+                            "static/images/loisirs/DevPerso/art_subtil.png",
+                            "static/images/loisirs/DevPerso/Deep-work.jpg",
+                            "static/images/loisirs/DevPerso/suis-je-sensible.jpg",
+                            "static/images/loisirs/DevPerso/temps_infini.jpg"
                         ]
                     },
                     "Videos": {
                         "title": "Videos",
                         "videos": "Eric Flag",
-                        "image": "static/images/_loisirs/DevPerso/ytb_eric_flag.png",
+                        "image": "static/images/loisirs/DevPerso/ytb_eric_flag.png",
                         "lien": "https://www.youtube.com/c/EricFlag"
                     }
                 },
@@ -397,13 +397,13 @@
                         ],
                         "actif": "Active",
                         "images": [
-                            "static/images/_loisirs/MH/Monster_Hunter_Logo.png",
-                            "static/images/_loisirs/MH/mhwilds.png",
-                            "static/images/_loisirs/MH/mhwilds_logo.jpg",
-                            "static/images/_loisirs/MH/gameplay_anja.jpg",
-                            "static/images/_loisirs/MH/mhw.jpg",
-                            "static/images/_loisirs/MH/gameplay_zora.jpg",
-                            "static/images/_loisirs/MH/monsterhunter3.jpg"
+                            "static/images/loisirs/MH/Monster_Hunter_Logo.png",
+                            "static/images/loisirs/MH/mhwilds.png",
+                            "static/images/loisirs/MH/mhwilds_logo.jpg",
+                            "static/images/loisirs/MH/gameplay_anja.jpg",
+                            "static/images/loisirs/MH/mhw.jpg",
+                            "static/images/loisirs/MH/gameplay_zora.jpg",
+                            "static/images/loisirs/MH/monsterhunter3.jpg"
                         ],
                         "Description": "This game arrived relatively late in my life, but I became passionate about it when I understood its gameplay (its main drawback being its complexity). This game is a graphical and immersive success in my eyes and takes into account all the elements to succeed in the competitive aspect of the game: team spirit, adventure, and immersion. Every sword strike or hit from any weapon can be felt throughout your body. Honestly, I can only recommend it.",
                         "NbHeure": ">300h",
@@ -415,15 +415,15 @@
                             "Great Sword",
                             "Insect Glaive"
                         ],
-                        "Ma_Tier_Liste_des_armes": "static/images/_loisirs/MH/tier_list.png"
+                        "Ma_Tier_Liste_des_armes": "static/images/loisirs/MH/tier_list.png"
                     },
                     "Overwatch": {
                         "title": "Overwatch",
                         "actif": "Inactive",
                         "images": [
-                            "static/images/_loisirs/Over/over_presentation.jpg",
-                            "static/images/_loisirs/Over/presentation_ana_secours.jpeg",
-                            "static/images/_loisirs/Over/gameplay_orisa.jpg"
+                            "static/images/loisirs/Over/over_presentation.jpg",
+                            "static/images/loisirs/Over/presentation_ana_secours.jpeg",
+                            "static/images/loisirs/Over/gameplay_orisa.jpg"
                         ],
                         "Description": "This game was the first PC game I ever played. It’s with this game that I discovered what a competitive FPS is, esports, team collaboration, and the advanced techniques that a game of this genre can offer. I played a lot to have fun, but mostly to push myself to perform as a team.",
                         "NbHeure": ">600h across all game types",
