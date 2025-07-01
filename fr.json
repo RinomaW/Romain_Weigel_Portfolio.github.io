@@ -89,8 +89,8 @@
     },
     "popup":
     {
-      "popuptitle": "Un nouveau jeu vient de sortir ! Lunar Storms",
-        "texte": "Découvrez mon tout nouveau jeu ! Un jeu multijoueur de type hero shooter, TPS, rempli d'action et de sensations fortes."
+      "popuptitle": "Retrouvez mon avancement sur Unreal Engine 5 concernant mon projet personnel et mon dernier stage",
+        "texte": "Je progresse constamment sur Unreal Engine 5, en Blueprint pour développer mon projet personnel Lunar Storms avec de nouveaux systèmes et environnements, et en C++ pour renforcer mes compétences techniques. Ce travail s’appuie aussi sur mon stage chez INRAE, où j’ai contribué à créer une expérience VR pour sensibiliser à l’ombre chevalier, développée sur Unreal Engine 5."
     }
 
         
