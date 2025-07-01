@@ -126,6 +126,26 @@
             "Android Studio"
         ],
         "projects": {
+            "project9": {
+                "title": "OmblAventure - VR Application of the Arctic Char",
+                "type": "pro",
+                "description": "This project was carried out during an internship at INRAE to raise awareness about the world of the Arctic char through a virtual reality experience developed on UNREAL ENGINE 5",
+                "release_date": "May 2, 2025",
+                "images": [
+                    "static/images/INRAE/Capture d'écran 2025-04-24 074356.png",
+                    "static/images/INRAE/Capture d'écran 2025-04-24 074554.png",
+                    "static/images/INRAE/logo_inrae.png",
+                    "static/images/INRAE/129.jpg"
+                ],
+                "youtube_link": "https://youtu.be/u-Ndc8jSK3U",
+                "Competences": [
+                    "Blueprint",
+                    "Unreal Engine 5",
+                    "Blender",
+                    "VR"
+                ]
+            },
+
             "project1": {
                 "title": "Lunar Storms",
                 "description": "My game created in Unreal Engine 5 using Blueprints is still in beta and will improve over time. Created exclusively by Romain Weigel, this game offers a multiplayer survival experience on an island where players face enemies and various events. To overcome these challenges, we have powers to help us survive and work as a team. The game was published on itch.io.",
