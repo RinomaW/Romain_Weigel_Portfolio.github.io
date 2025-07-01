@@ -87,11 +87,11 @@
             }
         
     },
-    "popup":
-    {
-      "popuptitle": "Retrouvez mon avancement sur Unreal Engine 5 concernant mon projet personnel et mon dernier stage",
-        "texte": "Je progresse constamment sur Unreal Engine 5, en Blueprint pour développer mon projet personnel Lunar Storms avec de nouveaux systèmes et environnements, et en C++ pour renforcer mes compétences techniques. Ce travail s’appuie aussi sur mon stage chez INRAE, où j’ai contribué à créer une expérience VR pour sensibiliser à l’ombre chevalier, développée sur Unreal Engine 5."
-    }
+  "popup": {
+  "popuptitle": "Avancement sur Unreal Engine 5 : projet perso et stage",
+  "texte": "Je progresse sur Unreal Engine 5 en Blueprint avec Lunar Storms et en C++. J’ai aussi contribué à une expérience VR chez INRAE pour sensibiliser à l’ombre chevalier."
+}
+
 
         
     },

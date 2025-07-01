@@ -87,9 +87,10 @@
             }
           },
           "popup": {
-            "popuptitle": "A new game has been released! Lunar Storms",
-            "texte": "Discover my brand new game! A multiplayer hero shooter, TPS, filled with action and intense sensations."
-          }
+            "popuptitle": "Progress on Unreal Engine 5: personal project and internship",
+            "texte": "I’m advancing in Unreal Engine 5 using Blueprint for Lunar Storms and C++. I also contributed to a VR experience at INRAE to raise awareness about the Arctic char."
+            }
+
     },
     "projects": {
         "title": "Projects",
