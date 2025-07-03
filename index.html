@@ -303,13 +303,26 @@ function applyTranslations(page) {
 
         projectListElementPro.innerHTML = ''; 
         projectListElementPerso.innerHTML = '';
+        // Suppose que tu as un élément <select> dans ton HTML avec l'id "skillsCombobox"
+        const skillsCombobox = document.getElementById('skillsCombobox');
 
-        const skillsSet = new Set(); // Ensemble pour éviter les doublons
-    
+        // On vide d'abord la combobox pour éviter les doublons à chaque appel
+        skillsCombobox.innerHTML = '';
 
+        // Vérifie que Competences existe et est bien un tableau
         if (content[page].Competences && Array.isArray(content[page].Competences)) {
-            content[page].Competences.forEach(skill => skillsSet.add(skill));
-            }
+        // Utilise un Set pour éviter les doublons
+        const skillsSet = new Set(content[page].Competences);
+
+        // Pour chaque compétence unique, crée une option dans la combobox
+        skillsSet.forEach(skill => {
+            const option = document.createElement('option');
+            option.value = skill;
+            option.textContent = skill;
+            skillsCombobox.appendChild(option);
+        });
+        }
+
 
         Object.keys(content[page].projects).forEach(projectKey => {
             const project = content[page].projects[projectKey];
