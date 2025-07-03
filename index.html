@@ -442,9 +442,7 @@ if (skillsContainer) {
     // Ajouter une option par défaut
     const defaultOption = document.createElement('option');
     defaultOption.value = '';
-    defaultOption.textContent = 'Sélectionnez une compétence';
-    defaultOption.disabled = true;
-    defaultOption.selected = true;
+    defaultOption.textContent = 'Toutes les compétences';
     skillSelect.appendChild(defaultOption);
     
     // Ajouter les compétences comme options
@@ -457,11 +455,7 @@ if (skillsContainer) {
     
     // Gérer l'événement de changement
     skillSelect.addEventListener('change', (event) => {
-        if (event.target.value) {
-            filterProjectsBySkill(event.target.value);
-            // Réinitialiser la sélection après choix
-            event.target.value = '';
-        }
+        filterProjectsBySkill(event.target.value);
     });
     
     skillsContainer.appendChild(skillSelect);

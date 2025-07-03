@@ -193,3 +193,37 @@ p#content-text {
     font-size: 14px;
     color: #555;
 }
+
+
+.filter-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-label {
+    margin: 0;
+    font-weight: bold;
+    color: #333;
+}
+
+.skills-container select.skill-combobox {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.skills-container select.skill-combobox:hover {
+    border-color: #aaa;
+}
+
+.skills-container select.skill-combobox:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
