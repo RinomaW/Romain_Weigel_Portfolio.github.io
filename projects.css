@@ -193,6 +193,18 @@ p#content-text {
     font-size: 14px;
     color: #555;
 }
+
+
+
+.filter-container {
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto 20px; /* Centre le conteneur et ajoute une marge en bas */
+    max-width: 800px; /* Même largeur que votre project-list */
+    width: 100%;
+}
 /* Harmonisation avec votre style existant */
 .filter-label {
     font-size: 16px;
