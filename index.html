@@ -407,19 +407,33 @@ function applyTranslations(page) {
 
     // Crée une div dédiée aux bulles
    // Crée une div dédiée aux bulles
-const skillsContainer = document.createElement('div');
-skillsContainer.classList.add('skills-container'); // Classe CSS pour gérer la disposition
+const skillsContainer = document.createElement('select');
+skillsContainer.classList.add('skills-combobox'); // Classe CSS pour gérer la disposition
 
-// Crée une bulle pour chaque compétence
-project.Competences.forEach(skill => {
-    const skillBubble = document.createElement('span');
-    skillBubble.textContent = skill;
-    skillBubble.style.cursor = 'pointer'; // Ajoute le curseur clic
-    skillBubble.classList.add('skill-bubble'); // Ajoute une classe pour styliser chaque bulle
-    skillBubble.addEventListener('click', () => filterProjectsBySkill(skill)); // Ajout du filtre au clic
-    skillsContainer.appendChild(skillBubble); // Ajoute chaque bulle dans le conteneur
+// Ajoute une option par défaut
+const defaultOption = document.createElement('option');
+defaultOption.value = '';
+defaultOption.textContent = 'Filtrer par compétence';
+skillsSelect.appendChild(defaultOption);
+
+skillsSet.forEach(skill => {
+    const option = document.createElement('option');
+    option.value = skill;
+    option.textContent = skill;
+    skillsSelect.appendChild(option);
 });
 
+skillsSelect.addEventListener('change', () => {
+    const selectedSkill = skillsSelect.value;
+    if (selectedSkill) {
+        filterProjectsBySkill(selectedSkill);
+    } else {
+        // Si aucune compétence choisie, afficher tous les projets
+        showAllProjects();
+    }
+});
+
+document.body.prepend(skillsSelect);
 
     projectSkills.appendChild(skillsContainer); // Ajoute le conteneur des bulles au conteneur principal
     projectItem.appendChild(projectSkills); // Ajoute le conteneur principal au projet
