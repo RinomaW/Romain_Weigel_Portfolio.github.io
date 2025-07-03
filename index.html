@@ -434,16 +434,38 @@ project.Competences.forEach(skill => {
             }
         });
 
-         // Afficher les compétences
-         skillsSet.forEach(skill => {
-    const skillButton = document.createElement('button');
-    skillButton.textContent = skill;
-    skillButton.classList.add('skill-button');
-    skillButton.addEventListener('click', () => {
-        filterProjectsBySkill(skill);
+        // Afficher les compétences dans une combobox
+if (skillsContainer) {
+    const skillSelect = document.createElement('select');
+    skillSelect.classList.add('skill-combobox');
+    
+    // Ajouter une option par défaut
+    const defaultOption = document.createElement('option');
+    defaultOption.value = '';
+    defaultOption.textContent = 'Sélectionnez une compétence';
+    defaultOption.disabled = true;
+    defaultOption.selected = true;
+    skillSelect.appendChild(defaultOption);
+    
+    // Ajouter les compétences comme options
+    skillsSet.forEach(skill => {
+        const option = document.createElement('option');
+        option.value = skill;
+        option.textContent = skill;
+        skillSelect.appendChild(option);
     });
-    skillsContainer.appendChild(skillButton);
-});
+    
+    // Gérer l'événement de changement
+    skillSelect.addEventListener('change', (event) => {
+        if (event.target.value) {
+            filterProjectsBySkill(event.target.value);
+            // Réinitialiser la sélection après choix
+            event.target.value = '';
+        }
+    });
+    
+    skillsContainer.appendChild(skillSelect);
+}
     }
 }
 
