@@ -407,8 +407,8 @@ function applyTranslations(page) {
 
     // Crée une div dédiée aux bulles
    // Crée une div dédiée aux bulles
-const skillsContainer = document.createElement('select');
-skillsContainer.classList.add('skills-combobox'); // Classe CSS pour gérer la disposition
+const skillsSelect = document.createElement('select');
+skillsSelect.classList.add('skills-combobox'); // Classe CSS pour gérer la disposition
 
 // Ajoute une option par défaut
 const defaultOption = document.createElement('option');
@@ -435,7 +435,7 @@ skillsSelect.addEventListener('change', () => {
 
 document.body.prepend(skillsSelect);
 
-    projectSkills.appendChild(skillsContainer); // Ajoute le conteneur des bulles au conteneur principal
+    projectSkills.appendChild(skillsSelect); // Ajoute le conteneur des bulles au conteneur principal
     projectItem.appendChild(projectSkills); // Ajoute le conteneur principal au projet
 }
 
