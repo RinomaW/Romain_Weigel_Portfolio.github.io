@@ -303,20 +303,29 @@ function applyTranslations(page) {
 
         projectListElementPro.innerHTML = ''; 
         projectListElementPerso.innerHTML = '';
-   // Suppose que tu as un élément <select> dans ton HTML avec l'id "skillsCombobox"
-const skillsCombobox = document.getElementById('skillsCombobox');
+   // Suppose qu'il existe un conteneur où tu veux insérer la combobox.
+// Par exemple, un <div id="skills-container"></div> déjà présent dans ton HTML.
+const skillsContainer = document.getElementById('skills-container');
 
-// On vide d'abord la combobox pour éviter les doublons à chaque appel
-skillsCombobox.innerHTML = '';
+// Crée l'élément <select>
+const skillsCombobox = document.createElement('select');
+skillsCombobox.id = 'skillsCombobox';
 
-let skillsSet = new Set(); // 👈 Déclaré ici, donc visible partout
+// Ajoute une option par défaut
+const defaultOption = document.createElement('option');
+defaultOption.value = '';
+defaultOption.textContent = '-- Choisir une compétence --';
+skillsCombobox.appendChild(defaultOption);
 
-// Vérifie que Competences existe et est bien un tableau
+// Ajoute la combobox au conteneur
+skillsContainer.appendChild(skillsCombobox);
+
+// Vérifie que Competences existe et est un tableau
 if (content[page].Competences && Array.isArray(content[page].Competences)) {
-  // Remplit le Set
-  skillsSet = new Set(content[page].Competences);
+  // Utilise un Set pour éviter les doublons
+  const skillsSet = new Set(content[page].Competences);
 
-  // Pour chaque compétence unique, crée une option dans la combobox
+  // Pour chaque compétence unique, crée une option
   skillsSet.forEach(skill => {
     const option = document.createElement('option');
     option.value = skill;
@@ -324,6 +333,13 @@ if (content[page].Competences && Array.isArray(content[page].Competences)) {
     skillsCombobox.appendChild(option);
   });
 }
+
+// Exemple : écouteur pour réagir au choix
+skillsCombobox.addEventListener('change', function () {
+  const selectedSkill = this.value;
+  console.log('Compétence sélectionnée :', selectedSkill);
+  // Ajoute ici ton filtrage si besoin
+});
 
 
 
