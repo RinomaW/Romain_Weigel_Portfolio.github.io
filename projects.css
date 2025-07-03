@@ -193,37 +193,31 @@ p#content-text {
     font-size: 14px;
     color: #555;
 }
-
-
-.filter-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
+/* Harmonisation avec votre style existant */
 .filter-label {
-    margin: 0;
-    font-weight: bold;
+    font-size: 16px;
     color: #333;
+    margin: 0;
 }
 
 .skills-container select.skill-combobox {
-    padding: 8px 12px;
+    padding: 8px 15px;
     border: 1px solid #ddd;
     border-radius: 4px;
     background-color: white;
     font-size: 14px;
     cursor: pointer;
-    transition: border-color 0.3s;
+    transition: all 0.3s ease;
+    min-width: 200px;
 }
 
 .skills-container select.skill-combobox:hover {
     border-color: #aaa;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .skills-container select.skill-combobox:focus {
     outline: none;
-    border-color: #4a90e2;
-    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+    border-color: #0056b3;
+    box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.2);
 }
