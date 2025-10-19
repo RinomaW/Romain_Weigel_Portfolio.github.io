@@ -132,6 +132,30 @@
               "Blender"
         ],
         "projects": {
+            "project11": {
+                "title": "Out of Breath",
+                "description": "Projet réalisé en 24 heures dans le cadre du Master 1 à Gaming Campus Lyon. Développé sur Unreal Engine 5, 'Out of Breath' est un jeu d'exploration horrifique où le joueur doit s’échapper d’une maison plongée dans le noir. L’atmosphère est angoissante, la pression constante, et un gaz toxique envahit lentement les lieux, forçant le joueur à agir vite avant de suffoquer. Le projet met en avant la gestion du temps, de la tension et de la lumière dans un environnement immersif.",
+                "release_date": "19 Octobre 2025",
+                "type": "pro",
+                "images": [
+                     "static/images/Project24h/bedroom.png",
+                     "static/images/Project24h/kitchen.png",
+                     "static/images/Project24h/room.png",
+                     "static/images/Project24h/batterie.png",
+                     "static/images/Project24h/kitchen_wtf.png"
+                ],
+                "Competences": [
+                    "Jeux",
+                    "Unreal Engine 5",
+                    "Blueprint",
+                    "Design",
+                    "Gestion de projet",
+                    "Apprentissage en autodidacte"
+                ],
+                "youtube_link": "https://youtu.be/jXPcqfHs0uc",
+                "other_link": "https://rinoma.itch.io/out-of-breath"
+            },
+
             "project10": {
                 "title": "AI et autre dans ue5",
                 "description": "Voici mon apprentissage constant sur Unreal Engine 5, que ce soit en Blueprint ou en C++. L’avancement du Blueprint est ici pour poursuivre le développement de Lunar Storms et l’améliorer réellement avec de nouveaux systèmes de combat, de nouveaux types d’ennemis et des environnements plus complexes. Le C++ est travaillé en parallèle pour acquérir de solides bases et des connaissances pratiques dans ce langage.",

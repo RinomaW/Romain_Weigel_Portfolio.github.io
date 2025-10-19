@@ -127,7 +127,29 @@
             "Android Studio"
         ],
         "projects": {
-          
+            "project11": {
+                "title": "Out of Breath",
+                "description": "Project completed in 24 hours as part of the Master 1 program at Gaming Campus Lyon. Developed with Unreal Engine 5, 'Out of Breath' is a horror exploration game where the player must escape from a dark house. The atmosphere is tense, pressure is constant, and a toxic gas slowly fills the environment, forcing the player to act quickly before suffocating. The project emphasizes time, tension, and lighting management in an immersive environment.",
+                "release_date": "19 Octobre 2025",
+                "type": "pro",
+                "images": [
+                     "static/images/Project24h/bedroom.png",
+                     "static/images/Project24h/kitchen.png",
+                     "static/images/Project24h/room.png",
+                     "static/images/Project24h/batterie.png",
+                     "static/images/Project24h/kitchen_wtf.png"
+                ],
+              "Competences": [
+                    "Games",
+                    "Unreal Engine 5",
+                    "Blueprint",
+                    "Design",
+                    "Project Management",
+                    "Self-Taught Learning"
+                ],
+                "youtube_link": "https://youtu.be/jXPcqfHs0uc",
+                "other_link": "https://rinoma.itch.io/out-of-breath"
+            },
             "project10": {
                 "title": "AI and More in UE5",
                 "description": "This is my ongoing learning journey with Unreal Engine 5, whether in Blueprint or C++. The Blueprint progress shown here is to continue developing Lunar Storms and significantly improve it with new combat systems, new enemy types, and more complex environments. C++ is worked on in parallel to build strong fundamentals and practical knowledge in the language.",
