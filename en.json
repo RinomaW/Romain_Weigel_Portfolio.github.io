@@ -86,10 +86,11 @@
               "date": "From February 3, 2025, to May 16, 2025"
             }
           },
-          "popup": {
-            "popuptitle": "Progress on Unreal Engine 5: personal project and internship",
-            "texte": "I’m advancing in Unreal Engine 5 using Blueprint for Lunar Storms and C++. I also contributed to a VR experience at INRAE to raise awareness about the Arctic char."
-          }
+            "popup": {
+    "popuptitle": "24h Project: Project for my Master",
+    "texte": "I recently joined Gaming Campus and I have many projects to work on, but they are not finished yet. Here is a project I completed in less than 24 hours for my school."
+}
+
     },
     "projects": {
         "title": "Projects",
