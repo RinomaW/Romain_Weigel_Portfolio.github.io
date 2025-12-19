@@ -233,3 +233,287 @@ p#content-text {
     border-color: #0056b3;
     box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.2);
 }
+
+
+/* ============================================ */
+/* RESPONSIVE DESIGN - TABLETTES & TÉLÉPHONES (< 768px) */
+/* ============================================ */
+
+@media (max-width: 768px) {
+    /* Header adapté */
+    #header_style {
+        padding: 2rem 0;
+        margin-bottom: 1rem;
+    }
+
+    /* Project list adapté */
+    #project-list {
+        padding: 15px;
+        max-width: 100%;
+        border-radius: 5px;
+    }
+
+    #project-title {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    /* Project items plus compacts */
+    .project-item {
+        padding: 12px;
+        margin-bottom: 15px;
+        border-radius: 6px;
+    }
+
+    .project-item h3 {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .project-item p {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
+    /* Liens de projets plus petits */
+    .project-item a {
+        padding: 6px 10px;
+        font-size: 13px;
+        margin-right: 8px;
+        margin-bottom: 5px;
+        display: inline-block;
+    }
+
+    /* Images réduites */
+    .image-link img {
+        max-width: 80px;
+    }
+
+    /* Images dans le container */
+    .image-container {
+        max-height: 250px;
+        margin-bottom: 15px;
+    }
+
+    .image-container img {
+        max-height: 250px;
+        margin-right: 8px;
+    }
+
+    /* Container passe en vertical sur petit écran */
+    #container {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    /* Les deux divs prennent toute la largeur */
+    #project-list-pro-div,
+    #project-list-perso-div {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+    }
+
+    /* Le séparateur disparaît */
+    #separator {
+        display: none;
+    }
+
+    /* Titre principal */
+    h1#title {
+        font-size: 1.5em;
+        margin: 15px 0;
+    }
+
+    /* Titre des projets */
+    h2#project-title {
+        font-size: 1.2em;
+        margin-bottom: 8px;
+    }
+
+    /* Texte adapté */
+    p#content-text {
+        font-size: 1em;
+    }
+
+    /* Boutons de compétences */
+    .skill-button {
+        padding: 4px 8px;
+        margin: 3px;
+        font-size: 12px;
+    }
+
+    /* Compétences */
+    .Competences {
+        margin: 15px 0;
+    }
+
+    .Competences h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .skills-container {
+        gap: 8px;
+    }
+
+    .skill-bubble {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+
+    /* Filtre adapté */
+    .filter-container {
+        flex-wrap: wrap;
+        max-width: 100%;
+        gap: 8px;
+        margin: 0 auto 15px;
+    }
+
+    .filter-label {
+        font-size: 14px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .skills-container select.skill-combobox {
+        padding: 6px 12px;
+        font-size: 13px;
+        min-width: 100%;
+    }
+}
+
+
+/* ============================================ */
+/* RESPONSIVE DESIGN - TRÈS PETIT TÉLÉPHONE (< 480px) */
+/* ============================================ */
+
+@media (max-width: 480px) {
+    /* Header très réduit */
+    #header_style {
+        padding: 1.5rem 0;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Project list minimal */
+    #project-list {
+        padding: 10px;
+        max-width: 100%;
+    }
+
+    #project-title {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    /* Items très compacts */
+    .project-item {
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .project-item h3 {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+
+    .project-item p {
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+
+    /* Liens minimalistes */
+    .project-item a {
+        padding: 5px 8px;
+        font-size: 12px;
+        margin-right: 5px;
+        margin-bottom: 3px;
+    }
+
+    /* Images très réduites */
+    .image-link img {
+        max-width: 60px;
+    }
+
+    .image-container {
+        max-height: 200px;
+        margin-bottom: 10px;
+    }
+
+    .image-container img {
+        max-height: 200px;
+        margin-right: 5px;
+    }
+
+    /* Container minimal */
+    #container {
+        padding: 10px;
+    }
+
+    #project-list-pro-div,
+    #project-list-perso-div {
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+
+    /* Titre principal */
+    h1#title {
+        font-size: 1.3em;
+        margin: 10px 0;
+    }
+
+    /* Titre des projets */
+    h2#project-title {
+        font-size: 1.1em;
+        margin-bottom: 5px;
+    }
+
+    /* Texte minimal */
+    p#content-text {
+        font-size: 0.9em;
+    }
+
+    /* Boutons minuscules */
+    .skill-button {
+        padding: 3px 6px;
+        margin: 2px;
+        font-size: 11px;
+    }
+
+    /* Compétences */
+    .Competences {
+        margin: 10px 0;
+    }
+
+    .Competences h3 {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .skills-container {
+        gap: 5px;
+    }
+
+    .skill-bubble {
+        padding: 3px 6px;
+        font-size: 11px;
+    }
+
+    /* Filtre très réduit */
+    .filter-container {
+        flex-direction: column;
+        max-width: 100%;
+        gap: 5px;
+        margin: 0 auto 10px;
+    }
+
+    .filter-label {
+        font-size: 13px;
+    }
+
+    .skills-container select.skill-combobox {
+        padding: 5px 10px;
+        font-size: 12px;
+        min-width: 100%;
+    }
+}

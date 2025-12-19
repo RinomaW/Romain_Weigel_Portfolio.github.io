@@ -14,7 +14,6 @@ body {
     background-color: #2c3e50;
     color: white;
     text-align: center;
-
     padding: 3rem 0;
     margin-bottom: 2rem;
 }
@@ -152,3 +151,136 @@ footer a:hover {
 }
 
 
+/* ============================================ */
+/* RESPONSIVE DESIGN - TÉLÉPHONE (< 768px)     */
+/* ============================================ */
+
+@media (max-width: 768px) {
+    /* Ajuste le body pour mobile */
+    body {
+        padding: 10px;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    /* Réduit les marges du header */
+    #header_style {
+        padding: 2rem 0;
+        margin-bottom: 1rem;
+    }
+
+    /* Navigation adaptée au mobile */
+    .nav {
+        flex-wrap: wrap; /* Permet au contenu de passer à la ligne */
+        padding: 8px;
+    }
+
+    /* Image de présentation plus petite */
+    #presentation-image-nav {
+        width: 40px;
+        height: 40px;
+        margin-right: 15px;
+    }
+
+    /* Boutons de navigation plus compacts */
+    button {
+        padding: 8px 12px;
+        font-size: 14px;
+        margin-right: 8px;
+        margin-bottom: 5px;
+    }
+
+    /* Switcher de langue sur sa propre ligne si nécessaire */
+    .lang-switch {
+        margin-left: 0;
+        width: 100%;
+        margin-top: 8px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .lang-switch button {
+        padding: 8px 15px;
+        font-size: 14px;
+        margin: 0 5px;
+    }
+
+    /* Contenu adapté au mobile */
+    #content {
+        padding: 20px;
+        padding-bottom: 80px;
+        margin-top: 120px; /* Augmente car la nav peut être plus haute */
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    /* Titres plus petits sur mobile */
+    #content h1 {
+        font-size: 24px;
+        margin-top: 0;
+    }
+
+    /* Paragraphes adaptés */
+    #content p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    /* MASQUER LE FOOTER SUR MOBILE */
+    footer {
+        display: none;
+    }
+}
+
+
+/* ============================================ */
+/* RESPONSIVE DESIGN - PETIT TÉLÉPHONE (< 480px) */
+/* ============================================ */
+
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+
+    .nav {
+        padding: 5px;
+    }
+
+    #presentation-image-nav {
+        width: 35px;
+        height: 35px;
+        margin-right: 10px;
+    }
+
+    button {
+        padding: 6px 10px;
+        font-size: 12px;
+        margin-right: 5px;
+    }
+
+    .lang-switch button {
+        padding: 6px 12px;
+        font-size: 12px;
+        margin: 0 3px;
+    }
+
+    #content {
+        padding: 15px;
+        padding-bottom: 80px;
+        margin-top: 100px;
+        font-size: 14px;
+    }
+
+    #content h1 {
+        font-size: 20px;
+    }
+
+    #content p {
+        font-size: 14px;
+    }
+
+    /* MASQUER LE FOOTER SUR PETIT TÉLÉPHONE */
+    footer {
+        display: none;
+    }
+}

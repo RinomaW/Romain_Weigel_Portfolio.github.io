@@ -69,7 +69,7 @@
     margin-top: 20px; /* Espace au-dessus du contenu additionnel */
     background-color: #f9f9f9; /* Couleur de fond claire */
     border-radius: 8px; /* Coins arrondis */
-    padding: 20px  50px; /* Espace intérieur */
+    padding: 20px 50px; /* Espace intérieur */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre pour effet de profondeur */
 }
 
@@ -123,6 +123,7 @@
     background-color: #666666; /* Couleur du point bordeaux */
     transform: translate(-50%, -50%); /* Centrer le point horizontalement et verticalement */
 }
+
 /* Masquer l'image sur les petits écrans */
 .hide-on-mobile {
     display: none;
@@ -134,6 +135,7 @@
         display: block;
     }
 }
+
 /* Style pour les liens */
 .pdf-download-link {
     display: inline-block;
@@ -152,3 +154,285 @@
 }
 
 
+/* ============================================ */
+/* RESPONSIVE DESIGN - TABLETTES & TÉLÉPHONES (< 768px) */
+/* ============================================ */
+
+@media (max-width: 768px) {
+    /* Header adapté */
+    #header_style {
+        padding: 2rem 0;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Container en colonne sur mobile */
+    .content-container {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 15px;
+    }
+
+    /* Image adaptée */
+    #extra-info-image {
+        width: 150px;
+        height: auto;
+        margin-left: 0;
+        margin-top: 15px;
+        display: block;
+    }
+
+    /* Titres adaptés */
+    #title {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    #subheading {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    /* Texte adapté */
+    #content-text {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-right: 0;
+    }
+
+    /* Listes adaptées */
+    #personal-info li, #education li {
+        font-size: 15px;
+        margin-bottom: 8px;
+    }
+
+    /* Contenu additionnel adapté */
+    #additional-content-moi,
+    #additional-content-formation {
+        padding: 15px;
+        margin-top: 15px;
+        border-radius: 6px;
+    }
+
+    /* Timeline adaptée */
+    .timeline {
+        flex-direction: column;
+    }
+
+    .timeline-bar {
+        padding-left: 30px;
+    }
+
+    .timeline-item {
+        margin-bottom: 30px;
+    }
+
+    /* Année repositionnée */
+    .year {
+        position: relative;
+        left: 0;
+        display: block;
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+
+    /* Point repositionné */
+    .timeline-item::before {
+        left: -18px;
+        width: 10px;
+        height: 10px;
+    }
+
+    /* Ligne de timeline réduite */
+    .timeline-bar::before {
+        left: 8px;
+        width: 1.5px;
+    }
+
+    /* Lien adapté */
+    .pdf-download-link {
+        padding: 7px 12px;
+        font-size: 14px;
+    }
+}
+
+
+/* ============================================ */
+/* RESPONSIVE DESIGN - PETITS TÉLÉPHONES (< 480px) */
+/* ============================================ */
+
+@media (max-width: 480px) {
+    /* Header très réduit */
+    #header_style {
+        padding: 1.5rem 0;
+        margin-bottom: 1rem;
+    }
+
+    /* Container ultra compact */
+    .content-container {
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+
+    /* Image très réduite */
+    #extra-info-image {
+        width: 120px;
+        height: auto;
+        margin-top: 10px;
+    }
+
+    /* Titres minimalistes */
+    #title {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+
+    #subheading {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+
+    /* Texte minimal */
+    #content-text {
+        font-size: 15px;
+        line-height: 1.5;
+        margin-right: 0;
+    }
+
+    /* Listes minimalistes */
+    #personal-info li, #education li {
+        font-size: 14px;
+        margin-bottom: 7px;
+    }
+
+    /* Contenu additionnel très compact */
+    #additional-content-moi,
+    #additional-content-formation {
+        padding: 12px;
+        margin-top: 12px;
+        border-radius: 5px;
+    }
+
+    /* Timeline très compacte */
+    .timeline-bar {
+        padding-left: 25px;
+    }
+
+    .timeline-item {
+        margin-bottom: 25px;
+    }
+
+    /* Année minimaliste */
+    .year {
+        font-size: 12px;
+        margin-bottom: 3px;
+    }
+
+    /* Point très réduit */
+    .timeline-item::before {
+        left: -16px;
+        width: 8px;
+        height: 8px;
+    }
+
+    /* Ligne timeline plus fine */
+    .timeline-bar::before {
+        left: 7px;
+        width: 1px;
+    }
+
+    /* Lien minuscule */
+    .pdf-download-link {
+        padding: 6px 10px;
+        font-size: 13px;
+        margin-top: 8px;
+    }
+}
+
+
+/* ============================================ */
+/* RESPONSIVE DESIGN - TRÈS PETIT ÉCRAN (< 360px) */
+/* ============================================ */
+
+@media (max-width: 360px) {
+    /* Header ultra minimal */
+    #header_style {
+        padding: 1rem 0;
+        margin-bottom: 0.8rem;
+    }
+
+    /* Container ultra minimal */
+    .content-container {
+        margin-bottom: 8px;
+    }
+
+    /* Image ultra réduite */
+    #extra-info-image {
+        width: 100px;
+        height: auto;
+        margin-top: 8px;
+    }
+
+    /* Titres ultra petits */
+    #title {
+        font-size: 18px;
+        margin-bottom: 6px;
+    }
+
+    #subheading {
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+
+    /* Texte ultra réduit */
+    #content-text {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    /* Listes ultra compactes */
+    #personal-info li, #education li {
+        font-size: 13px;
+        margin-bottom: 5px;
+    }
+
+    /* Contenu additionnel minimal */
+    #additional-content-moi,
+    #additional-content-formation {
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    /* Timeline ultra compacte */
+    .timeline-bar {
+        padding-left: 22px;
+    }
+
+    .timeline-item {
+        margin-bottom: 20px;
+    }
+
+    /* Année très petite */
+    .year {
+        font-size: 11px;
+        margin-bottom: 2px;
+    }
+
+    /* Point ultra petit */
+    .timeline-item::before {
+        left: -15px;
+        width: 7px;
+        height: 7px;
+    }
+
+    /* Ligne ultra fine */
+    .timeline-bar::before {
+        left: 6.5px;
+        width: 1px;
+    }
+
+    /* Lien ultra petit */
+    .pdf-download-link {
+        padding: 5px 8px;
+        font-size: 12px;
+    }
+}
