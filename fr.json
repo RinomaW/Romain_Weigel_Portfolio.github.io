@@ -54,7 +54,7 @@
                 "institution": "Romain Weigel Studio"
             },
             "exp3": {
-                "title": "Développement d'une application en réalité virtuelle pour décourvrir la vie d'un omble chevalier",
+                "title": "Développement d'une application en réalité virtuelle pour décourvrir la vie d'un omble chevalier (espèce de poisson du lac léman)",
                 "specialization": "Stage de 3 mois",
                 "dates": "De Fevrier à Mai 2025",
                 "institution": "INRAE"
@@ -131,7 +131,7 @@
         "projects": {
             "project11": {
                 "title": "Out of Breath",
-                "description": "Projet réalisé en 24 heures dans le cadre du Master 1 à Gaming Campus Lyon. Développé sur Unreal Engine 5, 'Out of Breath' est un jeu d'exploration horrifique où le joueur doit s’échapper d’une maison plongée dans le noir. L’atmosphère est angoissante, la pression constante, et un gaz toxique envahit lentement les lieux, forçant le joueur à agir vite avant de suffoquer. Le projet met en avant la gestion du temps, de la tension et de la lumière dans un environnement immersif.",
+                "description": "Projet réalisé en 24 heures dans le cadre du Msc en 1ère année à Gaming Campus Lyon. Développé sur Unreal Engine 5, 'Out of Breath' est un jeu d'exploration horrifique où le joueur doit s’échapper d’une maison plongée dans le noir. L’atmosphère est angoissante, la pression constante, et un gaz toxique envahit lentement les lieux, forçant le joueur à agir vite avant de suffoquer. Le projet met en avant la gestion du temps, de la tension et de la lumière dans un environnement immersif.",
                 "release_date": "19 Octobre 2025",
                 "type": "pro",
                 "images": [
@@ -181,7 +181,7 @@
             "project9": {
                 "title": "OmblAventure - Application VR de l'omble chevalier",
                 "type": "pro",
-                "description": "Ce projet a été réalisé durant un stage chez INRAE afin de sensibiliser le monde de l'omble chevalier dans une expérience en réalité virtuelle développé sur UNREAL ENGINE 5",
+                "description": "Ce projet a été réalisé durant un stage chez INRAE afin de sensibiliser le monde de l'omble chevalier (espèce de poisson du lac léman) dans une expérience en réalité virtuelle développé sur UNREAL ENGINE 5",
                 "release_date": "2 Mai 2025",
                 "images": [
                   
