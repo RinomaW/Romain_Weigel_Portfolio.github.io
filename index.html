@@ -200,12 +200,8 @@ function applyTranslations(page) {
         document.getElementById('actu_description1').textContent = actualite1.content;
         document.getElementById('actu_date1').textContent = actualite1.date;
 
-        const actualite = activites.actualite;
         document.getElementById('main_title').textContent = activites.main_title;
-        document.getElementById('actu_title').textContent = actualite.titre;
-    
-        document.getElementById('actu_description').textContent = actualite.content;
-        document.getElementById('actu_date').textContent = actualite.date;
+
     } else {
         console.error("Les données d'activités ou d'actualité sont manquantes !");
         console.error(content[page].activites);  // Pour vérifier si 'actualite' est bien présent
