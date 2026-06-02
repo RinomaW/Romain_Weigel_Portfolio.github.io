@@ -11,7 +11,7 @@
 <body>
     <div class="nav">
         <!-- Image à gauche de la nav -->
-        <img id="presentation-image-nav" src="./static/images/photoCV.jpg" alt="Présentation Image">
+        <img id="presentation-image-nav" src="./static/images/cv_photo.png" alt="Présentation Image">
         <button onclick="loadPage('introduction')">Présentation</button>
         <button onclick="loadPage('projects')">Projets</button>
         <button onclick="loadPage('loisir')">Loisirs</button>
@@ -170,6 +170,11 @@ function applyTranslations(page) {
 
     const experience = content[page].experience_pro;
     document.getElementById('Experience_Professionnelle').textContent = content[page].experience_title;
+
+    document.getElementById('exp4-title').textContent = experience.exp4.title;
+    document.getElementById('exp4-specialization').textContent = experience.exp4.specialization;
+    document.getElementById('exp4-dates').textContent = experience.exp4.dates;
+    document.getElementById('exp4-institution').textContent = experience.exp4.institution;
 
     document.getElementById('exp3-title').textContent = experience.exp3.title;
     document.getElementById('exp3-specialization').textContent = experience.exp3.specialization;

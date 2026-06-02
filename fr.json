@@ -87,8 +87,8 @@
         
     },
 "popup": {
-    "popuptitle": "Projet 24h : Projet pour mon Master",
-    "texte": "J'ai récemment rejoint Gaming Campus et j'ai beaucoup de projets en cours, mais ils ne sont pas encore terminés. Voici un projet que j'ai réalisé en moins de 24 heures pour mon école."
+    "popuptitle": "Projets à venir",
+    "texte": "Deux projets majeurs sont actuellement en développement.\n\nLe premier est un prototype de jeu vidéo multijoueur coopératif réalisé dans le cadre de mon alternance d’un an au sein de mon entreprise. Ce projet se concentre sur les mécaniques de gameplay principales, les systèmes multijoueurs en ligne et la progression en équipe. Il constitue une base de prototype pour une production plus ambitieuse en cours de développement.\n\nLe second est mon projet principal de fin d’études, un jeu d’énigme et d’aventure développé durant mon cursus en collaboration avec un autre étudiant, puis finalisé en solo lors de la phase de production. Ce jeu met l’accent sur l’exploration, la narration environnementale et la résolution d’énigmes, combinant conception et développement technique."
 }
 
 
