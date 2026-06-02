@@ -29,7 +29,7 @@
         "parcour": "My Journey",
         "education": {
             "formation3": {
-                "title": "2 Year in Gaming Camous for a mastery",
+                "title": "2 Year in Gaming Camous for a Msc",
                 "specialization": "G.TECH game developper",
                 "dates": "2025 - 2027",
                 "institution": "Lyon Gaming Campus"
@@ -80,7 +80,7 @@
              "actualite1": 
             {
                 "titre": "Looking for a Work-Study Position",
-                "content": "I will be starting the second year of my Master's degree at Gaming Campus in Lyon in September 2026. I am therefore looking for a company willing to welcome me as a work-study student, where I can contribute to projects such as video game development, simulation systems, 3D prototyping, immersive environment creation, cinematics, visual effects, virtual reality, artificial intelligence (AI), and 3D application development for various platforms including mobile devices, PCs, and tablets.",
+                "content": "I will be starting the second year of my Master of Science degree at Gaming Campus in Lyon in September 2026. I am therefore looking for a company willing to welcome me as a work-study student, where I can contribute to projects such as video game development, simulation systems, 3D prototyping, immersive environment creation, cinematics, visual effects, virtual reality, artificial intelligence (AI), and 3D application development for various platforms including mobile devices, PCs, and tablets.",
                 "date": "Starting on September 1, 2026"
             }
 
@@ -130,7 +130,7 @@
         "projects": {
             "project11": {
                 "title": "Out of Breath",
-                "description": "Project completed in 24 hours as part of the Master 1 program at Gaming Campus Lyon. Developed with Unreal Engine 5, 'Out of Breath' is a horror exploration game where the player must escape from a dark house. The atmosphere is tense, pressure is constant, and a toxic gas slowly fills the environment, forcing the player to act quickly before suffocating. The project emphasizes time, tension, and lighting management in an immersive environment.",
+                "description": "Project completed in 24 hours as part of the Msc first year program at Gaming Campus Lyon. Developed with Unreal Engine 5, 'Out of Breath' is a horror exploration game where the player must escape from a dark house. The atmosphere is tense, pressure is constant, and a toxic gas slowly fills the environment, forcing the player to act quickly before suffocating. The project emphasizes time, tension, and lighting management in an immersive environment.",
                 "release_date": "19 Octobre 2025",
                 "type": "pro",
                 "images": [
