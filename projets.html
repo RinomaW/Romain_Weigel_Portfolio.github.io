@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projets — Romain Weigel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-void:#090c10;
+    --panel:#0d1116;
+    --panel-raised:#11161c;
+    --line: rgba(255,255,255,0.08);
+    --ice:#4fd8c4;
+    --ice-soft: rgba(79,216,196,0.35);
+    --amber:#ffb454;
+    --amber-soft: rgba(255,180,84,0.35);
+    --text-hi:#f2f6f5;
+    --text-mid:#aab4b8;
+    --text-low:#5c6a6e;
+  }
+
+  *{box-sizing:border-box;}
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    min-height:100vh;
+    background:var(--bg-void);
+    color:var(--text-hi);
+    font-family:'Inter',sans-serif;
+  }
+
+  /* ---------- Fond (même diaporama que l'accueil) ---------- */
+  .bg-stage{ position:fixed; inset:0; z-index:0; }
+  .bg-slide{
+    position:absolute; inset:0;
+    background-size:cover; background-position:center;
+    background-repeat:no-repeat;
+    filter:saturate(0.85) brightness(0.55) blur(1px);
+  }
+  .bg-overlay{
+    position:fixed; inset:0; z-index:1;
+    background: linear-gradient(180deg, rgba(6,8,10,0.92) 0%, rgba(6,8,10,0.88) 100%);
+    pointer-events:none;
+  }
+  .bg-scan{
+    position:fixed; inset:0; z-index:2; pointer-events:none;
+    background: repeating-linear-gradient(0deg, rgba(255,255,255,0.018) 0px, rgba(255,255,255,0.018) 1px, transparent 1px, transparent 3px);
+    mix-blend-mode:overlay;
+  }
+
+  /* ====================================================================
+     ÉCRAN DE CHARGEMENT — le logo (portrait) glisse de gauche à droite
+     en tournant sur lui-même, puis tout l'écran disparaît en fondu.
+     ==================================================================== */
+  .boot-screen{
+    position:fixed; inset:0; z-index:100;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:26px;
+    background:var(--bg-void);
+    opacity:1;
+    transition: opacity 0.7s ease;
+  }
+  .boot-screen.leaving{
+    opacity:0;
+    pointer-events:none;
+  }
+
+  .boot-logo-stage{
+    position:relative;
+    width:100%;
+    max-width:520px;
+    height:150px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .boot-logo-ring{
+    position:relative;
+    width:112px; height:112px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    opacity:0;
+    animation: logoSlideIn 1.5s cubic-bezier(.22,.75,.28,1) forwards;
+  }
+  .boot-logo-ring::before{
+    content:"";
+    position:absolute; inset:-8px;
+    border-radius:50%;
+    border:1px solid var(--ice-soft);
+    box-shadow:0 0 26px rgba(79,216,196,0.25);
+  }
+  .boot-logo{
+    width:100%; height:100%;
+    border-radius:50%;
+    object-fit:cover;
+    background:var(--panel-raised);
+    animation: logoSpin 1.5s linear forwards, logoSpinIdle 3.2s linear 1.5s infinite;
+  }
+  @keyframes logoSlideIn{
+    0%{ transform:translateX(-220%); opacity:0; }
+    12%{ opacity:1; }
+    100%{ transform:translateX(0); opacity:1; }
+  }
+  @keyframes logoSpin{
+    from{ transform:rotate(0deg); }
+    to{ transform:rotate(900deg); }
+  }
+  @keyframes logoSpinIdle{
+    from{ transform:rotate(0deg); }
+    to{ transform:rotate(360deg); }
+  }
+
+  .boot-mark{
+    font-family:'Chakra Petch', sans-serif;
+    font-weight:700;
+    font-size:clamp(18px, 2.4vw, 24px);
+    letter-spacing:0.08em;
+    color:var(--text-low);
+    transform:skewX(-6deg);
+    opacity:0;
+    animation: bootTextIn 0.6s ease 1.15s forwards;
+  }
+  .boot-mark span{ color:var(--ice); }
+  @keyframes bootTextIn{
+    to{ opacity:1; }
+  }
+
+  /* Le contenu réel apparaît en fondu pendant que l'écran de boot disparaît */
+  .page-shell{ opacity:0; }
+  body.booted .page-shell{
+    opacity:1;
+    transition: opacity 0.7s ease 0.15s;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .boot-screen{ display:none; }
+    .page-shell{ opacity:1; }
+  }
+
+  /* ====================================================================
+     CONTENU
+     ==================================================================== */
+  .page-shell{ position:relative; z-index:3; }
+
+  .top-bar{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:28px clamp(20px, 5vw, 72px) 0;
+  }
+  .brand{ display:flex; flex-direction:column; gap:2px; }
+  .brand-mark{
+    font-family:'Chakra Petch', sans-serif; font-weight:700;
+    font-size:clamp(18px, 2vw, 22px); letter-spacing:0.04em;
+    transform:skewX(-6deg); color:var(--text-hi);
+  }
+  .brand-mark span{ color:var(--ice); }
+  .back-link{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'Chakra Petch', sans-serif;
+    font-size:12px; letter-spacing:0.1em; font-weight:600;
+    color:var(--text-mid); text-decoration:none;
+    padding:8px 14px 8px 10px;
+    border:1px solid var(--line); border-radius:999px;
+    transition: border-color .18s ease, color .18s ease;
+  }
+  .back-link:hover{ color:var(--ice); border-color:var(--ice-soft); }
+  .back-link svg{ width:14px; height:14px; }
+
+  .page-head{
+    padding:34px clamp(20px, 5vw, 72px) 22px;
+    border-bottom:1px solid var(--line);
+  }
+  .page-eyebrow{
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:10px;
+  }
+  .page-eyebrow .bar{ width:3px; height:18px; background:var(--amber); }
+  .page-eyebrow span{
+    font-family:'Chakra Petch', sans-serif;
+    font-size:12px; letter-spacing:0.14em; color:var(--text-low);
+  }
+  .page-title{
+    font-family:'Chakra Petch', sans-serif;
+    font-weight:700;
+    font-size:clamp(34px, 6vw, 58px);
+    letter-spacing:0.01em;
+    transform:skewX(-4deg);
+    margin:0 0 12px;
+  }
+  .page-intro{
+    max-width:56ch;
+    color:var(--text-mid);
+    font-size:15px; line-height:1.6;
+    margin:0;
+  }
+
+  /* ---------- Recherche / filtres ---------- */
+  .filter-bar{
+    display:grid;
+    grid-template-columns:minmax(260px, 1fr) minmax(190px, 250px) auto;
+    align-items:center;
+    gap:10px;
+    margin:18px clamp(20px, 5vw, 72px) 10px;
+    padding:10px;
+    border:1px solid var(--line);
+    border-radius:8px;
+    background:rgba(13,17,22,0.78);
+    box-shadow:0 12px 35px rgba(0,0,0,0.18);
+    backdrop-filter:blur(10px);
+  }
+
+  .search-wrap{
+    min-width:0;
+    height:42px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:0 13px;
+    border:1px solid rgba(79,216,196,0.14);
+    border-radius:5px;
+    background:rgba(9,12,16,0.72);
+    transition:border-color .2s ease, box-shadow .2s ease;
+  }
+
+  .search-wrap:focus-within{
+    border-color:var(--ice-soft);
+    box-shadow:0 0 0 3px rgba(79,216,196,0.06), 0 0 22px rgba(79,216,196,0.08);
+  }
+
+  .search-wrap svg{
+    width:17px;
+    height:17px;
+    flex:0 0 auto;
+    color:var(--ice);
+  }
+
+  .search-box{
+    width:100%;
+    min-width:0;
+    border:0;
+    outline:0;
+    background:transparent;
+    color:var(--text-hi);
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+  }
+
+  .search-box::placeholder{ color:var(--text-low); }
+
+  .skill-select{
+    height:42px;
+    min-width:0;
+    appearance:none;
+    padding:0 38px 0 13px;
+    border:1px solid var(--line);
+    border-radius:5px;
+    outline:none;
+    color:var(--text-mid);
+    background:
+      linear-gradient(45deg,transparent 50%,var(--ice) 50%) calc(100% - 17px) 18px/6px 6px no-repeat,
+      linear-gradient(135deg,var(--ice) 50%,transparent 50%) calc(100% - 13px) 18px/6px 6px no-repeat,
+      rgba(9,12,16,0.72);
+    font-family:'Chakra Petch',sans-serif;
+    font-size:11px;
+    letter-spacing:.05em;
+    cursor:pointer;
+    transition:border-color .2s ease,color .2s ease;
+  }
+
+  .skill-select:hover,
+  .skill-select:focus{
+    color:var(--text-hi);
+    border-color:var(--ice-soft);
+  }
+
+  .skill-select option{
+    background:var(--panel);
+    color:var(--text-hi);
+  }
+
+  .type-filter{
+    height:42px;
+    display:flex;
+    padding:3px;
+    gap:3px;
+    border:1px solid var(--line);
+    border-radius:5px;
+    background:rgba(9,12,16,0.72);
+  }
+
+  .type-btn{
+    min-width:58px;
+    border:0;
+    border-radius:3px;
+    background:transparent;
+    color:var(--text-low);
+    font-family:'Chakra Petch',sans-serif;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.09em;
+    cursor:pointer;
+    transition:background .18s ease,color .18s ease,transform .18s ease;
+  }
+
+  .type-btn:hover{ color:var(--text-hi); }
+
+  .type-btn.active{
+    background:var(--ice);
+    color:#06110f;
+    box-shadow:0 0 14px rgba(79,216,196,0.12);
+  }
+
+  .filter-summary{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    padding:0 clamp(20px, 5vw, 72px) 4px;
+  }
+
+  .grid-meta{
+    font-family:'Chakra Petch',sans-serif;
+    font-size:11px;
+    letter-spacing:.09em;
+    color:var(--text-low);
+  }
+
+  .clear-filters{
+    border:0;
+    background:none;
+    color:var(--text-low);
+    font-family:'Chakra Petch',sans-serif;
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:.08em;
+    cursor:pointer;
+    padding:5px 0;
+    transition:color .18s ease;
+  }
+
+  .clear-filters:hover{
+    color:var(--amber);
+  }
+
+  .project-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+    gap:20px;
+    padding:16px clamp(20px, 5vw, 72px) 80px;
+  }
+
+  .project-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:6px;
+    overflow:hidden;
+    cursor:pointer;
+    display:flex; flex-direction:column;
+    opacity:0; transform:translateY(10px);
+    animation: cardIn 0.45s ease forwards;
+    transition: border-color .2s ease, transform .2s ease;
+  }
+  .project-card:hover{ border-color:var(--ice-soft); transform:translateY(-3px); }
+  .project-card:focus-visible{ outline:2px solid var(--ice-soft); outline-offset:3px; }
+  @keyframes cardIn{ to{ opacity:1; transform:translateY(0); } }
+
+  .card-media{
+    position:relative; height:170px;
+    background-size:cover; background-position:center;
+    background-color:var(--panel-raised);
+  }
+  .card-media::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(9,12,16,0) 40%, rgba(9,12,16,0.85) 100%);
+  }
+  .card-type{
+    position:absolute; top:10px; left:10px; z-index:1;
+    font-family:'Chakra Petch', sans-serif;
+    font-size:10px; letter-spacing:0.1em; font-weight:700;
+    padding:4px 9px; border-radius:999px;
+  }
+  .card-type.pro{ background:var(--amber); color:#241202; }
+  .card-type.perso{ background:var(--ice); color:#06110f; }
+
+  .card-body{ padding:16px 16px 18px; display:flex; flex-direction:column; gap:8px; flex:1; }
+  .card-date{
+    font-family:'Chakra Petch', sans-serif;
+    font-size:11px; letter-spacing:0.08em; color:var(--text-low);
+  }
+  .card-title{
+    font-family:'Chakra Petch', sans-serif;
+    font-weight:700; font-size:17px; margin:0;
+    color:var(--text-hi); line-height:1.3;
+  }
+  .card-desc{
+    margin:0; font-size:13px; line-height:1.55; color:var(--text-mid);
+    display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical;
+    overflow:hidden;
+  }
+  .card-tags{ display:flex; flex-wrap:wrap; gap:6px; margin-top:auto; padding-top:6px; }
+  .card-tags .tag{
+    font-size:10px; letter-spacing:0.04em; color:var(--text-low);
+    border:1px solid var(--line); border-radius:4px; padding:3px 7px;
+  }
+
+  .empty-state{
+    padding:60px clamp(20px, 5vw, 72px);
+    text-align:center; color:var(--text-low);
+    font-family:'Chakra Petch', sans-serif; letter-spacing:0.06em;
+    display:none;
+  }
+
+  /* ---------- Modal ---------- */
+  .modal-backdrop{
+    position:fixed; inset:0; z-index:50;
+    background:rgba(6,8,10,0.82);
+    backdrop-filter:blur(6px);
+    display:none;
+    align-items:center; justify-content:center;
+    padding:24px;
+  }
+  .modal-backdrop.open{ display:flex; }
+  .modal{
+    width:min(880px, 100%); max-height:88vh;
+    background:var(--panel);
+    border:1px solid var(--line); border-radius:8px;
+    overflow-y:auto;
+    position:relative;
+  }
+  .modal-close{
+    position:absolute; top:14px; right:14px; z-index:2;
+    width:34px; height:34px; border-radius:50%;
+    background:rgba(9,12,16,0.75); border:1px solid var(--line);
+    color:var(--text-hi); font-size:16px; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .modal-close:hover{ border-color:var(--ice-soft); color:var(--ice); }
+
+  /* Le wrapper porte le "position:relative" et contient à la fois
+     la zone qui défile (les images) et les contrôles fixes
+     (flèches + compteur), qui ne doivent JAMAIS défiler. */
+  .modal-gallery-wrap{
+    position:relative;
+    height:320px;
+    background:var(--panel-raised);
+  }
+  .modal-gallery{
+    position:absolute; inset:0;
+    display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
+  }
+  .modal-gallery::-webkit-scrollbar{ display:none; }
+  .modal-gallery img{
+    flex:0 0 100%; width:100%; height:100%;
+    object-fit:cover; scroll-snap-align:start;
+  }
+  .gallery-nav{
+    position:absolute; top:50%; transform:translateY(-50%);
+    width:36px; height:36px; border-radius:50%;
+    background:rgba(9,12,16,0.7); border:1px solid var(--line);
+    color:var(--text-hi); cursor:pointer; z-index:2;
+    display:flex; align-items:center; justify-content:center; font-size:16px;
+  }
+  .gallery-nav:hover{ border-color:var(--ice-soft); color:var(--ice); }
+  .gallery-nav.prev{ left:12px; }
+  .gallery-nav.next{ right:12px; }
+  .gallery-count{
+    position:absolute; bottom:12px; right:14px; z-index:2;
+    font-family:'Chakra Petch', sans-serif; font-size:11px;
+    letter-spacing:0.08em; color:var(--text-hi);
+    background:rgba(9,12,16,0.7); border:1px solid var(--line);
+    border-radius:999px; padding:3px 10px;
+  }
+
+  .modal-content{ padding:26px 30px 32px; }
+  .modal-meta{ display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+  .modal-content h2{
+    font-family:'Chakra Petch', sans-serif; font-weight:700;
+    font-size:clamp(22px, 3vw, 30px); margin:0 0 14px;
+  }
+  .modal-content p{ color:var(--text-mid); line-height:1.65; font-size:14.5px; margin:0 0 20px; }
+  .modal-tags{ display:flex; flex-wrap:wrap; gap:7px; margin-bottom:22px; }
+  .modal-tags .tag{
+    font-size:11px; color:var(--text-mid);
+    border:1px solid var(--line); border-radius:4px; padding:4px 9px;
+  }
+  .modal-links{ display:flex; flex-wrap:wrap; gap:10px; }
+  .modal-links a{
+    font-family:'Chakra Petch', sans-serif;
+    font-size:12px; font-weight:600; letter-spacing:0.05em;
+    color:var(--bg-void); background:var(--ice);
+    border-radius:999px; padding:10px 18px;
+    text-decoration:none;
+  }
+  .modal-links a.secondary{
+    background:transparent; color:var(--text-hi); border:1px solid var(--line);
+  }
+  .modal-links a:hover{ opacity:0.88; }
+
+  @media (max-width:900px){
+    .filter-bar{
+      grid-template-columns:1fr 1fr;
+    }
+    .search-wrap{ grid-column:1 / -1; }
+    .type-filter{ width:100%; }
+    .type-btn{ flex:1; }
+  }
+
+  @media (max-width:560px){
+    .filter-bar{
+      grid-template-columns:1fr;
+      margin-top:14px;
+    }
+    .search-wrap{ grid-column:auto; }
+    .filter-summary{ align-items:flex-start; }
+  }
+
+  @media (max-width:640px){
+    .modal-gallery-wrap{ height:220px; }
+    .modal-content{ padding:20px 18px 26px; }
+  }
+
+    .top-bar-right{
+    display:flex; align-items:center; gap:14px;
+  }
+  .lang-toggle{
+    display:flex; padding:3px; gap:3px;
+    border:1px solid var(--line); border-radius:999px;
+    background:rgba(9,12,16,0.72);
+  }
+  .lang-toggle button{
+    min-width:32px;
+    border:0; border-radius:999px;
+    background:transparent;
+    color:var(--text-low);
+    font-family:'Chakra Petch', sans-serif;
+    font-size:11px; font-weight:700; letter-spacing:0.06em;
+    padding:6px 10px;
+    cursor:pointer;
+    transition:background .18s ease, color .18s ease;
+  }
+  .lang-toggle button:hover{ color:var(--text-hi); }
+  .lang-toggle button.active{
+    background:var(--ice); color:#06110f;
+  }
+
+    .main-nav{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    flex-wrap:wrap;
+  }
+  .nav-link{
+    font-family:'Chakra Petch', sans-serif;
+    font-size:12px; font-weight:600; letter-spacing:0.08em;
+    color:var(--text-mid);
+    text-decoration:none;
+    padding:8px 14px;
+    border-radius:999px;
+    border:1px solid transparent;
+    transition: color .18s ease, border-color .18s ease, background .18s ease;
+  }
+  .nav-link:hover{ color:var(--text-hi); }
+  .nav-link.active{
+    color:var(--ice);
+    background:rgba(79,216,196,0.1);
+    border-color:var(--ice-soft);
+  }
+
+  @media (max-width:760px){
+    .top-bar{ flex-wrap:wrap; row-gap:14px; }
+    .main-nav{ order:3; width:100%; justify-content:center; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Fond -->
+  <div class="bg-stage" id="bgStage"></div>
+  <div class="bg-overlay"></div>
+  <div class="bg-scan"></div>
+
+  <!-- Écran de chargement -->
+  <div class="boot-screen" id="bootScreen">
+    <div class="boot-logo-stage">
+      <div class="boot-logo-ring">
+        <img class="boot-logo" src="static/logo.png" alt="Romain Weigel">
+      </div>
+    </div>
+    <div class="boot-mark">PORT<span>FOLIO</span></div>
+  </div>
+
+  
+
+  <!-- Contenu -->
+  <div class="page-shell">
+
+     <div class="top-bar">
+      <div class="brand">
+        <div class="brand-mark">PORT<span>FOLIO</span></div>
+      </div>
+
+      <nav class="main-nav" id="mainNav" aria-label="Navigation principale">
+        <a class="nav-link" id="navPresentation" href="introduction.html" data-i18n="header_buttons.presentation">Présentation</a>
+        <a class="nav-link active" id="navProjects" href="projets.html" data-i18n="header_buttons.projects">Projets</a>
+        <a class="nav-link" id="navContact" href="contact.html" data-i18n="header_buttons.contact">Contact</a>
+        <a class="nav-link" id="navLoisir" href="loisir.html" data-i18n="header_buttons.loisir">Loisir</a>
+      </nav>
+
+      <div class="top-bar-right">
+        <div class="lang-toggle" role="group" aria-label="Langue / Language">
+          <button type="button" data-lang="fr" class="active" aria-pressed="true">FR</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <a class="back-link" href="index.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          <span data-i18n="back">RETOUR</span>
+        </a>
+      </div>
+    </div>
+    <header class="page-head">
+      <div class="page-eyebrow"><div class="bar"></div><span data-i18n="eyebrow">ARCHIVES</span></div>
+      <h1 class="page-title">Projets</h1>
+      <p class="page-intro">Développement de jeux vidéo, applications mobiles, API et projets autour de l'intelligence artificielle — projets professionnels réalisés en stage ou en alternance, et projets personnels menés en autodidacte.</p>
+    </header>
+
+    <section class="filter-bar" data-i18n-aria="filter_bar" aria-label="Recherche et filtres">
+      <label class="search-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path>
+        </svg>
+        <input class="search-box" id="searchInput" type="search"
+              data-i18n-placeholder="search_placeholder"
+              placeholder="Rechercher un projet, une technologie..." autocomplete="off">
+      </label>
+
+      <select class="skill-select" id="skillSelect" data-i18n-aria="skill_select" aria-label="Filtrer par compétence"></select>
+
+      <div class="type-filter" role="group" data-i18n-aria="type_filter" aria-label="Type de projet">
+        <button class="type-btn active" type="button" data-type="all" data-i18n="type_all">Tous</button>
+        <button class="type-btn" type="button" data-type="pro" data-i18n="type_pro">Pro</button>
+        <button class="type-btn" type="button" data-type="perso" data-i18n="type_perso">Perso</button>
+      </div>
+    </section>
+
+    <div class="filter-summary">
+      <div class="grid-meta" id="gridMeta"></div>
+      <button class="clear-filters" id="clearFilters" type="button" data-i18n="clear_filters">Réinitialiser</button>
+    </div>
+
+    <section class="project-grid" id="projectGrid"></section>
+    <p class="empty-state" id="emptyState" data-i18n="empty_state">Aucun projet ne correspond à ce filtre.</p>
+  </div>
+
+  <!-- Modal détail projet -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalCloseBtn" data-i18n-aria="modal_close" aria-label="Fermer">✕</button>
+      <div class="modal-gallery-wrap">
+        <div class="modal-gallery" id="modalGallery"></div>
+        <button class="gallery-nav prev" id="galleryPrev" data-i18n-aria="gallery_prev" aria-label="Image précédente">‹</button>
+        <button class="gallery-nav next" id="galleryNext" data-i18n-aria="gallery_next" aria-label="Image suivante">›</button>
+        <span class="gallery-count" id="galleryCount"></span>
+      </div>
+      <div class="modal-content">
+        <div class="modal-meta">
+          <span class="card-type" id="modalType" style="position:static;"></span>
+          <span class="card-date" id="modalDate"></span>
+        </div>
+        <h2 id="modalTitle"></h2>
+        <p id="modalDesc"></p>
+        <div class="modal-tags" id="modalTags"></div>
+        <div class="modal-links" id="modalLinks"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    /*
+      Les données des projets sont chargées depuis static/fr.json.
+      Aucun projet, aucune compétence et aucun texte de projet n'est dupliqué ici.
+    */
+
+    let currentLang = 'fr';
+      function getDataUrl() {
+        return currentLang === 'en' ? 'static/en.json' : 'static/fr.json';
+      }
+    const BACKGROUND_IMAGE = 'static/fond_acceuil/kitchen_wtf.png';
+
+    const stage = document.getElementById('bgStage');
+    const background = document.createElement('div');
+    background.className = 'bg-slide';
+    background.style.backgroundImage = `url('${BACKGROUND_IMAGE}')`;
+    stage.appendChild(background);
+
+    const grid = document.getElementById('projectGrid');
+    const gridMeta = document.getElementById('gridMeta');
+    const emptyState = document.getElementById('emptyState');
+    const searchInput = document.getElementById('searchInput');
+    const skillSelect = document.getElementById('skillSelect');
+    const clearFilters = document.getElementById('clearFilters');
+    const typeButtons = [...document.querySelectorAll('.type-btn')];
+
+    let data = null;
+    let projectEntries = [];
+    let activeType = 'all';
+    let activeSkill = 'Tous';
+    let searchTerm = '';
+
+    const FR_MONTHS = [
+      'janvier','fevrier','mars','avril','mai','juin',
+      'juillet','aout','septembre','octobre','novembre','decembre'
+    ];
+
+    function normalizeText(value = '') {
+      return String(value)
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '');
+    }
+
+    function parseFrDate(str = '') {
+      const clean = normalizeText(str);
+      const parts = clean.split(/\s+/).filter(Boolean);
+      const day = parseInt(parts[0], 10) || 1;
+      const month = FR_MONTHS.indexOf(parts[1]);
+      const year = parseInt(parts[2], 10) || 0;
+      return new Date(year, month < 0 ? 0 : month, day);
+    }
+
+    function truncate(str = '', n = 140) {
+      return str.length > n ? str.slice(0, n).trim() + '…' : str;
+    }
+
+    function escapeHtml(value = '') {
+      return String(value).replace(/[&<>"']/g, char => ({
+        '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#039;'
+      }[char]));
+    }
+
+    function populateSkillSelect(competences = []) {
+      allSkillsValue = competences[0] || 'Tous';
+      skillSelect.innerHTML = competences.map(skill =>
+        `<option value="${escapeHtml(skill)}">${escapeHtml(
+          skill === allSkillsValue ? (ALL_SKILLS_LABEL[currentLang] || skill) : skill
+        )}</option>`
+      ).join('');
+      skillSelect.value = allSkillsValue;
+      activeSkill = allSkillsValue;
+    }
+
+    function updatePageTexts() {
+      const projects = data.projects || {};
+      document.title = `${projects.title || 'Projets'} — Romain Weigel`;
+
+      const title = document.querySelector('.page-title');
+      const intro = document.querySelector('.page-intro');
+
+      if (title && projects.title) title.textContent = projects.title;
+      if (intro && projects.content) intro.textContent = projects.content;
+    }
+
+    function getFilteredProjects() {
+      const query = normalizeText(searchTerm);
+
+      return projectEntries.filter(([, project]) => {
+        const skills = project.Competences || [];
+
+        const matchesSkill =
+          activeSkill === allSkillsValue || skills.includes(activeSkill);
+
+        const matchesType =
+          activeType === 'all' || project.type === activeType;
+
+        const searchable = normalizeText([
+          project.title,
+          project.description,
+          project.release_date,
+          ...skills
+        ].join(' '));
+
+        const matchesSearch = !query || searchable.includes(query);
+
+        return matchesSkill && matchesType && matchesSearch;
+      });
+    }
+
+    function renderGrid() {
+      const list = getFilteredProjects();
+
+      grid.innerHTML = '';
+      emptyState.style.display = list.length ? 'none' : 'block';
+
+      const strings = UI_STRINGS[currentLang] || UI_STRINGS.fr;
+
+      const skillLabel = activeSkill !== allSkillsValue ? ` · ${activeSkill}` : '';
+      const typeLabel = activeType !== 'all'
+        ? ` · ${activeType === 'pro'
+            ? (data.projects.project_title_pro || 'PRO')
+            : (data.projects.project_title_perso || 'PERSO')}`
+        : '';
+
+      const projectWord = strings.project_word[list.length > 1 ? 1 : 0];
+
+      gridMeta.textContent =
+        `${list.length} ${projectWord}${skillLabel}${typeLabel}`;
+
+      list.forEach(([key, project], index) => {
+        const card = document.createElement('article');
+        card.className = 'project-card';
+        card.tabIndex = 0;
+        card.style.animationDelay = `${Math.min(index, 8) * 0.05}s`;
+
+        const thumb = (project.images && project.images[0]) || '';
+        const tags = (project.Competences || []).slice(0, 3);
+        const extra = Math.max(0, (project.Competences || []).length - tags.length);
+
+        card.innerHTML = `
+          <div class="card-media" style="background-image:url('${escapeHtml(thumb)}')">
+            <span class="card-type ${project.type}">
+              ${project.type === 'pro'
+                ? escapeHtml(data.projects.project_title_pro || 'PRO')
+                : escapeHtml(data.projects.project_title_perso || 'PERSO')}
+            </span>
+          </div>
+          <div class="card-body">
+            <span class="card-date">${escapeHtml(project.release_date || '')}</span>
+            <h3 class="card-title">${escapeHtml(project.title || '')}</h3>
+            <p class="card-desc">${escapeHtml(truncate(project.description || ''))}</p>
+            <div class="card-tags">
+              ${tags.map(tag => `<span class="tag">${escapeHtml(tag)}</span>`).join('')}
+              ${extra > 0 ? `<span class="tag">+${extra}</span>` : ''}
+            </div>
+          </div>
+        `;
+
+        card.addEventListener('click', () => openModal(key));
+        card.addEventListener('keydown', event => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openModal(key);
+          }
+        });
+
+        grid.appendChild(card);
+      });
+    }
+
+    async function loadData() {
+      try {
+        const response = await fetch(getDataUrl(), { cache: 'no-cache' });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+        data = await response.json();
+
+        const projects = data.projects?.projects || {};
+        projectEntries = Object.entries(projects).sort(
+          (a, b) => parseFrDate(b[1].release_date) - parseFrDate(a[1].release_date)
+        );
+
+        updatePageTexts();
+        populateSkillSelect(data.projects?.Competences || ['Tous']);
+        renderGrid();
+      } catch (error) {
+        console.error('Impossible de charger les données', error);
+        grid.innerHTML = '';
+        emptyState.style.display = 'block';
+        emptyState.textContent = (UI_STRINGS[currentLang] || UI_STRINGS.fr).load_error;
+      }
+    }
+
+    searchInput.addEventListener('input', event => {
+      searchTerm = event.target.value.trim();
+      renderGrid();
+    });
+
+    skillSelect.addEventListener('change', event => {
+      activeSkill = event.target.value;
+      renderGrid();
+    });
+
+    typeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        activeType = button.dataset.type;
+        typeButtons.forEach(item => item.classList.toggle('active', item === button));
+        renderGrid();
+      });
+    });
+
+    clearFilters.addEventListener('click', () => {
+      searchTerm = '';
+      activeSkill = 'Tous';
+      activeType = 'all';
+
+      searchInput.value = '';
+      skillSelect.value = 'Tous';
+      typeButtons.forEach(button =>
+        button.classList.toggle('active', button.dataset.type === 'all')
+      );
+
+
+
+      renderGrid();
+      searchInput.focus();
+    });
+
+    const ALL_SKILLS_LABEL = { fr: 'Toutes les compétences', en: 'All skills' };
+    let allSkillsValue = 'Tous'; // valeur "sentinelle" du 1er item de Competences
+
+    const UI_STRINGS = {
+      fr: {
+        back: 'RETOUR',
+        eyebrow: 'ARCHIVES',
+        search_placeholder: 'Rechercher un projet, une technologie...',
+        filter_bar: 'Recherche et filtres',
+        skill_select: 'Filtrer par compétence',
+        type_filter: 'Type de projet',
+        type_all: 'Tous',
+        type_pro: 'Pro',
+        type_perso: 'Perso',
+        clear_filters: 'Réinitialiser',
+        empty_state: 'Aucun projet ne correspond à ce filtre.',
+        modal_close: 'Fermer',
+        gallery_prev: 'Image précédente',
+        gallery_next: 'Image suivante',
+        load_error: 'Impossible de charger les projets. Vérifie que le fichier static/fr.json existe bien et que la page est ouverte depuis un serveur web.',
+        project_word: ['projet', 'projets']
+      },
+      en: {
+        back: 'BACK',
+        eyebrow: 'ARCHIVES',
+        search_placeholder: 'Search a project, a technology...',
+        filter_bar: 'Search and filters',
+        skill_select: 'Filter by skill',
+        type_filter: 'Project type',
+        type_all: 'All',
+        type_pro: 'Pro',
+        type_perso: 'Personal',
+        clear_filters: 'Reset',
+        empty_state: 'No project matches this filter.',
+        modal_close: 'Close',
+        gallery_prev: 'Previous image',
+        gallery_next: 'Next image',
+        load_error: 'Unable to load projects. Check that the static/en.json file exists and that the page is served from a web server.',
+        project_word: ['project', 'projects']
+      }
+    };
+
+    function applyUIStrings() {
+      const strings = UI_STRINGS[currentLang] || UI_STRINGS.fr;
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (strings[key] !== undefined) el.textContent = strings[key];
+      });
+
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.dataset.i18nPlaceholder;
+        if (strings[key] !== undefined) el.placeholder = strings[key];
+      });
+
+      document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+        const key = el.dataset.i18nAria;
+        if (strings[key] !== undefined) el.setAttribute('aria-label', strings[key]);
+      });
+    }
+
+    const langButtons = [...document.querySelectorAll('.lang-toggle button')];
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        if (lang === currentLang) return;
+
+        currentLang = lang;
+        langButtons.forEach(b => {
+          const active = b === btn;
+          b.classList.toggle('active', active);
+          b.setAttribute('aria-pressed', String(active));
+        });
+
+        document.documentElement.lang = lang;
+        applyUIStrings();
+
+        // on réinitialise les filtres car les libellés diffèrent entre les 2 langues
+        searchTerm = '';
+        activeType = 'all';
+        searchInput.value = '';
+        typeButtons.forEach(b => b.classList.toggle('active', b.dataset.type === 'all'));
+
+        loadData();
+      });
+    });
+
+    /*
+      MODAL DÉTAIL
+    */
+    const backdrop = document.getElementById('modalBackdrop');
+    const galleryEl = document.getElementById('modalGallery');
+    const galleryCount = document.getElementById('galleryCount');
+    let galleryImgs = [];
+
+    function openModal(key) {
+      const project = data.projects.projects[key];
+      if (!project) return;
+
+      const proLabel = data.projects.project_title_pro || 'PRO';
+      const persoLabel = data.projects.project_title_perso || 'PERSO';
+
+      document.getElementById('modalType').textContent =
+        project.type === 'pro' ? proLabel : persoLabel;
+      document.getElementById('modalType').className = 'card-type ' + project.type;
+      document.getElementById('modalType').style.position = 'static';
+
+      document.getElementById('modalDate').textContent = project.release_date || '';
+      document.getElementById('modalTitle').textContent = project.title || '';
+      document.getElementById('modalDesc').textContent = project.description || '';
+
+      document.getElementById('modalTags').innerHTML =
+        (project.Competences || [])
+          .map(tag => `<span class="tag">${escapeHtml(tag)}</span>`)
+          .join('');
+
+      const linksEl = document.getElementById('modalLinks');
+      linksEl.innerHTML = '';
+
+      const labels = data.projects.link_text || {};
+
+      if (project.youtube_link) {
+        linksEl.innerHTML +=
+          `<a href="${escapeHtml(project.youtube_link)}" target="_blank" rel="noopener">${escapeHtml(labels.youtube || 'Voir sur YouTube')}</a>`;
+      }
+      if (project.other_link) {
+        linksEl.innerHTML +=
+          `<a class="secondary" href="${escapeHtml(project.other_link)}" target="_blank" rel="noopener">${escapeHtml(labels.other || 'Lien du projet')}</a>`;
+      }
+      if (project.pdf_link) {
+        linksEl.innerHTML +=
+          `<a class="secondary" href="${escapeHtml(project.pdf_link)}" target="_blank" rel="noopener">${escapeHtml(labels.pdf || 'Ouvrir la documentation PDF')}</a>`;
+      }
+
+      galleryImgs = project.images || [];
+      galleryEl.innerHTML = '';
+
+      galleryImgs.forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = project.title || '';
+        galleryEl.appendChild(img);
+      });
+
+      galleryEl.scrollLeft = 0;
+      updateGalleryCount();
+
+      backdrop.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      backdrop.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+    backdrop.addEventListener('click', event => {
+      if (event.target === backdrop) closeModal();
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeModal();
+    });
+
+    function updateGalleryCount() {
+      if (!galleryImgs.length) {
+        galleryCount.textContent = '';
+        return;
+      }
+
+      const width = galleryEl.clientWidth || 1;
+      const index = Math.round(galleryEl.scrollLeft / width);
+      galleryCount.textContent =
+        `${Math.min(index + 1, galleryImgs.length)} / ${galleryImgs.length}`;
+    }
+
+    galleryEl.addEventListener('scroll', updateGalleryCount);
+
+    document.getElementById('galleryPrev').addEventListener('click', () => {
+      galleryEl.scrollBy({ left: -galleryEl.clientWidth, behavior: 'smooth' });
+    });
+
+    document.getElementById('galleryNext').addEventListener('click', () => {
+      galleryEl.scrollBy({ left: galleryEl.clientWidth, behavior: 'smooth' });
+    });
+
+    applyUIStrings();
+    /*
+      SÉQUENCE DE CHARGEMENT
+      Le logo glisse depuis la gauche en tournant sur lui-même
+      (1.5s), puis, une fois posé au centre, tout l'écran de
+      chargement disparaît en fondu pendant que la page apparaît.
+    */
+    (function boot() {
+      const screen = document.getElementById('bootScreen');
+      const reduceMotion =
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // On charge les données dès le début, en parallèle de l'animation,
+      // pour ne jamais faire attendre l'utilisateur inutilement.
+      loadData();
+
+      if (reduceMotion) {
+        document.body.classList.add('booted');
+        screen.remove();
+        return;
+      }
+
+      const LOGO_ARRIVAL = 1500; // durée de l'animation d'entrée du logo (logoSlideIn)
+      const HOLD = 550;          // petite pause, logo posé au centre
+      const FADE_OUT = 700;      // durée du fondu de sortie (cf. transition .boot-screen)
+
+      setTimeout(() => {
+        screen.classList.add('leaving');
+        // Le contenu de la page apparaît en fondu en même temps
+        // que l'écran de chargement s'efface.
+        document.body.classList.add('booted');
+
+        setTimeout(() => screen.remove(), FADE_OUT);
+      }, LOGO_ARRIVAL + HOLD);
+    })();
+  </script>
+</body>
+</html>

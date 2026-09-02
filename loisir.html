@@ -1,20 +1,922 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="loisir.css">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loisirs — Romain Weigel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-void:#090c10;
+    --panel:#0d1116;
+    --panel-raised:#11161c;
+    --line: rgba(255,255,255,0.08);
+    --ice:#4fd8c4;
+    --ice-soft: rgba(79,216,196,0.35);
+    --amber:#ffb454;
+    --amber-soft: rgba(255,180,84,0.35);
+    --text-hi:#f2f6f5;
+    --text-mid:#aab4b8;
+    --text-low:#5c6a6e;
+  }
+
+  *{box-sizing:border-box;}
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    min-height:100vh;
+    background:var(--bg-void);
+    color:var(--text-hi);
+    font-family:'Inter',sans-serif;
+  }
+
+  /* ---------- Fond ---------- */
+  .bg-stage{ position:fixed; inset:0; z-index:0; }
+  .bg-slide{
+    position:absolute; inset:0;
+    background-size:cover; background-position:center;
+    background-repeat:no-repeat;
+    filter:saturate(0.85) brightness(0.55) blur(1px);
+  }
+  .bg-overlay{
+    position:fixed; inset:0; z-index:1;
+    background: linear-gradient(180deg, rgba(6,8,10,0.92) 0%, rgba(6,8,10,0.88) 100%);
+    pointer-events:none;
+  }
+  .bg-scan{
+    position:fixed; inset:0; z-index:2; pointer-events:none;
+    background: repeating-linear-gradient(0deg, rgba(255,255,255,0.018) 0px, rgba(255,255,255,0.018) 1px, transparent 1px, transparent 3px);
+    mix-blend-mode:overlay;
+  }
+
+  /* ====================================================================
+     ÉCRAN DE CHARGEMENT — identique aux autres pages
+     ==================================================================== */
+  .boot-screen{
+    position:fixed; inset:0; z-index:100;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:26px;
+    background:var(--bg-void);
+    opacity:1;
+    transition: opacity 0.7s ease;
+  }
+  .boot-screen.leaving{ opacity:0; pointer-events:none; }
+  .boot-logo-stage{
+    position:relative; width:100%; max-width:520px; height:150px;
+    display:flex; align-items:center; justify-content:center; overflow:hidden;
+  }
+  .boot-logo-ring{
+    position:relative; width:112px; height:112px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    opacity:0;
+    animation: logoSlideIn 1.5s cubic-bezier(.22,.75,.28,1) forwards;
+  }
+  .boot-logo-ring::before{
+    content:""; position:absolute; inset:-8px; border-radius:50%;
+    border:1px solid var(--ice-soft);
+    box-shadow:0 0 26px rgba(79,216,196,0.25);
+  }
+  .boot-logo{
+    width:100%; height:100%; border-radius:50%; object-fit:cover;
+    background:var(--panel-raised);
+    animation: logoSpin 1.5s linear forwards, logoSpinIdle 3.2s linear 1.5s infinite;
+  }
+  @keyframes logoSlideIn{
+    0%{ transform:translateX(-220%); opacity:0; }
+    12%{ opacity:1; }
+    100%{ transform:translateX(0); opacity:1; }
+  }
+  @keyframes logoSpin{ from{ transform:rotate(0deg); } to{ transform:rotate(900deg); } }
+  @keyframes logoSpinIdle{ from{ transform:rotate(0deg); } to{ transform:rotate(360deg); } }
+  .boot-mark{
+    font-family:'Chakra Petch', sans-serif; font-weight:700;
+    font-size:clamp(18px, 2.4vw, 24px); letter-spacing:0.08em; color:var(--text-low);
+    transform:skewX(-6deg); opacity:0;
+    animation: bootTextIn 0.6s ease 1.15s forwards;
+  }
+  .boot-mark span{ color:var(--ice); }
+  @keyframes bootTextIn{ to{ opacity:1; } }
+
+  .page-shell{ opacity:0; }
+  body.booted .page-shell{ opacity:1; transition: opacity 0.7s ease 0.15s; }
+
+  @media (prefers-reduced-motion: reduce){
+    .boot-screen{ display:none; }
+    .page-shell{ opacity:1; }
+  }
+
+  /* ====================================================================
+     CONTENU
+     ==================================================================== */
+  .page-shell{ position:relative; z-index:3; }
+
+  .top-bar{
+    display:flex; align-items:center; justify-content:space-between;
+    flex-wrap:wrap; gap:14px;
+    padding:28px clamp(20px, 5vw, 72px) 0;
+  }
+  .brand{ display:flex; flex-direction:column; gap:2px; }
+  .brand-mark{
+    font-family:'Chakra Petch', sans-serif; font-weight:700;
+    font-size:clamp(18px, 2vw, 22px); letter-spacing:0.04em;
+    transform:skewX(-6deg); color:var(--text-hi);
+  }
+  .brand-mark span{ color:var(--ice); }
+  .back-link{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'Chakra Petch', sans-serif;
+    font-size:12px; letter-spacing:0.1em; font-weight:600;
+    color:var(--text-mid); text-decoration:none;
+    padding:8px 14px 8px 10px;
+    border:1px solid var(--line); border-radius:999px;
+    transition: border-color .18s ease, color .18s ease;
+  }
+  .back-link:hover{ color:var(--ice); border-color:var(--ice-soft); }
+  .back-link svg{ width:14px; height:14px; }
+
+  .top-bar-right{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+  .main-nav{ display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+  .nav-link{
+    font-family:'Chakra Petch', sans-serif;
+    font-size:12px; font-weight:600; letter-spacing:0.08em;
+    color:var(--text-mid); text-decoration:none;
+    padding:8px 14px; border-radius:999px; border:1px solid transparent;
+    transition: color .18s ease, border-color .18s ease, background .18s ease;
+  }
+  .nav-link:hover{ color:var(--text-hi); }
+  .nav-link.active{
+    color:var(--ice); background:rgba(79,216,196,0.1); border-color:var(--ice-soft);
+  }
+  @media (max-width:760px){
+    .top-bar{ flex-wrap:wrap; row-gap:14px; }
+    .main-nav{ order:3; width:100%; justify-content:center; }
+  }
+
+  .lang-toggle{
+    display:flex; padding:3px; gap:3px;
+    border:1px solid var(--line); border-radius:999px;
+    background:rgba(9,12,16,0.72);
+  }
+  .lang-toggle button{
+    min-width:32px; border:0; border-radius:999px; background:transparent;
+    color:var(--text-low);
+    font-family:'Chakra Petch', sans-serif;
+    font-size:11px; font-weight:700; letter-spacing:0.06em;
+    padding:6px 10px; cursor:pointer;
+    transition:background .18s ease, color .18s ease;
+  }
+  .lang-toggle button:hover{ color:var(--text-hi); }
+  .lang-toggle button.active{ background:var(--ice); color:#06110f; }
+
+  .page-head{
+    padding:34px clamp(20px, 5vw, 72px) 22px;
+    border-bottom:1px solid var(--line);
+  }
+  .page-eyebrow{ display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+  .page-eyebrow .bar{ width:3px; height:18px; background:var(--amber); }
+  .page-eyebrow span{
+    font-family:'Chakra Petch', sans-serif;
+    font-size:12px; letter-spacing:0.14em; color:var(--text-low);
+  }
+  .page-title{
+    font-family:'Chakra Petch', sans-serif; font-weight:700;
+    font-size:clamp(34px, 6vw, 58px); letter-spacing:0.01em;
+    transform:skewX(-4deg); margin:0 0 12px;
+  }
+  .page-intro{ max-width:56ch; color:var(--text-mid); font-size:15px; line-height:1.6; margin:0; }
+
+  /* ---------- Sections ---------- */
+  .section{ padding:40px clamp(20px, 5vw, 72px) 0; }
+  .section:last-of-type{ padding-bottom:80px; }
+  .section-title{
+    font-family:'Chakra Petch', sans-serif; font-weight:700;
+    font-size:clamp(20px, 3vw, 26px); letter-spacing:0.01em;
+    transform:skewX(-4deg); margin:0 0 20px;
+  }
+
+  /* ---------- Cartes loisirs ---------- */
+  .hobby-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+    gap:20px;
+  }
+
+  .hobby-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:6px;
+    overflow:hidden;
+    display:flex; flex-direction:column;
+    opacity:0; transform:translateY(10px);
+    animation: cardIn 0.45s ease forwards;
+    transition: border-color .2s ease, transform .2s ease;
+  }
+  .hobby-card.clickable{ cursor:pointer; }
+  .hobby-card.clickable:hover{ border-color:var(--ice-soft); transform:translateY(-3px); }
+  .hobby-card.clickable:focus-visible{ outline:2px solid var(--ice-soft); outline-offset:3px; }
+  @keyframes cardIn{ to{ opacity:1; transform:translateY(0); } }
+
+  .hobby-media{
+    position:relative; height:170px;
+    background-size:cover; background-position:center;
+    background-color:var(--panel-raised);
+  }
+  .hobby-media::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(9,12,16,0) 40%, rgba(9,12,16,0.85) 100%);
+  }
+  .hobby-badge{
+    position:absolute; top:10px; left:10px; z-index:1;
+    font-family:'Chakra Petch', sans-serif;
+    font-size:10px; letter-spacing:0.1em; font-weight:700;
+    padding:4px 9px; border-radius:999px;
+  }
+  .hobby-badge.badge-active{ background:var(--ice); color:#06110f; }
+  .hobby-badge.badge-inactive{ background:rgba(255,255,255,0.1); color:var(--text-mid); }
+
+  .hobby-body{ padding:16px 16px 18px; display:flex; flex-direction:column; gap:8px; flex:1; }
+  .hobby-meta{
+    font-family:'Chakra Petch', sans-serif;
+    font-size:11px; letter-spacing:0.08em; color:var(--text-low);
+  }
+  .hobby-title{
+    font-family:'Chakra Petch', sans-serif;
+    font-weight:700; font-size:17px; margin:0;
+    color:var(--text-hi); line-height:1.3;
+  }
+  .hobby-desc{
+    margin:0; font-size:13px; line-height:1.55; color:var(--text-mid);
+    display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical;
+    overflow:hidden;
+  }
+  .hobby-tags{ display:flex; flex-wrap:wrap; gap:6px; margin-top:auto; padding-top:6px; }
+  .hobby-tags .tag{
+    font-size:10px; letter-spacing:0.04em; color:var(--text-low);
+    border:1px solid var(--line); border-radius:4px; padding:3px 7px;
+  }
+
+  .hobby-action{
+    margin-top:auto;
+    align-self:flex-start;
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'Chakra Petch', sans-serif;
+    font-size:11px; font-weight:600; letter-spacing:0.05em;
+    color:var(--bg-void); background:var(--ice);
+    border-radius:999px; padding:9px 16px;
+    text-decoration:none;
+    transition:opacity .18s ease;
+  }
+  .hobby-action:hover{ opacity:0.88; }
+
+  /* Grille miniature de livres */
+  .book-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:6px;
+    height:170px;
+  }
+  .book-grid img{
+    width:100%; height:100%; object-fit:cover; display:block;
+  }
+
+  /* ---------- Modal (identique à projets.html) ---------- */
+  .modal-backdrop{
+    position:fixed; inset:0; z-index:50;
+    background:rgba(6,8,10,0.82);
+    backdrop-filter:blur(6px);
+    display:none;
+    align-items:center; justify-content:center;
+    padding:24px;
+  }
+  .modal-backdrop.open{ display:flex; }
+  .modal{
+    width:min(880px, 100%); max-height:88vh;
+    background:var(--panel);
+    border:1px solid var(--line); border-radius:8px;
+    overflow-y:auto;
+    position:relative;
+  }
+  .modal-close{
+    position:absolute; top:14px; right:14px; z-index:2;
+    width:34px; height:34px; border-radius:50%;
+    background:rgba(9,12,16,0.75); border:1px solid var(--line);
+    color:var(--text-hi); font-size:16px; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .modal-close:hover{ border-color:var(--ice-soft); color:var(--ice); }
+
+  .modal-gallery-wrap{ position:relative; height:320px; background:var(--panel-raised); }
+  .modal-gallery{
+    position:absolute; inset:0;
+    display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
+  }
+  .modal-gallery::-webkit-scrollbar{ display:none; }
+  .modal-gallery img{
+    flex:0 0 100%; width:100%; height:100%;
+    object-fit:cover; scroll-snap-align:start;
+  }
+  .gallery-nav{
+    position:absolute; top:50%; transform:translateY(-50%);
+    width:36px; height:36px; border-radius:50%;
+    background:rgba(9,12,16,0.7); border:1px solid var(--line);
+    color:var(--text-hi); cursor:pointer; z-index:2;
+    display:flex; align-items:center; justify-content:center; font-size:16px;
+  }
+  .gallery-nav:hover{ border-color:var(--ice-soft); color:var(--ice); }
+  .gallery-nav.prev{ left:12px; }
+  .gallery-nav.next{ right:12px; }
+  .gallery-count{
+    position:absolute; bottom:12px; right:14px; z-index:2;
+    font-family:'Chakra Petch', sans-serif; font-size:11px;
+    letter-spacing:0.08em; color:var(--text-hi);
+    background:rgba(9,12,16,0.7); border:1px solid var(--line);
+    border-radius:999px; padding:3px 10px;
+  }
+
+  .modal-content{ padding:26px 30px 32px; }
+  .modal-meta{ display:flex; align-items:center; gap:10px; margin-bottom:10px; flex-wrap:wrap; }
+  .modal-content h2{
+    font-family:'Chakra Petch', sans-serif; font-weight:700;
+    font-size:clamp(22px, 3vw, 30px); margin:0 0 14px;
+  }
+  .modal-content p{ color:var(--text-mid); line-height:1.65; font-size:14.5px; margin:0 0 20px; }
+  .modal-content p:empty{ display:none; }
+
+  .modal-list-group{ margin-bottom:18px; }
+  .modal-list-group h4{
+    font-family:'Chakra Petch', sans-serif;
+    font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--text-low); margin:0 0 10px;
+  }
+  .modal-tags{ display:flex; flex-wrap:wrap; gap:7px; }
+  .modal-tags .tag{
+    font-size:11px; color:var(--text-mid);
+    border:1px solid var(--line); border-radius:4px; padding:4px 9px;
+  }
+  .modal-links{ display:flex; flex-wrap:wrap; gap:10px; margin-top:6px; }
+  .modal-links a{
+    font-family:'Chakra Petch', sans-serif;
+    font-size:12px; font-weight:600; letter-spacing:0.05em;
+    color:var(--bg-void); background:var(--ice);
+    border-radius:999px; padding:10px 18px;
+    text-decoration:none;
+  }
+  .modal-links a:hover{ opacity:0.88; }
+
+  @media (max-width:640px){
+    .modal-gallery-wrap{ height:220px; }
+    .modal-content{ padding:20px 18px 26px; }
+    .book-grid{ grid-template-columns:repeat(3,1fr); }
+  }
+</style>
 </head>
 <body>
 
-    <header id="header_style">
-     
+  <!-- Fond -->
+  <div class="bg-stage" id="bgStage"></div>
+  <div class="bg-overlay"></div>
+  <div class="bg-scan"></div>
+
+  <!-- Écran de chargement -->
+  <div class="boot-screen" id="bootScreen">
+    <div class="boot-logo-stage">
+      <div class="boot-logo-ring">
+        <img class="boot-logo" src="static/logo.png" alt="Romain Weigel">
+      </div>
+    </div>
+    <div class="boot-mark">PORT<span>FOLIO</span></div>
+  </div>
+
+  <!-- Contenu -->
+  <div class="page-shell">
+
+    <div class="top-bar">
+      <div class="brand">
+        <div class="brand-mark">PORT<span>FOLIO</span></div>
+      </div>
+        <nav class="main-nav" id="mainNav" aria-label="Navigation principale">
+          <a class="nav-link" id="navPresentation" href="introduction.html" data-i18n="header_buttons.presentation">Présentation</a>
+          <a class="nav-link" id="navProjects" href="projets.html" data-i18n="header_buttons.projects">Projets</a>
+          <a class="nav-link" id="navContact" href="contact.html" data-i18n="header_buttons.contact">Contact</a>
+          <a class="nav-link active" id="navLoisir" href="loisir.html" data-i18n="header_buttons.loisir">Loisir</a>
+        </nav>
+      <div class="top-bar-right">
+        
+        <div class="lang-toggle" role="group" aria-label="Langue / Language">
+          <button type="button" data-lang="fr" class="active" aria-pressed="true">FR</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <a class="back-link" href="index.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          <span data-i18n="back">RETOUR</span>
+        </a>
+      </div>
+    </div>
+
+    <header class="page-head">
+      <div class="page-eyebrow"><div class="bar"></div><span data-i18n="eyebrow">LOISIRS</span></div>
+      <h1 class="page-title" id="pageTitle">Mes loisirs</h1>
+      <p class="page-intro" data-i18n="page_intro">Ce que je fais en dehors du code : sport, apprentissage personnel et jeux vidéo.</p>
     </header>
-    <h1 id="project-title"></h1>
-    <main>
-        <!-- Conteneur principal pour afficher les loisirs -->
-        <div id="loisirs-list"></div>
-    </main>
+
+    <section class="section">
+      <h2 class="section-title" id="swSectionTitle"></h2>
+      <div class="hobby-grid" id="swGrid"></div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title" data-i18n="dev_perso_title">Développement personnel</h2>
+      <div class="hobby-grid" id="devPersoGrid"></div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title" data-i18n="jeux_title">Jeux</h2>
+      <div class="hobby-grid" id="jeuxGrid"></div>
+    </section>
+
+  </div>
+
+  <!-- Modal détail -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalCloseBtn" data-i18n-aria="modal_close" aria-label="Fermer">✕</button>
+      <div class="modal-gallery-wrap">
+        <div class="modal-gallery" id="modalGallery"></div>
+        <button class="gallery-nav prev" id="galleryPrev" data-i18n-aria="gallery_prev" aria-label="Image précédente">‹</button>
+        <button class="gallery-nav next" id="galleryNext" data-i18n-aria="gallery_next" aria-label="Image suivante">›</button>
+        <span class="gallery-count" id="galleryCount"></span>
+      </div>
+      <div class="modal-content">
+        <div class="modal-meta">
+          <span class="hobby-badge" id="modalBadge" style="position:static;"></span>
+          <span class="hobby-meta" id="modalMeta"></span>
+        </div>
+        <h2 id="modalTitle"></h2>
+        <p id="modalDesc"></p>
+        <div id="modalLists"></div>
+        <div class="modal-links" id="modalLinks"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /*
+      Toutes les données affichées proviennent de static/fr.json ou
+      static/en.json (clé "loisir" et "header_buttons"). Seuls les
+      libellés fixes de sections/listes (absents du JSON) sont
+      définis en dur dans UI_STRINGS ci-dessous.
+    */
+
+    let currentLang = 'fr';
+    function getDataUrl() {
+      return currentLang === 'en' ? 'static/en.json' : 'static/fr.json';
+    }
+    const BACKGROUND_IMAGE = 'static/fond_acceuil/kitchen_wtf.png';
+
+    const stage = document.getElementById('bgStage');
+    const background = document.createElement('div');
+    background.className = 'bg-slide';
+    background.style.backgroundImage = `url('${BACKGROUND_IMAGE}')`;
+    stage.appendChild(background);
+
+    let data = null;
+
+    function escapeHtml(value = '') {
+      return String(value).replace(/[&<>"']/g, char => ({
+        '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#039;'
+      }[char]));
+    }
+
+    function getByPath(obj, path) {
+      return path.split('.').reduce(
+        (acc, key) => (acc && acc[key] !== undefined) ? acc[key] : undefined,
+        obj
+      );
+    }
+
+    const UI_STRINGS = {
+      fr: {
+        back: 'RETOUR',
+        eyebrow: 'LOISIRS',
+        page_intro: "Ce que je fais en dehors du code : sport, apprentissage personnel et jeux vidéo...",
+        dev_perso_title: 'Développement personnel',
+        jeux_title: 'Jeux',
+        modal_close: 'Fermer',
+        gallery_prev: 'Image précédente',
+        gallery_next: 'Image suivante',
+        years_practice: 'ans de pratique',
+        mastered_label: 'Figures maîtrisées',
+        goals_label: 'Objectifs',
+        games_played_label: 'Jeux joués',
+        weapons_label: 'Armes utilisées',
+        playtime_label: 'Temps de jeu',
+        listen_podcast: 'Écouter le podcast',
+        watch_videos: 'Voir les vidéos',
+        view_profile: 'Voir le profil',
+        load_error: 'Impossible de charger les loisirs. Vérifie que le fichier static/fr.json existe bien et que la page est ouverte depuis un serveur web.'
+      },
+      en: {
+        back: 'BACK',
+        eyebrow: 'HOBBIES',
+        page_intro: "What I do outside of code: sports, personal growth, and video games.",
+        dev_perso_title: 'Personal Development',
+        jeux_title: 'Games',
+        modal_close: 'Close',
+        gallery_prev: 'Previous image',
+        gallery_next: 'Next image',
+        years_practice: 'years of practice',
+        mastered_label: 'Mastered moves',
+        goals_label: 'Goals',
+        games_played_label: 'Games played',
+        weapons_label: 'Weapons used',
+        playtime_label: 'Playtime',
+        listen_podcast: 'Listen to the podcast',
+        watch_videos: 'Watch the videos',
+        view_profile: 'View profile',
+        load_error: 'Unable to load hobbies. Check that the static/en.json file exists and that the page is served from a web server.'
+      }
+    };
+
+    function applyUIStrings() {
+      const strings = UI_STRINGS[currentLang] || UI_STRINGS.fr;
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (strings[key] !== undefined) {
+          el.textContent = strings[key];
+        } else if (data) {
+          const value = getByPath(data, key);
+          if (typeof value === 'string') el.textContent = value;
+        }
+      });
+
+      document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+        const key = el.dataset.i18nAria;
+        if (strings[key] !== undefined) el.setAttribute('aria-label', strings[key]);
+      });
+    }
+
+    /* ------------------------------------------------------------
+       RENDU DES CARTES
+       ------------------------------------------------------------ */
+
+    // Registre des détails à ouvrir dans la modale, indexé par clé unique
+    let detailRegistry = {};
+
+    function registerDetail(key, detail) {
+      detailRegistry[key] = detail;
+    }
+
+    function renderSwGrid() {
+      const strings = UI_STRINGS[currentLang] || UI_STRINGS.fr;
+      const sw = data.loisir.loisirs.Street_workout;
+      const swSectionTitle = document.getElementById('swSectionTitle');
+      swSectionTitle.textContent = sw.title || 'Street Workout';
+
+      const key = 'street_workout';
+      registerDetail(key, {
+        title: sw.title,
+        meta: `${sw.NbAnnee || ''} ${strings.years_practice}`,
+        badge: '',
+        images: sw.images || [],
+        description: '',
+        lists: [
+          { label: strings.mastered_label, items: sw.Figure_maitrise || [] },
+          { label: strings.goals_label, items: sw.Figure_objectif || [] }
+        ],
+        links: []
+      });
+
+      const thumb = (sw.images && sw.images[0]) || '';
+      document.getElementById('swGrid').innerHTML = `
+        <article class="hobby-card clickable" tabindex="0" data-key="${key}">
+          <div class="hobby-media" style="background-image:url('${escapeHtml(thumb)}')"></div>
+          <div class="hobby-body">
+            <span class="hobby-meta">${escapeHtml(sw.NbAnnee || '')} ${escapeHtml(strings.years_practice)}</span>
+            <h3 class="hobby-title">${escapeHtml(sw.title || '')}</h3>
+            <div class="hobby-tags">
+              ${(sw.Figure_maitrise || []).slice(0, 3).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderDevPersoGrid() {
+      const strings = UI_STRINGS[currentLang] || UI_STRINGS.fr;
+      const dev = data.loisir.loisirs.Dev_perso;
+      const grid = document.getElementById('devPersoGrid');
+      grid.innerHTML = '';
+
+      // Podcast — lien externe direct
+      const podcast = dev.Podcast;
+      grid.innerHTML += `
+        <article class="hobby-card">
+          <div class="hobby-media" style="background-image:url('${escapeHtml(podcast.image || '')}')"></div>
+          <div class="hobby-body">
+            <span class="hobby-meta">${escapeHtml(podcast.podcast || '')}</span>
+            <h3 class="hobby-title">${escapeHtml(podcast.title || '')}</h3>
+            <a class="hobby-action" href="${escapeHtml(podcast.lien || '#')}" target="_blank" rel="noopener">${escapeHtml(strings.listen_podcast)}</a>
+          </div>
+        </article>
+      `;
+
+      // Livres — grille de couvertures, ouvre la modale galerie
+      const livres = dev.Livres;
+      const livresKey = 'livres';
+      registerDetail(livresKey, {
+        title: livres.title,
+        meta: '',
+        badge: '',
+        images: livres.listes_livres || [],
+        description: '',
+        lists: [],
+        links: []
+      });
+      grid.innerHTML += `
+        <article class="hobby-card clickable" tabindex="0" data-key="${livresKey}">
+          <div class="book-grid">
+            ${(livres.listes_livres || []).slice(0, 4).map(src => `<img src="${escapeHtml(src)}" alt="">`).join('')}
+          </div>
+          <div class="hobby-body">
+            <h3 class="hobby-title">${escapeHtml(livres.title || '')}</h3>
+          </div>
+        </article>
+      `;
+
+      // Vidéos — lien externe direct
+      const videos = dev.Videos;
+      grid.innerHTML += `
+        <article class="hobby-card">
+          <div class="hobby-media" style="background-image:url('${escapeHtml(videos.image || '')}')"></div>
+          <div class="hobby-body">
+            <span class="hobby-meta">${escapeHtml(videos.videos || '')}</span>
+            <h3 class="hobby-title">${escapeHtml(videos.title || '')}</h3>
+            <a class="hobby-action" href="${escapeHtml(videos.lien || '#')}" target="_blank" rel="noopener">${escapeHtml(strings.watch_videos)}</a>
+          </div>
+        </article>
+      `;
+
+      attachCardHandlers(grid);
+    }
+
+    function renderJeuxGrid() {
+      const strings = UI_STRINGS[currentLang] || UI_STRINGS.fr;
+      const jeux = data.loisir.loisirs.Jeux;
+      const grid = document.getElementById('jeuxGrid');
+      grid.innerHTML = '';
+
+      // Monster Hunter
+      const mh = jeux.Monster_Hunter;
+      const mhKey = 'monster_hunter';
+      const mhImages = [...(mh.images || [])];
+      if (mh.Ma_Tier_Liste_des_armes) mhImages.push(mh.Ma_Tier_Liste_des_armes);
+      registerDetail(mhKey, {
+        title: mh.title,
+        meta: `${strings.playtime_label} · ${mh.NbHeure || ''}`,
+        badge: mh.actif || '',
+        images: mhImages,
+        description: mh.Description || '',
+        lists: [
+          { label: strings.games_played_label, items: mh.Tous_les_jeux_joues || [] },
+          { label: strings.weapons_label, items: mh.Les_armes_que_je_joue || [] }
+        ],
+        links: []
+      });
+
+      const mhThumb = (mh.images && mh.images[0]) || '';
+      const mhActiveClass = /^(actif|active)$/i.test(mh.actif || '') ? 'badge-active' : 'badge-inactive';
+      grid.innerHTML += `
+        <article class="hobby-card clickable" tabindex="0" data-key="${mhKey}">
+          <div class="hobby-media" style="background-image:url('${escapeHtml(mhThumb)}')">
+            <span class="hobby-badge ${mhActiveClass}">${escapeHtml(mh.actif || '')}</span>
+          </div>
+          <div class="hobby-body">
+            <span class="hobby-meta">${escapeHtml(strings.playtime_label)} · ${escapeHtml(mh.NbHeure || '')}</span>
+            <h3 class="hobby-title">${escapeHtml(mh.title || '')}</h3>
+            <p class="hobby-desc">${escapeHtml(mh.Description || '')}</p>
+          </div>
+        </article>
+      `;
+
+      // Overwatch
+      const ow = jeux.Overwatch;
+      const owKey = 'overwatch';
+      registerDetail(owKey, {
+        title: ow.title,
+        meta: `${strings.playtime_label} · ${ow.NbHeure || ''}`,
+        badge: ow.actif || '',
+        images: ow.images || [],
+        description: ow.Description || '',
+        lists: [],
+        links: ow.lien ? [{ url: ow.lien, label: strings.view_profile }] : []
+      });
+
+      const owThumb = (ow.images && ow.images[0]) || '';
+      const owActiveClass = /^(actif|active)$/i.test(ow.actif || '') ? 'badge-active' : 'badge-inactive';
+      grid.innerHTML += `
+        <article class="hobby-card clickable" tabindex="0" data-key="${owKey}">
+          <div class="hobby-media" style="background-image:url('${escapeHtml(owThumb)}')">
+            <span class="hobby-badge ${owActiveClass}">${escapeHtml(ow.actif || '')}</span>
+          </div>
+          <div class="hobby-body">
+            <span class="hobby-meta">${escapeHtml(strings.playtime_label)} · ${escapeHtml(ow.NbHeure || '')}</span>
+            <h3 class="hobby-title">${escapeHtml(ow.title || '')}</h3>
+            <p class="hobby-desc">${escapeHtml(ow.Description || '')}</p>
+          </div>
+        </article>
+      `;
+
+      attachCardHandlers(grid);
+    }
+
+    function attachCardHandlers(container) {
+      container.querySelectorAll('.hobby-card.clickable').forEach(card => {
+        card.addEventListener('click', () => openModal(card.dataset.key));
+        card.addEventListener('keydown', event => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openModal(card.dataset.key);
+          }
+        });
+      });
+    }
+
+    function renderAll() {
+      const nav = data.header_buttons || {};
+      document.title = `${nav.loisir || 'Loisirs'} — Romain Weigel`;
+      document.getElementById('pageTitle').textContent = data.loisir.title || 'Loisirs';
+
+      detailRegistry = {};
+      renderSwGrid();
+      renderDevPersoGrid();
+      renderJeuxGrid();
+      attachCardHandlers(document.getElementById('swGrid'));
+
+      applyUIStrings();
+    }
+
+    async function loadData() {
+      try {
+        const response = await fetch(getDataUrl(), { cache: 'no-cache' });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+        data = await response.json();
+        applyUIStrings();
+        renderAll();
+      } catch (error) {
+        console.error('Impossible de charger les données', error);
+        const strings = UI_STRINGS[currentLang] || UI_STRINGS.fr;
+        document.getElementById('swGrid').innerHTML = '';
+        document.getElementById('devPersoGrid').innerHTML = '';
+        document.getElementById('jeuxGrid').innerHTML =
+          `<p style="color:var(--text-low); font-family:'Chakra Petch',sans-serif; letter-spacing:0.06em;">${strings.load_error}</p>`;
+      }
+    }
+
+    /* ------------------------------------------------------------
+       LANGUE
+       ------------------------------------------------------------ */
+    const langButtons = [...document.querySelectorAll('.lang-toggle button')];
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        if (lang === currentLang) return;
+
+        currentLang = lang;
+        langButtons.forEach(b => {
+          const active = b === btn;
+          b.classList.toggle('active', active);
+          b.setAttribute('aria-pressed', String(active));
+        });
+
+        document.documentElement.lang = lang;
+        loadData();
+      });
+    });
+
+    /* ------------------------------------------------------------
+       MODAL DÉTAIL
+       ------------------------------------------------------------ */
+    const backdrop = document.getElementById('modalBackdrop');
+    const galleryEl = document.getElementById('modalGallery');
+    const galleryCount = document.getElementById('galleryCount');
+    let galleryImgs = [];
+
+    function openModal(key) {
+      const detail = detailRegistry[key];
+      if (!detail) return;
+
+      const badgeEl = document.getElementById('modalBadge');
+      if (detail.badge) {
+        badgeEl.textContent = detail.badge;
+        badgeEl.style.display = 'inline-flex';
+        const isActive = /^(actif|active)$/i.test(detail.badge);
+        badgeEl.className = 'hobby-badge ' + (isActive ? 'badge-active' : 'badge-inactive');
+        badgeEl.style.position = 'static';
+      } else {
+        badgeEl.style.display = 'none';
+      }
+
+      document.getElementById('modalMeta').textContent = detail.meta || '';
+      document.getElementById('modalTitle').textContent = detail.title || '';
+      document.getElementById('modalDesc').textContent = detail.description || '';
+
+      const listsEl = document.getElementById('modalLists');
+      listsEl.innerHTML = (detail.lists || [])
+        .filter(group => group.items && group.items.length)
+        .map(group => `
+          <div class="modal-list-group">
+            <h4>${escapeHtml(group.label)}</h4>
+            <div class="modal-tags">
+              ${group.items.map(item => `<span class="tag">${escapeHtml(item)}</span>`).join('')}
+            </div>
+          </div>
+        `).join('');
+
+      const linksEl = document.getElementById('modalLinks');
+      linksEl.innerHTML = (detail.links || [])
+        .map(link => `<a href="${escapeHtml(link.url)}" target="_blank" rel="noopener">${escapeHtml(link.label)}</a>`)
+        .join('');
+
+      galleryImgs = detail.images || [];
+      galleryEl.innerHTML = '';
+      galleryImgs.forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = detail.title || '';
+        galleryEl.appendChild(img);
+      });
+
+      galleryEl.scrollLeft = 0;
+      updateGalleryCount();
+
+      backdrop.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      backdrop.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+    backdrop.addEventListener('click', event => {
+      if (event.target === backdrop) closeModal();
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeModal();
+    });
+
+    function updateGalleryCount() {
+      if (!galleryImgs.length) {
+        galleryCount.textContent = '';
+        return;
+      }
+      const width = galleryEl.clientWidth || 1;
+      const index = Math.round(galleryEl.scrollLeft / width);
+      galleryCount.textContent =
+        `${Math.min(index + 1, galleryImgs.length)} / ${galleryImgs.length}`;
+    }
+
+    galleryEl.addEventListener('scroll', updateGalleryCount);
+
+    document.getElementById('galleryPrev').addEventListener('click', () => {
+      galleryEl.scrollBy({ left: -galleryEl.clientWidth, behavior: 'smooth' });
+    });
+    document.getElementById('galleryNext').addEventListener('click', () => {
+      galleryEl.scrollBy({ left: galleryEl.clientWidth, behavior: 'smooth' });
+    });
+
+    applyUIStrings();
+
+    /* ------------------------------------------------------------
+       SÉQUENCE DE CHARGEMENT — identique aux autres pages
+       ------------------------------------------------------------ */
+    (function boot() {
+      const screen = document.getElementById('bootScreen');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      loadData();
+
+      if (reduceMotion) {
+        document.body.classList.add('booted');
+        screen.remove();
+        return;
+      }
+
+      const LOGO_ARRIVAL = 1500;
+      const HOLD = 550;
+      const FADE_OUT = 700;
+
+      setTimeout(() => {
+        screen.classList.add('leaving');
+        document.body.classList.add('booted');
+        setTimeout(() => screen.remove(), FADE_OUT);
+      }, LOGO_ARRIVAL + HOLD);
+    })();
+  </script>
 </body>
 </html>

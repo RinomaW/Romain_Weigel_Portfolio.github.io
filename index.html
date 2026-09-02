@@ -1,810 +1,460 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Romain Weigel</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="path/to/favicon.ico" type="image/x-icon">
- 
-</head> 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-void:#090c10;
+    --panel:#0d1116;
+    --line: rgba(255,255,255,0.08);
+    --ice:#4fd8c4;
+    --ice-soft: rgba(79,216,196,0.35);
+    --amber:#ffb454;
+    --text-hi:#f2f6f5;
+    --text-mid:#aab4b8;
+    --text-low:#5c6a6e;
+    --overlay-left: rgba(6,8,10,0.94);
+    --overlay-right: rgba(6,8,10,0.35);
+  }
+
+  *{box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    margin:0;
+    background:var(--bg-void);
+    color:var(--text-hi);
+    font-family:'Inter',sans-serif;
+    overflow:hidden;
+  }
+
+  .bg-stage{position:fixed; inset:0; z-index:0;}
+  .bg-slide{
+    position:absolute; inset:0;
+    background-size:cover;
+    background-position:center;
+    opacity:0;
+    animation: slideshow 32s infinite;
+    filter:saturate(0.85) brightness(0.75);
+  }
+
+  @keyframes slideshow{
+    0%{opacity:0; transform:scale(1.06);}
+    4%{opacity:1;}
+    21%{opacity:1; transform:scale(1.12);}
+    25%{opacity:0;}
+    100%{opacity:0;}
+  }
+
+  .bg-overlay{
+    position:fixed; inset:0; z-index:1;
+    background:
+      linear-gradient(100deg, var(--overlay-left) 0%, var(--overlay-left) 34%, rgba(6,8,10,0.55) 55%, var(--overlay-right) 100%),
+      linear-gradient(0deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 22%, rgba(0,0,0,0) 78%, rgba(0,0,0,0.6) 100%);
+    pointer-events:none;
+  }
+
+  .bg-scan{
+    position:fixed; inset:0; z-index:2; pointer-events:none;
+    background:repeating-linear-gradient(0deg, rgba(255,255,255,0.018) 0px, rgba(255,255,255,0.018) 1px, transparent 1px, transparent 3px);
+    mix-blend-mode:overlay;
+  }
+
+  .stage{
+    position:relative; z-index:3;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:44px clamp(24px, 5vw, 76px);
+  }
+
+  .header-row{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:16px;
+  }
+
+  .brand{display:flex; flex-direction:column; gap:2px;}
+  .brand-mark{
+    font-family:'Chakra Petch',sans-serif;
+    font-weight:700;
+    font-size:clamp(22px, 2.4vw, 30px);
+    letter-spacing:0.04em;
+    transform:skewX(-6deg);
+    color:var(--text-hi);
+  }
+  .brand-mark span{color:var(--ice);}
+  .brand-sub{
+    font-size:11px;
+    letter-spacing:0.12em;
+    color:var(--text-low);
+    font-family:'Chakra Petch',sans-serif;
+  }
+
+  .header-right{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+
+  /* ---------- Sélecteur de langue ---------- */
+  .lang-toggle{
+    display:flex;
+    align-items:center;
+    gap:2px;
+    padding:3px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    background:rgba(13,17,22,0.55);
+    backdrop-filter:blur(6px);
+    flex-shrink:0;
+  }
+  .lang-toggle button{
+    border:0;
+    background:transparent;
+    cursor:pointer;
+    font-family:'Chakra Petch',sans-serif;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:0.06em;
+    color:var(--text-low);
+    padding:7px 13px;
+    border-radius:999px;
+    transition: background .18s ease, color .18s ease;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .lang-toggle button:hover{ color:var(--text-hi); }
+  .lang-toggle button.active{
+    background:var(--ice);
+    color:#06110f;
+  }
+  .lang-toggle button.active:hover{ color:#06110f; }
+
+  .profile{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:8px 16px 8px 8px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    background:rgba(13,17,22,0.55);
+    backdrop-filter:blur(6px);
+  }
+
+  .avatar{
+    width:38px;height:38px;
+    border-radius:50%;
+    background:linear-gradient(145deg,var(--ice),#2a8f81);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Chakra Petch',sans-serif;
+    font-weight:700;font-size:14px;color:#06110f;
+    flex-shrink:0;
+  }
+
+  .profile-text{line-height:1.25;text-align:left;}
+  .profile-name{font-weight:600;font-size:14px;color:var(--text-hi);}
+  .profile-role{font-size:11px;color:var(--text-mid);letter-spacing:0.02em;}
+
+  .menu-wrap{display:flex;flex-direction:column;gap:26px;padding-bottom:6px;}
+  .menu-primary{display:flex;flex-direction:column;gap:6px;}
+
+  .menu-item{
+    position:relative;
+    display:flex;
+    align-items:baseline;
+    gap:16px;
+    width:fit-content;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:4px 4px 4px 22px;
+    font-family:'Chakra Petch',sans-serif;
+    color:var(--text-mid);
+    text-align:left;
+    text-decoration:none;
+    -webkit-tap-highlight-color:transparent;
+  }
+
+  .menu-item .index{font-size:12px;color:var(--text-low);width:16px;}
+  .menu-item .label{
+    font-weight:600;
+    letter-spacing:0.03em;
+    transition:color .18s ease,transform .18s ease;
+  }
+
+  .menu-item::before{
+    content:"";
+    position:absolute;
+    left:0;top:50%;
+    transform:translateY(-50%) scaleY(0);
+    width:3px;height:100%;
+    background:var(--ice);
+    transition:transform .2s ease;
+    transform-origin:center;
+  }
+
+  .menu-item:hover::before,
+  .menu-item:focus-visible::before{transform:translateY(-50%) scaleY(1);}
+  .menu-item:hover .label,
+  .menu-item:focus-visible .label{color:var(--text-hi);transform:translateX(6px);}
+  .menu-item:focus-visible{outline:2px solid var(--ice-soft);outline-offset:4px;border-radius:4px;}
+
+  .menu-primary .menu-item:nth-child(1) .label{
+    font-size:clamp(30px,4vw,44px);
+    color:var(--text-hi);
+  }
+  .menu-primary .menu-item:nth-child(1){margin-bottom:4px;}
+  .menu-primary .menu-item:nth-child(1)::before{background:var(--amber);}
+  .menu-primary .menu-item:nth-child(1):hover .label{
+    color:var(--amber);
+    text-shadow:0 0 22px rgba(255,180,84,0.45);
+  }
+  .menu-primary .menu-item:nth-child(1) .index{display:none;}
+  .menu-primary .menu-item:not(:nth-child(1)) .label{font-size:clamp(18px,2vw,22px);}
+
+  .menu-secondary{
+    display:flex;
+    align-items:center;
+    gap:22px;
+    padding-left:22px;
+    border-top:1px solid var(--line);
+    padding-top:14px;
+    width:fit-content;
+  }
+
+  .menu-secondary .menu-item{padding-left:0;}
+  .menu-secondary .menu-item::before{display:none;}
+  .menu-secondary .menu-item .label{
+    font-size:12px;
+    color:var(--text-low);
+    letter-spacing:0.08em;
+    font-weight:600;
+  }
+  .menu-secondary .menu-item:hover .label{color:var(--text-mid);transform:none;}
+  .menu-secondary .menu-item .index{display:none;}
+
+  .footer-row{display:flex;justify-content:space-between;align-items:flex-end;}
+  .build-tag{
+    font-family:'Chakra Petch',sans-serif;
+    font-size:11px;
+    letter-spacing:0.1em;
+    color:var(--text-low);
+  }
+  .scroll-hint{font-size:11px;color:var(--text-low);letter-spacing:0.06em;}
+
+  @media (prefers-reduced-motion:reduce){
+    .bg-slide{animation:none;opacity:0.6;}
+    .bg-slide:nth-child(1){opacity:0.6;}
+    .bg-slide:not(:nth-child(1)){display:none;}
+  }
+
+  @media (max-width:640px){
+    .header-row{flex-direction:row;}
+    .profile{padding:6px 10px 6px 6px;}
+    .profile-text{display:none;}
+    .menu-secondary{flex-wrap:wrap;row-gap:8px;}
+  }
+</style>
+</head>
 <body>
-    <div class="nav">
-        <!-- Image à gauche de la nav -->
-        <img id="presentation-image-nav" src="./static/images/flamenco_2.png" alt="Présentation Image">
-        <button onclick="loadPage('introduction')">Présentation</button>
-        <button onclick="loadPage('projects')">Projets</button>
-        <button onclick="loadPage('loisir')">Loisirs</button>
 
-        <button onclick="loadPage('contact')">Contact</button>
-        <div class="lang-switch">
-            <button onclick="switchLang('fr')">Français</button>
-            <button onclick="switchLang('en')">English</button>
+  <div class="bg-stage" id="bgStage"></div>
+  <div class="bg-overlay"></div>
+  <div class="bg-scan"></div>
+
+  <div class="stage">
+
+    <div class="header-row">
+      <div class="brand">
+        <div class="brand-mark">PORT<span>FOLIO</span></div>
+        <div class="brand-sub">ROMAIN WEIGEL — BUILD 2026.08</div>
+      </div>
+
+      <div class="header-right">
+        <div class="lang-toggle" role="group" aria-label="Langue / Language">
+          <button type="button" data-lang="fr" class="active" aria-pressed="true">FR</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
         </div>
-    </div>
 
-    <div id="content">
-        <!-- Le contenu des autres pages sera chargé ici -->
-    </div>
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2025 Romain Weigel. Tous droits réservés.</p>
-            <div class="socials">
-                <a href="#https://www.linkedin.com/in/romainweigel/">LinkedIn</a> |
-                <a href="#https://www.facebook.com/romain.weigel/">Facebook</a> 
-
+        <div class="profile">
+          <div class="avatar">RW</div>
+          <div class="profile-text">
+            <div class="profile-name">Romain Weigel</div>
+            <div class="profile-role" data-i18n="role">
+              Étudiant · Développeur Informatique
             </div>
-            <p>Contact: <a href="mailto:romain.weigel.contact@gmail.com">mail</a></p>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
 
+    <div class="menu-wrap">
+      <nav class="menu-primary" data-i18n-aria="nav_primary" aria-label="Navigation principale">
 
+        <a class="menu-item" href="./projets.html">
+          <span class="index">01</span>
+          <span class="label" data-i18n="header_buttons.projects">
+            PROJETS
+          </span>
+        </a>
 
-    <script>
-        let currentLang = 'fr';
-        let content = {};
+        <a class="menu-item" href="./introduction.html">
+          <span class="index">02</span>
+          <span class="label" data-i18n="header_buttons.presentation">
+            PRÉSENTATION
+          </span>
+        </a>
 
-        // Charger les traductions
-        function loadTranslations(lang) {
-    fetch(`${lang}.json`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Erreur lors du chargement du fichier de traduction ${lang}.json : ${response.statusText}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            content = data;
-            loadPage('introduction'); // Charger la page par défaut
-        })
-        .catch(error => {
-            console.error('Erreur lors du chargement des traductions :', error);
-            alert('Erreur lors du chargement des traductions. Veuillez vérifier les fichiers JSON.');
-        });
-}
-
-
-function loadPage(page) {
-    fetch(`${page}.html`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Erreur HTTP : ${response.status}`);
-            }
-            return response.text();
-        })
-        .then(html => {
-            document.getElementById('content').innerHTML = html;
-
-            // Appliquer les traductions après le chargement de la page
-            applyTranslations(page);
-
-            // S'assurer que la page soit en haut immédiatement après le chargement
-            window.scrollTo(0, 0); // Défilement immédiat vers le haut de la page
-        })
-        .catch(error => {
-            console.error('Erreur lors du chargement de la page :', error);
-            document.getElementById('content').innerHTML = '<p>Une erreur est survenue lors du chargement de la page.</p>';
-        });
-}
-
-
-
-
-     // Appliquer les traductions sur la page actuelle
-// Appliquer les traductions sur la page actuelle
-function applyTranslations(page) {
-
-
-
-    const presentationButton = document.querySelector("button[onclick=\"loadPage('introduction')\"]");
-    const projectsButton = document.querySelector("button[onclick=\"loadPage('projects')\"]");
-    const contactButton = document.querySelector("button[onclick=\"loadPage('contact')\"]");
-    const loisirButton = document.querySelector("button[onclick=\"loadPage('loisir')\"]");
-    if (presentationButton && projectsButton && contactButton) {
-        presentationButton.textContent = content.header_buttons.presentation;
-        projectsButton.textContent = content.header_buttons.projects;
-        contactButton.textContent = content.header_buttons.contact;
-        loisirButton.textContent = content.header_buttons.loisir;
-    }
-    
-
-    const titleElement = document.getElementById('title');
-    const contentElement = document.getElementById('content-text');
-
-    if (titleElement && contentElement && content[page]) {
-        titleElement.textContent = content[page].title;
-        contentElement.textContent = content[page].content;
-    if (page === 'introduction') {
-    document.getElementById('subheading').textContent = content[page].subheading;
-    document.getElementById('title_personal').textContent = content[page].title_personal;
-    document.getElementById('pdfdownloadlink').textContent = content[page].pdfdownloadlink;
-
-
-//open-questionnaire-button
-// Vérifie la langue et affiche/masque le bouton en conséquence
-    if (currentLang == "fr") {
-        document.getElementById('open-questionnaire-button').style.display = "inline "; // Afficher le bouton
-    } else {
-        document.getElementById('open-questionnaire-button').style.display = "none"; // Masquer le bouton
-    }
-
-     // Ajouter le lien PDF à l'iframe et au lien de téléchargement
-     const pdfLink = content[page].pdf_link;
-    document.querySelector('iframe').src = pdfLink; // Met à jour la source de l'iframe
-    document.querySelector('.pdf-download-link').href = pdfLink; // Met à jour le lien de téléchargement
-
-    const personalInfo = content[page].personal_info;
-    document.getElementById('strong_etat_civil').textContent = personalInfo.strong_etat_civil;
-    document.getElementById('personal-etat-civil').textContent = personalInfo.etat_civil;
-    document.getElementById('strong_email').textContent = personalInfo.strong_email;
-    document.getElementById('personal-email').textContent = personalInfo.email; // Ensure this is structured correctly
-    document.getElementById('strong_adresse').textContent = personalInfo.strong_adresse;
-    document.getElementById('personal-adresse').textContent = personalInfo.adresse;
-    document.getElementById('strong_date_naissance').textContent = personalInfo.strong_date_naissance;
-    document.getElementById('personal-date-naissance').textContent = personalInfo.date_naissance;
-    document.getElementById('strong_permis').textContent = personalInfo.strong_permis;
-    document.getElementById('personal-permis').textContent = personalInfo.permis;
-
-    // Fill education information
-    const education = content[page].education;
-    document.getElementById('parcour').textContent = content[page].parcour;
-
-    document.getElementById('formation1-title').textContent = education.formation1.title;
-    document.getElementById('formation1-specialization').textContent = education.formation1.specialization;
-    document.getElementById('formation1-dates').textContent = education.formation1.dates;
-    document.getElementById('formation1-institution').textContent = education.formation1.institution;
-
-    document.getElementById('formation3-title').textContent = education.formation3.title;
-    document.getElementById('formation3-specialization').textContent = education.formation3.specialization;
-    document.getElementById('formation3-dates').textContent = education.formation3.dates;
-    document.getElementById('formation3-institution').textContent = education.formation3.institution;
-
-    document.getElementById('formation2-title').textContent = education.formation2.title;
-    document.getElementById('formation2-specialization').textContent = education.formation2.specialization;
-    document.getElementById('formation2-dates').textContent = education.formation2.dates;
-    document.getElementById('formation2-institution').textContent = education.formation2.institution;
-
-
-    const experience = content[page].experience_pro;
-    document.getElementById('Experience_Professionnelle').textContent = content[page].experience_title;
-
-    document.getElementById('exp4-title').textContent = experience.exp4.title;
-    document.getElementById('exp4-specialization').textContent = experience.exp4.specialization;
-    document.getElementById('exp4-dates').textContent = experience.exp4.dates;
-    document.getElementById('exp4-institution').textContent = experience.exp4.institution;
-
-    document.getElementById('exp3-title').textContent = experience.exp3.title;
-    document.getElementById('exp3-specialization').textContent = experience.exp3.specialization;
-    document.getElementById('exp3-dates').textContent = experience.exp3.dates;
-    document.getElementById('exp3-institution').textContent = experience.exp3.institution;
-
-    document.getElementById('exp1-title').textContent = experience.exp1.title;
-    document.getElementById('exp1-specialization').textContent = experience.exp1.specialization;
-    document.getElementById('exp1-dates').textContent = experience.exp1.dates;
-    document.getElementById('exp1-institution').textContent = experience.exp1.institution;
-
-    document.getElementById('exp2-title').textContent = experience.exp2.title;
-    document.getElementById('exp2-specialization').textContent = experience.exp2.specialization;
-    document.getElementById('exp2-dates').textContent = experience.exp2.dates;
-    document.getElementById('exp2-institution').textContent = experience.exp2.institution;
-
-
-    const activites = content[page]?.activites;
-    if (activites && activites.actualite) {
-        const actualite1 = activites.actualite1;
-        document.getElementById('actu_title1').textContent = actualite1.titre;
-    
-        document.getElementById('actu_description1').textContent = actualite1.content;
-        document.getElementById('actu_date1').textContent = actualite1.date;
-
-        document.getElementById('main_title').textContent = activites.main_title;
-
-    } else {
-        console.error("Les données d'activités ou d'actualité sont manquantes !");
-        console.error(content[page].activites);  // Pour vérifier si 'actualite' est bien présent
-
-    }
-
-    
-    const popup = content[page]?.popup;
-    if (popup) {
-        document.getElementById('popup-title').textContent = popup.popuptitle;
-       
-        document.getElementById('popup-text').textContent = popup.texte;
-    
-    } else {
-        console.error("Les données de popup sont manquantes !");
-        console.error(content[page].popup);  // Pour vérifier si 'actualite' est bien présent
-
-    }
-
-    const popup_div = document.getElementById('clickpopup');
-
-    popup_div.addEventListener('click', redirectToProjects);
-
-    function redirectToProjects() {
-        loadPage("projects")
-        setTimeout(function () {
-            window.scrollTo({
-                top: 600, // Ajuste la valeur pour définir le scroll
-                behavior: 'smooth'
-            });
-        }, 500); // Délai pour s'assurer que la page est bien chargée avant le scroll
-    }
-
-    
-    const menage_div = document.getElementById('follow');
-    menage_div.style.cursor = "pointer";
-
-    menage_div.addEventListener('click', redirectToProjects);
-
-    function redirectToProjects() {
-        loadPage("projects")
-        setTimeout(function () {
-            window.scrollTo({
-                top: 600, // Ajuste la valeur pour définir le scroll
-                behavior: 'smooth'
-            });
-        }, 500); // Délai pour s'assurer que la page est bien chargée avant le scroll
-    }
-
-    
-
-
-//    // Remplir la section "Actualités"
-// const actualites = content[page].activites.actualites;
-// document.getElementById('actualites-title').textContent = actualites.main_title;
-
-// // Créer une liste d'actualités
-// const actualitesList = document.getElementById('actualites-list');
-// actualites.forEach((actualite) => {
-//     const actualiteItem = document.createElement('div');
-//     actualiteItem.classList.add('actualite-item');
-    
-//     // Créer le titre de l'actualité
-//     const actualiteTitle = document.createElement('h3');
-//     actualiteTitle.textContent = actualite.title;
-//     actualiteItem.appendChild(actualiteTitle);
-    
-//     // Créer le contenu de l'actualité
-//     const actualiteContent = document.createElement('p');
-//     actualiteContent.textContent = actualite.content;
-//     actualiteItem.appendChild(actualiteContent);
-    
-//     // Ajouter l'image de l'actualité
-//     const actualiteImage = document.createElement('img');
-//     actualiteImage.src = actualite.image;
-//     actualiteImage.alt = actualite.title;
-//     actualiteItem.appendChild(actualiteImage);
-    
-//     actualitesList.appendChild(actualiteItem);
-// });
-
-}
-
-
-    }
-       // Vérifiez si la page est "projects"
-       if (page === 'projects') {
-    const projectTitleElement = document.getElementById('project-title');
-    const projectTitleElementPro = document.getElementById('project_title_pro');
-    const projectTitleElementPerso = document.getElementById('project_title_perso');
-
-    const projectListElementPro = document.getElementById('project-list-pro');
-    const projectListElementPerso = document.getElementById('project-list-perso'); 
-    const skillsContainer = document.getElementById('skills-container'); // Conteneur des compétences
-
-    if (projectTitleElement && projectListElementPro && projectListElementPerso) {
-        projectTitleElement.textContent = content[page].project_title;
-        projectTitleElementPro.textContent = content[page].project_title_pro;
-        projectTitleElementPerso.textContent = content[page].project_title_perso;
-
-        projectListElementPro.innerHTML = ''; 
-        projectListElementPerso.innerHTML = '';
-
-        const skillsSet = new Set(); // Ensemble pour éviter les doublons
-    
-
-        if (content[page].Competences && Array.isArray(content[page].Competences)) {
-            content[page].Competences.forEach(skill => skillsSet.add(skill));
-            }
-
-        Object.keys(content[page].projects).forEach(projectKey => {
-            const project = content[page].projects[projectKey];
-            
-            // compétences
-            
-
-
-            
-
-            const projectItem = document.createElement('div');
-            projectItem.classList.add('project-item');
-
-            const projectTitle = document.createElement('h3');
-            projectTitle.textContent = project.title;
-            projectItem.appendChild(projectTitle);
-
-            const projectDescription = document.createElement('p');
-            projectDescription.textContent = project.description;
-            projectItem.appendChild(projectDescription);
-
-            const projectReleaseDate = document.createElement('p');
-            projectReleaseDate.textContent = `Date de création: ${project.release_date}`;
-            projectReleaseDate.classList.add('release-date');
-            projectItem.appendChild(projectReleaseDate);
+        <a class="menu-item" href="./contact.html">
+          <span class="index">03</span>
+          <span class="label" data-i18n="header_buttons.contact">
+            CONTACT
+          </span>
+        </a>
 
         
-            if (project.images && project.images.length >= 0) {
-                const imageContainer = document.createElement('div');
-                imageContainer.classList.add('image-container'); // Ajout de la classe pour le conteneur d'images
-                
-                project.images.forEach(imageSrc => {
-                    const img = document.createElement('img');
-                    img.src = imageSrc;
-                    img.alt = `${project.title} image`;
+        <a class="menu-item" href="./loisir.html">
+          <span class="index">03</span>
+          <span class="label" data-i18n="header_buttons.contact">
+            LOISIR
+          </span>
+        </a>
 
-                    // Ajout d'un gestionnaire d'événements pour ouvrir l'image dans un nouvel onglet
-                    img.addEventListener('click', () => {
-                        window.open(imageSrc, '_blank'); // Ouvre l'image dans un nouvel onglet
-                    });
+      </nav>
 
-                    imageContainer.appendChild(img); // Ajouter directement l'image au conteneur
-                });
-                
-                // Ajout du PDF sous forme d'embed si le lien existe
-                if (project.pdf_link) {
-                    const pdfEmbed = document.createElement('embed');
-                    pdfEmbed.src = project.pdf_link;
-                    pdfEmbed.type = "application/pdf";
-                    pdfEmbed.classList.add('pdf-embed');
-                    pdfEmbed.width = "240"; // Ajuster la largeur pour l'alignement
-                    pdfEmbed.height = "320"; // Ajuster la hauteur pour la visibilité
+      <nav class="menu-secondary" data-i18n-aria="nav_secondary" aria-label="Navigation secondaire">
+        <a class="menu-item" id="cvLink" href="./static/CV_Weigel_Romain.pdf" target="_blank" rel="noopener">
+          <span class="label" data-i18n="introduction.pdfdownloadlink">
+            OUVRIR LE CV EN PDF
+          </span>
+        </a>
+      </nav>
+    </div>
 
-                    imageContainer.appendChild(pdfEmbed);
-                }
+    <div class="footer-row">
+      <div class="build-tag" data-i18n="buildTag">SCROLL/CLIC POUR NAVIGUER — PAGES À VENIR</div>
+      <div class="scroll-hint">v0.1</div>
+    </div>
 
-                projectItem.appendChild(imageContainer);
-            }
+  </div>
 
-            // Liens vers YouTube et autres
-            if (project.youtube_link) {
-                const youtubeLink = document.createElement('a');
-                youtubeLink.href = project.youtube_link;
-                youtubeLink.textContent = content[page].link_text.youtube; // Utiliser la traduction
-                youtubeLink.target = "_blank";
-                projectItem.appendChild(youtubeLink);
-            }
+  <script>
+    const BG_FOLDER = 'static/fond_acceuil/';
+    const BG_IMAGES = [
+      'kitchen_wtf.png',
+      'flamenco_2.png',
+      'ProtoDemoImage.png'
+    ];
+    const SLOT_SECONDS = 8;
 
-            if (project.other_link) {
-                const otherLink = document.createElement('a');
-                otherLink.href = project.other_link;
-                otherLink.textContent = content[page].link_text.other; // Utiliser la traduction
-                otherLink.target = "_blank";
-                projectItem.appendChild(otherLink);
-            }
+    const stage = document.getElementById('bgStage');
+    const cycleDuration = BG_IMAGES.length * SLOT_SECONDS;
 
-            // Lien PDF
-            if (project.pdf_link) {
-                const pdfLink = document.createElement('a');
-                pdfLink.href = project.pdf_link;
-                pdfLink.textContent = content[page].link_text.pdf; // Utiliser la traduction
-                pdfLink.target = "_blank";
-                pdfLink.classList.add('pdf-link'); // Ajout de la classe PDF pour le style
-                projectItem.appendChild(pdfLink);
-            }
+    BG_IMAGES.forEach((filename, index) => {
+      const slide = document.createElement('div');
+      slide.className = 'bg-slide';
+      slide.style.backgroundImage = `url('${BG_FOLDER}${filename}')`;
+      slide.style.animationDuration = `${cycleDuration}s`;
+      slide.style.animationDelay = `${index * SLOT_SECONDS}s`;
+      stage.appendChild(slide);
+    });
 
-            if (project.Competences) {
-    const projectSkills = document.createElement('div'); // Conteneur pour les compétences
-    projectSkills.classList.add('Competences');
+    /* ====================================================================
+       TRADUCTION
+       ==================================================================== */
+    let currentLang = 'fr';
+    let data = null;
 
-    // Création du titre
-    const competenceTitle = document.createElement('h3');
-    competenceTitle.textContent = "Compétences :";
-    projectSkills.appendChild(competenceTitle); // Ajoute le titre au conteneur
+    function getDataUrl() {
+      return currentLang === 'en' ? 'static/en.json' : 'static/fr.json';
+    }
 
-    // Crée une div dédiée aux bulles
-   // Crée une div dédiée aux bulles
-const skillsContainer = document.createElement('div');
-skillsContainer.classList.add('skills-container'); // Classe CSS pour gérer la disposition
+    // Textes fixes qui n'existent pas dans fr.json / en.json
+    const UI_STRINGS = {
+      fr: {
+        role: 'Étudiant · Développeur Informatique',
+        nav_primary: 'Navigation principale',
+        nav_secondary: 'Navigation secondaire',
+        buildTag: 'SCROLL/CLIC POUR NAVIGUER — PAGES À VENIR'
+      },
+      en: {
+        role: 'Student · Software Developer',
+        nav_primary: 'Main navigation',
+        nav_secondary: 'Secondary navigation',
+        buildTag: 'SCROLL/CLICK TO NAVIGATE — MORE PAGES COMING SOON'
+      }
+    };
 
-// Crée une bulle pour chaque compétence
-project.Competences.forEach(skill => {
-    const skillBubble = document.createElement('span');
-    skillBubble.textContent = skill;
-    skillBubble.style.cursor = 'pointer'; // Ajoute le curseur clic
-    skillBubble.classList.add('skill-bubble'); // Ajoute une classe pour styliser chaque bulle
-    skillBubble.addEventListener('click', () => filterProjectsBySkill(skill)); // Ajout du filtre au clic
-    skillsContainer.appendChild(skillBubble); // Ajoute chaque bulle dans le conteneur
-});
+    function getByPath(obj, path) {
+      return path.split('.').reduce(
+        (acc, key) => (acc && acc[key] !== undefined) ? acc[key] : undefined,
+        obj
+      );
+    }
 
+    function applyTranslations() {
+      const strings = UI_STRINGS[currentLang] || UI_STRINGS.fr;
 
-    projectSkills.appendChild(skillsContainer); // Ajoute le conteneur des bulles au conteneur principal
-    projectItem.appendChild(projectSkills); // Ajoute le conteneur principal au projet
-}
-
-            //projectListElement.appendChild(projectItem);
-
-            if (project.type === "perso") {
-                projectListElementPerso.appendChild(projectItem);
-            } else if (project.type === "pro") {
-                projectListElementPro.appendChild(projectItem);
-            }
-        });
-
-        // Afficher les compétences dans une combobox
-if (skillsContainer && skillsSet.size > 0) {
-    const skillSelect = document.createElement('select');
-    skillSelect.classList.add('skill-combobox');
-    
-    // Convertir le Set en Array pour accéder au premier élément
-    const skillsArray = Array.from(skillsSet);
-    
-    // Ajouter toutes les compétences comme options
-    skillsArray.forEach((skill, index) => {
-        const option = document.createElement('option');
-        option.value = skill;
-        option.textContent = skill;
-        
-        // Sélectionner le premier élément par défaut
-        if (index === 0) {
-            option.selected = true;
-            // Filtrer immédiatement avec la première compétence
-            filterProjectsBySkill(skill);
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n.trim();
+        if (strings[key] !== undefined) {
+          el.textContent = strings[key];
+        } else if (data) {
+          const value = getByPath(data, key);
+          if (typeof value === 'string') el.textContent = value;
         }
-        
-        skillSelect.appendChild(option);
-    });
-    
-    // Gérer l'événement de changement
-    skillSelect.addEventListener('change', (event) => {
-        filterProjectsBySkill(event.target.value);
-    });
-    
-    skillsContainer.appendChild(skillSelect);
-}
+      });
+
+      document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+        const key = el.dataset.i18nAria.trim();
+        if (strings[key] !== undefined) el.setAttribute('aria-label', strings[key]);
+      });
+
+      const cvLink = document.getElementById('cvLink');
+      if (cvLink && data) {
+        const pdfLink = getByPath(data, 'introduction.pdf_link');
+        if (pdfLink) cvLink.setAttribute('href', pdfLink);
+      }
+
+      document.documentElement.lang = currentLang;
     }
-}
 
-function filterProjectsBySkill(skill) {
-    const allProjects = document.querySelectorAll('.project-item');
+    async function loadData() {
+      try {
+        const response = await fetch(getDataUrl(), { cache: 'no-cache' });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        data = await response.json();
+      } catch (error) {
+        console.error('Impossible de charger les données', error);
+        data = null;
+      }
+      applyTranslations();
+    }
 
-    if (skill === "Tous" || skill === "All") {
-        allProjects.forEach(project => {
-            project.style.display = 'block';
+    const langButtons = [...document.querySelectorAll('.lang-toggle button')];
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        if (lang === currentLang) return;
+
+        currentLang = lang;
+        langButtons.forEach(b => {
+          const active = b === btn;
+          b.classList.toggle('active', active);
+          b.setAttribute('aria-pressed', String(active));
         });
-    } else {
-        allProjects.forEach(project => {
-            const projectSkills = project.querySelectorAll('.skill-bubble');
-            let match = false;
 
-            projectSkills.forEach(skillElement => {
-                if (skillElement.textContent === skill) {
-                    match = true;
-                }
-            });
-
-            project.style.display = match ? 'block' : 'none';
-        });
-    }
-
-    const projectListElementPro = document.getElementById('project-list-pro');
-    const projectListElementPerso = document.getElementById('project-list-perso');
-
-    const divPro = document.getElementById('project-list-pro-div');
-    const divPerso = document.getElementById('project-list-perso-div');
-
-    const hasVisibleProProjects = Array.from(projectListElementPro.children).some(
-        child => child.style.display === 'block'
-    );
-    divPro.style.display = hasVisibleProProjects ? 'block' : 'none';
-
-    const hasVisiblePersoProjects = Array.from(projectListElementPerso.children).some(
-        child => child.style.display === 'block'
-    );
-    divPerso.style.display = hasVisiblePersoProjects ? 'block' : 'none';
-
-    if (hasVisibleProProjects && !hasVisiblePersoProjects) {
-        divPro.style.flex = '1';
-    } else if (!hasVisibleProProjects && hasVisiblePersoProjects) {
-        divPerso.style.flex = '1';
-    } else {
-        divPro.style.flex = 'initial';
-        divPerso.style.flex = 'initial';
-    }
-}
-
-
-
-        if (page == "contact") {
-            const titleElement = document.getElementById('contact-title');
-            const emailLinkElement = document.getElementById('email-link');
-            const linkedinLinkElement = document.getElementById('linkedin-link');
-            const availabilityElement = document.getElementById('availability');
-            const locationTitleElement = document.getElementById('location-title');
-
-            titleElement.textContent = content[page].title;
-            emailLinkElement.textContent = content[page].email_link;
-            linkedinLinkElement.textContent = content[page].linkedin;
-            availabilityElement.textContent = content[page].availability;
-            locationTitleElement.textContent = content[page].location_title;
-
-            // Lien de l'email
-            emailLinkElement.href = "https://mail.google.com/mail/?view=cm&fs=1&to=romain.weigel.contact@gmail.com";
-
-            // Lien LinkedIn
-            linkedinLinkElement.href = "https://www.linkedin.com/in/romainweigel/";
-        }
-        
-        if (page === "loisir") {
-    const projectTitleElement = document.getElementById('project-title');
-    const loisirElement = document.getElementById('loisirs-list');
-
-    if (projectTitleElement && loisirElement) {
-        projectTitleElement.textContent = content[page].title;
-        loisirElement.innerHTML = '';
-
-        // Parcourir les catégories principales (Jeux, Street_workout, Dev_perso)
-        Object.entries(content[page].loisirs).forEach(([categoryKey, categoryContent]) => {
-            const categoryWrapper = document.createElement('div');
-            categoryWrapper.classList.add('category-wrapper');
-            
-            const categoryHeader = document.createElement('h2');
-            categoryHeader.textContent = categoryKey.replace('_', ' ');
-            categoryWrapper.appendChild(categoryHeader);
-
-            // Traitement spécial pour chaque catégorie principale
-            if (categoryKey === 'Jeux') {
-                // Parcourir les jeux
-                Object.values(categoryContent).forEach(game => {
-                    const gameItem = createGameSection(game);
-                    categoryWrapper.appendChild(gameItem);
-                });
-            } 
-            else if (categoryKey === 'Street_workout') {
-                const workoutSection = createWorkoutSection(categoryContent);
-                categoryWrapper.appendChild(workoutSection);
-            }
-            else if (categoryKey === 'Dev_perso') {
-                // Parcourir les sous-catégories de Dev_perso
-                Object.entries(categoryContent).forEach(([subCategoryKey, subCategoryContent]) => {
-                    const subSection = createDevPersoSection(subCategoryKey, subCategoryContent);
-                    categoryWrapper.appendChild(subSection);
-                });
-            }
-
-            loisirElement.appendChild(categoryWrapper);
-        });
-    }
-}
-
-// Fonction pour créer une section de jeu
-function createGameSection(game) {
-    const gameItem = document.createElement('div');
-    gameItem.classList.add('game-item');
-
-    // Titre du jeu
-    const gameTitle = document.createElement('h3');
-    gameTitle.textContent = game.title;
-    gameItem.appendChild(gameTitle);
-
-    // Statut actif/inactif
-    if (game.actif) {
-        const statusElement = document.createElement('p');
-        statusElement.textContent = `Statut : ${game.actif}`;
-        gameItem.appendChild(statusElement);
-    }
-
-    // Images
-    if (game.images && game.images.length > 0) {
-        const imageContainer = createImageContainer(game.images, game.title);
-        gameItem.appendChild(imageContainer);
-    }
-
-    // Description
-    if (game.Description) {
-        const description = document.createElement('p');
-        description.textContent = game.Description;
-        gameItem.appendChild(description);
-    }
-
-    // Nombre d'heures
-    if (game.NbHeure) {
-        const hours = document.createElement('p');
-        hours.textContent = `Temps de jeu : ${game.NbHeure}`;
-        gameItem.appendChild(hours);
-    }
-
-    // Liste des jeux joués
-    if (game.Tous_les_jeux_joues) {
-        const gamesList = document.createElement('div');
-        gamesList.classList.add('games-list');
-        const gamesTitle = document.createElement('h4');
-        gamesTitle.textContent = 'Jeux joués :';
-        gamesList.appendChild(gamesTitle);
-        const gamesList_ul = document.createElement('ul');
-        game.Tous_les_jeux_joues.forEach(gameTitle => {
-            const li = document.createElement('li');
-            li.textContent = gameTitle;
-            gamesList_ul.appendChild(li);
-        });
-        gamesList.appendChild(gamesList_ul);
-        gameItem.appendChild(gamesList);
-    }
-
-    // Armes (spécifique à Monster Hunter)
-    if (game.Les_armes_que_je_joue) {
-        const weaponsList = document.createElement('div');
-        weaponsList.classList.add('weapons-list');
-        const weaponsTitle = document.createElement('h4');
-        weaponsTitle.textContent = 'Armes utilisées :';
-        weaponsList.appendChild(weaponsTitle);
-        const weapons_ul = document.createElement('ul');
-        game.Les_armes_que_je_joue.forEach(weapon => {
-            const li = document.createElement('li');
-            li.textContent = weapon;
-            weapons_ul.appendChild(li);
-        });
-        weaponsList.appendChild(weapons_ul);
-        gameItem.appendChild(weaponsList);
-    }
-
-    // Lien externe
-    if (game.lien) {
-        const link = document.createElement('a');
-        link.href = game.lien;
-        
-        if(currentLang == "fr")
-    {
-        link.textContent = 'Voir le profil';
-
-    }else{
-        link.textContent = 'View the profile';
-    }
-        link.target = '_blank';
-        gameItem.appendChild(link);
-    }
-
-    return gameItem;
-}
-
-// Fonction pour créer la section Street Workout
-function createWorkoutSection(workoutData) {
-    const workoutItem = document.createElement('div');
-    workoutItem.classList.add('workout-item');
-
-    // Titre
-    const title = document.createElement('h3');
-    title.textContent = workoutData.title;
-    workoutItem.appendChild(title);
-
-    // Images
-    if (workoutData.images && workoutData.images.length > 0) {
-        const imageContainer = createImageContainer(workoutData.images, workoutData.title);
-        workoutItem.appendChild(imageContainer);
-    }
-
-    // Nombre d'années
-    if (workoutData.NbAnnee) {
-        const years = document.createElement('p');
-        years.textContent = `Expérience : ${workoutData.NbAnnee}`;
-        workoutItem.appendChild(years);
-    }
-
-    // Figures maîtrisées
-    if (workoutData.Figure_maitrise) {
-        const masteredSection = createListSection('Figures maîtrisées :', workoutData.Figure_maitrise);
-        workoutItem.appendChild(masteredSection);
-    }
-
-    // Objectifs
-    if (workoutData.Figure_objectif) {
-        const objectivesSection = createListSection('Objectifs :', workoutData.Figure_objectif);
-        workoutItem.appendChild(objectivesSection);
-    }
-
-    return workoutItem;
-}
-
-// Fonction pour créer la section Dev Personnel
-function createDevPersoSection(type, content) {
-    const section = document.createElement('div');
-    section.classList.add('dev-perso-item');
-
-    // Titre de la section
-    const title = document.createElement('h3');
-    title.textContent = content.title;
-    section.appendChild(title);
-
-    // Image unique
-    if (content.image) {
-        const img = document.createElement('img');
-        img.src = content.image;
-        img.alt = content.title;
-        img.classList.add('dev-perso-image');
-        section.appendChild(img);
-    }
-
-    // Liste de livres
-    if (content.listes_livres) {
-        const booksContainer = createImageContainer(content.listes_livres, 'Livres');
-        section.appendChild(booksContainer);
-    }
-
-    // Lien
-    if (content.lien) {
-        const link = document.createElement('a');
-        link.href = content.lien;
-        if(currentLang == "fr")
-    {
-        link.textContent = `Voir ${content.title}`;
-
-    }else{
-        link.textContent = `See ${content.title}`;
-    }
-        link.target = '_blank';
-        section.appendChild(link);
-    }
-
-    return section;
-}
-// Fonction pour créer un conteneur d'images
-function createImageContainer(images, title) {
-    const container = document.createElement('div');
-    container.classList.add('image-container');
-
-    images.forEach(imageSrc => {
-        const img = document.createElement('img');
-        img.src = imageSrc;
-        img.alt = title;
-        img.classList.add('image-item');
-        container.appendChild(img);
+        loadData();
+      });
     });
- 
-    return container;
-}
 
-
-// Fonction pour vérifier si une image existe
-function checkImageExists(url) {
-    return new Promise((resolve) => {
-        const img = new Image();
-        img.onload = () => resolve(true);
-        img.onerror = () => resolve(false);
-        img.src = url;
-    });
-}
-
-// Fonction utilitaire pour créer une section de liste
-function createListSection(title, items) {
-    const section = document.createElement('div');
-    section.classList.add('list-section');
-    
-    const sectionTitle = document.createElement('h4');
-    sectionTitle.textContent = title;
-    section.appendChild(sectionTitle);
-
-    const list = document.createElement('ul');
-    items.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = item;
-        list.appendChild(li);
-    });
-    section.appendChild(list);
-
-    return section;
-}
-        }
-
-
-
-        function switchLang(lang) {
-            currentLang = lang;
-            loadTranslations(lang);
-        }
-
-        loadTranslations(currentLang);
-    </script>
+    loadData();
+  </script>
 </body>
 </html>
