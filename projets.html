@@ -573,6 +573,20 @@
     .top-bar{ flex-wrap:wrap; row-gap:14px; }
     .main-nav{ order:3; width:100%; justify-content:center; }
   }
+
+    /* ---------- Popup "projets à venir" ---------- */
+  .popup-modal{
+    width:min(480px, 100%);
+    background:var(--panel);
+    border:1px solid var(--line); border-radius:8px;
+    position:relative;
+  }
+  .popup-content{ padding:34px 28px 30px; }
+  .popup-content h2{
+    font-family:'Chakra Petch', sans-serif; font-weight:700;
+    font-size:22px; margin:0 0 14px;
+  }
+  .popup-content p{ color:var(--text-mid); line-height:1.65; font-size:14px; margin:0; }
 </style>
 </head>
 <body>
@@ -620,6 +634,16 @@
         </a>
       </div>
     </div>
+
+  <div class="modal-backdrop" id="popupBackdrop">
+    <div class="popup-modal" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+            <button class="modal-close" id="popupCloseBtn" data-i18n-aria="modal_close" aria-label="Fermer">✕</button>
+      <div class="popup-content">
+        <h2 id="popupTitle"></h2>
+        <p id="popupText"></p>
+      </div>
+    </div>
+  </div>
     <header class="page-head">
       <div class="page-eyebrow"><div class="bar"></div><span data-i18n="eyebrow">ARCHIVES</span></div>
       <h1 class="page-title">Projets</h1>
@@ -751,15 +775,19 @@
     }
 
     function updatePageTexts() {
-      const projects = data.projects || {};
-      document.title = `${projects.title || 'Projets'} — Romain Weigel`;
+  const projects = data.projects || {};
+  document.title = `${projects.title || 'Projets'} — Romain Weigel`;
 
-      const title = document.querySelector('.page-title');
-      const intro = document.querySelector('.page-intro');
+  const title = document.querySelector('.page-title');
+  const intro = document.querySelector('.page-intro');
 
-      if (title && projects.title) title.textContent = projects.title;
-      if (intro && projects.content) intro.textContent = projects.content;
-    }
+  if (title && projects.title) title.textContent = projects.title;
+  if (intro && projects.content) intro.textContent = projects.content;
+
+  const popup = (data.introduction && data.introduction.popup) || {};
+  document.getElementById('popupTitle').textContent = popup.popuptitle || '';
+  document.getElementById('popupText').textContent = popup.texte || '';
+}
 
     function getFilteredProjects() {
       const query = normalizeText(searchTerm);
@@ -1092,6 +1120,29 @@
     });
 
     applyUIStrings();
+
+    /*
+      POPUP "Projets à venir" — s'affiche une fois par session, après le
+      chargement, et peut être fermée (croix, clic hors modale, Echap).
+    */
+    const popupBackdrop = document.getElementById('popupBackdrop');
+
+    function showPopup() {
+      if (sessionStorage.getItem('projetsPopupDismissed')) return;
+      popupBackdrop.classList.add('open');
+    }
+    function closePopup() {
+      popupBackdrop.classList.remove('open');
+      sessionStorage.setItem('projetsPopupDismissed', '1');
+    }
+
+    document.getElementById('popupCloseBtn').addEventListener('click', closePopup);
+    popupBackdrop.addEventListener('click', event => {
+      if (event.target === popupBackdrop) closePopup();
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && popupBackdrop.classList.contains('open')) closePopup();
+    });
     /*
       SÉQUENCE DE CHARGEMENT
       Le logo glisse depuis la gauche en tournant sur lui-même
@@ -1103,27 +1154,27 @@
       const reduceMotion =
         window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      // On charge les données dès le début, en parallèle de l'animation,
-      // pour ne jamais faire attendre l'utilisateur inutilement.
       loadData();
 
       if (reduceMotion) {
         document.body.classList.add('booted');
         screen.remove();
+        setTimeout(showPopup, 400);
         return;
       }
 
-      const LOGO_ARRIVAL = 1500; // durée de l'animation d'entrée du logo (logoSlideIn)
-      const HOLD = 550;          // petite pause, logo posé au centre
-      const FADE_OUT = 700;      // durée du fondu de sortie (cf. transition .boot-screen)
+      const LOGO_ARRIVAL = 1500;
+      const HOLD = 550;
+      const FADE_OUT = 700;
 
       setTimeout(() => {
         screen.classList.add('leaving');
-        // Le contenu de la page apparaît en fondu en même temps
-        // que l'écran de chargement s'efface.
         document.body.classList.add('booted');
 
-        setTimeout(() => screen.remove(), FADE_OUT);
+        setTimeout(() => {
+          screen.remove();
+          showPopup();
+        }, FADE_OUT);
       }, LOGO_ARRIVAL + HOLD);
     })();
   </script>
