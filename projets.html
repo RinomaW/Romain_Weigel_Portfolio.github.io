@@ -98,22 +98,13 @@
     border-radius:50%;
     object-fit:cover;
     background:var(--panel-raised);
-    animation: logoSpin 1.5s linear forwards, logoSpinIdle 3.2s linear 1.5s infinite;
+    animation: linear 1s infinite;
   }
   @keyframes logoSlideIn{
     0%{ transform:translateX(-220%); opacity:0; }
     12%{ opacity:1; }
     100%{ transform:translateX(0); opacity:1; }
   }
-  @keyframes logoSpin{
-    from{ transform:rotate(0deg); }
-    to{ transform:rotate(900deg); }
-  }
-  @keyframes logoSpinIdle{
-    from{ transform:rotate(0deg); }
-    to{ transform:rotate(360deg); }
-  }
-
   .boot-mark{
     font-family:'Chakra Petch', sans-serif;
     font-weight:700;
@@ -122,7 +113,7 @@
     color:var(--text-low);
     transform:skewX(-6deg);
     opacity:0;
-    animation: bootTextIn 0.6s ease 1.15s forwards;
+    animation: bootTextIn 0.6s ease 1s forwards;
   }
   .boot-mark span{ color:var(--ice); }
   @keyframes bootTextIn{
@@ -603,7 +594,7 @@
         <img class="boot-logo" src="static/logo.png" alt="Romain Weigel">
       </div>
     </div>
-    <div class="boot-mark">PORT<span>FOLIO</span></div>
+    <div class="boot-mark">ROMAIN<span>WEIGEL</span></div>
   </div>
 
   

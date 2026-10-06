@@ -1,16 +1,14 @@
 {
-    
     "header_buttons": {
         "presentation": "Introduction",
         "projects": "Projects",
         "contact": "Contact",
         "loisir": "Hobbies"
-         
     },
     "introduction": {
         "title": "Romain Weigel",
-        "content": "My name is Romain Weigel, and I am currently a fourth-year student at Gaming Campus, completing a work-study program while also running my own freelance business in software and video game development. Passionate about digital technologies, I continuously improve my skills through both professional and personal projects. As part of my academic journey, I am looking for a work-study position for my fifth year in the fields of video games, software development, or mobile application development.",
-        "pdfdownloadlink": "Open CV in PDF",
+        "content": "My name is Romain Weigel, and I am currently a Fifth-year student at Gaming Campus, completing a work-study program while also running my own freelance business in software and video game development. Passionate about digital technologies, I continuously improve my skills through both professional and personal projects.",
+        "pdfdownloadlink": "Open CV as PDF",
         "pdf_link": "./static/CV_Weigel_Romain_Eng.pdf",
         "title_personal": "PERSONAL DETAILS",
         "personal_info": {
@@ -20,45 +18,45 @@
             "email": "romain.weigel.contact@gmail.com",
             "strong_adresse": "Address:",
             "adresse": "Lyon, France",
-            "strong_date_naissance": "Date of Birth:",
+            "strong_date_naissance": "Date of birth:",
             "date_naissance": "22 years old",
-            "strong_permis": "License:",
-            "permis": "B License"
+            "strong_permis": "Driver's license:",
+            "permis": "Category B"
         },
         "subheading": "About Me",
         "parcour": "My Journey",
         "education": {
             "formation3": {
-                "title": "2 Year in Gaming Camous for a Msc",
-                "specialization": "G.TECH game developper",
+                "title": "2 Years at Gaming Campus for an MSc",
+                "specialization": "G.TECH Game Developer",
                 "dates": "2025 - 2027",
                 "institution": "Lyon Gaming Campus"
             },
             "formation1": {
-                "title": "3rd Year in B.Tech",
+                "title": "3rd Year of B.Tech",
                 "specialization": "Computer Science",
-                "dates": "2022 - 2024",
-                "institution": "IUT Annecy-Le-Vieux (74)"
+                "dates": "2022 - 2025",
+                "institution": "IUT of Annecy-le-Vieux (74)"
             },
             "formation2": {
                 "title": "Technological Baccalaureate",
                 "specialization": "STI2D with honors",
-                "dates": "JUNE 2022",
-                "institution": "Lycée St-Michel Annecy (74)"
+                "dates": "June 2022",
+                "institution": "Lycée Saint-Michel, Annecy (74)"
             }
         },
         "experience_title": "Professional Experience",
         "experience_pro": {
-              "exp4": {
-    "title": "Company Creation for the Development of a Cooperative Multiplayer Video Game",
-    "specialization": "1-Year Work-Study Program",
-    "dates": "From September 2025 to September 2026",
-    "institution": "Romain Weigel Studio"
-  },
+            "exp4": {
+                "title": "Company Creation for the Development of a Cooperative Multiplayer Video Game",
+                "specialization": "1-Year Work-Study Program",
+                "dates": "From September 2025 to September 2026",
+                "institution": "Romain Weigel Studio"
+            },
             "exp3": {
-                "title": "Development of a virtual reality application to explore the life of an Arctic char.",
+                "title": "Development of a virtual reality application to explore the life of an Arctic char",
                 "specialization": "3-month internship",
-                "dates": "from February to May 2025",
+                "dates": "From February to May 2025",
                 "institution": "INRAE"
             },
             "exp1": {
@@ -69,36 +67,31 @@
             },
             "exp2": {
                 "title": "One-month job at the train station",
-                "specialization": "Train cleaning during the night",
+                "specialization": "Overnight train cleaning",
                 "dates": "August 2022",
                 "institution": "Onet"
             }
         },
-        "cv_link_text": "Open CV in PDF",
+        "cv_link_text": "Open CV as PDF",
         "activites": {
             "main_title": "Activities",
-             "actualite1": 
-            {
+            "actualite1": {
                 "titre": "Looking for a Work-Study Position",
                 "content": "I will be starting the second year of my Master of Science degree at Gaming Campus in Lyon in September 2026. I am therefore looking for a company willing to welcome me as a work-study student, where I can contribute to projects such as video game development, simulation systems, 3D prototyping, immersive environment creation, cinematics, visual effects, virtual reality, artificial intelligence (AI), and 3D application development for various platforms including mobile devices, PCs, and tablets.",
                 "date": "Starting on September 1, 2026"
             }
-
-          
-          },
-            "popup": {
-    "popuptitle": "Upcoming Projects",
-    "texte": "Two ongoing projects: a cooperative multiplayer prototype from my work-study focused on gameplay and online systems, and a solo puzzle-adventure academic game centered on exploration and puzzles."
-}
-
+        },
+        "popup": {
+            "popuptitle": "Upcoming Projects",
+            "texte": "Two ongoing projects: a cooperative multiplayer game prototype developed during my work-study, focused on gameplay mechanics and online systems, and a solo academic puzzle-adventure game centered on exploration and puzzle-solving."
+        }
     },
     "projects": {
         "title": "Projects",
         "content": "Here is a list of my projects.",
         "project_title": "Project List",
         "project_title_pro": "Professional Project",
-"project_title_perso": "Personal Project",
-
+        "project_title_perso": "Personal Project",
         "Competences": [
             "All",
             "Unreal Engine 5",
@@ -130,17 +123,17 @@
         "projects": {
             "project11": {
                 "title": "Out of Breath",
-                "description": "Project completed in 24 hours as part of the Msc first year program at Gaming Campus Lyon. Developed with Unreal Engine 5, 'Out of Breath' is a horror exploration game where the player must escape from a dark house. The atmosphere is tense, pressure is constant, and a toxic gas slowly fills the environment, forcing the player to act quickly before suffocating. The project emphasizes time, tension, and lighting management in an immersive environment.",
-                "release_date": "19 Octobre 2025",
+                "description": "Project completed in 24 hours as part of the first year of the MSc program at Gaming Campus Lyon. Developed with Unreal Engine 5, 'Out of Breath' is a horror exploration game where the player must escape from a dark house. The atmosphere is tense, the pressure is constant, and a toxic gas slowly fills the environment, forcing the player to act quickly before suffocating. The project emphasizes time, tension, and lighting management in an immersive environment.",
+                "release_date": "October 19, 2025",
                 "type": "pro",
                 "images": [
-                     "static/images/Project24h/bedroom.png",
-                     "static/images/Project24h/kitchen.png",
-                     "static/images/Project24h/room.png",
-                     "static/images/Project24h/batterie.png",
-                     "static/images/Project24h/kitchen_wtf.png"
+                    "static/images/Project24h/bedroom.png",
+                    "static/images/Project24h/kitchen.png",
+                    "static/images/Project24h/room.png",
+                    "static/images/Project24h/batterie.png",
+                    "static/images/Project24h/kitchen_wtf.png"
                 ],
-              "Competences": [
+                "Competences": [
                     "Games",
                     "Unreal Engine 5",
                     "Blueprint",
@@ -153,14 +146,14 @@
             },
             "project10": {
                 "title": "AI and More in UE5",
-                "description": "This is my ongoing learning journey with Unreal Engine 5, whether in Blueprint or C++. The Blueprint progress shown here is to continue developing Lunar Storms and significantly improve it with new combat systems, new enemy types, and more complex environments. C++ is worked on in parallel to build strong fundamentals and practical knowledge in the language.",
+                "description": "This is my ongoing learning journey with Unreal Engine 5, whether in Blueprint or C++. The Blueprint work shown here supports the continued development of Lunar Storms and aims to significantly improve it with new combat systems, new enemy types, and more complex environments. C++ is worked on in parallel to build strong fundamentals and practical knowledge of the language.",
                 "release_date": "July 1, 2025",
                 "type": "perso",
-               "images": [
+                "images": [
                     "static/images/Lunar_Storms_image/Avancement1/nav_mesh_controller.png",
                     "static/images/Lunar_Storms_image/Avancement1/sense_ai.png",
                     "static/images/Lunar_Storms_image/Avancement1/sense_ai_active.png",
-                      "static/images/Lunar_Storms_image/Avancement1/pathfinding.png"
+                    "static/images/Lunar_Storms_image/Avancement1/pathfinding.png"
                 ],
                 "Competences": [
                     "Games",
@@ -175,11 +168,10 @@
                 ],
                 "youtube_link": "https://youtu.be/xfFulKDR2Gs"
             },
-
             "project9": {
-                "title": "OmblAventure - VR Application of the Arctic Char",
+                "title": "OmblAventure - VR Application about the Arctic Char",
                 "type": "pro",
-                "description": "This project was carried out during an internship at INRAE to raise awareness about the world of the Arctic char through a virtual reality experience developed on UNREAL ENGINE 5",
+                "description": "This project was carried out during an internship at INRAE to raise awareness about the Arctic char through a virtual reality experience developed in Unreal Engine 5.",
                 "release_date": "May 2, 2025",
                 "images": [
                     "static/images/INRAE/Capture d'écran 2025-04-24 074356.png",
@@ -192,17 +184,16 @@
                     "Blueprint",
                     "Unreal Engine 5",
                     "Blender",
-                     "Self-Taught Learning",
+                    "Self-Taught Learning",
                     "Self-learning",
                     "Application",
                     "VR",
-                    "Project management"
+                    "Project Management"
                 ]
             },
-
             "project1": {
                 "title": "Lunar Storms",
-                "description": "My game created in Unreal Engine 5 using Blueprints is still in beta and will improve over time. Created exclusively by Romain Weigel, this game offers a multiplayer survival experience on an island where players face enemies and various events. To overcome these challenges, we have powers to help us survive and work as a team. The game was published on itch.io.",
+                "description": "My game created in Unreal Engine 5 using Blueprints is still in beta and will improve over time. Created exclusively by Romain Weigel, this game offers a multiplayer survival experience on an island where players face enemies and various events. To overcome these challenges, we have powers that help us survive and work as a team. The game was published on itch.io.",
                 "release_date": "October 24, 2024",
                 "type": "perso",
                 "images": [
@@ -226,7 +217,7 @@
             "project2": {
                 "title": "Follow Weight",
                 "type": "pro",
-                "description": "An internship project of a mobile application developed in Flutter with a database hosted on OVH. This app, developed during my 2-month second-year computer science internship with an entrepreneur, aims to help users understand and address personal and complex weight loss issues. At the end of my internship, the app reached a maturity level sufficient to be presented to a company, which took over the project in partnership with the entrepreneur, hence it was not published.",
+                "description": "An internship project for a mobile application developed in Flutter, with a database hosted on OVH. This app, developed during my 2-month second-year computer science internship with a self-employed entrepreneur, aims to help users understand and address personal and complex issues related to weight loss. At the end of my internship, the app had reached a level of maturity sufficient to be presented to a company, which took over the project in partnership with the entrepreneur. This is why it was not published.",
                 "release_date": "July 2, 2024",
                 "pdf_link": "static/images/FollowWeight/connexion.pdf",
                 "images": [
@@ -243,11 +234,10 @@
                     "Visual Studio Code"
                 ]
             },
-            
             "project4": {
                 "title": "YouToo",
                 "type": "perso",
-                "description": "This Android Studio app created in Kotlin allows users who want to achieve their fitness goals to do so autonomously. Developed during my first year in computer science (2022/2023) as a personal project, it provides custom workout sessions that adapt to the user's progress and individual needs. However, this app is no longer available on the stores due to lack of time to address privacy policy and terms of use issues.",
+                "description": "This app, created in Android Studio with Kotlin, allows users who want to achieve their fitness goals to do so autonomously. Developed during my first year in computer science (2022/2023) as a personal project, it provides custom workout sessions that adapt to the user's progress and individual needs. However, the app is no longer available on the stores due to a lack of time to address privacy policy and terms of use issues.",
                 "release_date": "August 1, 2023",
                 "images": [
                     "static/images/youtoo/logo.png",
@@ -276,7 +266,7 @@
             },
             "project5": {
                 "title": "My AI Work",
-                "description": "We study AI at our school, and I have created a full structure around everything we have learned and what we will present in our project for the first semester of the third year in computer science. It was slightly revised by one of my professors.",
+                "description": "We study AI at our school, and I have created a complete structure around everything we have learned and what we will present in our project for the first semester of the third year of computer science. It was slightly revised by one of my professors.",
                 "pdf_link": "static/images/IA/ppt_ia.pdf",
                 "release_date": "October 13, 2024",
                 "type": "pro",
@@ -297,8 +287,8 @@
                 "other_link": "https://github.com/RinomaW/IA_ApprentissageSurveill-"
             },
             "project6": {
-                "title": "AI for Predicting Room Temperature",
-                "description": "This is a dataset project to test AI once in Python and a better version in C#. It predicts the temperature of multiple rooms over several days. Currently, the data is entirely randomly generated by one of the Python programs, but it works well with real data as long as all data points are present.",
+                "title": "AI for Predicting Room Temperatures",
+                "description": "This is a dataset project to test an AI, first in Python and then in a better version in C#. It predicts the temperature of multiple rooms over several days. Currently, the data is entirely randomly generated by one of the Python programs, but it works well with real data as long as all data points are present.",
                 "release_date": "November 9, 2024",
                 "type": "pro",
                 "images": [
@@ -316,7 +306,7 @@
             },
             "project7": {
                 "title": "Monster Hunter Mobile App",
-                "description": "This personal project was designed specifically for myself, as I am passionate about the Monster Hunter universe. I wanted to create a real mobile app, especially since none exist on the Play Store. This app, developed in Flutter on Visual Studio Code, is simple and aims to assist me daily in researching and learning about this game.",
+                "description": "This personal project was designed specifically for me, as I am passionate about the Monster Hunter universe. I wanted to create a real mobile app, especially since there isn't one on the Play Store. This app, developed in Flutter on Visual Studio Code, is simple and helps me daily with researching and learning about this game.",
                 "release_date": "September 23, 2024",
                 "type": "perso",
                 "images": [
@@ -334,7 +324,7 @@
             },
             "project8": {
                 "title": "API for Overwatch",
-                "description": "This personal project was created for two reasons. The first was to develop an API to help me with my second-year computer science exams. The second was to gather additional information on video game characters I enjoy.",
+                "description": "This personal project was created for two reasons. The first was to develop an API to help me revise for my second-year computer science exams. The second was to gather additional information on video game characters I enjoy.",
                 "release_date": "March 6, 2024",
                 "type": "perso",
                 "images": [
@@ -342,15 +332,15 @@
                     "static/images/Overwatch/over_api.png"
                 ],
                 "Competences": [
-            "API",
-            "C#",
-            "Visual Studio 2022"
-        ],
+                    "API",
+                    "C#",
+                    "Visual Studio 2022"
+                ],
                 "other_link": "https://github.com/RomainWEIGEL/Overwatch"
             },
             "project3": {
                 "title": "FifApi",
-                "description": "An API created for a group project at the end of my second year in my B.Tech. I managed the entire API design with a colleague, including a website built with it. The API was published and managed via GitHub and Azure. Everything was built from scratch using a code-first approach.",
+                "description": "An API created for a group project at the end of my second year of B.Tech. A colleague and I handled the entire API design, and a website was built with it. The API was published and managed via GitHub and Azure. Everything was built from scratch using a code-first approach.",
                 "release_date": "April 8, 2024",
                 "type": "pro",
                 "images": [
@@ -361,7 +351,7 @@
                     "static/images/FifApi/commande.png",
                     "static/images/FifApi/test.png"
                 ],
-            "Competences": [
+                "Competences": [
                     "API",
                     "Team Development",
                     "Project Management",
@@ -384,109 +374,104 @@
         "title": "Contact Me",
         "email_link": "Send an Email via Gmail",
         "linkedin": "LinkedIn",
-        "availability": "I am available: Monday - Friday, 6 PM to 9 PM"
+        "availability": "I am available: Monday - Friday, 9 AM to 6 PM"
     },
-    
-        "loisir": {
-            "title": "My Hobbies",
-            "loisirs": {
-               
-                "Street_workout": {
-                    "title": "Street Workout",
-                    "images": [
-                        "static/images/loisirs/SW/eric_flag_street_workout.jpg",
-                        "static/images/loisirs/SW/handstand_press.jpg",
-                        "static/images/loisirs/SW/straddle-planche.jpeg"
-                    ],
-                    "NbAnnee": "4 years",
-                    "Figure_maitrise": [
-                        "Diamond Planche",
-                        "Handstand",
-                        "Diamond Front Lever",
-                        "One-Hand Push-Up",
-                        "Advanced Tuck Planche Push Up",
-                        "Advanced Tuck Front Lever Push Up",
-                        "..."
-                    ],
-                    "Figure_objectif": [
-                        "Straddle Planche",
-                        "Handstand Press",
-                        "Straddle Front Lever",
-                        "Diamond Planche Push Up",
-                        "Diamond Front Lever Push Up",
-                        "..."
+    "loisir": {
+        "title": "My Hobbies",
+        "loisirs": {
+            "Street_workout": {
+                "title": "Street Workout",
+                "images": [
+                    "static/images/loisirs/SW/eric_flag_street_workout.jpg",
+                    "static/images/loisirs/SW/handstand_press.jpg",
+                    "static/images/loisirs/SW/straddle-planche.jpeg"
+                ],
+                "NbAnnee": "4 years",
+                "Figure_maitrise": [
+                    "Diamond Planche",
+                    "Handstand",
+                    "Diamond Front Lever",
+                    "One-Arm Push-Up",
+                    "Advanced Tuck Planche Push Up",
+                    "Advanced Tuck Front Lever Push Up",
+                    "..."
+                ],
+                "Figure_objectif": [
+                    "Straddle Planche",
+                    "Handstand Press",
+                    "Straddle Front Lever",
+                    "Diamond Planche Push Up",
+                    "Diamond Front Lever Push Up",
+                    "..."
+                ]
+            },
+            "Dev_perso": {
+                "Podcast": {
+                    "title": "Podcast",
+                    "podcast": "Eric Flag",
+                    "image": "static/images/loisirs/DevPerso/expension_eric_flag.png",
+                    "lien": "https://open.spotify.com/show/22qMdfxzodMPjBuCe78Di5"
+                },
+                "Livres": {
+                    "title": "Books",
+                    "listes_livres": [
+                        "static/images/loisirs/DevPerso/art_subtil.png",
+                        "static/images/loisirs/DevPerso/Deep-work.jpg",
+                        "static/images/loisirs/DevPerso/suis-je-sensible.jpg",
+                        "static/images/loisirs/DevPerso/temps_infini.jpg"
                     ]
                 },
-                "Dev_perso": {
-                    "Podcast": {
-                        "title": "Podcast",
-                        "podcast": "Eric Flag",
-                        "image": "static/images/loisirs/DevPerso/expension_eric_flag.png",
-                        "lien": "https://open.spotify.com/show/22qMdfxzodMPjBuCe78Di5"
-                    },
-                    "Livres": {
-                        "title": "Books",
-                        "listes_livres": [
-                            "static/images/loisirs/DevPerso/art_subtil.png",
-                            "static/images/loisirs/DevPerso/Deep-work.jpg",
-                            "static/images/loisirs/DevPerso/suis-je-sensible.jpg",
-                            "static/images/loisirs/DevPerso/temps_infini.jpg"
-                        ]
-                    },
-                    "Videos": {
-                        "title": "Videos",
-                        "videos": "Eric Flag",
-                        "image": "static/images/loisirs/DevPerso/ytb_eric_flag.png",
-                        "lien": "https://www.youtube.com/c/EricFlag"
-                    }
+                "Videos": {
+                    "title": "Videos",
+                    "videos": "Eric Flag",
+                    "image": "static/images/loisirs/DevPerso/ytb_eric_flag.png",
+                    "lien": "https://www.youtube.com/c/EricFlag"
+                }
+            },
+            "Jeux": {
+                "Monster_Hunter": {
+                    "title": "Monster Hunter",
+                    "Tous_les_jeux_joues": [
+                        "Monster Hunter Wilds",
+                        "Monster Hunter World",
+                        "Monster Hunter World Iceborne",
+                        "Monster Hunter 3 Ultimate"
+                    ],
+                    "actif": "Active",
+                    "images": [
+                        "static/images/loisirs/MH/Monster_Hunter_Logo.png",
+                        "static/images/loisirs/MH/mhwilds.png",
+                        "static/images/loisirs/MH/mhwilds_logo.jpg",
+                        "static/images/loisirs/MH/mhw.jpg",
+                        "static/images/loisirs/MH/gameplay_anja.jpg",
+                        "static/images/loisirs/MH/gameplay_zora.jpg",
+                        "static/images/loisirs/MH/monsterhunter3.jpg"
+                    ],
+                    "Description": "This game arrived relatively late in my life, but I became passionate about it when I understood its gameplay (its main drawback being its complexity). In my eyes, this game is a graphical and immersive success and takes into account all the elements needed to succeed in the competitive aspect of the game: team spirit, adventure, and immersion. Every sword strike or hit from any weapon can be felt throughout your body. Honestly, I can only recommend it.",
+                    "NbHeure": ">300h",
+                    "Les_armes_que_je_joue": [
+                        "Hunting Horn",
+                        "Sword and Shield",
+                        "Lance",
+                        "Switch Axe",
+                        "Great Sword",
+                        "Insect Glaive"
+                    ],
+                    "Ma_Tier_Liste_des_armes": "static/images/loisirs/MH/tier_list.png"
                 },
-                 "Jeux": {
-                    "Monster_Hunter": {
-                        "title": "Monster Hunter",
-                        "Tous_les_jeux_joues": [
-                            "Monster Hunter Wilds",
-                            "Monster Hunter World",
-                            "Monster Hunter World Iceborne",
-                            "Monster Hunter 3 Ultimate"
-                        ],
-                        "actif": "Active",
-                        "images": [
-                            "static/images/loisirs/MH/Monster_Hunter_Logo.png",
-                            "static/images/loisirs/MH/mhwilds.png",
-                            "static/images/loisirs/MH/mhwilds_logo.jpg",
-                            "static/images/loisirs/MH/mhw.jpg",
-                            "static/images/loisirs/MH/gameplay_anja.jpg",
-                            "static/images/loisirs/MH/gameplay_zora.jpg",
-                            "static/images/loisirs/MH/monsterhunter3.jpg"
-                        ],
-                        "Description": "This game arrived relatively late in my life, but I became passionate about it when I understood its gameplay (its main drawback being its complexity). This game is a graphical and immersive success in my eyes and takes into account all the elements to succeed in the competitive aspect of the game: team spirit, adventure, and immersion. Every sword strike or hit from any weapon can be felt throughout your body. Honestly, I can only recommend it.",
-                        "NbHeure": ">300h",
-                        "Les_armes_que_je_joue": [
-                            "Hunting Horn",
-                            "Sword and Shield",
-                            "Lance",
-                            "Switch Axe",
-                            "Great Sword",
-                            "Insect Glaive"
-                        ],
-                        "Ma_Tier_Liste_des_armes": "static/images/loisirs/MH/tier_list.png"
-                    },
-                    "Overwatch": {
-                        "title": "Overwatch",
-                        "actif": "Inactive",
-                        "images": [
-                            "static/images/loisirs/Over/over_presentation.jpg",
-                            "static/images/loisirs/Over/presentation_ana_secours.jpeg",
-                            "static/images/loisirs/Over/gameplay_orisa.jpg"
-                        ],
-                        "Description": "This game was the first PC game I ever played. It’s with this game that I discovered what a competitive FPS is, esports, team collaboration, and the advanced techniques that a game of this genre can offer. I played a lot to have fun, but mostly to push myself to perform as a team.",
-                        "NbHeure": ">600h across all game types",
-                        "lien": "https://overwatch.blizzard.com/fr-fr/career/c057a285be70d6ffb8a927a8%7C8f077c1534424e5a87f913f62644d3ca/"
-                    }
+                "Overwatch": {
+                    "title": "Overwatch",
+                    "actif": "Inactive",
+                    "images": [
+                        "static/images/loisirs/Over/over_presentation.jpg",
+                        "static/images/loisirs/Over/presentation_ana_secours.jpeg",
+                        "static/images/loisirs/Over/gameplay_orisa.jpg"
+                    ],
+                    "Description": "This game was the first PC game I ever played. It was with this game that I discovered what a competitive FPS is, esports, team collaboration, and the advanced techniques that a game of this genre can offer. I played a lot to have fun, but mostly to push myself to perform as a team.",
+                    "NbHeure": ">600h across all game types",
+                    "lien": "https://overwatch.blizzard.com/fr-fr/career/c057a285be70d6ffb8a927a8%7C8f077c1534424e5a87f913f62644d3ca/"
                 }
             }
         }
-    
-    
-    
+    }
 }

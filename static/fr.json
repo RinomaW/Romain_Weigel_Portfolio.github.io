@@ -3,101 +3,95 @@
         "presentation": "Présentation",
         "projects": "Projets",
         "contact": "Contact",
-        "loisir":"Loisir"
+        "loisir": "Loisir"
     },
     "introduction": {
         "title": "Romain Weigel",
-        "content": "Je m'appelle Romain Weigel et je suis actuellement étudiant en 4ᵉ année au Gaming Campus en alternance, tout en exerçant une activité d'auto-entrepreneur dans le développement informatique et de jeux vidéo. Passionné par les technologies numériques, je développe continuellement mes compétences à travers des projets professionnels et personnels. Dans le cadre de ma poursuite d'études, je recherche une alternance pour ma 5ᵉ année dans les domaines du jeu vidéo, du développement logiciel ou du développement mobile.",
-        "pdfdownloadlink":"Ouvrir le CV en pdf",
+        "content": "Je m'appelle Romain Weigel et je suis actuellement étudiant en 5ᵉ année au Gaming Campus en alternance, tout en exerçant une activité d'auto-entrepreneur dans le développement informatique et de jeux vidéo. Passionné par les technologies numériques, je développe continuellement mes compétences à travers des projets professionnels et personnels.",
+        "pdfdownloadlink": "Ouvrir le CV en PDF",
         "pdf_link": "./static/CV_Weigel_Romain.pdf",
         "title_personal": "ÉTAT CIVIL",
-      "personal_info": {
-        "strong_etat_civil": "État Civil:",
-        "etat_civil": "Romain Weigel",
-        "strong_email": "Email:",
-        "email": "romain.weigel.contact@gmail.com",
-        "strong_adresse": "Adresse:",
-        "adresse": "Lyon",
-        "strong_date_naissance": "Date de Naissance:",
-        "date_naissance": "22 ans",
-        "strong_permis": "Permis:",
-        "permis": "Permis B"
-    },
+        "personal_info": {
+            "strong_etat_civil": "État civil :",
+            "etat_civil": "Romain Weigel",
+            "strong_email": "E-mail :",
+            "email": "romain.weigel.contact@gmail.com",
+            "strong_adresse": "Adresse :",
+            "adresse": "Lyon",
+            "strong_date_naissance": "Date de naissance :",
+            "date_naissance": "22 ans",
+            "strong_permis": "Permis :",
+            "permis": "Permis B"
+        },
         "subheading": "À propos de moi",
-        "parcour":"Mon Parcours",
+        "parcour": "Mon parcours",
         "education": {
             "formation3": {
-                "title": "2 Ans à l'Ecole de jeux vidéo pour un Bac+5",
-                "specialization": "G.TECH programmation jeux vidéo",
+                "title": "2 ans à l'école de jeux vidéo pour un Bac+5",
+                "specialization": "G.TECH Programmation jeux vidéo",
                 "dates": "2025 - 2027",
                 "institution": "Lyon Gaming Campus"
             },
             "formation1": {
-                "title": "3ème Année en BUT",
-                "specialization": "informatique",
+                "title": "3ᵉ année en BUT",
+                "specialization": "Informatique",
                 "dates": "2022 - 2025",
-                "institution": "IUT Annecy-Le-Vieux (74)"
+                "institution": "IUT d'Annecy-le-Vieux (74)"
             },
             "formation2": {
-                "title": "Baccalauréat Technologique",
-                "specialization": "STI2D avec mention bien",
-                "dates": "JUIN. 2022",
-                "institution": "Lycée St-Michel Annecy (74)"
+                "title": "Baccalauréat technologique",
+                "specialization": "STI2D avec mention Bien",
+                "dates": "Juin 2022",
+                "institution": "Lycée Saint-Michel, Annecy (74)"
             }
         },
-        "experience_title":"Experience Professionnelles",
+        "experience_title": "Expériences professionnelles",
         "experience_pro": {
             "exp4": {
-                "title": "Création d'entreprise pour le développement d'un Jeux vidéo Multijoueur Coopératif",
-                "specialization": "Alternance 1ans",
-                "dates": "De Septembre 2025 à Septembre 2026",
+                "title": "Création d'entreprise pour le développement d'un jeu vidéo multijoueur coopératif",
+                "specialization": "Alternance d'un an",
+                "dates": "De septembre 2025 à Aujourd'hui",
                 "institution": "Romain Weigel Studio"
             },
             "exp3": {
-                "title": "Développement d'une application en réalité virtuelle pour décourvrir la vie d'un omble chevalier (espèce de poisson du lac léman)",
+                "title": "Développement d'une application en réalité virtuelle pour découvrir la vie d'un omble chevalier (espèce de poisson du lac Léman)",
                 "specialization": "Stage de 3 mois",
-                "dates": "De Fevrier à Mai 2025",
+                "dates": "De février à mai 2025",
                 "institution": "INRAE"
             },
             "exp1": {
-                "title": "Développement d'une application mobile de soins et minceur",
-                "specialization": "Stage de 2 mois pour un auto-entrepreneur",
-                "dates": "De Avril à Juin 2024",
+                "title": "Développement d'une application mobile de soins et de minceur",
+                "specialization": "Stage de 2 mois chez un auto-entrepreneur",
+                "dates": "D'avril à juin 2024",
                 "institution": "LES FORMATIONS PASCAL WEIGEL"
             },
             "exp2": {
-                "title": "Nettoyage des trains en nuit",
-                "specialization": "Travail de un mois à la gare",
+                "title": "Nettoyage des trains de nuit",
+                "specialization": "Travail d'un mois en gare",
                 "dates": "Août 2022",
                 "institution": "Onet"
             }
         },
-        "cv_link_text": "Ouvrir le CV en pdf",
+        "cv_link_text": "Ouvrir le CV en PDF",
         "activites": {
-        "main_title": "Activités",
-        "actualite1": 
-            {
-               "titre": "Recherche d'Alterance",
-        "content": "Je vais rentrer en deuxième année de Msc à gaming campus à Lyon en septembre 2026 et donc je suis à la recherche d'une entreprise pouvant et voulant me prendre afin de concevoir des missions comme la création de jeux vidéo mais également de simulation, prototypage en 3d, création d'environnement immersif, cinématique, effets visuel, réalité virtuelle, Intelligence artificielle (IA), développeur 3d d'application en tous genre (portable, pc, tablette...) ...",
-        "date": "Débutant le 1 Septembre 2026"
-
+            "main_title": "Activités",
+            "actualite1": {
+                "titre": "Recherche d'alternance",
+                "content": "Je vais entrer en deuxième année de MSc à Gaming Campus à Lyon en septembre 2026, et je suis donc à la recherche d'une entreprise pouvant et voulant m'accueillir afin de réaliser des missions comme la création de jeux vidéo, mais également de simulations, de prototypage 3D, de création d'environnements immersifs, de cinématiques, d'effets visuels, de réalité virtuelle, d'intelligence artificielle (IA), de développement 3D d'applications en tout genre (mobile, PC, tablette...), etc.",
+                "date": "Début le 1er septembre 2026"
             }
-        
-    },
-"popup": {
-    "popuptitle": "Projets à venir",
-    "texte": "Deux projets en cours : un prototype de jeu multijoueur coopératif réalisé dans le cadre de mon alternance, axé sur les mécaniques de gameplay et les systèmes en ligne, et un jeu académique d’aventure et d’énigmes développé en solo, centré sur l’exploration et la résolution de puzzles."
-}
-
-
-        
+        },
+        "popup": {
+            "popuptitle": "Projets à venir",
+            "texte": "Deux projets en cours : un prototype de jeu multijoueur coopératif réalisé dans le cadre de mon alternance, axé sur les mécaniques de gameplay et les systèmes en ligne, et un jeu académique d'aventure et d'énigmes développé en solo, centré sur l'exploration et la résolution de puzzles."
+        }
     },
     "projects": {
         "title": "Projets",
         "content": "Voici la liste de mes projets.",
-        "project_title": "Liste des Projets",
-        "project_title_pro":"Projet Professionnel",
-        "project_title_perso":"Projet Personnel",
+        "project_title": "Liste des projets",
+        "project_title_pro": "Projet professionnel",
+        "project_title_perso": "Projet personnel",
         "Competences": [
             "Tous",
             "Unreal Engine 5",
@@ -125,21 +119,21 @@
             "Automatisation",
             "Visual Studio 2022",
             "Android Studio",
-              "VR",
-              "Blender"
+            "VR",
+            "Blender"
         ],
         "projects": {
             "project11": {
                 "title": "Out of Breath",
-                "description": "Projet réalisé en 24 heures dans le cadre du Msc en 1ère année à Gaming Campus Lyon. Développé sur Unreal Engine 5, 'Out of Breath' est un jeu d'exploration horrifique où le joueur doit s’échapper d’une maison plongée dans le noir. L’atmosphère est angoissante, la pression constante, et un gaz toxique envahit lentement les lieux, forçant le joueur à agir vite avant de suffoquer. Le projet met en avant la gestion du temps, de la tension et de la lumière dans un environnement immersif.",
-                "release_date": "19 Octobre 2025",
+                "description": "Projet réalisé en 24 heures dans le cadre du MSc en 1ʳᵉ année à Gaming Campus Lyon. Développé sur Unreal Engine 5, 'Out of Breath' est un jeu d'exploration horrifique où le joueur doit s'échapper d'une maison plongée dans le noir. L'atmosphère est angoissante, la pression constante, et un gaz toxique envahit lentement les lieux, forçant le joueur à agir vite avant de suffoquer. Le projet met en avant la gestion du temps, de la tension et de la lumière dans un environnement immersif.",
+                "release_date": "19 octobre 2025",
                 "type": "pro",
                 "images": [
-                     "static/images/Project24h/bedroom.png",
-                     "static/images/Project24h/kitchen.png",
-                     "static/images/Project24h/room.png",
-                     "static/images/Project24h/batterie.png",
-                     "static/images/Project24h/kitchen_wtf.png"
+                    "static/images/Project24h/bedroom.png",
+                    "static/images/Project24h/kitchen.png",
+                    "static/images/Project24h/room.png",
+                    "static/images/Project24h/batterie.png",
+                    "static/images/Project24h/kitchen_wtf.png"
                 ],
                 "Competences": [
                     "Jeux",
@@ -152,19 +146,18 @@
                 "youtube_link": "https://youtu.be/jXPcqfHs0uc",
                 "other_link": "https://rinoma.itch.io/out-of-breath"
             },
-
             "project10": {
-                "title": "AI et autre dans ue5",
-                "description": "Voici mon apprentissage constant sur Unreal Engine 5, que ce soit en Blueprint ou en C++. L’avancement du Blueprint est ici pour poursuivre le développement de Lunar Storms et l’améliorer réellement avec de nouveaux systèmes de combat, de nouveaux types d’ennemis et des environnements plus complexes. Le C++ est travaillé en parallèle pour acquérir de solides bases et des connaissances pratiques dans ce langage.",
-                "release_date": "01 Juillet 2025",
+                "title": "IA et autres systèmes dans UE5",
+                "description": "Voici mon apprentissage constant sur Unreal Engine 5, que ce soit en Blueprint ou en C++. L'avancement du Blueprint est ici pour poursuivre le développement de Lunar Storms et l'améliorer réellement avec de nouveaux systèmes de combat, de nouveaux types d'ennemis et des environnements plus complexes. Le C++ est travaillé en parallèle pour acquérir de solides bases et des connaissances pratiques dans ce langage.",
+                "release_date": "1er juillet 2025",
                 "type": "perso",
                 "images": [
                     "static/images/Lunar_Storms_image/Avancement1/nav_mesh_controller.png",
                     "static/images/Lunar_Storms_image/Avancement1/sense_ai.png",
                     "static/images/Lunar_Storms_image/Avancement1/sense_ai_active.png",
-                      "static/images/Lunar_Storms_image/Avancement1/pathfinding.png"
+                    "static/images/Lunar_Storms_image/Avancement1/pathfinding.png"
                 ],
-                "Competences":[
+                "Competences": [
                     "Jeux",
                     "Unreal Engine 5",
                     "Blueprint",
@@ -174,17 +167,15 @@
                     "Application",
                     "IA",
                     "Gestion de projet"
-
                 ],
                 "youtube_link": "https://youtu.be/5qIHkmSFBqM"
             },
             "project9": {
                 "title": "OmblAventure - Application VR de l'omble chevalier",
                 "type": "pro",
-                "description": "Ce projet a été réalisé durant un stage chez INRAE afin de sensibiliser le monde de l'omble chevalier (espèce de poisson du lac léman) dans une expérience en réalité virtuelle développé sur UNREAL ENGINE 5",
-                "release_date": "2 Mai 2025",
+                "description": "Ce projet a été réalisé durant un stage chez INRAE afin de sensibiliser le public à l'omble chevalier (espèce de poisson du lac Léman) à travers une expérience en réalité virtuelle développée sur Unreal Engine 5.",
+                "release_date": "2 mai 2025",
                 "images": [
-                  
                     "static/images/INRAE/Capture d'écran 2025-04-24 074356.png",
                     "static/images/INRAE/Capture d'écran 2025-04-24 074554.png",
                     "static/images/INRAE/logo_inrae.png",
@@ -203,8 +194,8 @@
             },
             "project1": {
                 "title": "Lunar Storms",
-                "description": "Mon jeu crée sur Unreal Engine 5 en blueprint est encore en phase bêta, et il s'améliorera avec le temps. Créé exclusivement par Romain Weigel, ce jeu offre une expérience de survie multijoueur sur une île où les joueurs affrontent des ennemis et divers événements. Pour surmonter ces défis, nous disposons de pouvoirs permettant de survivre et de travailler en équipe. Ce jeux a été publié depuis itch.io",
-                "release_date": "24 Octobre 2024",
+                "description": "Mon jeu créé sur Unreal Engine 5 en Blueprint est encore en phase bêta, et il s'améliorera avec le temps. Créé exclusivement par Romain Weigel, ce jeu offre une expérience de survie multijoueur sur une île où les joueurs affrontent des ennemis et divers événements. Pour surmonter ces défis, nous disposons de pouvoirs permettant de survivre et de travailler en équipe. Ce jeu a été publié sur itch.io.",
+                "release_date": "24 octobre 2024",
                 "type": "perso",
                 "images": [
                     "static/images/Lunar_Storms_image/Logo_LunarStorms.jpg",
@@ -212,7 +203,7 @@
                     "static/images/Lunar_Storms_image/island.png",
                     "static/images/Lunar_Storms_image/event_cloud.png"
                 ],
-                "Competences":[
+                "Competences": [
                     "Jeux",
                     "Unreal Engine 5",
                     "Design",
@@ -220,7 +211,6 @@
                     "Application",
                     "Blueprint",
                     "Gestion de projet"
-
                 ],
                 "youtube_link": "https://youtu.be/xfFulKDR2Gs",
                 "other_link": "https://rinoma.itch.io/lunar-storms"
@@ -228,8 +218,8 @@
             "project2": {
                 "title": "Follow Weight",
                 "type": "pro",
-                "description": "Stage sur un projet d’application mobile en Flutter avec une base de données hébergée sur OVH. Cette application, développée lors de mon stage de 2ème année en informatique d'une durée de 2 mois chez un auto-entrepreneur, vise à aider les utilisateurs à comprendre et à agir sur des problématiques personnelles et complexes liées à la perte de poids. À la fin de mon stage, l'application a atteint un niveau de maturité suffisant pour être présentée à une entreprise, qui a repris le projet en partenariat avec l'auto-entrepreneur. C'est pour cela qu'elle n'a pas été publié",
-                "release_date": "02 Juillet 2024",
+                "description": "Stage sur un projet d'application mobile en Flutter avec une base de données hébergée sur OVH. Cette application, développée lors de mon stage de 2ᵉ année en informatique d'une durée de 2 mois chez un auto-entrepreneur, vise à aider les utilisateurs à comprendre et à agir sur des problématiques personnelles et complexes liées à la perte de poids. À la fin de mon stage, l'application avait atteint un niveau de maturité suffisant pour être présentée à une entreprise, qui a repris le projet en partenariat avec l'auto-entrepreneur. C'est pour cela qu'elle n'a pas été publiée.",
+                "release_date": "2 juillet 2024",
                 "pdf_link": "static/images/FollowWeight/connexion.pdf",
                 "images": [
                     "static/images/FollowWeight/logofollowweight.png"
@@ -245,12 +235,11 @@
                     "Visual Studio Code"
                 ]
             },
-          
             "project4": {
                 "title": "YouToo",
                 "type": "perso",
-                "description": "Cette application crée sur Android Studio en kotlin, permet à chaque utilisateur souhaitant atteindre ses objectifs physiques de le faire de manière autonome. Réalisée durant ma première année en informatique (2022/2023) dans un cadre personnel, elle propose des séances de sport conçues spécialement pour chaque utilisateur, avec une adaptation continue des exercices en fonction des progrès et des besoins individuels. Cependant, cette application n'est plus disponible sur les stores en raison d'un manque de temps pour gérer les problématiques liées aux politiques de confidentialité et aux conditions d'utilisation.",
-                "release_date": "01 Aout 2023",
+                "description": "Cette application, créée sur Android Studio en Kotlin, permet à chaque utilisateur souhaitant atteindre ses objectifs physiques de le faire de manière autonome. Réalisée durant ma première année en informatique (2022/2023) dans un cadre personnel, elle propose des séances de sport conçues spécialement pour chaque utilisateur, avec une adaptation continue des exercices en fonction des progrès et des besoins individuels. Cependant, cette application n'est plus disponible sur les stores en raison d'un manque de temps pour gérer les problématiques liées aux politiques de confidentialité et aux conditions d'utilisation.",
+                "release_date": "1er août 2023",
                 "images": [
                     "static/images/youtoo/logo.png",
                     "static/images/youtoo/menu.jpg",
@@ -277,16 +266,16 @@
                 ]
             },
             "project5": {
-                "title": "Mes travaux au tour de l'IA",
+                "title": "Mes travaux autour de l'IA",
                 "type": "pro",
-                "description": "Nous travaillons en ia dans notre école et j'ai fait une structure total au tour de tous ce qu'on a appris et de ce qu'on va devoir restitué dans notre projet du premier semestre de la 3ème année en informatique. Il a été corrigé légèrement par un de mes professeur.",
+                "description": "Nous travaillons sur l'IA dans notre école, et j'ai réalisé une structure complète autour de tout ce que nous avons appris et de ce que nous devrons restituer dans notre projet du premier semestre de la 3ᵉ année en informatique. Elle a été légèrement corrigée par l'un de mes professeurs.",
                 "pdf_link": "static/images/IA/ppt_ia.pdf",
-                "release_date": "13 Octobre 2024",
-               "images": [
-                "static/images/IA/kaggle.png",
-                "static/images/IA/diabetes.png",
-                "static/images/IA/Digits.png",
-                "static/images/IA/train.png"
+                "release_date": "13 octobre 2024",
+                "images": [
+                    "static/images/IA/kaggle.png",
+                    "static/images/IA/diabetes.png",
+                    "static/images/IA/Digits.png",
+                    "static/images/IA/train.png"
                 ],
                 "other_link": "https://github.com/RinomaW/IA_ApprentissageSurveill-",
                 "Competences": [
@@ -298,17 +287,15 @@
                     "Visual Studio Code"
                 ]
             },
-            
             "project6": {
-                "title": "IA pour prédire la tempréture de plusieur salle",
+                "title": "IA pour prédire la température de plusieurs salles",
                 "type": "pro",
-                "description": "C'est un jeux de donnée pour tester une ia une fois en python et une meilleur version en c#. Elle permet de prédire la température de plusieur salle sur plusieur jour, pour le moment les données sont complétement génerer aléatoirement par un des programme python mais cela marche très bien avec de vraie données tant que toutes les données sont présentes.",
-                "release_date": "09 Novembre 2024",
+                "description": "C'est un jeu de données pour tester une IA, d'abord en Python, puis dans une meilleure version en C#. Elle permet de prédire la température de plusieurs salles sur plusieurs jours. Pour le moment, les données sont complètement générées aléatoirement par l'un des programmes Python, mais cela fonctionne très bien avec de vraies données tant que toutes les données sont présentes.",
+                "release_date": "9 novembre 2024",
                 "images": [
                     "static/images/TemperaturePrediction/Excel.png",
                     "static/images/TemperaturePrediction/DonnePy.png",
                     "static/images/TemperaturePrediction/donneC.png"
-
                 ],
                 "other_link": "https://github.com/RinomaW/TemperaturePrediction",
                 "Competences": [
@@ -321,13 +308,12 @@
                     "Automatisation",
                     "Apprentissage en autodidacte"
                 ]
-
             },
             "project7": {
-                "title": "Monster hunter appli mobile",
+                "title": "Monster Hunter : application mobile",
                 "type": "perso",
-                "description": "Ce projet personnel a été conçu spécialement pour moi, car je suis passionné par l'univers de Monster Hunter. J'ai souhaité créer une véritable application mobile, d'autant plus qu'il n'en existe pas sur le Play Store. Cette application, réalisée en Flutter sur Visual Studio Code, est très simple et vise à m'aider quotidiennement sur la recherche et l'apprentissage dans ce jeux",
-                "release_date": "23 Septembre 2024",
+                "description": "Ce projet personnel a été conçu spécialement pour moi, car je suis passionné par l'univers de Monster Hunter. J'ai souhaité créer une véritable application mobile, d'autant plus qu'il n'en existe pas sur le Play Store. Cette application, réalisée en Flutter sur Visual Studio Code, est très simple et vise à m'aider au quotidien dans la recherche et l'apprentissage de ce jeu.",
+                "release_date": "23 septembre 2024",
                 "images": [
                     "static/images/MonsterHunter/acceuil.jpg",
                     "static/images/MonsterHunter/recherche.jpg",
@@ -339,14 +325,13 @@
                     "UI/UX",
                     "Base de données",
                     "Visual Studio Code"
-                    
                 ]
             },
             "project8": {
                 "title": "API pour Overwatch",
                 "type": "perso",
                 "description": "Ce projet personnel a été conçu pour deux raisons. La première était de développer une API pour m'aider dans mes révisions de fin de deuxième année en informatique. La seconde était d'obtenir des informations supplémentaires sur des personnages de jeux vidéo que j'apprécie.",
-                "release_date": "06 Mars 2024",
+                "release_date": "6 mars 2024",
                 "images": [
                     "static/images/Overwatch/Overwatch_2_Steam_artwork.jpg",
                     "static/images/Overwatch/over_api.png"
@@ -358,11 +343,11 @@
                     "Visual Studio 2022"
                 ]
             },
-              "project3": {
+            "project3": {
                 "title": "FifApi",
                 "type": "pro",
-                "description": "Une Api pour un project de groupe en fin de deuxième année de mon but informatique. Toute la conception de l'api a été réalisé par moi et un de mes collègues dont un site internet à été crée avec, l'api était publié et gérer depuis github et azure. Tous a été crée de zéro et la conception était en code first.",
-                "release_date": "08 Avril 2024",
+                "description": "Une API pour un projet de groupe en fin de deuxième année de mon BUT informatique. Toute la conception de l'API a été réalisée par moi et l'un de mes collègues, et un site internet a été créé avec elle. L'API était publiée et gérée depuis GitHub et Azure. Tout a été créé de zéro et la conception était en code first.",
+                "release_date": "8 avril 2024",
                 "images": [
                     "static/images/FifApi/model.png",
                     "static/images/FifApi/utilisateur.png",
@@ -383,7 +368,6 @@
                     "Visual Studio 2022"
                 ]
             }
-           
         },
         "link_text": {
             "youtube": "Voir sur YouTube",
@@ -393,108 +377,107 @@
     },
     "contact": {
         "title": "Contactez-moi",
-        "email_link": "Envoyer un email via Gmail",
+        "email_link": "Envoyer un e-mail via Gmail",
         "linkedin": "LinkedIn",
-        "availability": "Je suis disponible : Lundi - Vendredi, 9h - 18h",
+        "availability": "Je suis disponible : lundi - vendredi, 9h - 18h",
         "location_title": "Ma localisation"
     },
-   "loisir": {
-"title": "Mes loisirs",
-"loisirs": {
-
-"Street_workout": {
-"title": "Street Workout",
-"images": [
-"static/images/loisirs/SW/eric_flag_street_workout.jpg",
-"static/images/loisirs/SW/handstand_press.jpg",
-"static/images/loisirs/SW/straddle-planche.jpeg"
-],
-"NbAnnee": "4 ans",
-"Figure_maitrise": [
-"Diamond Planche",
-"Handstand",
-"Diamond Front Lever",
-"Pompe une main",
-"Advanced Tuck Planche Push Up",
-"Advanced Tuck Front Lever Push Up",
-"..."
-],
-"Figure_objectif": [
-"Straddle Planche",
-"Handstand Press",
-"Straddle Front Lever",
-"Diamond Planche Push Up",
-"Diamond Front Lever Push Up",
-"..."
-]
-},
-"Dev_perso": {
-"Podcast": {
-"title": "Podcast",
-"podcast": "Eric Flag",
-"image": "static/images/loisirs/DevPerso/expension_eric_flag.png",
-"lien": "https://open.spotify.com/show/22qMdfxzodMPjBuCe78Di5"
-},
-"Livres": {
-"title": "Livres",
-"listes_livres": [
-"static/images/loisirs/DevPerso/art_subtil.png",
-"static/images/loisirs/DevPerso/Deep-work.jpg",
-"static/images/loisirs/DevPerso/suis-je-sensible.jpg",
-"static/images/loisirs/DevPerso/temps_infini.jpg"
-]
-},
-"Videos": {
-"title": "Vidéos",
-"videos": "Eric Flag",
-"image": "static/images/loisirs/DevPerso/ytb_eric_flag.png",
-"lien": "https://www.youtube.com/c/EricFlag"
-}
-},
-"Jeux": {
-"Monster_Hunter": {
-"title": "Monster Hunter",
-"Tous_les_jeux_joues": [
-    "Monster Hunter Wilds",
-"Monster Hunter World",
-"Monster Hunter World Iceborne",
-"Monster Hunter 3 Ultimate"
-],
-"actif": "Actif",
-"images": [
-"static/images/loisirs/MH/Monster_Hunter_Logo.png",
-"static/images/loisirs/MH/mhwilds_logo.jpg",
-"static/images/loisirs/MH/mhwilds.png",
-"static/images/loisirs/MH/mhw.jpg",
-"static/images/loisirs/MH/gameplay_anja.jpg",
-"static/images/loisirs/MH/gameplay_zora.jpg",
-"static/images/loisirs/MH/monsterhunter3.jpg"
-],
-"Description": "Ce jeu est arrivé assez tard dans ma vie, mais je m'y suis passionné lorsque j'ai compris son gameplay (son gros point négatif est sa complexité d'appréhension). Ce jeu est une réussite graphique et immersive à mes yeux et prend en compte tous les éléments pour réussir l'aspect compétitif du jeu : l'esprit d'équipe, d'aventure et l'immersion. À chaque coup d'épée ou d'une arme quelconque, on le ressent à travers tout notre corps. Franchement, je ne peux que recommander. En plus c'est une source d'inspiration pour la création de contenue",
-"NbHeure": ">300h",
-"Les_armes_que_je_joue": [
-"Corne de chasse",
-"Épée et bouclier",
-"Lance",
-"Morpho-Hache",
-"Grande épée",
-"Insecto-Glaive"
-],
-"Ma_Tier_Liste_des_armes": "static/images/loisirs/MH/tier_list.png"
-},
-"Overwatch": {
-"title": "Overwatch",
-"actif": "Inactif",
-"images": [
-"static/images/loisirs/Over/over_presentation.jpg",
-"static/images/loisirs/Over/presentation_ana_secours.jpeg",
-"static/images/loisirs/Over/gameplay_orisa.jpg"
-],
-"Description": "Ce jeu a été le premier jeu PC auquel j'ai joué dans ma vie. C'est avec ce jeu que j'ai découvert ce qu'était un jeu FPS compétitif, l'esport, la collaboration en équipe, et les techniques avancées qu'un jeu de ce genre peut proposer. J'y ai beaucoup joué pour m'amuser, mais surtout pour me surpasser en équipe.",
-"NbHeure": ">600h pour tous types de jeux",
-"lien": "https://overwatch.blizzard.com/fr-fr/career/c057a285be70d6ffb8a927a8%7C8f077c1534424e5a87f913f62644d3ca/"
-}
-}
-}
-}
+    "loisir": {
+        "title": "Mes loisirs",
+        "loisirs": {
+            "Street_workout": {
+                "title": "Street Workout",
+                "images": [
+                    "static/images/loisirs/SW/eric_flag_street_workout.jpg",
+                    "static/images/loisirs/SW/handstand_press.jpg",
+                    "static/images/loisirs/SW/straddle-planche.jpeg"
+                ],
+                "NbAnnee": "4 ans",
+                "Figure_maitrise": [
+                    "Diamond Planche",
+                    "Handstand",
+                    "Diamond Front Lever",
+                    "Pompe à une main",
+                    "Advanced Tuck Planche Push Up",
+                    "Advanced Tuck Front Lever Push Up",
+                    "..."
+                ],
+                "Figure_objectif": [
+                    "Straddle Planche",
+                    "Handstand Press",
+                    "Straddle Front Lever",
+                    "Diamond Planche Push Up",
+                    "Diamond Front Lever Push Up",
+                    "..."
+                ]
+            },
+            "Dev_perso": {
+                "Podcast": {
+                    "title": "Podcast",
+                    "podcast": "Eric Flag",
+                    "image": "static/images/loisirs/DevPerso/expension_eric_flag.png",
+                    "lien": "https://open.spotify.com/show/22qMdfxzodMPjBuCe78Di5"
+                },
+                "Livres": {
+                    "title": "Livres",
+                    "listes_livres": [
+                        "static/images/loisirs/DevPerso/art_subtil.png",
+                        "static/images/loisirs/DevPerso/Deep-work.jpg",
+                        "static/images/loisirs/DevPerso/suis-je-sensible.jpg",
+                        "static/images/loisirs/DevPerso/temps_infini.jpg"
+                    ]
+                },
+                "Videos": {
+                    "title": "Vidéos",
+                    "videos": "Eric Flag",
+                    "image": "static/images/loisirs/DevPerso/ytb_eric_flag.png",
+                    "lien": "https://www.youtube.com/c/EricFlag"
+                }
+            },
+            "Jeux": {
+                "Monster_Hunter": {
+                    "title": "Monster Hunter",
+                    "Tous_les_jeux_joues": [
+                        "Monster Hunter Wilds",
+                        "Monster Hunter World",
+                        "Monster Hunter World Iceborne",
+                        "Monster Hunter 3 Ultimate"
+                    ],
+                    "actif": "Actif",
+                    "images": [
+                        "static/images/loisirs/MH/Monster_Hunter_Logo.png",
+                        "static/images/loisirs/MH/mhwilds_logo.jpg",
+                        "static/images/loisirs/MH/mhwilds.png",
+                        "static/images/loisirs/MH/mhw.jpg",
+                        "static/images/loisirs/MH/gameplay_anja.jpg",
+                        "static/images/loisirs/MH/gameplay_zora.jpg",
+                        "static/images/loisirs/MH/monsterhunter3.jpg"
+                    ],
+                    "Description": "Ce jeu est arrivé assez tard dans ma vie, mais je m'y suis passionné lorsque j'ai compris son gameplay (son gros point négatif est sa complexité d'appréhension). Ce jeu est une réussite graphique et immersive à mes yeux et prend en compte tous les éléments pour réussir l'aspect compétitif du jeu : l'esprit d'équipe, d'aventure et l'immersion. À chaque coup d'épée ou d'une arme quelconque, on le ressent à travers tout notre corps. Franchement, je ne peux que le recommander. En plus, c'est une source d'inspiration pour la création de contenu.",
+                    "NbHeure": ">300h",
+                    "Les_armes_que_je_joue": [
+                        "Corne de chasse",
+                        "Épée et bouclier",
+                        "Lance",
+                        "Morpho-Hache",
+                        "Grande épée",
+                        "Insecto-Glaive"
+                    ],
+                    "Ma_Tier_Liste_des_armes": "static/images/loisirs/MH/tier_list.png"
+                },
+                "Overwatch": {
+                    "title": "Overwatch",
+                    "actif": "Inactif",
+                    "images": [
+                        "static/images/loisirs/Over/over_presentation.jpg",
+                        "static/images/loisirs/Over/presentation_ana_secours.jpeg",
+                        "static/images/loisirs/Over/gameplay_orisa.jpg"
+                    ],
+                    "Description": "Ce jeu a été le premier jeu PC auquel j'ai joué de ma vie. C'est avec lui que j'ai découvert ce qu'était un jeu FPS compétitif, l'esport, la collaboration en équipe et les techniques avancées qu'un jeu de ce genre peut proposer. J'y ai beaucoup joué pour m'amuser, mais surtout pour me surpasser en équipe.",
+                    "NbHeure": ">600h pour tous les types de jeux",
+                    "lien": "https://overwatch.blizzard.com/fr-fr/career/c057a285be70d6ffb8a927a8%7C8f077c1534424e5a87f913f62644d3ca/"
+                }
+            }
+        }
+    }
 }
